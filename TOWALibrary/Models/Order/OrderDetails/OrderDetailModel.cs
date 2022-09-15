@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TOWALibrary.Model.Inventory.Products;
-using TOWALibrary.Model.Order.Orders;
+using TOWALibrary.Models.Inventory.Products;
+using TOWALibrary.Models.Order.Orders;
 
-namespace TOWALibrary.Model.Order.OrderDetails
+namespace TOWALibrary.Models.Order.OrderDetails
 {
   public  class OrderDetailModel
     {

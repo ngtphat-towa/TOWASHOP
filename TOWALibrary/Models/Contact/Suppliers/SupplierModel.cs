@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TOWALibrary.Model.Inventory.Products;
+using TOWALibrary.Models.Inventory.Products;
 
-namespace TOWALibrary.Model.Contact.Suppliers
+namespace TOWALibrary.Models.Contact.Suppliers
 {
     public class SupplierModel
     {

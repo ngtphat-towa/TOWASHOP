@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TOWALibrary.Model.Account.Users;
+using TOWALibrary.Models.Account.Users;
 
-namespace TOWALibrary.Model.Account.Employees
+namespace TOWALibrary.Models.Account.Employees
 {
    public class EmployeeModel
     {

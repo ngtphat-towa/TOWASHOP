@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TOWALibrary.Model.Contact.Suppliers;
-using TOWALibrary.Model.Inventory.Categoires;
+using TOWALibrary.Models.Contact.Suppliers;
+using TOWALibrary.Models.Inventory.Categoires;
 
-namespace TOWALibrary.Model.Inventory.Products
+namespace TOWALibrary.Models.Inventory.Products
 {
     public class ProductModel
     {
