@@ -22,16 +22,20 @@ namespace SimpleUITowaShop
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            DBManager.InitializeConnections(DataProvider.SQLServer);
+            #region Start with login form 
+            //DBManager.InitializeConnections(DataProvider.SQLServer);
 
-            ILoginView loginView = LoginForm.Instance;
-            IAuthenticationService authenticationService = new AuthenticationService();
-            new LoginPresenter(loginView, authenticationService);
+            //ILoginView loginView = LoginForm.Instance;
+            //IAuthenticationService authenticationService = new AuthenticationService();
+            //new LoginPresenter(loginView, authenticationService);
 
-            MainViewNavigator.SetMainView(DashboardForm.Instance);
-            
+            //MainViewNavigator.SetMainView(DashboardForm.Instance);
 
-            Application.Run((Form)loginView);
+            //Application.Run((Form)loginView);
+            #endregion
+
+            Application.Run(new DashboardForm());
         }
+
     }
 }

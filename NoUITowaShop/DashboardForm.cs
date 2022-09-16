@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NoUITowaShop.Module.Contact;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,8 @@ namespace SimpleUITowaShop
         public DashboardForm()
         {
             InitializeComponent();
+             Form _child = SupplierMoule.GetInstance(this);
+            _child.Show();
         }
         #endregion
 

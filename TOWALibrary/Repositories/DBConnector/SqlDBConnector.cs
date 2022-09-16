@@ -10,7 +10,7 @@ namespace TOWALibrary.Repositories.DBConnector
 {
     public class SqlDBConnector :IDBConnector
     {
-        private string ConnectionString = DBManager.ConnectionString("SqlConnection");
+        private readonly string ConnectionString = DBManager.ConnectionString("SqlConnection");
         private DbConnection connection;
         public DbCommand CreateNewCommand( )
         {
