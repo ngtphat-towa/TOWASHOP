@@ -29,7 +29,7 @@ namespace TOWALibrary.Models.Account.Employees
         private AccountModel _account;
         private DateTime _UpdateAt;
         private string content;
-
+        private string _UID;
         #endregion
 
         #region Property
@@ -47,7 +47,9 @@ namespace TOWALibrary.Models.Account.Employees
         public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
         public DateTime UpdateAt { get => _UpdateAt; set => _UpdateAt = value; }
         public string Content { get => content; set => content = value; }
+        public string UID { get => _UID; set => _UID = value; }
         public AccountModel Account { get => _account; set => _account = value; }
+        
         #endregion
     }
 }
