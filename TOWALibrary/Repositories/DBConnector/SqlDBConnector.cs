@@ -8,9 +8,13 @@ using System.Threading.Tasks;
 
 namespace TOWALibrary.Repositories.DBConnector
 {
-    public class SqlDBConnector :IDBConnector
+    public class SqlDBConnector : IDBConnector
     {
-        private readonly string ConnectionString = DBManager.ConnectionString("SqlConnection");
+        public SqlDBConnector(){
+            ConnectionString = DBManager.ConnectionString("SqlConnection");
+            connection = new SqlConnection(ConnectionString);
+        }
+        private readonly string ConnectionString;
         private DbConnection connection;
         public DbCommand CreateNewCommand( )
         {

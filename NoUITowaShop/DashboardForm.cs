@@ -21,6 +21,10 @@ namespace SimpleUITowaShop
             InitializeComponent();
              Form _child = SupplierMoule.GetInstance(this);
             _child.Show();
+            this.FormClosed += delegate
+             {
+                 Application.Exit();
+             };
         }
         #endregion
 
@@ -38,5 +42,6 @@ namespace SimpleUITowaShop
             }
         }
         #endregion
+
     }
 }

@@ -32,7 +32,7 @@ namespace TOWALibrary.Views
         }
         
 
-        public static IMainView Navigate( MainViewType role)
+        public static IMainView Navigate( this MainViewType role)
         {
             switch (role)
             {

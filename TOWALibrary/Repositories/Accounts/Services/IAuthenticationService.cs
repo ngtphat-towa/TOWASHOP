@@ -22,7 +22,7 @@ namespace TOWALibrary.Repositories.Accounts.Services
         /// Using role for the view authenitcation 
         /// </summary>
         /// <returns></returns>
-        MainViewType GetMainViewType();
+        MainViewType GetRoleView();
         
     }
 }

@@ -46,9 +46,8 @@ namespace TOWALibrary.Presenters
                 if (authenticationResult)
                 {
                     loginView.IsSuccessful = true;
-                    loginView.ErrorMessage = "Successfully logged in!" + "\n";
                     this.loginView.Hide();
-                    MainViewNavigator.Navigate(authenticationService.GetMainViewType()).Show();
+                    authenticationService.GetRoleView().Navigate().Show();
                     
                 }
                 else

@@ -12,11 +12,11 @@ namespace TOWALibrary.Repositories.Accounts.Services
 {
     public class AuthenticationService : IAuthenticationService
     {
-       private RoleModel roleModel;
-        public MainViewType GetMainViewType()
+       private int RID;
+        public MainViewType GetRoleView()
         {
             
-            switch (roleModel.RoleID)
+            switch (RID)
             {
                 case 1:
                     return MainViewType.Admin;
@@ -36,9 +36,9 @@ namespace TOWALibrary.Repositories.Accounts.Services
             bool result = true;
             IAccountRepository repository = new AccountRepository();
             // TODO - Improve this
-            AccountModel  model =repository.GetAccount(username, password);
-            if (model == null) return false;
-            roleModel = model.Role;
+            int  validResult =repository.LoginValidate(username, password);
+            result = (validResult != 0);
+            this.RID = validResult;
             return result;
         }
     }

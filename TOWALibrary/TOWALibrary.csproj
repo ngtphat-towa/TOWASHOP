@@ -61,9 +61,12 @@
     <Compile Include="Repositories\Accounts\Users\IAccountRepository.cs" />
     <Compile Include="Repositories\Accounts\Services\AuthenticationService.cs" />
     <Compile Include="Repositories\Accounts\Services\IAuthenticationService.cs" />
+    <Compile Include="Repositories\Contacts\Suppliers\ISupplierRepository.cs" />
+    <Compile Include="Repositories\Contacts\Suppliers\SupplierRepository.cs" />
     <Compile Include="Repositories\DBManager.cs" />
     <Compile Include="Repositories\DBConnector\IDBConnector.cs" />
     <Compile Include="Repositories\DBConnector\SqlDBConnector.cs" />
+    <Compile Include="Repositories\Helpers\DBHelper.cs" />
     <Compile Include="Views\MainViews\IEmployeeView.cs" />
     <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Views\MainViews\IAdminView.cs" />

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TOWALibrary.Repositories.Contacts.Suppliers;
 
 namespace NoUITowaShop.Module.Contact
 {
@@ -15,6 +16,13 @@ namespace NoUITowaShop.Module.Contact
         public SupplierMoule()
         {
             InitializeComponent();
+            this.Load += delegate
+            {
+                ISupplierRepository repository = new SupplierRepository();
+                BindingSource source = new BindingSource();
+                source.DataSource = repository.GetAll();
+                dataGridView.DataSource = source ;
+            };
         }
 
         private static Form instance;

@@ -9,51 +9,55 @@ using System.Threading.Tasks;
 using TOWALibrary.Models.Account.Roles;
 using TOWALibrary.Models.Account.Users;
 using TOWALibrary.Repositories.Accounts.Roles;
+using TOWALibrary.Repositories.Helpers;
 
 namespace TOWALibrary.Repositories.Accounts.Users
 {
     public class AccountRepository : IAccountRepository
     {
-        public AccountModel GetAccount(string username, string password)
+        public int LoginValidate(string username, string password)
         {
-            AccountModel model = new AccountModel();
-            List<RoleModel> roles = (List<RoleModel>)new RoleRepository().GetRole_All();
+            int ouput = 0;
+
             using (var connection = DBManager.Connection.GetDbConnection())
-            {            
+            {
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText= @"SELECT * from DBO.ACCOUNTS WHERE USERNAME = @username";
-             
-                    DbParameter p = command.CreateParameter();
-                    p.ParameterName = "@username";
-                    p.Value = username;
-                    p.DbType = DbType.String;
-                    command.Parameters.Add(p);
+                    command.CommandText = @"dbo.spAccount_Login";
+                    command.CommandType = CommandType.StoredProcedure;
 
-                    var reader = command.ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            model = new AccountModel();
-                            var userid = reader.GetOrdinal("USERID");
-                            model.UID = Convert.ToString(reader.GetString(userid));
-                            model.Username = Convert.ToString(reader["USERNAME"]);
-                            model.PasswordHash = Convert.ToString(reader["PASSWORD_HASH"]);
-                            model.RegisterAt = Convert.ToDateTime(reader["REGISTER_AT"]);
-                            model.RoleID = Convert.ToInt32(reader["ACCOUNT_RID"]);
-                            model.LastLogin = DateTime.Now;
+                    command.CreateDbParameter("@USERNAME", DbType.String, username);
+                    command.CreateDbParameter("@PASSWORD_HASH", DbType.String, password);
+                    var returnValue = command.CreateDbParameter("@RID", DbType.Int32, 0, ParameterDirection.ReturnValue);
+                    command.ExecuteNonQuery();
+
+                    #region Account model code
+                    //    if (reader.HasRows)
+                    //    {
+                    //        while (reader.Read())
+                    //        {
+                    //            model = new AccountModel();
+                    //            var userid = reader.GetOrdinal("USERID");
+                    //            model.UID = Convert.ToString(reader.GetString(userid));
+                    //            model.Username = Convert.ToString(reader["USERNAME"]);
+                    //            model.PasswordHash = Convert.ToString(reader["PASSWORD_HASH"]);
+                    //            model.RegisterAt = Convert.ToDateTime(reader["REGISTER_AT"]);
+                    //            model.RoleID = Convert.ToInt32(reader["ACCOUNT_RID"]);
+                    //            model.LastLogin = DateTime.Now;
+                    //            model.Role = roles.Where((r) => (r.RoleID == model.RoleID)).FirstOrDefault();
+                    //        }
+                    //    }
+                    //    else return null;
+                    //}
+                    #endregion
+                    ouput = Convert.ToInt32(returnValue.Value);
 
 
-                            model.Role = roles.Where((r) => (r.RoleID == model.RoleID)).FirstOrDefault();
-                        }
-                    }
-                    else return null;
-                }
-               
-            };
-            return model;
+
+                };
+                return ouput;
+            }
         }
     }
 }

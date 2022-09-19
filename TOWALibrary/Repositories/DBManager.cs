@@ -23,7 +23,6 @@ namespace TOWALibrary.Repositories
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
         public static IDBConnector Connection { get; private set; }
-        public static DbCommand Command { get;  private set; }
 
         public static void InitializeConnections(DataProvider db)
         {
@@ -31,7 +30,7 @@ namespace TOWALibrary.Repositories
             {
                 case DataProvider.SQLServer:
                     Connection = SqlDBConnector.GetInstance() ;
-                    Command = Connection.CreateNewCommand();
+
                    
                     break;
                 case DataProvider.MySQL:
