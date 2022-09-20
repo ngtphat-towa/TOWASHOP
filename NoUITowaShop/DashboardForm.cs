@@ -10,26 +10,43 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TOWALibrary.Views;
 using TOWALibrary.Views.MainViews;
+using TOWALibrary.Views.ModuleViews.Contacts;
 
 namespace SimpleUITowaShop
 {
-    public partial class DashboardForm : Form,IAdminView,IMainView
+    public partial class DashboardForm : Form,IAdminView
     {
         #region Contructor
         public DashboardForm()
         {
             InitializeComponent();
-             Form _child = SupplierMoule.GetInstance(this);
-            _child.Show();
-            this.FormClosed += delegate
-             {
-                 Application.Exit();
-             };
+            // Form _child =(Form) SupplierMoule.GetInstance(this);
+            //_child.Show();
+            AssociateAndRaiseViewEvents();
         }
         #endregion
 
+        #region Wire Up MenuScrip
+        public event EventHandler ShowSupplierModuleView;
+        private void AssociateAndRaiseViewEvents()
+        {
+            this.supplierToolStripMenuItem.Click += delegate {
+                ShowSupplierModuleView?.Invoke(this,EventArgs.Empty);
+            };
+            this.FormClosed += delegate
+            {
+                Application.Exit();
+            };
+        }
+        #endregion
+
+
+
         #region Singleton
         private static IAdminView instance;
+
+    
+
         public static IAdminView Instance
         {
             get
@@ -43,5 +60,13 @@ namespace SimpleUITowaShop
         }
         #endregion
 
+
+        public ISupplierMoudleView SupplierModuleView
+        {
+            get
+            {
+                return SupplierMoule.GetInstance(this);
+            }
+        }
     }
 }

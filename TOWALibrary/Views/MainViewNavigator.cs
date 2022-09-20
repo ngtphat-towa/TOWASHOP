@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TOWALibrary.Models.Account.Roles;
+using TOWALibrary.Presenters.MainViews;
 using TOWALibrary.Views.MainViews;
 
 namespace TOWALibrary.Views
@@ -17,10 +18,9 @@ namespace TOWALibrary.Views
     public static class MainViewNavigator
     {
         #region Static MainView
-        private static IAdminView adminView;
         private static  IManagerView managerView;
         private static IEmployeeView employeeView;
-        private static IMainView mainView;
+        private static IAdminView adminView;
         #endregion
 
         #region Set up MainView
@@ -32,22 +32,22 @@ namespace TOWALibrary.Views
         }
         
 
-        public static IMainView Navigate( this MainViewType role)
+        public static void Navigate( this MainViewType role)
         {
             switch (role)
             {
                 case MainViewType.Admin:
-                    mainView= (IMainView)adminView ;
+                   new AdminPresenter(adminView);
                     break;
                 case MainViewType.Manager:
-                    mainView=managerView as IMainView;
+                    
                     break;
                 case MainViewType.Employee:
-                    return employeeView as IMainView;
+                 
                 default:
                     break;
             }
-            return mainView;
+            
         }
         #endregion
     }

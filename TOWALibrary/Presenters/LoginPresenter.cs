@@ -47,7 +47,7 @@ namespace TOWALibrary.Presenters
                 {
                     loginView.IsSuccessful = true;
                     this.loginView.Hide();
-                    authenticationService.GetRoleView().Navigate().Show();
+                    authenticationService.GetRoleView().Navigate();
                     
                 }
                 else

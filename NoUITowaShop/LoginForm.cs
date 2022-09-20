@@ -48,14 +48,14 @@ namespace SimpleUITowaShop
         #endregion
 
         #region Singleton
-        private static ILoginView intance;
-        public static ILoginView Instance
+        private static LoginForm intance;
+        public static LoginForm Instance
         {
             get
             {
-                if (intance == null || ((Form)intance).IsDisposed)
+                if (intance == null || intance.IsDisposed)
                 {
-                    intance=  new LoginForm();
+                    intance=   new LoginForm();
                 }
                 return intance;
             }
