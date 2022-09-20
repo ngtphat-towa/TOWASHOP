@@ -23,7 +23,7 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
                     command.CreateDbParameter("@SUPPLIER_NAME", DbType.String, model.SupplierName);
                     command.CreateDbParameter("@CONTACT_NAME", DbType.String, model.ContactName);
                     command.CreateDbParameter("@CONTACT_PHONE", DbType.String, model.ContactPhone);
-                    command.CreateDbParameter("@ADDRESS", DbType.String, model.Address);
+                    command.CreateDbParameter("@SL_ADDRESS", DbType.String, model.Address);
                     command.CreateDbParameter("@CITY", DbType.String, model.City);
                     command.CreateDbParameter("@COUNTRY", DbType.String, model.Country);
 
@@ -32,11 +32,23 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
             };
         }
 
-        public void Delete(SupplierModel model)
+        public void Delete(string SLID)
         {
-            throw new NotImplementedException();
-        }
+            //dbo.spSupplier_Delete
+            using (var connection = DBManager.Connection.GetDbConnection())
+            {
+                using (var command = DBManager.Connection.CreateNewCommand())
+                {
+                    connection.Open();
+                    command.CommandText = "dbo.spSupplier_Delete";
+                    command.CommandType = CommandType.StoredProcedure;
 
+                    command.CreateDbParameter("@SLID", DbType.String, SLID);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
         public IEnumerable<SupplierModel> GetAll()
         {
             List<SupplierModel> models = new List<SupplierModel>();
@@ -57,7 +69,7 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
                                 SupplierName = Convert.ToString(reader["SUPPLIER_NAME"]),
                                 ContactName = Convert.ToString(reader["CONTACT_NAME"]),
                                 ContactPhone = Convert.ToString(reader["CONTACT_PHONE"]),
-                                Address = Convert.ToString(reader["ADDRESS"]),
+                                Address = Convert.ToString(reader["SL_ADDRESS"]),
                                 City = Convert.ToString(reader["CITY"]),
                                 Country = Convert.ToString(reader["COUNTRY"]),
 
@@ -79,7 +91,7 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
                     command.CommandText = "dbo.spSupplier_GetByValue";
                     command.CommandType = CommandType.StoredProcedure;
 
-                    command.CreateDbParameter("@SEARCHVALUE", DbType.String, value);
+                    command.CreateDbParameter("@SEARCHVALUE", DbType.String,"%"+ value.Trim()+"%");
 
                     using (var reader = command.ExecuteReader())
                         while (reader.Read())
@@ -90,7 +102,7 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
                                 SupplierName = Convert.ToString(reader["SUPPLIER_NAME"]),
                                 ContactName = Convert.ToString(reader["CONTACT_NAME"]),
                                 ContactPhone = Convert.ToString(reader["CONTACT_PHONE"]),
-                                Address = Convert.ToString(reader["ADDRESS"]),
+                                Address = Convert.ToString(reader["SL_ADDRESS"]),
                                 City = Convert.ToString(reader["CITY"]),
                                 Country = Convert.ToString(reader["COUNTRY"]),
 
@@ -108,13 +120,14 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spSupplier_";
+                    command.CommandText = "dbo.spSupplier_Update";
                     command.CommandType = CommandType.StoredProcedure;
 
+                    command.CreateDbParameter("SLID", DbType.String, model.SLID);
                     command.CreateDbParameter("@SUPPLIER_NAME", DbType.String, model.SupplierName);
                     command.CreateDbParameter("@CONTACT_NAME", DbType.String, model.ContactName);
                     command.CreateDbParameter("@CONTACT_PHONE", DbType.String, model.ContactPhone);
-                    command.CreateDbParameter("@ADDRESS", DbType.String, model.Address);
+                    command.CreateDbParameter("@SL_ADDRESS", DbType.String, model.Address);
                     command.CreateDbParameter("@CITY", DbType.String, model.City);
                     command.CreateDbParameter("@COUNTRY", DbType.String, model.Country);
 
