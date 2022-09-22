@@ -19,6 +19,7 @@ namespace TOWALibrary.Models.Contact.Suppliers
         private string address;
         private string city;
         private string country;
+        private string content;
 
         #endregion
         #region Property
@@ -29,8 +30,9 @@ namespace TOWALibrary.Models.Contact.Suppliers
         public string Address { get => address; set => address = value; }
         public string City { get => city; set => city = value; }
         public string Country { get => country; set => country = value; }
+        public string Content { get => content; set => content = value; }
         public IEnumerable<ProductModel> Products { get; set; }
-       
+
         #endregion
 
     }

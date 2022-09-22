@@ -12,12 +12,12 @@ namespace TOWALibrary.Presenters.Modules.Contacts
 {
     public class SupplierModulePresenter
     {
-        private ISupplierMoudleView view;
+        private ISupplierModuleView view;
         private ISupplierRepository repository;
         private BindingSource suppliersBindingSource;
         private IEnumerable<SupplierModel> supplierList;
 
-        public SupplierModulePresenter(ISupplierMoudleView view, ISupplierRepository repository)
+        public SupplierModulePresenter(ISupplierModuleView view, ISupplierRepository repository)
         {
             this.view = view;
             this.repository = repository;
@@ -30,7 +30,7 @@ namespace TOWALibrary.Presenters.Modules.Contacts
             this.view.SaveEvent += SaveSupplier;
             this.view.CancelEvent += CancelAction;
             //Set pets binding source
-            this.view.SeSuplierListBindingSource(suppliersBindingSource);
+            this.view.SetSuplierListBindingSource(suppliersBindingSource);
             LoadAllSupplierList();
             //Show view
             this.view.Show();
@@ -57,7 +57,8 @@ namespace TOWALibrary.Presenters.Modules.Contacts
                 ContactPhone = view.ContactPhone,
                 Address = view.Address,
                 City = view.City,
-                Country = view.Country
+                Country = view.Country,
+                Content = view.Content
             };
             try
             {
@@ -111,6 +112,7 @@ namespace TOWALibrary.Presenters.Modules.Contacts
             this.view.Address = model.Address;
             this.view.City = model.City;
             this.view.Country = model.Country;
+            this.view.Content = model.Content;
             view.IsEdit = true;
         }
 
@@ -137,6 +139,7 @@ namespace TOWALibrary.Presenters.Modules.Contacts
             this.view.Address = "";
             this.view.City = "";
             this.view.Country = "";
+            this.view.Content = "";
         }
     }
 }

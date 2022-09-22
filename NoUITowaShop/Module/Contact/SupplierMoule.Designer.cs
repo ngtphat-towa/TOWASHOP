@@ -35,8 +35,6 @@ namespace NoUITowaShop.Module.Contact
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.tableOption = new System.Windows.Forms.TableLayoutPanel();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.gbSearchBy = new System.Windows.Forms.GroupBox();
-            this.cbSearchFitter = new System.Windows.Forms.ComboBox();
             this.gpSearch = new System.Windows.Forms.GroupBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -55,6 +53,8 @@ namespace NoUITowaShop.Module.Contact
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.lbAddress = new System.Windows.Forms.Label();
             this.panelOption = new System.Windows.Forms.Panel();
+            this.gbComent = new System.Windows.Forms.GroupBox();
+            this.txtContent = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tbPanelSLInfo = new System.Windows.Forms.TableLayoutPanel();
@@ -74,13 +74,13 @@ namespace NoUITowaShop.Module.Contact
             this.tabSupplierList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.tableOption.SuspendLayout();
-            this.gbSearchBy.SuspendLayout();
             this.gpSearch.SuspendLayout();
             this.tbPanelSLList.SuspendLayout();
             this.tabDefine.SuspendLayout();
             this.tbPanelSLAdress.SuspendLayout();
             this.gpAddressInfo.SuspendLayout();
             this.panelOption.SuspendLayout();
+            this.gbComent.SuspendLayout();
             this.tbPanelSLInfo.SuspendLayout();
             this.gbContactInfo.SuspendLayout();
             this.gbSupplierInfo.SuspendLayout();
@@ -139,27 +139,26 @@ namespace NoUITowaShop.Module.Contact
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(1186, 431);
+            this.dataGridView.Size = new System.Drawing.Size(1186, 410);
             this.dataGridView.TabIndex = 7;
             // 
             // tableOption
             // 
-            this.tableOption.ColumnCount = 5;
-            this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.51737F));
-            this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.48263F));
+            this.tableOption.ColumnCount = 4;
+            this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 116F));
             this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-            this.tableOption.Controls.Add(this.btnEdit, 3, 0);
-            this.tableOption.Controls.Add(this.gbSearchBy, 1, 0);
+            this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableOption.Controls.Add(this.btnEdit, 2, 0);
             this.tableOption.Controls.Add(this.gpSearch, 0, 0);
-            this.tableOption.Controls.Add(this.btnAdd, 2, 0);
-            this.tableOption.Controls.Add(this.btnDelete, 4, 0);
+            this.tableOption.Controls.Add(this.btnAdd, 1, 0);
+            this.tableOption.Controls.Add(this.btnDelete, 3, 0);
             this.tableOption.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableOption.Location = new System.Drawing.Point(3, 43);
             this.tableOption.Name = "tableOption";
             this.tableOption.RowCount = 1;
-            this.tableOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableOption.Size = new System.Drawing.Size(1186, 72);
             this.tableOption.TabIndex = 6;
             // 
@@ -169,36 +168,12 @@ namespace NoUITowaShop.Module.Contact
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEdit.Location = new System.Drawing.Point(933, 3);
+            this.btnEdit.Location = new System.Drawing.Point(934, 3);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(119, 66);
             this.btnEdit.TabIndex = 11;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
-            // 
-            // gbSearchBy
-            // 
-            this.gbSearchBy.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbSearchBy.Controls.Add(this.cbSearchFitter);
-            this.gbSearchBy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gbSearchBy.Location = new System.Drawing.Point(610, 3);
-            this.gbSearchBy.Name = "gbSearchBy";
-            this.gbSearchBy.Size = new System.Drawing.Size(201, 66);
-            this.gbSearchBy.TabIndex = 9;
-            this.gbSearchBy.TabStop = false;
-            this.gbSearchBy.Text = "Search box";
-            // 
-            // cbSearchFitter
-            // 
-            this.cbSearchFitter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbSearchFitter.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F);
-            this.cbSearchFitter.FormattingEnabled = true;
-            this.cbSearchFitter.Location = new System.Drawing.Point(3, 25);
-            this.cbSearchFitter.Name = "cbSearchFitter";
-            this.cbSearchFitter.Size = new System.Drawing.Size(195, 38);
-            this.cbSearchFitter.TabIndex = 0;
             // 
             // gpSearch
             // 
@@ -209,7 +184,7 @@ namespace NoUITowaShop.Module.Contact
             this.gpSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gpSearch.Location = new System.Drawing.Point(3, 3);
             this.gpSearch.Name = "gpSearch";
-            this.gpSearch.Size = new System.Drawing.Size(601, 66);
+            this.gpSearch.Size = new System.Drawing.Size(809, 66);
             this.gpSearch.TabIndex = 8;
             this.gpSearch.TabStop = false;
             this.gpSearch.Text = "Search box";
@@ -222,7 +197,7 @@ namespace NoUITowaShop.Module.Contact
             this.txtSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(3, 25);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(592, 37);
+            this.txtSearch.Size = new System.Drawing.Size(800, 37);
             this.txtSearch.TabIndex = 0;
             // 
             // btnAdd
@@ -231,7 +206,7 @@ namespace NoUITowaShop.Module.Contact
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAdd.Location = new System.Drawing.Point(817, 3);
+            this.btnAdd.Location = new System.Drawing.Point(818, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(110, 66);
             this.btnAdd.TabIndex = 10;
@@ -244,9 +219,9 @@ namespace NoUITowaShop.Module.Contact
             this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDelete.Location = new System.Drawing.Point(1058, 3);
+            this.btnDelete.Location = new System.Drawing.Point(1059, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(125, 66);
+            this.btnDelete.Size = new System.Drawing.Size(124, 66);
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -325,19 +300,21 @@ namespace NoUITowaShop.Module.Contact
             // 
             // tbPanelSLAdress
             // 
+            this.tbPanelSLAdress.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbPanelSLAdress.ColumnCount = 4;
             this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.13537F));
-            this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.86463F));
+            this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.30131F));
+            this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.69869F));
             this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tbPanelSLAdress.Controls.Add(this.gpAddressInfo, 1, 0);
             this.tbPanelSLAdress.Controls.Add(this.panelOption, 2, 0);
-            this.tbPanelSLAdress.Dock = System.Windows.Forms.DockStyle.Top;
             this.tbPanelSLAdress.Location = new System.Drawing.Point(3, 229);
             this.tbPanelSLAdress.Name = "tbPanelSLAdress";
             this.tbPanelSLAdress.RowCount = 1;
             this.tbPanelSLAdress.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbPanelSLAdress.Size = new System.Drawing.Size(1186, 304);
+            this.tbPanelSLAdress.Size = new System.Drawing.Size(1186, 290);
             this.tbPanelSLAdress.TabIndex = 2;
             // 
             // gpAddressInfo
@@ -354,7 +331,7 @@ namespace NoUITowaShop.Module.Contact
             this.gpAddressInfo.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpAddressInfo.Location = new System.Drawing.Point(23, 3);
             this.gpAddressInfo.Name = "gpAddressInfo";
-            this.gpAddressInfo.Size = new System.Drawing.Size(923, 298);
+            this.gpAddressInfo.Size = new System.Drawing.Size(673, 284);
             this.gpAddressInfo.TabIndex = 1;
             this.gpAddressInfo.TabStop = false;
             this.gpAddressInfo.Text = "Address info";
@@ -376,7 +353,7 @@ namespace NoUITowaShop.Module.Contact
             this.txtCountry.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCountry.Location = new System.Drawing.Point(23, 236);
             this.txtCountry.Name = "txtCountry";
-            this.txtCountry.Size = new System.Drawing.Size(887, 37);
+            this.txtCountry.Size = new System.Drawing.Size(637, 37);
             this.txtCountry.TabIndex = 4;
             // 
             // lbCity
@@ -396,7 +373,7 @@ namespace NoUITowaShop.Module.Contact
             this.txtCity.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCity.Location = new System.Drawing.Point(23, 164);
             this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(887, 37);
+            this.txtCity.Size = new System.Drawing.Size(637, 37);
             this.txtCity.TabIndex = 2;
             // 
             // txtAddress
@@ -407,7 +384,7 @@ namespace NoUITowaShop.Module.Contact
             this.txtAddress.Location = new System.Drawing.Point(23, 66);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(887, 62);
+            this.txtAddress.Size = new System.Drawing.Size(637, 62);
             this.txtAddress.TabIndex = 1;
             // 
             // lbAddress
@@ -422,25 +399,56 @@ namespace NoUITowaShop.Module.Contact
             // 
             // panelOption
             // 
+            this.panelOption.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelOption.Controls.Add(this.gbComent);
             this.panelOption.Controls.Add(this.btnCancel);
             this.panelOption.Controls.Add(this.btnSave);
-            this.panelOption.Location = new System.Drawing.Point(952, 3);
+            this.panelOption.Location = new System.Drawing.Point(702, 3);
             this.panelOption.Name = "panelOption";
-            this.panelOption.Size = new System.Drawing.Size(210, 298);
+            this.panelOption.Size = new System.Drawing.Size(460, 284);
             this.panelOption.TabIndex = 4;
+            // 
+            // gbComent
+            // 
+            this.gbComent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbComent.Controls.Add(this.txtContent);
+            this.gbComent.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold);
+            this.gbComent.Location = new System.Drawing.Point(3, 3);
+            this.gbComent.Name = "gbComent";
+            this.gbComent.Size = new System.Drawing.Size(457, 199);
+            this.gbComent.TabIndex = 3;
+            this.gbComent.TabStop = false;
+            this.gbComent.Text = "Comment";
+            // 
+            // txtContent
+            // 
+            this.txtContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtContent.Location = new System.Drawing.Point(6, 36);
+            this.txtContent.Multiline = true;
+            this.txtContent.Name = "txtContent";
+            this.txtContent.Size = new System.Drawing.Size(448, 157);
+            this.txtContent.TabIndex = 0;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(14, 66);
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCancel.Location = new System.Drawing.Point(36, 222);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(182, 45);
+            this.btnCancel.Size = new System.Drawing.Size(191, 45);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(14, 13);
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSave.Location = new System.Drawing.Point(253, 222);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(182, 45);
             this.btnSave.TabIndex = 0;
@@ -451,8 +459,8 @@ namespace NoUITowaShop.Module.Contact
             // 
             this.tbPanelSLInfo.ColumnCount = 4;
             this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.38865F));
+            this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.61135F));
             this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tbPanelSLInfo.Controls.Add(this.gbContactInfo, 2, 0);
             this.tbPanelSLInfo.Controls.Add(this.gbSupplierInfo, 1, 0);
@@ -475,9 +483,9 @@ namespace NoUITowaShop.Module.Contact
             this.gbContactInfo.Controls.Add(this.txtContactName);
             this.gbContactInfo.Controls.Add(this.lbContactName);
             this.gbContactInfo.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbContactInfo.Location = new System.Drawing.Point(596, 3);
+            this.gbContactInfo.Location = new System.Drawing.Point(703, 3);
             this.gbContactInfo.Name = "gbContactInfo";
-            this.gbContactInfo.Size = new System.Drawing.Size(567, 180);
+            this.gbContactInfo.Size = new System.Drawing.Size(459, 180);
             this.gbContactInfo.TabIndex = 1;
             this.gbContactInfo.TabStop = false;
             this.gbContactInfo.Text = "Contact Info";
@@ -499,7 +507,7 @@ namespace NoUITowaShop.Module.Contact
             this.txtContactPhone.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContactPhone.Location = new System.Drawing.Point(11, 134);
             this.txtContactPhone.Name = "txtContactPhone";
-            this.txtContactPhone.Size = new System.Drawing.Size(541, 37);
+            this.txtContactPhone.Size = new System.Drawing.Size(433, 37);
             this.txtContactPhone.TabIndex = 6;
             // 
             // txtContactName
@@ -509,7 +517,7 @@ namespace NoUITowaShop.Module.Contact
             this.txtContactName.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContactName.Location = new System.Drawing.Point(11, 61);
             this.txtContactName.Name = "txtContactName";
-            this.txtContactName.Size = new System.Drawing.Size(541, 37);
+            this.txtContactName.Size = new System.Drawing.Size(433, 37);
             this.txtContactName.TabIndex = 5;
             // 
             // lbContactName
@@ -534,7 +542,7 @@ namespace NoUITowaShop.Module.Contact
             this.gbSupplierInfo.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSupplierInfo.Location = new System.Drawing.Point(23, 3);
             this.gbSupplierInfo.Name = "gbSupplierInfo";
-            this.gbSupplierInfo.Size = new System.Drawing.Size(567, 180);
+            this.gbSupplierInfo.Size = new System.Drawing.Size(674, 180);
             this.gbSupplierInfo.TabIndex = 0;
             this.gbSupplierInfo.TabStop = false;
             this.gbSupplierInfo.Text = "Supplier Info";
@@ -556,7 +564,7 @@ namespace NoUITowaShop.Module.Contact
             this.txtSupplierName.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSupplierName.Location = new System.Drawing.Point(10, 132);
             this.txtSupplierName.Name = "txtSupplierName";
-            this.txtSupplierName.Size = new System.Drawing.Size(531, 37);
+            this.txtSupplierName.Size = new System.Drawing.Size(638, 37);
             this.txtSupplierName.TabIndex = 2;
             // 
             // txtSLID
@@ -567,7 +575,7 @@ namespace NoUITowaShop.Module.Contact
             this.txtSLID.Location = new System.Drawing.Point(10, 59);
             this.txtSLID.Name = "txtSLID";
             this.txtSLID.ReadOnly = true;
-            this.txtSLID.Size = new System.Drawing.Size(531, 37);
+            this.txtSLID.Size = new System.Drawing.Size(638, 37);
             this.txtSLID.TabIndex = 1;
             this.txtSLID.Text = "SL000000";
             // 
@@ -623,7 +631,6 @@ namespace NoUITowaShop.Module.Contact
             this.tabSupplierList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.tableOption.ResumeLayout(false);
-            this.gbSearchBy.ResumeLayout(false);
             this.gpSearch.ResumeLayout(false);
             this.gpSearch.PerformLayout();
             this.tbPanelSLList.ResumeLayout(false);
@@ -633,6 +640,8 @@ namespace NoUITowaShop.Module.Contact
             this.gpAddressInfo.ResumeLayout(false);
             this.gpAddressInfo.PerformLayout();
             this.panelOption.ResumeLayout(false);
+            this.gbComent.ResumeLayout(false);
+            this.gbComent.PerformLayout();
             this.tbPanelSLInfo.ResumeLayout(false);
             this.tbPanelSLInfo.PerformLayout();
             this.gbContactInfo.ResumeLayout(false);
@@ -674,18 +683,18 @@ namespace NoUITowaShop.Module.Contact
         private System.Windows.Forms.TableLayoutPanel tbPanelDFFooter;
         private System.Windows.Forms.Panel panelOption;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TableLayoutPanel tbPanelSLList;
         private System.Windows.Forms.Label lbSLHeader;
         private System.Windows.Forms.TableLayoutPanel tableOption;
         private System.Windows.Forms.TableLayoutPanel tbPanelSLFooter;
-        private System.Windows.Forms.GroupBox gbSearchBy;
-        private System.Windows.Forms.ComboBox cbSearchFitter;
         private System.Windows.Forms.GroupBox gpSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.GroupBox gbComent;
+        private System.Windows.Forms.TextBox txtContent;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

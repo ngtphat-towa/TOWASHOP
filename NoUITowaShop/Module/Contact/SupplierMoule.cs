@@ -11,7 +11,7 @@ using TOWALibrary.Repositories.Contacts.Suppliers;
 using TOWALibrary.Views.ModuleViews.Contacts;
 namespace NoUITowaShop.Module.Contact
 {
-    public partial class SupplierMoule : Form, ISupplierMoudleView
+    public partial class SupplierMoule : Form, ISupplierModuleView
     {
         public SupplierMoule()
         {
@@ -74,7 +74,7 @@ namespace NoUITowaShop.Module.Contact
             };
 
         }
-        public void SeSuplierListBindingSource(BindingSource supplierList)
+        public void SetSuplierListBindingSource(BindingSource supplierList)
         {
             dataGridView.DataSource = supplierList;
         }
@@ -147,6 +147,7 @@ namespace NoUITowaShop.Module.Contact
             get => txtSearch.Text;
             set => txtSearch.Text = value;
         }
+        public string Content { get => txtContent.Text; set => txtContent.Text= value; }
         #endregion
 
         #region Singleton
