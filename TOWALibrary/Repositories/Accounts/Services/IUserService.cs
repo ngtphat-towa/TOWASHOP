@@ -9,7 +9,7 @@ using TOWALibrary.Views;
 
 namespace TOWALibrary.Repositories.Accounts.Services
 {
-    public interface IAuthenticationService
+    public interface IUserService
     {
         /// <summary>
         /// Take the user and the password to validate the login

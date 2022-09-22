@@ -10,13 +10,12 @@ using TOWALibrary.Views;
 
 namespace TOWALibrary.Repositories.Accounts.Services
 {
-    public class AuthenticationService : IAuthenticationService
+    public class UserServie : IUserService
     {
-       private int RID;
+       private int roleID;
         public MainViewType GetRoleView()
         {
-            
-            switch (RID)
+            switch (roleID)
             {
                 case 1:
                     return MainViewType.Admin;
@@ -33,12 +32,31 @@ namespace TOWALibrary.Repositories.Accounts.Services
 
         public bool Validate(string username, string password)
         {
-            bool result = true;
+            if (String.IsNullOrEmpty(username) && String.IsNullOrWhiteSpace(password))
+            {
+                throw new Exception("Please enter the username and password");
+            }
+
             IAccountRepository repository = new AccountRepository();
-            // TODO - Improve this to have enpgryo
-            int  validResult =repository.LoginValidate(username, password);
-            result = (validResult != 0);
-            this.RID = validResult;
+            // TODO - Improve this to have password hash
+            AccountModel  model =repository.GetAccountByUsername(username);
+            bool result;
+            if (model != null)
+            {
+                if (model.PasswordHash.Equals(password))
+                {
+                    result = true;
+                    roleID = model.RoleID;
+                }
+                else
+                {
+                    throw new Exception("Username or password is incorrect");
+                }
+            }
+            else
+            {
+                throw new Exception("The input username does not exits!");
+            }
             return result;
         }
     }

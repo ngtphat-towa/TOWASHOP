@@ -15,49 +15,50 @@ namespace TOWALibrary.Repositories.Accounts.Users
 {
     public class AccountRepository : IAccountRepository
     {
-        public int LoginValidate(string username, string password)
+        public AccountModel GetAccountByUsername(string username)
         {
-            int ouput = 0;
+            List<AccountModel> models = new List<AccountModel>();
 
             using (var connection = DBManager.Connection.GetDbConnection())
             {
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = @"dbo.spAccount_Login";
+                    command.CommandText = @"dbo.spAccount_GetByUsername";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("@USERNAME", DbType.String, username);
-                    command.CreateDbParameter("@PASSWORD_HASH", DbType.String, password);
-                    var returnValue = command.CreateDbParameter("@RID", DbType.Int32, 0, ParameterDirection.ReturnValue);
-                    command.ExecuteNonQuery();
+                    var reader = command.ExecuteReader();
 
                     #region Account model code
-                    //    if (reader.HasRows)
-                    //    {
-                    //        while (reader.Read())
-                    //        {
-                    //            model = new AccountModel();
-                    //            var userid = reader.GetOrdinal("USERID");
-                    //            model.UID = Convert.ToString(reader.GetString(userid));
-                    //            model.Username = Convert.ToString(reader["USERNAME"]);
-                    //            model.PasswordHash = Convert.ToString(reader["PASSWORD_HASH"]);
-                    //            model.RegisterAt = Convert.ToDateTime(reader["REGISTER_AT"]);
-                    //            model.RoleID = Convert.ToInt32(reader["ACCOUNT_RID"]);
-                    //            model.LastLogin = DateTime.Now;
-                    //            model.Role = roles.Where((r) => (r.RoleID == model.RoleID)).FirstOrDefault();
-                    //        }
-                    //    }
-                    //    else return null;
-                    //}
-                    #endregion
-                    ouput = Convert.ToInt32(returnValue.Value);
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            models.Add(new AccountModel
+                            {
+                                UID = Convert.ToString(reader.GetString(reader.GetOrdinal("USERID"))),
+                                Username = Convert.ToString(reader["USERNAME"]),
+                                PasswordHash = Convert.ToString(reader["PASSWORD_HASH"]),
+                                RegisterAt = Convert.ToDateTime(reader["REGISTER_AT"]),
+                                RoleID = Convert.ToInt32(reader["RID"]),
+                                LastLogin = Convert.ToDateTime(reader["LAST_LOGIN"]),
+                                Role = new RoleModel
+                                {
+                                    RoleID = Convert.ToInt32(reader["RID"]),
+                                    RoleName = Convert.ToString(reader["ROLENAME"]),
+                                    Discription = Convert.ToString(reader["R_DESCRIPTION"])
 
+                                }
+                            });
+                        }
+                    }
+                }
+                #endregion
+            };
 
-
-                };
-                return ouput;
-            }
+            return models.FirstOrDefault();
         }
     }
 }
+

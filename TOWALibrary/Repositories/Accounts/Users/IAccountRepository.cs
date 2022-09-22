@@ -9,6 +9,6 @@ namespace TOWALibrary.Repositories.Accounts.Users
 {
    public interface IAccountRepository 
     {
-        int  LoginValidate(string username, string password);
+        AccountModel GetAccountByUsername(string username);
     }
 }
