@@ -1,4 +1,5 @@
 ﻿using NoUITowaShop.Module.Contact;
+using NoUITowaShop.Module.Inventory;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,7 @@ using System.Windows.Forms;
 using TOWALibrary.Views;
 using TOWALibrary.Views.MainViews;
 using TOWALibrary.Views.ModuleViews.Contacts;
+using TOWALibrary.Views.ModuleViews.Inventory;
 
 namespace SimpleUITowaShop
 {
@@ -20,32 +22,47 @@ namespace SimpleUITowaShop
         public DashboardForm()
         {
             InitializeComponent();
-            // Form _child =(Form) SupplierMoule.GetInstance(this);
-            //_child.Show();
             AssociateAndRaiseViewEvents();
         }
         #endregion
 
         #region Wire Up MenuScrip
         public event EventHandler ShowSupplierModuleView;
+        public event EventHandler ShowCategoryModuleView;
+
         private void AssociateAndRaiseViewEvents()
         {
             this.supplierToolStripMenuItem.Click += delegate {
                 ShowSupplierModuleView?.Invoke(this,EventArgs.Empty);
             };
+            this.categoriesToolStripMenuItem.Click += delegate
+             {
+                 ShowCategoryModuleView?.Invoke(this, EventArgs.Empty);
+             };
             this.FormClosed += delegate
             {
-                Application.Exit();
+                if (MessageBox.Show("Are you want to exit the application?","",MessageBoxButtons.YesNo)==DialogResult.Yes)
+                    Application.Exit();
             };
         }
+
         #endregion
 
+        #region Properties
+        public ISupplierModuleView SupplierModuleView
+        {
+            get => SupplierMoule.GetInstance(this);
+            
+        }
+        public ICategoryModuleView CategoryModuleView
+        {
+            get => CategoryMoule.GetInstance(this);
+        }
 
+        #endregion
 
         #region Singleton
         private static IAdminView instance;
-
-    
 
         public static IAdminView Instance
         {
@@ -58,15 +75,10 @@ namespace SimpleUITowaShop
                 return instance;
             }
         }
+
         #endregion
 
 
-        public ISupplierMoudleView SupplierModuleView
-        {
-            get
-            {
-                return SupplierMoule.GetInstance(this);
-            }
-        }
+
     }
 }

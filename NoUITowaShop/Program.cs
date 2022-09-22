@@ -26,8 +26,8 @@ namespace SimpleUITowaShop
             DBManager.InitializeConnections(DataProvider.SQLServer);
 
             ILoginView loginView = LoginForm.Instance;
-            IAuthenticationService authenticationService = new AuthenticationService();
-            new LoginPresenter(loginView, authenticationService);
+            IUserService userService = new UserServie();
+            new LoginPresenter(loginView, userService);
 
             MainViewNavigator.SetMainView(DashboardForm.Instance);
 

@@ -57,26 +57,30 @@
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Presenters\MainViews\AdminPresenter.cs" />
     <Compile Include="Presenters\Modules\Contacts\SupplierModulePresenter.cs" />
+    <Compile Include="Presenters\Modules\Inventory\Categories\CategoryModulePresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Accounts\Roles\IRoleRepository.cs" />
     <Compile Include="Repositories\Accounts\Roles\RoleRepository.cs" />
     <Compile Include="Repositories\Accounts\Users\AccountRepository.cs" />
     <Compile Include="Repositories\Accounts\Users\IAccountRepository.cs" />
-    <Compile Include="Repositories\Accounts\Services\AuthenticationService.cs" />
-    <Compile Include="Repositories\Accounts\Services\IAuthenticationService.cs" />
+    <Compile Include="Repositories\Accounts\Services\UserService.cs" />
+    <Compile Include="Repositories\Accounts\Services\IUserService.cs" />
     <Compile Include="Repositories\Contacts\Suppliers\ISupplierRepository.cs" />
     <Compile Include="Repositories\Contacts\Suppliers\SupplierRepository.cs" />
     <Compile Include="Repositories\DBManager.cs" />
     <Compile Include="Repositories\DBConnector\IDBConnector.cs" />
     <Compile Include="Repositories\DBConnector\SqlDBConnector.cs" />
     <Compile Include="Repositories\Helpers\DBHelper.cs" />
+    <Compile Include="Repositories\Inventory\Categories\CategoryRepository.cs" />
+    <Compile Include="Repositories\Inventory\Categories\ICategoryRepository.cs" />
     <Compile Include="Views\MainViews\IEmployeeView.cs" />
     <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Views\MainViews\IAdminView.cs" />
     <Compile Include="Views\MainViewNavigator.cs" />
     <Compile Include="Views\MainViews\IMainView.cs" />
     <Compile Include="Views\MainViews\IManagerView.cs" />
-    <Compile Include="Views\ModuleViews\Contacts\ISupplierMoudleView.cs" />
+    <Compile Include="Views\ModuleViews\Contacts\ISupplierModuleView.cs" />
+    <Compile Include="Views\ModuleViews\Inventory\ICategoryModuleView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

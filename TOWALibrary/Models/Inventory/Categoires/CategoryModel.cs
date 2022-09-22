@@ -13,12 +13,14 @@ namespace TOWALibrary.Models.Inventory.Categoires
         private int _CATEID;
         private string categoryName;
         private string description;
+        private string content;
 
         #endregion
         #region Property
         public int CATEID { get => _CATEID; set => _CATEID = value; }
         public string CategoryName { get => categoryName; set => categoryName = value; }
         public string Description { get => description; set => description = value; }
+        public string Content { get => content; set => content = value; }
         public IEnumerable<ProductModel> Products { get; set; }
         #endregion
     }

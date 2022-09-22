@@ -12,14 +12,14 @@ namespace TOWALibrary.Presenters
     {
         #region Intialize private fields 
         private readonly ILoginView loginView;
-        private readonly IAuthenticationService authenticationService;
+        private readonly IUserService userService;
         #endregion
 
         #region Contructor
-        public LoginPresenter(ILoginView loginView, IAuthenticationService authenticationService)
+        public LoginPresenter(ILoginView loginView, IUserService userService)
         {
             this.loginView = loginView;
-            this.authenticationService = authenticationService;
+            this.userService = userService;
             // Wire up event handlers
             this.loginView.LoginAction += LoginEvent;
             this.loginView.CancelAction += delegate
@@ -34,32 +34,18 @@ namespace TOWALibrary.Presenters
         #region Wire up ILoginView
         private void LoginEvent(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(loginView.Username) || String.IsNullOrWhiteSpace(loginView.Password))
-            {
-                loginView.IsSuccessful = false;
-                loginView.ErrorMessage = "Please enter the username and password";
-                return;
-            }
             try
             {
-                bool authenticationResult = authenticationService.Validate(this.loginView.Username, this.loginView.Password);
-                if (authenticationResult)
-                {
+                 userService.Validate(this.loginView.Username, this.loginView.Password);
                     loginView.IsSuccessful = true;
                     this.loginView.Hide();
-                    authenticationService.GetRoleView().Navigate();
-                    
-                }
-                else
-                {
-                    loginView.ErrorMessage = "Username or password is incorrect!";
-                }
+                    userService.GetRoleView().Navigate();
+                
             }
             catch (Exception ex)
             {
                 loginView.IsSuccessful = false;
                 loginView.ErrorMessage = ex.Message;
-
             }
         }
         #endregion

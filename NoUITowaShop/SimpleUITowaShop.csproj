@@ -65,6 +65,12 @@
     <Compile Include="Module\Contact\SupplierMoule.Designer.cs">
       <DependentUpon>SupplierMoule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Module\Inventory\CategoryMoule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Inventory\CategoryMoule.Designer.cs">
+      <DependentUpon>CategoryMoule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DashboardForm.resx">
@@ -75,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Module\Contact\SupplierMoule.resx">
       <DependentUpon>SupplierMoule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Inventory\CategoryMoule.resx">
+      <DependentUpon>CategoryMoule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -104,8 +113,6 @@
       <Name>TOWALibrary</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Module\Inventory\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

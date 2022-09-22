@@ -16,6 +16,7 @@ namespace TOWALibrary.Models.Account.Users
         private string _PasswordHash;
         private DateTime _RegisterAt;
         private DateTime _LastLogin;
+        private string content;
 
         #endregion
         #region Property
@@ -26,6 +27,7 @@ namespace TOWALibrary.Models.Account.Users
         public string PasswordHash { get => _PasswordHash; set => _PasswordHash = value; }
         public DateTime RegisterAt { get => _RegisterAt; set => _RegisterAt = value; }
         public DateTime LastLogin { get => _LastLogin; set => _LastLogin = value; }
+        public string Content { get => content; set => content = value; }
         #endregion
     }
 }
