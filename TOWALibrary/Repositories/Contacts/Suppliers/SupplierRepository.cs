@@ -26,6 +26,7 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
                     command.CreateDbParameter("@SL_ADDRESS", DbType.String, model.Address);
                     command.CreateDbParameter("@CITY", DbType.String, model.City);
                     command.CreateDbParameter("@COUNTRY", DbType.String, model.Country);
+                    command.CreateDbParameter("@CONTENT", DbType.String, model.Content);
 
                     command.ExecuteNonQuery();
                 };
@@ -72,6 +73,7 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
                                 Address = Convert.ToString(reader["SL_ADDRESS"]),
                                 City = Convert.ToString(reader["CITY"]),
                                 Country = Convert.ToString(reader["COUNTRY"]),
+                                Content = Convert.ToString(reader["CONTENT"])
 
                             });
                         }
@@ -105,7 +107,7 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
                                 Address = Convert.ToString(reader["SL_ADDRESS"]),
                                 City = Convert.ToString(reader["CITY"]),
                                 Country = Convert.ToString(reader["COUNTRY"]),
-
+                                Content =Convert.ToString(reader["CONTENT"])
                             });
                         }
                 };
@@ -130,7 +132,7 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
                     command.CreateDbParameter("@SL_ADDRESS", DbType.String, model.Address);
                     command.CreateDbParameter("@CITY", DbType.String, model.City);
                     command.CreateDbParameter("@COUNTRY", DbType.String, model.Country);
-
+                    command.CreateDbParameter("@CONTENT", DbType.String, model.Content);
                     command.ExecuteNonQuery();
                 };
             };
