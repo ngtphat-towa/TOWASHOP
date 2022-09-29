@@ -12,7 +12,7 @@ namespace TOWALibrary.Repositories.Inventory.Categories
         void Add(CategoryModel model);
         void Update(CategoryModel model);
         void Delete(string CID);
-        IEnumerable<CategoryModel> GetAll();
-        IEnumerable<CategoryModel> GetByValue(string value);
+        ICollection<CategoryModel> GetAll();
+        ICollection<CategoryModel> GetByValue(string value);
     }
 }

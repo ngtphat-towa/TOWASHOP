@@ -12,10 +12,10 @@ namespace TOWALibrary.Presenters.Modules.Contacts
 {
     public class SupplierModulePresenter
     {
-        private ISupplierModuleView view;
-        private ISupplierRepository repository;
-        private BindingSource suppliersBindingSource;
-        private IEnumerable<SupplierModel> supplierList;
+        private readonly ISupplierModuleView view;
+        private readonly ISupplierRepository repository;
+        private readonly BindingSource suppliersBindingSource;
+        private ICollection<SupplierModel> supplierList;
 
         public SupplierModulePresenter(ISupplierModuleView view, ISupplierRepository repository)
         {
@@ -29,8 +29,8 @@ namespace TOWALibrary.Presenters.Modules.Contacts
             this.view.DeleteEvent += DeleteSelectedSupplier;
             this.view.SaveEvent += SaveSupplier;
             this.view.CancelEvent += CancelAction;
-            //Set pets binding source
-            this.view.SetSuplierListBindingSource(suppliersBindingSource);
+            //Set binding source
+            this.view.SetListViewBindingSource(suppliersBindingSource);
             LoadAllSupplierList();
             //Show view
             this.view.Show();
@@ -40,6 +40,9 @@ namespace TOWALibrary.Presenters.Modules.Contacts
         {
             supplierList = repository.GetAll();
             suppliersBindingSource.DataSource = supplierList;
+            
+
+
         }
 
         private void CancelAction(object sender, EventArgs e)

@@ -24,7 +24,7 @@ namespace TOWALibrary.Views.ModuleViews.Inventory
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;
         
-        void SetCategoryListBindingSource(BindingSource bindingSource);
+        void SetListViewBindingSource(BindingSource bindingSource);
         void Show();
     }
 }

@@ -29,7 +29,7 @@ namespace TOWALibrary.Views.ModuleViews.Contacts
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;
         //Methods
-        void SetSuplierListBindingSource(BindingSource bindingSource);
+        void SetListViewBindingSource(BindingSource bindingSource);
         void Show();
     }
 }

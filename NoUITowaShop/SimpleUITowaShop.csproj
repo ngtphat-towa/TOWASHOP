@@ -59,17 +59,23 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Module\Contact\SupplierMoule.cs">
+    <Compile Include="Module\Contact\SupplierModule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Module\Contact\SupplierMoule.Designer.cs">
-      <DependentUpon>SupplierMoule.cs</DependentUpon>
+    <Compile Include="Module\Contact\SupplierModule.Designer.cs">
+      <DependentUpon>SupplierModule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Module\Inventory\CategoryMoule.cs">
+    <Compile Include="Module\Inventory\CategoryModule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Module\Inventory\CategoryMoule.Designer.cs">
-      <DependentUpon>CategoryMoule.cs</DependentUpon>
+    <Compile Include="Module\Inventory\CategoryModule.Designer.cs">
+      <DependentUpon>CategoryModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Product\ProductModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Product\ProductModule.Designer.cs">
+      <DependentUpon>ProductModule.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,11 +85,14 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Module\Contact\SupplierMoule.resx">
-      <DependentUpon>SupplierMoule.cs</DependentUpon>
+    <EmbeddedResource Include="Module\Contact\SupplierModule.resx">
+      <DependentUpon>SupplierModule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Module\Inventory\CategoryMoule.resx">
-      <DependentUpon>CategoryMoule.cs</DependentUpon>
+    <EmbeddedResource Include="Module\Inventory\CategoryModule.resx">
+      <DependentUpon>CategoryModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Product\ProductModule.resx">
+      <DependentUpon>ProductModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

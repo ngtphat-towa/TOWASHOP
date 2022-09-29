@@ -11,10 +11,10 @@ using TOWALibrary.Views.ModuleViews.Inventory;
 
 namespace NoUITowaShop.Module.Inventory
 {
-    public partial class CategoryMoule : Form, ICategoryModuleView
+    public partial class CategoryModule : Form, ICategoryModuleView
     {
         #region Contructor
-        public CategoryMoule()
+        public CategoryModule()
         {
             InitializeComponent();
             AssociateAndRaiseViewEvents();
@@ -83,6 +83,14 @@ namespace NoUITowaShop.Module.Inventory
             dataGridView.DataSource = supplierList;
         }
         #endregion
+
+        #region Populate lists into controls 
+
+        public void SetListViewBindingSource(BindingSource categoryList)
+        {
+            dataGridView.DataSource = categoryList;
+        }
+        #endregion
         #region Feilds
         private string message;
         private bool isSuccessful;
@@ -110,13 +118,13 @@ namespace NoUITowaShop.Module.Inventory
 
 
         #region Singleton
-        private static CategoryMoule instance;
+        private static CategoryModule instance;
 
-        public static CategoryMoule GetInstance(Form parentContainer)
+        public static CategoryModule GetInstance(Form parentContainer)
         {
             if (instance == null || ((Form)instance).IsDisposed)
             {
-                instance = new CategoryMoule();
+                instance = new CategoryModule();
                 instance.MdiParent = parentContainer;
                 instance.FormBorderStyle = FormBorderStyle.None;
                 instance.Dock = DockStyle.Fill;
@@ -134,10 +142,7 @@ namespace NoUITowaShop.Module.Inventory
             return instance;
         }
 
-        public void SetCategoryListBindingSource(BindingSource categoryList)
-        {
-            dataGridView.DataSource = categoryList;
-        }
+  
         #endregion
     }
 }

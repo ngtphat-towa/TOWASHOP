@@ -1,7 +1,7 @@
 ﻿
 namespace NoUITowaShop.Module.Contact
 {
-    partial class SupplierMoule
+    partial class SupplierModule
     {
         /// <summary>
         /// Required designer variable.

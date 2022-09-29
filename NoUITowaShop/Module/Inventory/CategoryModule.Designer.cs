@@ -1,7 +1,7 @@
 ﻿
 namespace NoUITowaShop.Module.Inventory
 {
-    partial class CategoryMoule
+    partial class CategoryModule
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,7 @@ namespace NoUITowaShop.Module.Inventory
             this.txtContent = new System.Windows.Forms.TextBox();
             this.tbPanelSLInfo = new System.Windows.Forms.TableLayoutPanel();
             this.gbCategoryInfo = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbDescription = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.lbCTName = new System.Windows.Forms.Label();
             this.txtCategoryName = new System.Windows.Forms.TextBox();
@@ -84,13 +84,13 @@ namespace NoUITowaShop.Module.Inventory
             this.panelOption.Controls.Add(this.btnSave);
             this.panelOption.Location = new System.Drawing.Point(702, 3);
             this.panelOption.Name = "panelOption";
-            this.panelOption.Size = new System.Drawing.Size(460, 70);
+            this.panelOption.Size = new System.Drawing.Size(460, 63);
             this.panelOption.TabIndex = 4;
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnCancel.Location = new System.Drawing.Point(36, 8);
+            this.btnCancel.Location = new System.Drawing.Point(36, 1);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(191, 45);
             this.btnCancel.TabIndex = 2;
@@ -100,7 +100,7 @@ namespace NoUITowaShop.Module.Inventory
             // btnSave
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSave.Location = new System.Drawing.Point(253, 8);
+            this.btnSave.Location = new System.Drawing.Point(253, 1);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(182, 45);
             this.btnSave.TabIndex = 0;
@@ -154,7 +154,7 @@ namespace NoUITowaShop.Module.Inventory
             this.gbCategoryInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbCategoryInfo.Controls.Add(this.label1);
+            this.gbCategoryInfo.Controls.Add(this.lbDescription);
             this.gbCategoryInfo.Controls.Add(this.txtDescription);
             this.gbCategoryInfo.Controls.Add(this.lbCTName);
             this.gbCategoryInfo.Controls.Add(this.txtCategoryName);
@@ -166,17 +166,17 @@ namespace NoUITowaShop.Module.Inventory
             this.gbCategoryInfo.Size = new System.Drawing.Size(674, 391);
             this.gbCategoryInfo.TabIndex = 0;
             this.gbCategoryInfo.TabStop = false;
-            this.gbCategoryInfo.Text = "Supplier Info";
+            this.gbCategoryInfo.Text = "Category Info";
             // 
-            // label1
+            // lbDescription
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 175);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 25);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Description";
+            this.lbDescription.AutoSize = true;
+            this.lbDescription.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDescription.Location = new System.Drawing.Point(7, 175);
+            this.lbDescription.Name = "lbDescription";
+            this.lbDescription.Size = new System.Drawing.Size(112, 25);
+            this.lbDescription.TabIndex = 5;
+            this.lbDescription.Text = "Description";
             // 
             // txtDescription
             // 
@@ -220,7 +220,7 @@ namespace NoUITowaShop.Module.Inventory
             this.txtCTID.ReadOnly = true;
             this.txtCTID.Size = new System.Drawing.Size(638, 37);
             this.txtCTID.TabIndex = 1;
-            this.txtCTID.Text = "SL000000";
+            this.txtCTID.Text = "0";
             // 
             // lbCTID
             // 
@@ -295,7 +295,7 @@ namespace NoUITowaShop.Module.Inventory
             this.tabCategoryList.Padding = new System.Windows.Forms.Padding(3);
             this.tabCategoryList.Size = new System.Drawing.Size(1192, 604);
             this.tabCategoryList.TabIndex = 0;
-            this.tabCategoryList.Text = "Supplier List";
+            this.tabCategoryList.Text = "Category List";
             this.tabCategoryList.UseVisualStyleBackColor = true;
             // 
             // dataGridView
@@ -323,7 +323,7 @@ namespace NoUITowaShop.Module.Inventory
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(1186, 410);
+            this.dataGridView.Size = new System.Drawing.Size(1186, 403);
             this.dataGridView.TabIndex = 7;
             // 
             // tableOption
@@ -437,7 +437,7 @@ namespace NoUITowaShop.Module.Inventory
             this.tabDefine.Padding = new System.Windows.Forms.Padding(3);
             this.tabDefine.Size = new System.Drawing.Size(1192, 604);
             this.tabDefine.TabIndex = 1;
-            this.tabDefine.Text = "Define suppliers";
+            this.tabDefine.Text = "Define category";
             // 
             // tbPanelDFFooter
             // 
@@ -469,7 +469,7 @@ namespace NoUITowaShop.Module.Inventory
             this.tbPanelSLAdress.Name = "tbPanelSLAdress";
             this.tbPanelSLAdress.RowCount = 1;
             this.tbPanelSLAdress.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbPanelSLAdress.Size = new System.Drawing.Size(1186, 76);
+            this.tbPanelSLAdress.Size = new System.Drawing.Size(1186, 69);
             this.tbPanelSLAdress.TabIndex = 2;
             // 
             // tbpanelHheader
@@ -489,14 +489,14 @@ namespace NoUITowaShop.Module.Inventory
             this.tbpanelHheader.Size = new System.Drawing.Size(1186, 40);
             this.tbpanelHheader.TabIndex = 0;
             // 
-            // CategoryMoule
+            // CategoryModule
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1200, 640);
             this.Controls.Add(this.tabCategories);
             this.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "CategoryMoule";
+            this.Name = "CategoryModule";
             this.Text = "CategoryMoule";
             this.panelOption.ResumeLayout(false);
             this.gbComent.ResumeLayout(false);
@@ -550,7 +550,7 @@ namespace NoUITowaShop.Module.Inventory
         private System.Windows.Forms.TableLayoutPanel tbPanelDFFooter;
         private System.Windows.Forms.TableLayoutPanel tbPanelSLAdress;
         private System.Windows.Forms.TableLayoutPanel tbpanelHheader;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbDescription;
         private System.Windows.Forms.TextBox txtDescription;
     }
 }

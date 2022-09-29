@@ -35,6 +35,7 @@
       <HintPath>..\TOWASHOP\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
@@ -57,7 +58,8 @@
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Presenters\MainViews\AdminPresenter.cs" />
     <Compile Include="Presenters\Modules\Contacts\SupplierModulePresenter.cs" />
-    <Compile Include="Presenters\Modules\Inventory\Categories\CategoryModulePresenter.cs" />
+    <Compile Include="Presenters\Modules\Inventory\CategoryModulePresenter.cs" />
+    <Compile Include="Presenters\Modules\Inventory\ProductModulePresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Accounts\Roles\IRoleRepository.cs" />
     <Compile Include="Repositories\Accounts\Roles\RoleRepository.cs" />
@@ -73,6 +75,8 @@
     <Compile Include="Repositories\Helpers\DBHelper.cs" />
     <Compile Include="Repositories\Inventory\Categories\CategoryRepository.cs" />
     <Compile Include="Repositories\Inventory\Categories\ICategoryRepository.cs" />
+    <Compile Include="Repositories\Inventory\Products\IProductRepository.cs" />
+    <Compile Include="Repositories\Inventory\Products\ProductRepository.cs" />
     <Compile Include="Views\MainViews\IEmployeeView.cs" />
     <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Views\MainViews\IAdminView.cs" />
@@ -81,6 +85,7 @@
     <Compile Include="Views\MainViews\IManagerView.cs" />
     <Compile Include="Views\ModuleViews\Contacts\ISupplierModuleView.cs" />
     <Compile Include="Views\ModuleViews\Inventory\ICategoryModuleView.cs" />
+    <Compile Include="Views\ModuleViews\Inventory\IProductModuleView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

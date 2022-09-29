@@ -47,7 +47,7 @@ namespace TOWALibrary.Repositories.Inventory.Categories
             }
         }
 
-        public IEnumerable<CategoryModel> GetAll()
+        public virtual ICollection<CategoryModel> GetAll()
         {
             List<CategoryModel> models = new List<CategoryModel>();
             using (var connection = DBManager.Connection.GetDbConnection())
@@ -55,7 +55,7 @@ namespace TOWALibrary.Repositories.Inventory.Categories
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spSupplier_GetAll";
+                    command.CommandText = "dbo.spCategory_GetAll";
                     command.CommandType = CommandType.StoredProcedure;
 
                     using (var reader = command.ExecuteReader())
@@ -75,7 +75,7 @@ namespace TOWALibrary.Repositories.Inventory.Categories
             return models;
         }
 
-        public IEnumerable<CategoryModel> GetByValue(string value)
+        public virtual ICollection<CategoryModel> GetByValue(string value)
         {
             List<CategoryModel> models = new List<CategoryModel>();
             using (var connection = DBManager.Connection.GetDbConnection())

@@ -12,7 +12,7 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
         void Add(SupplierModel model);
         void Update(SupplierModel model);
         void Delete(string SLID);
-        IEnumerable<SupplierModel> GetAll();
-        IEnumerable<SupplierModel> GetByValue(string value);
+        ICollection<SupplierModel> GetAll();
+        ICollection<SupplierModel> GetByValue(string value);
     }
 }

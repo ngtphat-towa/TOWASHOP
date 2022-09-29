@@ -50,7 +50,7 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
                 }
             }
         }
-        public IEnumerable<SupplierModel> GetAll()
+        public ICollection<SupplierModel> GetAll()
         {
             List<SupplierModel> models = new List<SupplierModel>();
             using (var connection = DBManager.Connection.GetDbConnection())
@@ -82,7 +82,7 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
             return models;
         }
 
-        public IEnumerable<SupplierModel> GetByValue(string value)
+        public ICollection<SupplierModel> GetByValue(string value)
         {
             List<SupplierModel> models = new List<SupplierModel>();
             using (var connection = DBManager.Connection.GetDbConnection())

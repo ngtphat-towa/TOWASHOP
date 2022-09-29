@@ -12,8 +12,10 @@ namespace TOWALibrary.Views.MainViews
     {
         ISupplierModuleView SupplierModuleView { get; }
         ICategoryModuleView CategoryModuleView { get; }
+        IProductModuleView ProductModuleView { get; }
         event EventHandler ShowSupplierModuleView;
         event EventHandler ShowCategoryModuleView;
+        event EventHandler ShowProductModuleView;
         void Show();
     }
 }

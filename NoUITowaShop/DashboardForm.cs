@@ -1,5 +1,6 @@
 ﻿using NoUITowaShop.Module.Contact;
 using NoUITowaShop.Module.Inventory;
+using NoUITowaShop.Module.Product;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,6 +30,7 @@ namespace SimpleUITowaShop
         #region Wire Up MenuScrip
         public event EventHandler ShowSupplierModuleView;
         public event EventHandler ShowCategoryModuleView;
+        public event EventHandler ShowProductModuleView;
 
         private void AssociateAndRaiseViewEvents()
         {
@@ -39,6 +41,10 @@ namespace SimpleUITowaShop
              {
                  ShowCategoryModuleView?.Invoke(this, EventArgs.Empty);
              };
+            this.productsToolStripMenuItem.Click += delegate
+            {
+                ShowProductModuleView?.Invoke(this, EventArgs.Empty);
+            };
             this.FormClosed += delegate
             {
                 if (MessageBox.Show("Are you want to exit the application?","",MessageBoxButtons.YesNo)==DialogResult.Yes)
@@ -51,12 +57,16 @@ namespace SimpleUITowaShop
         #region Properties
         public ISupplierModuleView SupplierModuleView
         {
-            get => SupplierMoule.GetInstance(this);
+            get => SupplierModule.GetInstance(this);
             
         }
         public ICategoryModuleView CategoryModuleView
         {
-            get => CategoryMoule.GetInstance(this);
+            get => CategoryModule.GetInstance(this);
+        }
+        public IProductModuleView ProductModuleView
+        {
+            get => ProductModule.GetInstance(this);
         }
 
         #endregion
@@ -75,6 +85,7 @@ namespace SimpleUITowaShop
                 return instance;
             }
         }
+
 
         #endregion
 

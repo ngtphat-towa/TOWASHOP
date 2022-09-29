@@ -11,9 +11,9 @@ using TOWALibrary.Repositories.Contacts.Suppliers;
 using TOWALibrary.Views.ModuleViews.Contacts;
 namespace NoUITowaShop.Module.Contact
 {
-    public partial class SupplierMoule : Form, ISupplierModuleView
+    public partial class SupplierModule : Form, ISupplierModuleView
     {
-        public SupplierMoule()
+        public SupplierModule()
         {
             InitializeComponent();
             AssociateAndRaiseViewEvents();
@@ -74,7 +74,7 @@ namespace NoUITowaShop.Module.Contact
             };
 
         }
-        public void SetSuplierListBindingSource(BindingSource supplierList)
+        public void SetListViewBindingSource(BindingSource supplierList)
         {
             dataGridView.DataSource = supplierList;
         }
@@ -151,12 +151,12 @@ namespace NoUITowaShop.Module.Contact
         #endregion
 
         #region Singleton
-        private static SupplierMoule instance;
-        public static SupplierMoule GetInstance(Form parentContainer)
+        private static SupplierModule instance;
+        public static SupplierModule GetInstance(Form parentContainer)
         {
             if (instance == null || ((Form)instance).IsDisposed)
             {
-                instance = new SupplierMoule();
+                instance = new SupplierModule();
                 instance.MdiParent = parentContainer;
                 instance.FormBorderStyle = FormBorderStyle.None;
                 instance.Dock = DockStyle.Fill;

@@ -12,10 +12,10 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Categories
 {
    public class CategoryModulePresenter
     {
-        private ICategoryModuleView view;
-        private ICategoryRepository repository;
+        private readonly ICategoryModuleView view;
+        private readonly ICategoryRepository repository;
         private BindingSource categoryBindingSource;
-        private IEnumerable<CategoryModel> categoryList;
+        private ICollection<CategoryModel> categoryList;
 
         public CategoryModulePresenter(ICategoryModuleView view, ICategoryRepository repository)
         {
@@ -29,8 +29,8 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Categories
             this.view.DeleteEvent += DeleteSelectedCategory;
             this.view.SaveEvent += SaveCategory;
             this.view.CancelEvent += CancelAction;
-            //Set pets binding source
-            this.view.SetCategoryListBindingSource(categoryBindingSource);
+            //Set binding source
+            this.view.SetListViewBindingSource(categoryBindingSource);
             LoadAllCategoryList();
             //Show view
             this.view.Show();

@@ -11,7 +11,7 @@ namespace TOWALibrary.Repositories.Accounts.Roles
 {
     public class RoleRepository : IRoleRepository
     {
-        public IEnumerable<RoleModel> GetRole_All()
+        public virtual ICollection<RoleModel> GetRole_All()
         {
             List<RoleModel> models = new List<RoleModel>();
             using (var connection = DBManager.Connection.GetDbConnection())
