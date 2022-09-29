@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +49,7 @@ namespace TOWALibrary.Models.Account.Employees
         public DateTime UpdateAt { get => _UpdateAt; set => _UpdateAt = value; }
         public string Content { get => content; set => content = value; }
         public string UID { get => _UID; set => _UID = value; }
+        [Display(Name = "Username", ResourceType = typeof(AccountModel))]
         public AccountModel Account { get => _account; set => _account = value; }
         
         #endregion
