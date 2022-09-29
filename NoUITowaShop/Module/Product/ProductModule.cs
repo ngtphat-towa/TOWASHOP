@@ -134,7 +134,7 @@ namespace NoUITowaShop.Module.Product
         public bool IsEdit { get => isEdit; set => isEdit = value; }
         public bool IsSuccessful { get => isSuccessful; set => isSuccessful = value; }
         public string SelectedSLID { get => cbSupplierList.SelectedValue.ToString(); set => cbSupplierList.SelectedValue = value; }
-        public int SelectedCID { get => Convert.ToInt32(cbSupplierList.SelectedValue); set => cbCategoryList.SelectedValue= value; }
+        public int SelectedCID { get => Convert.ToInt32(cbCategoryList.SelectedValue); set => cbCategoryList.SelectedValue= value; }
         
         #endregion
 

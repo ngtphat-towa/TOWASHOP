@@ -72,7 +72,7 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Products
 
         private void SaveProduct(object sender, EventArgs e)
         {
-            
+
             var model = new ProductModel
             {
                 PID = view.PID,
@@ -83,6 +83,7 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Products
                 UnitOnOrder = view.UnitOnOrder,
                 UnitPrice = (double)view.UnitPrice,
                 SalesPrice = (double)view.SalesPrice,
+                Status = view.Status,
                 Supplier = supplierList.Where(x=> x.SLID.Equals(view.SelectedSLID)).FirstOrDefault(),
                 Category = categoryList.Where(x=> x.CATEID==view.SelectedCID).FirstOrDefault()
             };
@@ -92,12 +93,12 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Products
                 if (view.IsEdit == true)
                 {
                     repository.Update(model);
-                    view.Message = "Category updated successfully!";
+                    view.Message = "Product updated successfully!";
                 }
                 else
                 {
                     repository.Add(model);
-                    view.Message = "Category added successfully!";
+                    view.Message = "Product added successfully!";
                 }
                 view.IsSuccessful = true;
                 LoadAllProdcutList();
@@ -178,6 +179,7 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Products
             LoadAllSuppliers();
             this.view.SetCategoryList(categoryList);
             this.view.Content = "";
+            this.view.Status = "On Hand";
             
         }
     }

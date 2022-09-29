@@ -172,12 +172,12 @@ namespace TOWALibrary.Repositories.Inventory.Products
 
         public ICollection<CategoryModel> GetCategories()
         {
-            return (ICollection<CategoryModel>)categoryRepository.GetAll();
+            return categoryRepository.GetAll();
         }
 
         public ICollection<SupplierModel> GetSupliers()
         {
-            return (ICollection<SupplierModel>)supplierRepository.GetAll();
+            return supplierRepository.GetAll();
         }
 
         public void Update(ProductModel model)
@@ -190,6 +190,7 @@ namespace TOWALibrary.Repositories.Inventory.Products
                     command.CommandText = "dbo.spProduct_Update";
                     command.CommandType = CommandType.StoredProcedure;
 
+                    command.CreateDbParameter("@PRODUCTID", DbType.String, model.PID);
                     command.CreateDbParameter("@PRODUCTNAME", DbType.String, model.ProductName);
                     command.CreateDbParameter("@BARCODE", DbType.String, model.Barcode);
                     command.CreateDbParameter("@QUANTITY_PER_UNIT", DbType.String, model.QuantityPerUnit);

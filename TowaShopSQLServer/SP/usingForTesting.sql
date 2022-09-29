@@ -19,12 +19,15 @@ insert into TOWASHOP.dbo.PRODUCT_SUPPLIERS Values('P1','SL1');
 insert into TOWASHOP.dbo.PRODUCT_CATEGORIES Values('P2',1);
 insert into TOWASHOP.dbo.PRODUCT_SUPPLIERS Values('P2','SL1');
 
+insert into TOWASHOP.dbo.PRODUCT_CATEGORIES Values('P3',1);
+insert into TOWASHOP.dbo.PRODUCT_SUPPLIERS Values('P3','SL2');
+
 delete from TOWASHOP.dbo.PRODUCT_CATEGORIES  where PRODUCT_CATEGORIES.PC_PID='P1';
 
-select * from CATEGORIES;
-select * from SUPPLIERS;
-select * from PRODUCT_CATEGORIES;
-select * from PRODUCT_SUPPLIERS;
+select * from TOWASHOP.dbo.CATEGORIES;
+select * from TOWASHOP.dbo.SUPPLIERS;
+select * from TOWASHOP.dbo.PRODUCT_CATEGORIES;
+select * from TOWASHOP.dbo.PRODUCT_SUPPLIERS;
 
 
 select * from SUPPLIERS;
@@ -32,5 +35,8 @@ select * from Northwind.dbo.Suppliers;
 
 insert into SUPPLIERS (SUPPLIERID,SUPPLIER_NAME,CONTACT_NAME,CONTACT_PHONE,SL_ADDRESS,CITY,COUNTRY)
 values ('SL1','Exotic Liquids','Charlotte Cooper','(171) 555-2222','49 Gilbert St.','London','UK');
+
+insert into SUPPLIERS (SUPPLIERID,SUPPLIER_NAME,CONTACT_NAME,CONTACT_PHONE,SL_ADDRESS,CITY,COUNTRY)
+values ('SL2','New Orleans Cajun Delights','Shelley Burke','(100) 555-4822','49 Gilbert St.','New Orleans','USA');
 
 delete from dbo.PRODUCTS where PRODUCTID = 'P1';
