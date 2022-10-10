@@ -6,7 +6,12 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TOWALibrary.Repositories.Contacts.Suppliers;
 using TOWALibrary.Repositories.DBConnector;
+using TOWALibrary.Repositories.Inventory.Categories;
+using TOWALibrary.Repositories.Inventory.Products;
+using TOWALibrary.Repositories.Order.OrderDetails;
+using TOWALibrary.Repositories.Order.Orders;
 
 namespace TOWALibrary.Repositories
 {
@@ -37,8 +42,68 @@ namespace TOWALibrary.Repositories
                     break;
             }
         }
-       
-        
 
+        private static IProductRepository productRepository;
+        
+        public static IProductRepository ProductRepository
+        {
+            get
+            {
+                if (productRepository == null )
+                {
+                    productRepository = new ProductRepository();
+                }
+                return productRepository;
+            }
+        }
+
+        private static ISupplierRepository supplierRepository;
+        public static ISupplierRepository SupplierRepository
+        {
+            get
+            {
+                if (supplierRepository == null)
+                {
+                    supplierRepository = new SupplierRepository();
+                }
+                return supplierRepository;
+            }
+        }
+        private static ICategoryRepository categoryRepository;
+        public static ICategoryRepository CategoryRepository
+        {
+            get
+            {
+                if (categoryRepository == null)
+                {
+                    categoryRepository = new CategoryRepository();
+                }
+                return categoryRepository;
+            }
+        }
+        private static IOrderDetailRepository orderDetailRepository;
+        public static IOrderDetailRepository OrderDetailRepository
+        {
+            get
+            {
+                if (orderDetailRepository == null)
+                {
+                    orderDetailRepository = new OrderDetailRepository();
+                }
+                return orderDetailRepository;
+            }
+        }
+        private static IOrderRepository orderRepository;
+        public static IOrderRepository OrderRepository
+        {
+            get
+            {
+                if (orderRepository == null)
+                {
+                    orderRepository = new OrderRepository();
+                }
+                return orderRepository;
+            }
+        }
     }
 }

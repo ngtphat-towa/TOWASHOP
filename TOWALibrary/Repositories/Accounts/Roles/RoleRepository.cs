@@ -11,9 +11,9 @@ namespace TOWALibrary.Repositories.Accounts.Roles
 {
     public class RoleRepository : IRoleRepository
     {
-        public virtual ICollection<RoleModel> GetRole_All()
+        public virtual ICollection<RoleViewModel> GetRole_All()
         {
-            List<RoleModel> models = new List<RoleModel>();
+            List<RoleViewModel> models = new List<RoleViewModel>();
             using (var connection = DBManager.Connection.GetDbConnection())
             {
 
@@ -24,7 +24,7 @@ namespace TOWALibrary.Repositories.Accounts.Roles
                     command.CommandType = CommandType.StoredProcedure;
                     var reader = command.ExecuteReader();
                     while (reader.Read()) {
-                        models.Add(new RoleModel
+                        models.Add(new RoleViewModel
                         {
                             RoleID = Convert.ToInt32(reader["ROLEID"]),
                             RoleName = Convert.ToString(reader["ROLENAME"]),

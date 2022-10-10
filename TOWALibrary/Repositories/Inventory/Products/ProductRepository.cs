@@ -15,14 +15,9 @@ namespace TOWALibrary.Repositories.Inventory.Products
 {
     public class ProductRepository : IProductRepository
     {
-       private readonly ISupplierRepository supplierRepository;
-        private readonly ICategoryRepository categoryRepository;
+       private readonly ISupplierRepository supplierRepository = DBManager.SupplierRepository;
+        private readonly ICategoryRepository categoryRepository =DBManager.CategoryRepository;
 
-        public ProductRepository(ISupplierRepository supplierRepository, ICategoryRepository categoryRepository)
-        {
-            this.supplierRepository = supplierRepository;
-            this.categoryRepository = categoryRepository;
-        }
 
         public void Add(ProductModel model)
         {

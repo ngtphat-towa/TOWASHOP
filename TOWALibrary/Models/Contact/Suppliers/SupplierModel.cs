@@ -39,7 +39,7 @@ namespace TOWALibrary.Models.Contact.Suppliers
         public string Content { get => content; set => content = value; }
         [Browsable(false)]
         public virtual ICollection<ProductModel> Products { get; set; }
-        [DisplayName("Products")]
+        [DisplayName("Product")]
         public string ProductIDList
         {
             get

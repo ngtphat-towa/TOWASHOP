@@ -43,7 +43,7 @@ namespace TOWALibrary.Repositories.Accounts.Users
                                 RegisterAt = Convert.ToDateTime(reader["REGISTER_AT"]),
                                 RoleID = Convert.ToInt32(reader["RID"]),
                                 LastLogin = Convert.ToDateTime(reader["LAST_LOGIN"]),
-                                Role = new RoleModel
+                                Role = new RoleViewModel
                                 {
                                     RoleID = Convert.ToInt32(reader["RID"]),
                                     RoleName = Convert.ToString(reader["ROLENAME"]),

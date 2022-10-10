@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TOWALibrary.Models.Account.Roles
 {
-    public class RoleModel
+    public class RoleViewModel
     {
         #region Private Fields
         private int roleID;

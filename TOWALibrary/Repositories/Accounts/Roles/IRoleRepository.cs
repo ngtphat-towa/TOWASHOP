@@ -9,6 +9,6 @@ namespace TOWALibrary.Repositories.Accounts.Roles
 {
     public interface IRoleRepository
     {
-        ICollection<RoleModel> GetRole_All();
+        ICollection<RoleViewModel> GetRole_All();
     }
 }

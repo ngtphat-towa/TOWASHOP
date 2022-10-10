@@ -14,7 +14,7 @@ namespace TOWALibrary.Models.Account.Users
         #region Private Feild
         private string _UID;
         private string username;
-        private RoleModel role;
+        private RoleViewModel role;
         private string _PasswordHash;
         private DateTime _RegisterAt;
         private DateTime _LastLogin;
@@ -32,10 +32,10 @@ namespace TOWALibrary.Models.Account.Users
 
         public int RoleID { get; set; }
 
-        [Display (Name ="RoleName",ResourceType =typeof(RoleModel))]
+        [Display (Name ="RoleName",ResourceType =typeof(RoleViewModel))]
         [Required(ErrorMessage = "The user role is required")]
         [StringLength(25, MinimumLength = 4, ErrorMessage = "The username must be between 3 and 25 characters")]
-        public RoleModel Role { get => role; set => role = value; }
+        public RoleViewModel Role { get => role; set => role = value; }
 
         [DisplayName("Password")]
         public string PasswordHash { get => _PasswordHash; set => _PasswordHash = value; }
