@@ -56,6 +56,7 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Products
             // Sale info
             this.view.UnitPrice = Convert.ToDecimal(model.UnitPrice);
             this.view.SalesPrice = Convert.ToDecimal(model.SalesPrice);
+            this.view.Status = model.Status;
             this.view.VAT = Convert.ToDecimal(model.VAT);
             // Details 
             this.view.SelectedSLID = model.Supplier.SLID;

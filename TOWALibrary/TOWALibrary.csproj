@@ -60,6 +60,7 @@
     <Compile Include="Presenters\Modules\Contacts\SupplierModulePresenter.cs" />
     <Compile Include="Presenters\Modules\Inventory\CategoryModulePresenter.cs" />
     <Compile Include="Presenters\Modules\Inventory\ProductModulePresenter.cs" />
+    <Compile Include="Presenters\Modules\Orders\OrderListMoudlePresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Accounts\Roles\IRoleRepository.cs" />
     <Compile Include="Repositories\Accounts\Roles\RoleRepository.cs" />
@@ -77,6 +78,10 @@
     <Compile Include="Repositories\Inventory\Categories\ICategoryRepository.cs" />
     <Compile Include="Repositories\Inventory\Products\IProductRepository.cs" />
     <Compile Include="Repositories\Inventory\Products\ProductRepository.cs" />
+    <Compile Include="Repositories\Order\OrderDetails\IOrderDetailRepository.cs" />
+    <Compile Include="Repositories\Order\OrderDetails\OrderDetailRepository.cs" />
+    <Compile Include="Repositories\Order\Orders\IOrderRepository.cs" />
+    <Compile Include="Repositories\Order\Orders\OrderRepository.cs" />
     <Compile Include="Views\MainViews\IEmployeeView.cs" />
     <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Views\MainViews\IAdminView.cs" />
@@ -86,6 +91,7 @@
     <Compile Include="Views\ModuleViews\Contacts\ISupplierModuleView.cs" />
     <Compile Include="Views\ModuleViews\Inventory\ICategoryModuleView.cs" />
     <Compile Include="Views\ModuleViews\Inventory\IProductModuleView.cs" />
+    <Compile Include="Views\ModuleViews\Orders\IOrderListView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
