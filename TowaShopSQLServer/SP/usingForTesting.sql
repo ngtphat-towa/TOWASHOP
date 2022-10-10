@@ -40,3 +40,15 @@ insert into SUPPLIERS (SUPPLIERID,SUPPLIER_NAME,CONTACT_NAME,CONTACT_PHONE,SL_AD
 values ('SL2','New Orleans Cajun Delights','Shelley Burke','(100) 555-4822','49 Gilbert St.','New Orleans','USA');
 
 delete from dbo.PRODUCTS where PRODUCTID = 'P1';
+
+
+--- ORDER
+select * from TOWASHOP.dbo.ORDERS;
+select * from Northwind.dbo.Orders;
+
+select * from TOWASHOP.dbo.ACCOUNTS;
+
+insert into TOWASHOP.dbo.Orders(CREATED_BY,CREATED_AT,UPDATED_AT,ORDER_TYPE,PAYMENT_METHOD,TOTAL,GRAND_TOTAL,STATUS, COMMENTS)
+	values ('UID1000', getdate() , getdate(), GETDATE(),0/* new*/,0 /* paid*/,20,20,1,Null);
+
+	select getdate();
