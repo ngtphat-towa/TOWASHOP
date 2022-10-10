@@ -71,6 +71,12 @@
     <Compile Include="Module\Inventory\CategoryModule.Designer.cs">
       <DependentUpon>CategoryModule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Module\Order\OrderListModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Order\OrderListModule.Designer.cs">
+      <DependentUpon>OrderListModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Module\Product\ProductModule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Module\Inventory\CategoryModule.resx">
       <DependentUpon>CategoryModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Order\OrderListModule.resx">
+      <DependentUpon>OrderListModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Module\Product\ProductModule.resx">
       <DependentUpon>ProductModule.cs</DependentUpon>

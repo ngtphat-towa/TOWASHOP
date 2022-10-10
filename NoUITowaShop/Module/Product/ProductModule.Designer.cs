@@ -29,7 +29,7 @@ namespace NoUITowaShop.Module.Product
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabProducts = new System.Windows.Forms.TabControl();
             this.tabProductList = new System.Windows.Forms.TabPage();
             this.dataGridView = new System.Windows.Forms.DataGridView();
@@ -145,10 +145,10 @@ namespace NoUITowaShop.Module.Product
             this.tabProductList.Controls.Add(this.tableOption);
             this.tabProductList.Controls.Add(this.tbPanelSLFooter);
             this.tabProductList.Controls.Add(this.tbPanelCTList);
-            this.tabProductList.Location = new System.Drawing.Point(4, 32);
+            this.tabProductList.Location = new System.Drawing.Point(4, 29);
             this.tabProductList.Name = "tabProductList";
             this.tabProductList.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProductList.Size = new System.Drawing.Size(1192, 604);
+            this.tabProductList.Size = new System.Drawing.Size(1192, 607);
             this.tabProductList.TabIndex = 0;
             this.tabProductList.Text = "Product List";
             this.tabProductList.UseVisualStyleBackColor = true;
@@ -163,14 +163,14 @@ namespace NoUITowaShop.Module.Product
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.Color.Snow;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(3, 115);
             this.dataGridView.Name = "dataGridView";
@@ -178,7 +178,7 @@ namespace NoUITowaShop.Module.Product
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(1186, 354);
+            this.dataGridView.Size = new System.Drawing.Size(1186, 411);
             this.dataGridView.TabIndex = 7;
             // 
             // tableOption
@@ -201,7 +201,7 @@ namespace NoUITowaShop.Module.Product
             this.tableOption.Name = "tableOption";
             this.tableOption.RowCount = 1;
             this.tableOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableOption.Size = new System.Drawing.Size(1186, 72);
+            this.tableOption.Size = new System.Drawing.Size(1186, 66);
             this.tableOption.TabIndex = 6;
             // 
             // gbGroupBy
@@ -212,7 +212,7 @@ namespace NoUITowaShop.Module.Product
             this.gbGroupBy.Controls.Add(this.cbFillter);
             this.gbGroupBy.Location = new System.Drawing.Point(504, 3);
             this.gbGroupBy.Name = "gbGroupBy";
-            this.gbGroupBy.Size = new System.Drawing.Size(189, 66);
+            this.gbGroupBy.Size = new System.Drawing.Size(189, 60);
             this.gbGroupBy.TabIndex = 14;
             this.gbGroupBy.TabStop = false;
             this.gbGroupBy.Text = "Group by";
@@ -220,8 +220,9 @@ namespace NoUITowaShop.Module.Product
             // cbFillter
             // 
             this.cbFillter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbFillter.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFillter.FormattingEnabled = true;
-            this.cbFillter.Location = new System.Drawing.Point(3, 25);
+            this.cbFillter.Location = new System.Drawing.Point(3, 23);
             this.cbFillter.Name = "cbFillter";
             this.cbFillter.Size = new System.Drawing.Size(183, 31);
             this.cbFillter.TabIndex = 0;
@@ -234,7 +235,7 @@ namespace NoUITowaShop.Module.Product
             this.btnEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnEdit.Location = new System.Drawing.Point(989, 3);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(94, 66);
+            this.btnEdit.Size = new System.Drawing.Size(94, 60);
             this.btnEdit.TabIndex = 11;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -248,7 +249,7 @@ namespace NoUITowaShop.Module.Product
             this.gpSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gpSearch.Location = new System.Drawing.Point(3, 3);
             this.gpSearch.Name = "gpSearch";
-            this.gpSearch.Size = new System.Drawing.Size(495, 66);
+            this.gpSearch.Size = new System.Drawing.Size(495, 60);
             this.gpSearch.TabIndex = 8;
             this.gpSearch.TabStop = false;
             this.gpSearch.Text = "Search box";
@@ -258,10 +259,10 @@ namespace NoUITowaShop.Module.Product
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(3, 25);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(486, 37);
+            this.txtSearch.Size = new System.Drawing.Size(486, 33);
             this.txtSearch.TabIndex = 0;
             // 
             // btnAdd
@@ -272,7 +273,7 @@ namespace NoUITowaShop.Module.Product
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAdd.Location = new System.Drawing.Point(889, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(94, 66);
+            this.btnAdd.Size = new System.Drawing.Size(94, 60);
             this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add new";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -285,7 +286,7 @@ namespace NoUITowaShop.Module.Product
             this.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnDelete.Location = new System.Drawing.Point(1089, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(94, 66);
+            this.btnDelete.Size = new System.Drawing.Size(94, 60);
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -298,7 +299,7 @@ namespace NoUITowaShop.Module.Product
             this.gbFillterValue.Controls.Add(this.cbFillterValue);
             this.gbFillterValue.Location = new System.Drawing.Point(699, 3);
             this.gbFillterValue.Name = "gbFillterValue";
-            this.gbFillterValue.Size = new System.Drawing.Size(184, 66);
+            this.gbFillterValue.Size = new System.Drawing.Size(184, 60);
             this.gbFillterValue.TabIndex = 13;
             this.gbFillterValue.TabStop = false;
             this.gbFillterValue.Text = "Select by";
@@ -306,21 +307,22 @@ namespace NoUITowaShop.Module.Product
             // cbFillterValue
             // 
             this.cbFillterValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbFillterValue.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFillterValue.FormattingEnabled = true;
-            this.cbFillterValue.Location = new System.Drawing.Point(3, 25);
+            this.cbFillterValue.Location = new System.Drawing.Point(3, 23);
             this.cbFillterValue.Name = "cbFillterValue";
             this.cbFillterValue.Size = new System.Drawing.Size(178, 31);
             this.cbFillterValue.TabIndex = 0;
             // 
             // tbPanelSLFooter
             // 
-            this.tbPanelSLFooter.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.tbPanelSLFooter.BackColor = System.Drawing.Color.Navy;
             this.tbPanelSLFooter.ColumnCount = 3;
             this.tbPanelSLFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbPanelSLFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.39233F));
             this.tbPanelSLFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbPanelSLFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbPanelSLFooter.Location = new System.Drawing.Point(3, 567);
+            this.tbPanelSLFooter.Location = new System.Drawing.Point(3, 570);
             this.tbPanelSLFooter.Name = "tbPanelSLFooter";
             this.tbPanelSLFooter.RowCount = 1;
             this.tbPanelSLFooter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -329,7 +331,7 @@ namespace NoUITowaShop.Module.Product
             // 
             // tbPanelCTList
             // 
-            this.tbPanelCTList.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.tbPanelCTList.BackColor = System.Drawing.Color.Navy;
             this.tbPanelCTList.ColumnCount = 3;
             this.tbPanelCTList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbPanelCTList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.39233F));
@@ -348,10 +350,10 @@ namespace NoUITowaShop.Module.Product
             // 
             this.lbProductsHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbProductsHeader.AutoSize = true;
-            this.lbProductsHeader.Font = new System.Drawing.Font("Microsoft Tai Le", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbProductsHeader.Location = new System.Drawing.Point(506, 2);
+            this.lbProductsHeader.Font = new System.Drawing.Font("Microsoft YaHei UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProductsHeader.Location = new System.Drawing.Point(499, 1);
             this.lbProductsHeader.Name = "lbProductsHeader";
-            this.lbProductsHeader.Size = new System.Drawing.Size(171, 35);
+            this.lbProductsHeader.Size = new System.Drawing.Size(185, 37);
             this.lbProductsHeader.TabIndex = 2;
             this.lbProductsHeader.Text = "Product List";
             // 
@@ -361,22 +363,22 @@ namespace NoUITowaShop.Module.Product
             this.tabDefine.Controls.Add(this.tbPanelDFFooter);
             this.tabDefine.Controls.Add(this.tbPanelSLInfo);
             this.tabDefine.Controls.Add(this.tbpanelHheader);
-            this.tabDefine.Location = new System.Drawing.Point(4, 32);
+            this.tabDefine.Location = new System.Drawing.Point(4, 29);
             this.tabDefine.Name = "tabDefine";
             this.tabDefine.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDefine.Size = new System.Drawing.Size(1192, 604);
+            this.tabDefine.Size = new System.Drawing.Size(1192, 607);
             this.tabDefine.TabIndex = 1;
             this.tabDefine.Text = "Define product";
             // 
             // tbPanelDFFooter
             // 
-            this.tbPanelDFFooter.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.tbPanelDFFooter.BackColor = System.Drawing.Color.Navy;
             this.tbPanelDFFooter.ColumnCount = 3;
             this.tbPanelDFFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbPanelDFFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.39233F));
             this.tbPanelDFFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbPanelDFFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbPanelDFFooter.Location = new System.Drawing.Point(3, 567);
+            this.tbPanelDFFooter.Location = new System.Drawing.Point(3, 570);
             this.tbPanelDFFooter.Name = "tbPanelDFFooter";
             this.tbPanelDFFooter.RowCount = 1;
             this.tbPanelDFFooter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -392,7 +394,7 @@ namespace NoUITowaShop.Module.Product
             this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.72926F));
             this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.27074F));
-            this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tbPanelSLInfo.Controls.Add(this.gbProductInfo, 1, 0);
             this.tbPanelSLInfo.Controls.Add(this.gqStockDetails, 2, 0);
             this.tbPanelSLInfo.Controls.Add(this.gbContent, 2, 1);
@@ -405,7 +407,7 @@ namespace NoUITowaShop.Module.Product
             this.tbPanelSLInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.48219F));
             this.tbPanelSLInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.51781F));
             this.tbPanelSLInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 71F));
-            this.tbPanelSLInfo.Size = new System.Drawing.Size(1186, 497);
+            this.tbPanelSLInfo.Size = new System.Drawing.Size(1186, 482);
             this.tbPanelSLInfo.TabIndex = 1;
             // 
             // gbProductInfo
@@ -420,7 +422,7 @@ namespace NoUITowaShop.Module.Product
             this.gbProductInfo.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbProductInfo.Location = new System.Drawing.Point(23, 3);
             this.gbProductInfo.Name = "gbProductInfo";
-            this.gbProductInfo.Size = new System.Drawing.Size(655, 238);
+            this.gbProductInfo.Size = new System.Drawing.Size(655, 230);
             this.gbProductInfo.TabIndex = 0;
             this.gbProductInfo.TabStop = false;
             this.gbProductInfo.Text = "Product Info";
@@ -428,10 +430,10 @@ namespace NoUITowaShop.Module.Product
             // lbBarcode
             // 
             this.lbBarcode.AutoSize = true;
-            this.lbBarcode.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBarcode.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbBarcode.Location = new System.Drawing.Point(8, 165);
             this.lbBarcode.Name = "lbBarcode";
-            this.lbBarcode.Size = new System.Drawing.Size(77, 23);
+            this.lbBarcode.Size = new System.Drawing.Size(69, 20);
             this.lbBarcode.TabIndex = 5;
             this.lbBarcode.Text = "Barcode";
             // 
@@ -439,7 +441,7 @@ namespace NoUITowaShop.Module.Product
             // 
             this.txtBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBarcode.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBarcode.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBarcode.Location = new System.Drawing.Point(11, 191);
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Size = new System.Drawing.Size(625, 37);
@@ -448,10 +450,10 @@ namespace NoUITowaShop.Module.Product
             // lbPName
             // 
             this.lbPName.AutoSize = true;
-            this.lbPName.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPName.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPName.Location = new System.Drawing.Point(6, 99);
             this.lbPName.Name = "lbPName";
-            this.lbPName.Size = new System.Drawing.Size(127, 23);
+            this.lbPName.Size = new System.Drawing.Size(114, 20);
             this.lbPName.TabIndex = 3;
             this.lbPName.Text = "Product Name";
             // 
@@ -459,7 +461,7 @@ namespace NoUITowaShop.Module.Product
             // 
             this.txtProductName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProductName.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductName.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProductName.Location = new System.Drawing.Point(11, 125);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(626, 37);
@@ -469,7 +471,7 @@ namespace NoUITowaShop.Module.Product
             // 
             this.txtPID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPID.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPID.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPID.Location = new System.Drawing.Point(10, 59);
             this.txtPID.Name = "txtPID";
             this.txtPID.ReadOnly = true;
@@ -480,10 +482,10 @@ namespace NoUITowaShop.Module.Product
             // lbPID
             // 
             this.lbPID.AutoSize = true;
-            this.lbPID.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPID.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPID.Location = new System.Drawing.Point(6, 33);
             this.lbPID.Name = "lbPID";
-            this.lbPID.Size = new System.Drawing.Size(38, 23);
+            this.lbPID.Size = new System.Drawing.Size(33, 20);
             this.lbPID.TabIndex = 0;
             this.lbPID.Text = "PID";
             // 
@@ -501,7 +503,7 @@ namespace NoUITowaShop.Module.Product
             this.gqStockDetails.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold);
             this.gqStockDetails.Location = new System.Drawing.Point(684, 3);
             this.gqStockDetails.Name = "gqStockDetails";
-            this.gqStockDetails.Size = new System.Drawing.Size(478, 238);
+            this.gqStockDetails.Size = new System.Drawing.Size(477, 230);
             this.gqStockDetails.TabIndex = 5;
             this.gqStockDetails.TabStop = false;
             this.gqStockDetails.Text = "Stock Details";
@@ -523,10 +525,10 @@ namespace NoUITowaShop.Module.Product
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(25, 112);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 23);
+            this.label5.Size = new System.Drawing.Size(54, 20);
             this.label5.TabIndex = 7;
             this.label5.Text = "Status";
             // 
@@ -535,10 +537,10 @@ namespace NoUITowaShop.Module.Product
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(25, 196);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 23);
+            this.label2.Size = new System.Drawing.Size(107, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "Unit on order";
             // 
@@ -549,7 +551,7 @@ namespace NoUITowaShop.Module.Product
             this.txtUnitOnOrder.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUnitOnOrder.Location = new System.Drawing.Point(219, 190);
             this.txtUnitOnOrder.Name = "txtUnitOnOrder";
-            this.txtUnitOnOrder.Size = new System.Drawing.Size(239, 30);
+            this.txtUnitOnOrder.Size = new System.Drawing.Size(238, 30);
             this.txtUnitOnOrder.TabIndex = 5;
             // 
             // label1
@@ -557,10 +559,10 @@ namespace NoUITowaShop.Module.Product
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(26, 153);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 23);
+            this.label1.Size = new System.Drawing.Size(105, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Unit on stock";
             // 
@@ -568,10 +570,10 @@ namespace NoUITowaShop.Module.Product
             // 
             this.txtQuantityPerUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtQuantityPerUnit.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantityPerUnit.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuantityPerUnit.Location = new System.Drawing.Point(10, 59);
             this.txtQuantityPerUnit.Name = "txtQuantityPerUnit";
-            this.txtQuantityPerUnit.Size = new System.Drawing.Size(461, 37);
+            this.txtQuantityPerUnit.Size = new System.Drawing.Size(460, 37);
             this.txtQuantityPerUnit.TabIndex = 3;
             // 
             // txtUnitOnStock
@@ -581,16 +583,16 @@ namespace NoUITowaShop.Module.Product
             this.txtUnitOnStock.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUnitOnStock.Location = new System.Drawing.Point(219, 147);
             this.txtUnitOnStock.Name = "txtUnitOnStock";
-            this.txtUnitOnStock.Size = new System.Drawing.Size(239, 30);
+            this.txtUnitOnStock.Size = new System.Drawing.Size(238, 30);
             this.txtUnitOnStock.TabIndex = 0;
             // 
             // lbQuantity
             // 
             this.lbQuantity.AutoSize = true;
-            this.lbQuantity.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbQuantity.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbQuantity.Location = new System.Drawing.Point(6, 33);
             this.lbQuantity.Name = "lbQuantity";
-            this.lbQuantity.Size = new System.Drawing.Size(147, 23);
+            this.lbQuantity.Size = new System.Drawing.Size(132, 20);
             this.lbQuantity.TabIndex = 0;
             this.lbQuantity.Text = "Quantity per unit";
             // 
@@ -601,9 +603,9 @@ namespace NoUITowaShop.Module.Product
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbContent.Controls.Add(this.txtContent);
             this.gbContent.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold);
-            this.gbContent.Location = new System.Drawing.Point(684, 247);
+            this.gbContent.Location = new System.Drawing.Point(684, 239);
             this.gbContent.Name = "gbContent";
-            this.gbContent.Size = new System.Drawing.Size(478, 175);
+            this.gbContent.Size = new System.Drawing.Size(477, 168);
             this.gbContent.TabIndex = 6;
             this.gbContent.TabStop = false;
             this.gbContent.Text = "Comment";
@@ -616,7 +618,7 @@ namespace NoUITowaShop.Module.Product
             this.txtContent.Location = new System.Drawing.Point(9, 36);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(462, 133);
+            this.txtContent.Size = new System.Drawing.Size(461, 126);
             this.txtContent.TabIndex = 0;
             // 
             // gbProductDetail
@@ -624,9 +626,9 @@ namespace NoUITowaShop.Module.Product
             this.gbProductDetail.Controls.Add(this.tableLayoutPanel1);
             this.gbProductDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbProductDetail.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold);
-            this.gbProductDetail.Location = new System.Drawing.Point(23, 247);
+            this.gbProductDetail.Location = new System.Drawing.Point(23, 239);
             this.gbProductDetail.Name = "gbProductDetail";
-            this.gbProductDetail.Size = new System.Drawing.Size(655, 175);
+            this.gbProductDetail.Size = new System.Drawing.Size(655, 168);
             this.gbProductDetail.TabIndex = 7;
             this.gbProductDetail.TabStop = false;
             this.gbProductDetail.Text = "Product Details";
@@ -648,17 +650,17 @@ namespace NoUITowaShop.Module.Product
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(651, 150);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(651, 143);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // gbSupplier
             // 
             this.gbSupplier.Controls.Add(this.tableLayoutPanel5);
             this.gbSupplier.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbSupplier.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbSupplier.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSupplier.Location = new System.Drawing.Point(328, 3);
             this.gbSupplier.Name = "gbSupplier";
-            this.gbSupplier.Size = new System.Drawing.Size(320, 69);
+            this.gbSupplier.Size = new System.Drawing.Size(320, 65);
             this.gbSupplier.TabIndex = 0;
             this.gbSupplier.TabStop = false;
             this.gbSupplier.Text = "Supplier";
@@ -671,11 +673,11 @@ namespace NoUITowaShop.Module.Product
             this.tableLayoutPanel5.Controls.Add(this.btnAddNewSupplier, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.cbSupplierList, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 25);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 23);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(314, 41);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(314, 39);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // btnAddNewSupplier
@@ -684,7 +686,7 @@ namespace NoUITowaShop.Module.Product
             this.btnAddNewSupplier.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F);
             this.btnAddNewSupplier.Location = new System.Drawing.Point(262, 3);
             this.btnAddNewSupplier.Name = "btnAddNewSupplier";
-            this.btnAddNewSupplier.Size = new System.Drawing.Size(49, 35);
+            this.btnAddNewSupplier.Size = new System.Drawing.Size(49, 33);
             this.btnAddNewSupplier.TabIndex = 1;
             this.btnAddNewSupplier.Text = "+";
             this.btnAddNewSupplier.UseVisualStyleBackColor = true;
@@ -703,10 +705,10 @@ namespace NoUITowaShop.Module.Product
             // 
             this.gbCategory.Controls.Add(this.tableLayoutPanel4);
             this.gbCategory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbCategory.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbCategory.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCategory.Location = new System.Drawing.Point(3, 3);
             this.gbCategory.Name = "gbCategory";
-            this.gbCategory.Size = new System.Drawing.Size(319, 69);
+            this.gbCategory.Size = new System.Drawing.Size(319, 65);
             this.gbCategory.TabIndex = 1;
             this.gbCategory.TabStop = false;
             this.gbCategory.Text = "Category";
@@ -719,11 +721,11 @@ namespace NoUITowaShop.Module.Product
             this.tableLayoutPanel4.Controls.Add(this.btnAddNewCategory, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.cbCategoryList, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 25);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 23);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(313, 41);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(313, 39);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // btnAddNewCategory
@@ -732,7 +734,7 @@ namespace NoUITowaShop.Module.Product
             this.btnAddNewCategory.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F);
             this.btnAddNewCategory.Location = new System.Drawing.Point(261, 3);
             this.btnAddNewCategory.Name = "btnAddNewCategory";
-            this.btnAddNewCategory.Size = new System.Drawing.Size(49, 35);
+            this.btnAddNewCategory.Size = new System.Drawing.Size(49, 33);
             this.btnAddNewCategory.TabIndex = 1;
             this.btnAddNewCategory.Text = "+";
             this.btnAddNewCategory.UseVisualStyleBackColor = true;
@@ -751,10 +753,10 @@ namespace NoUITowaShop.Module.Product
             // 
             this.gbVAT.Controls.Add(this.txtVAT);
             this.gbVAT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbVAT.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbVAT.Location = new System.Drawing.Point(3, 78);
+            this.gbVAT.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbVAT.Location = new System.Drawing.Point(3, 74);
             this.gbVAT.Name = "gbVAT";
-            this.gbVAT.Size = new System.Drawing.Size(319, 69);
+            this.gbVAT.Size = new System.Drawing.Size(319, 66);
             this.gbVAT.TabIndex = 2;
             this.gbVAT.TabStop = false;
             this.gbVAT.Text = "VAT(%)";
@@ -764,7 +766,7 @@ namespace NoUITowaShop.Module.Product
             this.txtVAT.DecimalPlaces = 2;
             this.txtVAT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtVAT.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVAT.Location = new System.Drawing.Point(3, 25);
+            this.txtVAT.Location = new System.Drawing.Point(3, 23);
             this.txtVAT.Name = "txtVAT";
             this.txtVAT.Size = new System.Drawing.Size(313, 33);
             this.txtVAT.TabIndex = 1;
@@ -774,10 +776,10 @@ namespace NoUITowaShop.Module.Product
             // 
             this.gbUnitPrice.Controls.Add(this.txtUnitPrice);
             this.gbUnitPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbUnitPrice.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbUnitPrice.Location = new System.Drawing.Point(328, 78);
+            this.gbUnitPrice.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbUnitPrice.Location = new System.Drawing.Point(328, 74);
             this.gbUnitPrice.Name = "gbUnitPrice";
-            this.gbUnitPrice.Size = new System.Drawing.Size(320, 69);
+            this.gbUnitPrice.Size = new System.Drawing.Size(320, 66);
             this.gbUnitPrice.TabIndex = 3;
             this.gbUnitPrice.TabStop = false;
             this.gbUnitPrice.Text = "Unit Price";
@@ -791,7 +793,7 @@ namespace NoUITowaShop.Module.Product
             0,
             0,
             0});
-            this.txtUnitPrice.Location = new System.Drawing.Point(3, 25);
+            this.txtUnitPrice.Location = new System.Drawing.Point(3, 23);
             this.txtUnitPrice.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -812,7 +814,7 @@ namespace NoUITowaShop.Module.Product
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.gqSalePrice, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.gbMessage, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(23, 428);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(23, 413);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -825,7 +827,7 @@ namespace NoUITowaShop.Module.Product
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gqSalePrice.Controls.Add(this.txtSalePrice);
-            this.gqSalePrice.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.gqSalePrice.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             this.gqSalePrice.Location = new System.Drawing.Point(330, 3);
             this.gqSalePrice.Name = "gqSalePrice";
             this.gqSalePrice.Size = new System.Drawing.Size(322, 60);
@@ -861,7 +863,7 @@ namespace NoUITowaShop.Module.Product
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbMessage.Controls.Add(this.txtMessage);
-            this.gbMessage.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.gbMessage.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
             this.gbMessage.Location = new System.Drawing.Point(3, 3);
             this.gbMessage.Name = "gbMessage";
             this.gbMessage.Size = new System.Drawing.Size(321, 60);
@@ -874,7 +876,7 @@ namespace NoUITowaShop.Module.Product
             this.txtMessage.AutoSize = true;
             this.txtMessage.Location = new System.Drawing.Point(6, 33);
             this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(0, 24);
+            this.txtMessage.Size = new System.Drawing.Size(0, 19);
             this.txtMessage.TabIndex = 0;
             // 
             // gbOptions
@@ -883,9 +885,9 @@ namespace NoUITowaShop.Module.Product
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbOptions.Controls.Add(this.tableLayoutPanel3);
-            this.gbOptions.Location = new System.Drawing.Point(684, 428);
+            this.gbOptions.Location = new System.Drawing.Point(684, 413);
             this.gbOptions.Name = "gbOptions";
-            this.gbOptions.Size = new System.Drawing.Size(478, 66);
+            this.gbOptions.Size = new System.Drawing.Size(477, 66);
             this.gbOptions.TabIndex = 9;
             this.gbOptions.TabStop = false;
             this.gbOptions.Text = "Option";
@@ -898,11 +900,11 @@ namespace NoUITowaShop.Module.Product
             this.tableLayoutPanel3.Controls.Add(this.btnCancel, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnSave, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 25);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 23);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(472, 38);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(471, 40);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // btnCancel
@@ -912,7 +914,7 @@ namespace NoUITowaShop.Module.Product
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Location = new System.Drawing.Point(3, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(230, 32);
+            this.btnCancel.Size = new System.Drawing.Size(229, 34);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -922,16 +924,16 @@ namespace NoUITowaShop.Module.Product
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(239, 3);
+            this.btnSave.Location = new System.Drawing.Point(238, 3);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(230, 32);
+            this.btnSave.Size = new System.Drawing.Size(230, 34);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
             // tbpanelHheader
             // 
-            this.tbpanelHheader.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.tbpanelHheader.BackColor = System.Drawing.Color.Navy;
             this.tbpanelHheader.ColumnCount = 3;
             this.tbpanelHheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbpanelHheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.39233F));
@@ -950,19 +952,20 @@ namespace NoUITowaShop.Module.Product
             // 
             this.lbProductHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbProductHeader.AutoSize = true;
-            this.lbProductHeader.Font = new System.Drawing.Font("Microsoft Tai Le", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbProductHeader.Location = new System.Drawing.Point(481, 2);
+            this.lbProductHeader.Font = new System.Drawing.Font("Microsoft YaHei UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProductHeader.Location = new System.Drawing.Point(474, 1);
             this.lbProductHeader.Name = "lbProductHeader";
-            this.lbProductHeader.Size = new System.Drawing.Size(221, 35);
+            this.lbProductHeader.Size = new System.Drawing.Size(235, 37);
             this.lbProductHeader.TabIndex = 2;
             this.lbProductHeader.Text = "Product Define ";
             // 
             // ProductModule
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 640);
             this.Controls.Add(this.tabProducts);
-            this.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F);
+            this.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ProductModule";

@@ -1,5 +1,6 @@
 ﻿using NoUITowaShop.Module.Contact;
 using NoUITowaShop.Module.Inventory;
+using NoUITowaShop.Module.Order;
 using NoUITowaShop.Module.Product;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ using TOWALibrary.Views;
 using TOWALibrary.Views.MainViews;
 using TOWALibrary.Views.ModuleViews.Contacts;
 using TOWALibrary.Views.ModuleViews.Inventory;
+using TOWALibrary.Views.ModuleViews.Orders;
 
 namespace SimpleUITowaShop
 {
@@ -31,6 +33,7 @@ namespace SimpleUITowaShop
         public event EventHandler ShowSupplierModuleView;
         public event EventHandler ShowCategoryModuleView;
         public event EventHandler ShowProductModuleView;
+        public event EventHandler ShowOrderListModuleView;
 
         private void AssociateAndRaiseViewEvents()
         {
@@ -44,6 +47,10 @@ namespace SimpleUITowaShop
             this.productsToolStripMenuItem.Click += delegate
             {
                 ShowProductModuleView?.Invoke(this, EventArgs.Empty);
+            };
+            this.orderListToolStripMenuItem.Click += delegate
+            {
+                ShowOrderListModuleView?.Invoke(this, EventArgs.Empty);
             };
             this.FormClosed += delegate
             {
@@ -68,6 +75,11 @@ namespace SimpleUITowaShop
         {
             get => ProductModule.GetInstance(this);
         }
+        public IOrderListMoudleView OrderListModuleView
+        {
+            get => OrderListModule.GetInstance(this);
+        }
+
 
         #endregion
 
@@ -87,9 +99,10 @@ namespace SimpleUITowaShop
         }
 
 
+
+
+
         #endregion
-
-
 
     }
 }

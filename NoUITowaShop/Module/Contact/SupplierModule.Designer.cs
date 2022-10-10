@@ -106,10 +106,10 @@ namespace NoUITowaShop.Module.Contact
             this.tabSupplierList.Controls.Add(this.tableOption);
             this.tabSupplierList.Controls.Add(this.tbPanelSLFooter);
             this.tabSupplierList.Controls.Add(this.tbPanelSLList);
-            this.tabSupplierList.Location = new System.Drawing.Point(4, 32);
+            this.tabSupplierList.Location = new System.Drawing.Point(4, 29);
             this.tabSupplierList.Name = "tabSupplierList";
             this.tabSupplierList.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSupplierList.Size = new System.Drawing.Size(1192, 604);
+            this.tabSupplierList.Size = new System.Drawing.Size(1192, 607);
             this.tabSupplierList.TabIndex = 0;
             this.tabSupplierList.Text = "Supplier List";
             this.tabSupplierList.UseVisualStyleBackColor = true;
@@ -126,20 +126,20 @@ namespace NoUITowaShop.Module.Contact
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.DarkRed;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(3, 115);
+            this.dataGridView.Location = new System.Drawing.Point(3, 114);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(1186, 410);
+            this.dataGridView.Size = new System.Drawing.Size(1186, 399);
             this.dataGridView.TabIndex = 7;
             // 
             // tableOption
@@ -159,7 +159,7 @@ namespace NoUITowaShop.Module.Contact
             this.tableOption.Name = "tableOption";
             this.tableOption.RowCount = 1;
             this.tableOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableOption.Size = new System.Drawing.Size(1186, 72);
+            this.tableOption.Size = new System.Drawing.Size(1186, 65);
             this.tableOption.TabIndex = 6;
             // 
             // btnEdit
@@ -170,7 +170,7 @@ namespace NoUITowaShop.Module.Contact
             this.btnEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnEdit.Location = new System.Drawing.Point(934, 3);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(119, 66);
+            this.btnEdit.Size = new System.Drawing.Size(119, 59);
             this.btnEdit.TabIndex = 11;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -184,7 +184,7 @@ namespace NoUITowaShop.Module.Contact
             this.gpSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gpSearch.Location = new System.Drawing.Point(3, 3);
             this.gpSearch.Name = "gpSearch";
-            this.gpSearch.Size = new System.Drawing.Size(809, 66);
+            this.gpSearch.Size = new System.Drawing.Size(809, 59);
             this.gpSearch.TabIndex = 8;
             this.gpSearch.TabStop = false;
             this.gpSearch.Text = "Search box";
@@ -194,10 +194,10 @@ namespace NoUITowaShop.Module.Contact
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(3, 25);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(800, 37);
+            this.txtSearch.Size = new System.Drawing.Size(800, 30);
             this.txtSearch.TabIndex = 0;
             // 
             // btnAdd
@@ -208,7 +208,7 @@ namespace NoUITowaShop.Module.Contact
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAdd.Location = new System.Drawing.Point(818, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(110, 66);
+            this.btnAdd.Size = new System.Drawing.Size(110, 59);
             this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add new";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -221,7 +221,7 @@ namespace NoUITowaShop.Module.Contact
             this.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnDelete.Location = new System.Drawing.Point(1059, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(124, 66);
+            this.btnDelete.Size = new System.Drawing.Size(124, 59);
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -234,7 +234,7 @@ namespace NoUITowaShop.Module.Contact
             this.tbPanelSLFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.39233F));
             this.tbPanelSLFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbPanelSLFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbPanelSLFooter.Location = new System.Drawing.Point(3, 567);
+            this.tbPanelSLFooter.Location = new System.Drawing.Point(3, 570);
             this.tbPanelSLFooter.Name = "tbPanelSLFooter";
             this.tbPanelSLFooter.RowCount = 1;
             this.tbPanelSLFooter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -262,10 +262,10 @@ namespace NoUITowaShop.Module.Contact
             // 
             this.lbSLHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbSLHeader.AutoSize = true;
-            this.lbSLHeader.Font = new System.Drawing.Font("Microsoft Tai Le", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSLHeader.Location = new System.Drawing.Point(503, 2);
+            this.lbSLHeader.Font = new System.Drawing.Font("Microsoft YaHei UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSLHeader.Location = new System.Drawing.Point(496, 1);
             this.lbSLHeader.Name = "lbSLHeader";
-            this.lbSLHeader.Size = new System.Drawing.Size(177, 35);
+            this.lbSLHeader.Size = new System.Drawing.Size(191, 37);
             this.lbSLHeader.TabIndex = 2;
             this.lbSLHeader.Text = "Supplier List";
             // 
@@ -276,10 +276,10 @@ namespace NoUITowaShop.Module.Contact
             this.tabDefine.Controls.Add(this.tbPanelSLAdress);
             this.tabDefine.Controls.Add(this.tbPanelSLInfo);
             this.tabDefine.Controls.Add(this.tbpanelHheader);
-            this.tabDefine.Location = new System.Drawing.Point(4, 32);
+            this.tabDefine.Location = new System.Drawing.Point(4, 29);
             this.tabDefine.Name = "tabDefine";
             this.tabDefine.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDefine.Size = new System.Drawing.Size(1192, 604);
+            this.tabDefine.Size = new System.Drawing.Size(1192, 607);
             this.tabDefine.TabIndex = 1;
             this.tabDefine.Text = "Define suppliers";
             // 
@@ -291,7 +291,7 @@ namespace NoUITowaShop.Module.Contact
             this.tbPanelDFFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.39233F));
             this.tbPanelDFFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbPanelDFFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbPanelDFFooter.Location = new System.Drawing.Point(3, 567);
+            this.tbPanelDFFooter.Location = new System.Drawing.Point(3, 574);
             this.tbPanelDFFooter.Name = "tbPanelDFFooter";
             this.tbPanelDFFooter.RowCount = 1;
             this.tbPanelDFFooter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -307,14 +307,14 @@ namespace NoUITowaShop.Module.Contact
             this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.30131F));
             this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.69869F));
-            this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tbPanelSLAdress.Controls.Add(this.gpAddressInfo, 1, 0);
             this.tbPanelSLAdress.Controls.Add(this.panelOption, 2, 0);
             this.tbPanelSLAdress.Location = new System.Drawing.Point(3, 229);
             this.tbPanelSLAdress.Name = "tbPanelSLAdress";
             this.tbPanelSLAdress.RowCount = 1;
             this.tbPanelSLAdress.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbPanelSLAdress.Size = new System.Drawing.Size(1186, 290);
+            this.tbPanelSLAdress.Size = new System.Drawing.Size(1186, 286);
             this.tbPanelSLAdress.TabIndex = 2;
             // 
             // gpAddressInfo
@@ -331,7 +331,7 @@ namespace NoUITowaShop.Module.Contact
             this.gpAddressInfo.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpAddressInfo.Location = new System.Drawing.Point(23, 3);
             this.gpAddressInfo.Name = "gpAddressInfo";
-            this.gpAddressInfo.Size = new System.Drawing.Size(673, 284);
+            this.gpAddressInfo.Size = new System.Drawing.Size(673, 280);
             this.gpAddressInfo.TabIndex = 1;
             this.gpAddressInfo.TabStop = false;
             this.gpAddressInfo.Text = "Address info";
@@ -339,10 +339,10 @@ namespace NoUITowaShop.Module.Contact
             // lbContry
             // 
             this.lbContry.AutoSize = true;
-            this.lbContry.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbContry.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbContry.Location = new System.Drawing.Point(19, 203);
             this.lbContry.Name = "lbContry";
-            this.lbContry.Size = new System.Drawing.Size(82, 25);
+            this.lbContry.Size = new System.Drawing.Size(88, 27);
             this.lbContry.TabIndex = 5;
             this.lbContry.Text = "Country";
             // 
@@ -350,7 +350,7 @@ namespace NoUITowaShop.Module.Contact
             // 
             this.txtCountry.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCountry.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCountry.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCountry.Location = new System.Drawing.Point(23, 236);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(637, 37);
@@ -359,10 +359,10 @@ namespace NoUITowaShop.Module.Contact
             // lbCity
             // 
             this.lbCity.AutoSize = true;
-            this.lbCity.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCity.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCity.Location = new System.Drawing.Point(19, 131);
             this.lbCity.Name = "lbCity";
-            this.lbCity.Size = new System.Drawing.Size(46, 25);
+            this.lbCity.Size = new System.Drawing.Size(48, 27);
             this.lbCity.TabIndex = 3;
             this.lbCity.Text = "City";
             // 
@@ -370,7 +370,7 @@ namespace NoUITowaShop.Module.Contact
             // 
             this.txtCity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCity.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCity.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCity.Location = new System.Drawing.Point(23, 164);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(637, 37);
@@ -380,7 +380,7 @@ namespace NoUITowaShop.Module.Contact
             // 
             this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAddress.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress.Location = new System.Drawing.Point(23, 66);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
@@ -390,10 +390,10 @@ namespace NoUITowaShop.Module.Contact
             // lbAddress
             // 
             this.lbAddress.AutoSize = true;
-            this.lbAddress.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAddress.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAddress.Location = new System.Drawing.Point(19, 33);
             this.lbAddress.Name = "lbAddress";
-            this.lbAddress.Size = new System.Drawing.Size(82, 25);
+            this.lbAddress.Size = new System.Drawing.Size(89, 27);
             this.lbAddress.TabIndex = 0;
             this.lbAddress.Text = "Address";
             // 
@@ -407,7 +407,7 @@ namespace NoUITowaShop.Module.Contact
             this.panelOption.Controls.Add(this.btnSave);
             this.panelOption.Location = new System.Drawing.Point(702, 3);
             this.panelOption.Name = "panelOption";
-            this.panelOption.Size = new System.Drawing.Size(460, 284);
+            this.panelOption.Size = new System.Drawing.Size(459, 280);
             this.panelOption.TabIndex = 4;
             // 
             // gbComent
@@ -419,7 +419,7 @@ namespace NoUITowaShop.Module.Contact
             this.gbComent.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold);
             this.gbComent.Location = new System.Drawing.Point(3, 3);
             this.gbComent.Name = "gbComent";
-            this.gbComent.Size = new System.Drawing.Size(457, 199);
+            this.gbComent.Size = new System.Drawing.Size(456, 195);
             this.gbComent.TabIndex = 3;
             this.gbComent.TabStop = false;
             this.gbComent.Text = "Comment";
@@ -432,13 +432,13 @@ namespace NoUITowaShop.Module.Contact
             this.txtContent.Location = new System.Drawing.Point(6, 36);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(448, 157);
+            this.txtContent.Size = new System.Drawing.Size(447, 153);
             this.txtContent.TabIndex = 0;
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnCancel.Location = new System.Drawing.Point(36, 222);
+            this.btnCancel.Location = new System.Drawing.Point(35, 218);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(191, 45);
             this.btnCancel.TabIndex = 2;
@@ -448,7 +448,7 @@ namespace NoUITowaShop.Module.Contact
             // btnSave
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSave.Location = new System.Drawing.Point(253, 222);
+            this.btnSave.Location = new System.Drawing.Point(252, 218);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(182, 45);
             this.btnSave.TabIndex = 0;
@@ -461,7 +461,7 @@ namespace NoUITowaShop.Module.Contact
             this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.38865F));
             this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.61135F));
-            this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tbPanelSLInfo.Controls.Add(this.gbContactInfo, 2, 0);
             this.tbPanelSLInfo.Controls.Add(this.gbSupplierInfo, 1, 0);
             this.tbPanelSLInfo.Dock = System.Windows.Forms.DockStyle.Top;
@@ -485,7 +485,7 @@ namespace NoUITowaShop.Module.Contact
             this.gbContactInfo.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbContactInfo.Location = new System.Drawing.Point(703, 3);
             this.gbContactInfo.Name = "gbContactInfo";
-            this.gbContactInfo.Size = new System.Drawing.Size(459, 180);
+            this.gbContactInfo.Size = new System.Drawing.Size(458, 180);
             this.gbContactInfo.TabIndex = 1;
             this.gbContactInfo.TabStop = false;
             this.gbContactInfo.Text = "Contact Info";
@@ -493,10 +493,10 @@ namespace NoUITowaShop.Module.Contact
             // lbPhone
             // 
             this.lbPhone.AutoSize = true;
-            this.lbPhone.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPhone.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPhone.Location = new System.Drawing.Point(6, 106);
             this.lbPhone.Name = "lbPhone";
-            this.lbPhone.Size = new System.Drawing.Size(157, 25);
+            this.lbPhone.Size = new System.Drawing.Size(170, 27);
             this.lbPhone.TabIndex = 7;
             this.lbPhone.Text = "Contact Phone #";
             // 
@@ -504,29 +504,29 @@ namespace NoUITowaShop.Module.Contact
             // 
             this.txtContactPhone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtContactPhone.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContactPhone.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContactPhone.Location = new System.Drawing.Point(11, 134);
             this.txtContactPhone.Name = "txtContactPhone";
-            this.txtContactPhone.Size = new System.Drawing.Size(433, 37);
+            this.txtContactPhone.Size = new System.Drawing.Size(432, 37);
             this.txtContactPhone.TabIndex = 6;
             // 
             // txtContactName
             // 
             this.txtContactName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtContactName.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContactName.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContactName.Location = new System.Drawing.Point(11, 61);
             this.txtContactName.Name = "txtContactName";
-            this.txtContactName.Size = new System.Drawing.Size(433, 37);
+            this.txtContactName.Size = new System.Drawing.Size(432, 37);
             this.txtContactName.TabIndex = 5;
             // 
             // lbContactName
             // 
             this.lbContactName.AutoSize = true;
-            this.lbContactName.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbContactName.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbContactName.Location = new System.Drawing.Point(6, 33);
             this.lbContactName.Name = "lbContactName";
-            this.lbContactName.Size = new System.Drawing.Size(137, 25);
+            this.lbContactName.Size = new System.Drawing.Size(148, 27);
             this.lbContactName.TabIndex = 4;
             this.lbContactName.Text = "Contact Name";
             // 
@@ -550,10 +550,10 @@ namespace NoUITowaShop.Module.Contact
             // lbSLName
             // 
             this.lbSLName.AutoSize = true;
-            this.lbSLName.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSLName.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSLName.Location = new System.Drawing.Point(6, 99);
             this.lbSLName.Name = "lbSLName";
-            this.lbSLName.Size = new System.Drawing.Size(130, 25);
+            this.lbSLName.Size = new System.Drawing.Size(141, 27);
             this.lbSLName.TabIndex = 3;
             this.lbSLName.Text = "Suplier Name";
             // 
@@ -561,7 +561,7 @@ namespace NoUITowaShop.Module.Contact
             // 
             this.txtSupplierName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSupplierName.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSupplierName.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSupplierName.Location = new System.Drawing.Point(10, 132);
             this.txtSupplierName.Name = "txtSupplierName";
             this.txtSupplierName.Size = new System.Drawing.Size(638, 37);
@@ -571,7 +571,7 @@ namespace NoUITowaShop.Module.Contact
             // 
             this.txtSLID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSLID.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSLID.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSLID.Location = new System.Drawing.Point(10, 59);
             this.txtSLID.Name = "txtSLID";
             this.txtSLID.ReadOnly = true;
@@ -582,10 +582,10 @@ namespace NoUITowaShop.Module.Contact
             // lbSLID
             // 
             this.lbSLID.AutoSize = true;
-            this.lbSLID.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSLID.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSLID.Location = new System.Drawing.Point(6, 33);
             this.lbSLID.Name = "lbSLID";
-            this.lbSLID.Size = new System.Drawing.Size(51, 25);
+            this.lbSLID.Size = new System.Drawing.Size(55, 27);
             this.lbSLID.TabIndex = 0;
             this.lbSLID.Text = "SLID";
             // 
@@ -610,22 +610,23 @@ namespace NoUITowaShop.Module.Contact
             // 
             this.lbSupplierHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbSupplierHeader.AutoSize = true;
-            this.lbSupplierHeader.Font = new System.Drawing.Font("Microsoft Tai Le", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSupplierHeader.Location = new System.Drawing.Point(478, 2);
+            this.lbSupplierHeader.Font = new System.Drawing.Font("Microsoft YaHei UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSupplierHeader.Location = new System.Drawing.Point(471, 1);
             this.lbSupplierHeader.Name = "lbSupplierHeader";
-            this.lbSupplierHeader.Size = new System.Drawing.Size(227, 35);
+            this.lbSupplierHeader.Size = new System.Drawing.Size(241, 37);
             this.lbSupplierHeader.TabIndex = 2;
             this.lbSupplierHeader.Text = "Supplier Define ";
             // 
-            // SupplierMoule
+            // SupplierModule
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 640);
             this.Controls.Add(this.tabSuppliers);
-            this.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "SupplierMoule";
+            this.Name = "SupplierModule";
             this.Text = "SupplierMoule";
             this.tabSuppliers.ResumeLayout(false);
             this.tabSupplierList.ResumeLayout(false);

@@ -84,13 +84,13 @@ namespace NoUITowaShop.Module.Inventory
             this.panelOption.Controls.Add(this.btnSave);
             this.panelOption.Location = new System.Drawing.Point(702, 3);
             this.panelOption.Name = "panelOption";
-            this.panelOption.Size = new System.Drawing.Size(460, 63);
+            this.panelOption.Size = new System.Drawing.Size(460, 59);
             this.panelOption.TabIndex = 4;
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnCancel.Location = new System.Drawing.Point(36, 1);
+            this.btnCancel.Location = new System.Drawing.Point(36, -3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(191, 45);
             this.btnCancel.TabIndex = 2;
@@ -100,7 +100,7 @@ namespace NoUITowaShop.Module.Inventory
             // btnSave
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSave.Location = new System.Drawing.Point(253, 1);
+            this.btnSave.Location = new System.Drawing.Point(253, -3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(182, 45);
             this.btnSave.TabIndex = 0;
@@ -171,10 +171,10 @@ namespace NoUITowaShop.Module.Inventory
             // lbDescription
             // 
             this.lbDescription.AutoSize = true;
-            this.lbDescription.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDescription.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDescription.Location = new System.Drawing.Point(7, 175);
             this.lbDescription.Name = "lbDescription";
-            this.lbDescription.Size = new System.Drawing.Size(112, 25);
+            this.lbDescription.Size = new System.Drawing.Size(120, 27);
             this.lbDescription.TabIndex = 5;
             this.lbDescription.Text = "Description";
             // 
@@ -183,7 +183,7 @@ namespace NoUITowaShop.Module.Inventory
             this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescription.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.Location = new System.Drawing.Point(11, 203);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
@@ -193,10 +193,10 @@ namespace NoUITowaShop.Module.Inventory
             // lbCTName
             // 
             this.lbCTName.AutoSize = true;
-            this.lbCTName.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCTName.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCTName.Location = new System.Drawing.Point(6, 99);
             this.lbCTName.Name = "lbCTName";
-            this.lbCTName.Size = new System.Drawing.Size(149, 25);
+            this.lbCTName.Size = new System.Drawing.Size(162, 27);
             this.lbCTName.TabIndex = 3;
             this.lbCTName.Text = "Category Name";
             // 
@@ -204,7 +204,7 @@ namespace NoUITowaShop.Module.Inventory
             // 
             this.txtCategoryName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCategoryName.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCategoryName.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategoryName.Location = new System.Drawing.Point(10, 132);
             this.txtCategoryName.Name = "txtCategoryName";
             this.txtCategoryName.Size = new System.Drawing.Size(638, 37);
@@ -214,7 +214,7 @@ namespace NoUITowaShop.Module.Inventory
             // 
             this.txtCTID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCTID.Font = new System.Drawing.Font("Microsoft Tai Le", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCTID.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCTID.Location = new System.Drawing.Point(10, 59);
             this.txtCTID.Name = "txtCTID";
             this.txtCTID.ReadOnly = true;
@@ -225,10 +225,10 @@ namespace NoUITowaShop.Module.Inventory
             // lbCTID
             // 
             this.lbCTID.AutoSize = true;
-            this.lbCTID.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCTID.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCTID.Location = new System.Drawing.Point(6, 33);
             this.lbCTID.Name = "lbCTID";
-            this.lbCTID.Size = new System.Drawing.Size(51, 25);
+            this.lbCTID.Size = new System.Drawing.Size(55, 27);
             this.lbCTID.TabIndex = 0;
             this.lbCTID.Text = "SLID";
             // 
@@ -236,10 +236,10 @@ namespace NoUITowaShop.Module.Inventory
             // 
             this.lbCategoryHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbCategoryHeader.AutoSize = true;
-            this.lbCategoryHeader.Font = new System.Drawing.Font("Microsoft Tai Le", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCategoryHeader.Location = new System.Drawing.Point(474, 2);
+            this.lbCategoryHeader.Font = new System.Drawing.Font("Microsoft YaHei UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCategoryHeader.Location = new System.Drawing.Point(466, 1);
             this.lbCategoryHeader.Name = "lbCategoryHeader";
-            this.lbCategoryHeader.Size = new System.Drawing.Size(236, 35);
+            this.lbCategoryHeader.Size = new System.Drawing.Size(252, 37);
             this.lbCategoryHeader.TabIndex = 2;
             this.lbCategoryHeader.Text = "Category Define ";
             // 
@@ -264,10 +264,10 @@ namespace NoUITowaShop.Module.Inventory
             // 
             this.lbCTHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbCTHeader.AutoSize = true;
-            this.lbCTHeader.Font = new System.Drawing.Font("Microsoft Tai Le", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCTHeader.Location = new System.Drawing.Point(499, 2);
+            this.lbCTHeader.Font = new System.Drawing.Font("Microsoft YaHei UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCTHeader.Location = new System.Drawing.Point(491, 1);
             this.lbCTHeader.Name = "lbCTHeader";
-            this.lbCTHeader.Size = new System.Drawing.Size(186, 35);
+            this.lbCTHeader.Size = new System.Drawing.Size(202, 37);
             this.lbCTHeader.TabIndex = 2;
             this.lbCTHeader.Text = "Category List";
             // 
@@ -290,10 +290,10 @@ namespace NoUITowaShop.Module.Inventory
             this.tabCategoryList.Controls.Add(this.tableOption);
             this.tabCategoryList.Controls.Add(this.tbPanelSLFooter);
             this.tabCategoryList.Controls.Add(this.tbPanelCTList);
-            this.tabCategoryList.Location = new System.Drawing.Point(4, 32);
+            this.tabCategoryList.Location = new System.Drawing.Point(4, 29);
             this.tabCategoryList.Name = "tabCategoryList";
             this.tabCategoryList.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCategoryList.Size = new System.Drawing.Size(1192, 604);
+            this.tabCategoryList.Size = new System.Drawing.Size(1192, 607);
             this.tabCategoryList.TabIndex = 0;
             this.tabCategoryList.Text = "Category List";
             this.tabCategoryList.UseVisualStyleBackColor = true;
@@ -310,7 +310,7 @@ namespace NoUITowaShop.Module.Inventory
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.DarkRed;
@@ -323,7 +323,7 @@ namespace NoUITowaShop.Module.Inventory
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(1186, 403);
+            this.dataGridView.Size = new System.Drawing.Size(1186, 399);
             this.dataGridView.TabIndex = 7;
             // 
             // tableOption
@@ -418,7 +418,7 @@ namespace NoUITowaShop.Module.Inventory
             this.tbPanelSLFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.39233F));
             this.tbPanelSLFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbPanelSLFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbPanelSLFooter.Location = new System.Drawing.Point(3, 567);
+            this.tbPanelSLFooter.Location = new System.Drawing.Point(3, 570);
             this.tbPanelSLFooter.Name = "tbPanelSLFooter";
             this.tbPanelSLFooter.RowCount = 1;
             this.tbPanelSLFooter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -432,10 +432,10 @@ namespace NoUITowaShop.Module.Inventory
             this.tabDefine.Controls.Add(this.tbPanelSLAdress);
             this.tabDefine.Controls.Add(this.tbPanelSLInfo);
             this.tabDefine.Controls.Add(this.tbpanelHheader);
-            this.tabDefine.Location = new System.Drawing.Point(4, 32);
+            this.tabDefine.Location = new System.Drawing.Point(4, 29);
             this.tabDefine.Name = "tabDefine";
             this.tabDefine.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDefine.Size = new System.Drawing.Size(1192, 604);
+            this.tabDefine.Size = new System.Drawing.Size(1192, 607);
             this.tabDefine.TabIndex = 1;
             this.tabDefine.Text = "Define category";
             // 
@@ -447,7 +447,7 @@ namespace NoUITowaShop.Module.Inventory
             this.tbPanelDFFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.39233F));
             this.tbPanelDFFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbPanelDFFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbPanelDFFooter.Location = new System.Drawing.Point(3, 567);
+            this.tbPanelDFFooter.Location = new System.Drawing.Point(3, 570);
             this.tbPanelDFFooter.Name = "tbPanelDFFooter";
             this.tbPanelDFFooter.RowCount = 1;
             this.tbPanelDFFooter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -469,7 +469,7 @@ namespace NoUITowaShop.Module.Inventory
             this.tbPanelSLAdress.Name = "tbPanelSLAdress";
             this.tbPanelSLAdress.RowCount = 1;
             this.tbPanelSLAdress.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbPanelSLAdress.Size = new System.Drawing.Size(1186, 69);
+            this.tbPanelSLAdress.Size = new System.Drawing.Size(1186, 65);
             this.tbPanelSLAdress.TabIndex = 2;
             // 
             // tbpanelHheader
@@ -494,7 +494,7 @@ namespace NoUITowaShop.Module.Inventory
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1200, 640);
             this.Controls.Add(this.tabCategories);
-            this.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F);
+            this.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CategoryModule";
             this.Text = "CategoryMoule";

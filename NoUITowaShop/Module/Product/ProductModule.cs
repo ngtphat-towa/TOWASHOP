@@ -127,7 +127,7 @@ namespace NoUITowaShop.Module.Product
         public int UnitOnStock { get => Convert.ToInt32(txtUnitOnStock.Value); set => txtUnitOnStock.Value = value; }
         public int UnitOnOrder { get => Convert.ToInt32(txtUnitOnOrder.Value); set => txtUnitOnOrder.Value = value; }
         public decimal VAT { get => txtVAT.Value; set => txtVAT.Value = value; }
-        public string Status { get => cbStatus.SelectedItem.ToString(); set => cbStatus.Text = value; }
+        public string Status { get => cbStatus.SelectedItem.ToString(); set => cbStatus.SelectedItem = value; }
         public string Content { get => txtContent.Text; set => txtContent.Text = value; }
         public string Message { get => message; set => message = value; }
         public string SearchValue { get => txtSearch.Text; set => txtSearch.Text = value; }

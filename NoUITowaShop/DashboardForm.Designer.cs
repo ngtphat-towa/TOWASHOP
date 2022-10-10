@@ -41,14 +41,15 @@ namespace SimpleUITowaShop
             this.newOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orderListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.staffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.employeeListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenuStrip
             // 
-            this.mainMenuStrip.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainMenuStrip.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dashboardToolStripMenuItem,
@@ -56,7 +57,7 @@ namespace SimpleUITowaShop
             this.contactToolStripMenuItem,
             this.orderToolStripMenuItem,
             this.reportsToolStripMenuItem,
-            this.searchToolStripMenuItem,
+            this.staffToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
@@ -69,13 +70,13 @@ namespace SimpleUITowaShop
             this.dashboardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem});
             this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(107, 27);
+            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(112, 27);
             this.dashboardToolStripMenuItem.Text = "Dashboard";
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(153, 28);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(157, 28);
             this.logOutToolStripMenuItem.Text = "Log out";
             // 
             // inventoryToolStripMenuItem
@@ -84,19 +85,19 @@ namespace SimpleUITowaShop
             this.productsToolStripMenuItem,
             this.categoriesToolStripMenuItem});
             this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
-            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(96, 27);
+            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(100, 27);
             this.inventoryToolStripMenuItem.Text = "Inventory";
             // 
             // productsToolStripMenuItem
             // 
             this.productsToolStripMenuItem.Name = "productsToolStripMenuItem";
-            this.productsToolStripMenuItem.Size = new System.Drawing.Size(175, 28);
+            this.productsToolStripMenuItem.Size = new System.Drawing.Size(181, 28);
             this.productsToolStripMenuItem.Text = "Products";
             // 
             // categoriesToolStripMenuItem
             // 
             this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
-            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(175, 28);
+            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(181, 28);
             this.categoriesToolStripMenuItem.Text = "Categories";
             // 
             // contactToolStripMenuItem
@@ -104,13 +105,13 @@ namespace SimpleUITowaShop
             this.contactToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.supplierToolStripMenuItem});
             this.contactToolStripMenuItem.Name = "contactToolStripMenuItem";
-            this.contactToolStripMenuItem.Size = new System.Drawing.Size(84, 27);
+            this.contactToolStripMenuItem.Size = new System.Drawing.Size(86, 27);
             this.contactToolStripMenuItem.Text = "Contact";
             // 
             // supplierToolStripMenuItem
             // 
             this.supplierToolStripMenuItem.Name = "supplierToolStripMenuItem";
-            this.supplierToolStripMenuItem.Size = new System.Drawing.Size(156, 28);
+            this.supplierToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.supplierToolStripMenuItem.Text = "Supplier";
             // 
             // orderToolStripMenuItem
@@ -119,42 +120,51 @@ namespace SimpleUITowaShop
             this.newOrderToolStripMenuItem,
             this.orderListToolStripMenuItem});
             this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
-            this.orderToolStripMenuItem.Size = new System.Drawing.Size(68, 27);
+            this.orderToolStripMenuItem.Size = new System.Drawing.Size(71, 27);
             this.orderToolStripMenuItem.Text = "Order";
             // 
             // newOrderToolStripMenuItem
             // 
             this.newOrderToolStripMenuItem.Name = "newOrderToolStripMenuItem";
-            this.newOrderToolStripMenuItem.Size = new System.Drawing.Size(177, 28);
+            this.newOrderToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.newOrderToolStripMenuItem.Text = "New Order";
             // 
             // orderListToolStripMenuItem
             // 
             this.orderListToolStripMenuItem.Name = "orderListToolStripMenuItem";
-            this.orderListToolStripMenuItem.Size = new System.Drawing.Size(177, 28);
+            this.orderListToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.orderListToolStripMenuItem.Text = "Order List";
             // 
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(82, 27);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(87, 27);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
-            // searchToolStripMenuItem
+            // staffToolStripMenuItem
             // 
-            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(75, 27);
-            this.searchToolStripMenuItem.Text = "Search";
+            this.staffToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.employeeListToolStripMenuItem});
+            this.staffToolStripMenuItem.Name = "staffToolStripMenuItem";
+            this.staffToolStripMenuItem.Size = new System.Drawing.Size(69, 27);
+            this.staffToolStripMenuItem.Text = "Users";
+            // 
+            // employeeListToolStripMenuItem
+            // 
+            this.employeeListToolStripMenuItem.Name = "employeeListToolStripMenuItem";
+            this.employeeListToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.employeeListToolStripMenuItem.Text = "Employee list";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(59, 27);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(63, 27);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // DashboardForm
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 653);
             this.Controls.Add(this.mainMenuStrip);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -184,8 +194,9 @@ namespace SimpleUITowaShop
         private System.Windows.Forms.ToolStripMenuItem newOrderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem orderListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supplierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem staffToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem employeeListToolStripMenuItem;
     }
 }
