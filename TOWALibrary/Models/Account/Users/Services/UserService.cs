@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using TOWALibrary.Models.Account.Roles;
 using TOWALibrary.Models.Account.Users;
+using TOWALibrary.Repositories;
 using TOWALibrary.Repositories.Accounts.Users;
 using TOWALibrary.Views;
 
-namespace TOWALibrary.Repositories.Accounts.Services
+namespace TOWALibrary.Models.Accounts.Users.Services
 {
     public class UserServie : IUserService
     {
@@ -37,7 +38,7 @@ namespace TOWALibrary.Repositories.Accounts.Services
                 throw new Exception("Please enter the username and password");
             }
 
-            IAccountRepository repository = new AccountRepository();
+            IAccountRepository repository = DBManager.AccountRepository;
             // TODO - Improve this to have password hash
             AccountModel  model =repository.GetAccountByUsername(username);
             bool result;

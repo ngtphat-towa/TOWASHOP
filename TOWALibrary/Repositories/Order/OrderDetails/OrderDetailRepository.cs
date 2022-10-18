@@ -16,19 +16,89 @@ namespace TOWALibrary.Repositories.Order.OrderDetails
     {
         private readonly IProductRepository productRepository = DBManager.ProductRepository;
 
-        public OrderDetailRepository()
-        {
-
-        }
 
         public void Add(OrderDetailModel model)
         {
-            throw new NotImplementedException();
+            using (var command = DBManager.Connection.CreateNewCommand())
+            {
+                command.CommandText = "spProduct_UpdateProductStock";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.CreateDbParameter("@OD_OID", DbType.String, model.OD_PID);
+                command.CreateDbParameter("@OLD_QUANTITY", DbType.String, 0);
+                command.CreateDbParameter("@NEW_QUANTITY", DbType.String, model.Quantity);
+
+                command.ExecuteNonQuery();
+
+            };
+            using (var command = DBManager.Connection.CreateNewCommand())
+            {
+                command.CommandText = "spProduct_UpdateProductOrder";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.CreateDbParameter("@OD_OID", DbType.String, model.OD_PID);
+                command.CreateDbParameter("@OLD_QUANTITY", DbType.String, 0);
+                command.CreateDbParameter("@NEW_QUANTITY", DbType.String, model.Quantity);
+
+                command.ExecuteNonQuery();
+
+            };
+
+            using (var command = DBManager.Connection.CreateNewCommand())
+                {
+                    command.CommandText = "spOrderDetails_Insert";
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.CreateDbParameter("@OD_OID", DbType.String, model.OD_OID);
+                    command.CreateDbParameter("@OD_PID", DbType.String, model.OD_PID);
+                    command.CreateDbParameter("@UNIT_PRICE", DbType.String, model.UnitPrice);
+                    command.CreateDbParameter("@QUANTITY", DbType.String, model.Quantity);
+                    command.CreateDbParameter("@DISCOUNT", DbType.String, model.Discount);
+
+                    command.ExecuteNonQuery();
+                };
+
+               
         }
 
         public void Delete(OrderDetailModel model)
         {
-            throw new NotImplementedException();
+            OrderDetailModel oldModel = GetByID(model.OD_ID);
+            using (var command = DBManager.Connection.CreateNewCommand())
+            {
+                command.CommandText = "spProduct_UpdateProductStock";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.CreateDbParameter("@OD_OID", DbType.String, model.OD_PID);
+                command.CreateDbParameter("@OLD_QUANTITY", DbType.String, oldModel.Quantity);
+                command.CreateDbParameter("@NEW_QUANTITY", DbType.String, 0);
+
+                command.ExecuteNonQuery();
+
+            };
+            using (var command = DBManager.Connection.CreateNewCommand())
+            {
+                command.CommandText = "spProduct_UpdateProductProduct";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.CreateDbParameter("@OD_OID", DbType.String, model.OD_PID);
+                command.CreateDbParameter("@OLD_QUANTITY", DbType.String, oldModel.Quantity);
+                command.CreateDbParameter("@NEW_QUANTITY", DbType.String, 0);
+
+                command.ExecuteNonQuery();
+
+            };
+
+            using (var command = DBManager.Connection.CreateNewCommand())
+            {
+                command.CommandText = "spOrderDetails_Delete";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.CreateDbParameter("@OD_ID", DbType.String, model.OD_ID);
+
+                command.ExecuteNonQuery();
+
+            }
         }
 
         public ICollection<OrderDetailModel> GetByOrder(string OID)
@@ -41,7 +111,7 @@ namespace TOWALibrary.Repositories.Order.OrderDetails
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spOrderDetails_GetByOrder";
+                    command.CommandText = "spOrderDetails_GetByOrder";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("@OD_OID", DbType.String, OID);
@@ -70,9 +140,79 @@ namespace TOWALibrary.Repositories.Order.OrderDetails
 
         }
 
+        public OrderDetailModel GetByID(int OD_ID)
+        {
+            List<OrderDetailModel> models = new List<OrderDetailModel>();
+            using (var command = DBManager.Connection.CreateNewCommand())
+            {
+
+                command.CommandText = "spOrderDetails_GetByID";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.CreateDbParameter("@OD_ID", DbType.String, OD_ID);
+                using (var reader = command.ExecuteReader())
+                {
+
+                    while (reader.Read())
+                    {
+                        OrderDetailModel model = new OrderDetailModel
+                        {
+                            OD_ID = Convert.ToInt32(reader["OD_ID"]),
+                            OD_OID = Convert.ToString(reader["OD_OID"]),
+                            OD_PID = Convert.ToString(reader["OD_PID"]),
+                            Quantity = Convert.ToInt32(reader["QUANTITY"]),
+                            UnitPrice = (float)Convert.ToDouble(reader["UNIT_PRICE"]),
+                            Discount = (float)Convert.ToDouble(reader["DISCOUNT"])
+                        };
+                        model.Product = productRepository.GetByValue(model.OD_PID).FirstOrDefault();
+                        models.Add(model);
+                    }
+                }
+            }
+            return models.FirstOrDefault();
+        }
         public void Update(OrderDetailModel model)
         {
-            throw new NotImplementedException();
+            OrderDetailModel oldModel = GetByID(model.OD_ID);
+            using (var command = DBManager.Connection.CreateNewCommand())
+            {
+                command.CommandText = "spProduct_UpdateProductStock";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.CreateDbParameter("@OD_OID", DbType.String, model.OD_PID);
+                command.CreateDbParameter("@OLD_QUANTITY", DbType.String, oldModel.Quantity);
+                command.CreateDbParameter("@NEW_QUANTITY", DbType.String, model.Quantity);
+
+                command.ExecuteNonQuery();
+
+            };
+            using (var command = DBManager.Connection.CreateNewCommand())
+            {
+                command.CommandText = "spProduct_UpdateProductProduct";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.CreateDbParameter("@OD_OID", DbType.String, model.OD_PID);
+                command.CreateDbParameter("@OLD_QUANTITY", DbType.String, oldModel.Quantity);
+                command.CreateDbParameter("@NEW_QUANTITY", DbType.String, model.Quantity);
+
+                command.ExecuteNonQuery();
+
+            };
+
+            using (var command = DBManager.Connection.CreateNewCommand())
+            {
+                command.CommandText = "spOrderDetails_Insert";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.CreateDbParameter("@OD_OID", DbType.String, model.OD_OID);
+                command.CreateDbParameter("@OD_PID", DbType.String, model.OD_PID);
+                command.CreateDbParameter("@UNIT_PRICE", DbType.String, model.UnitPrice);
+                command.CreateDbParameter("@QUANTITY", DbType.String, model.Quantity);
+                command.CreateDbParameter("@DISCOUNT", DbType.String, model.Discount);
+
+                command.ExecuteNonQuery();
+            };
+
         }
     }
 }

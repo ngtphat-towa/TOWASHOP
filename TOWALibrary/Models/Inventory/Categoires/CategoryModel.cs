@@ -19,6 +19,7 @@ namespace TOWALibrary.Models.Inventory.Categoires
 
         #endregion
         #region Property
+
         [DisplayName("CID")]
         public int CATEID { get => _CATEID; set => _CATEID = value; }
         [DisplayName("Name")]
@@ -32,6 +33,7 @@ namespace TOWALibrary.Models.Inventory.Categoires
         [Browsable(false)]
         public virtual ICollection<ProductModel> Products { get; set; }
 
+        [Browsable(false)]
         [DisplayName("Products")]
         public string ProductIDList
         {

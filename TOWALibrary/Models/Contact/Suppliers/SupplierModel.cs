@@ -23,7 +23,7 @@ namespace TOWALibrary.Models.Contact.Suppliers
         private string city;
         private string country;
         private string content;
-
+        
         #endregion
         #region Property
         [DisplayName("SLID")]

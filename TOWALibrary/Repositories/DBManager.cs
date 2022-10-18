@@ -6,6 +6,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TOWALibrary.Repositories.Accounts.Users;
 using TOWALibrary.Repositories.Contacts.Suppliers;
 using TOWALibrary.Repositories.DBConnector;
 using TOWALibrary.Repositories.Inventory.Categories;
@@ -39,6 +40,7 @@ namespace TOWALibrary.Repositories
                    
                     break;
                 case DataProvider.MySQL:
+                    Connection = MySqlDBConnector.GetInstance();
                     break;
             }
         }
@@ -103,6 +105,18 @@ namespace TOWALibrary.Repositories
                     orderRepository = new OrderRepository();
                 }
                 return orderRepository;
+            }
+        }
+        private static IAccountRepository accountRepository;
+        public static IAccountRepository AccountRepository
+        {
+            get
+            {
+                if (accountRepository == null)
+                {
+                    accountRepository = new AccountRepository();
+                }
+                return accountRepository;
             }
         }
     }
