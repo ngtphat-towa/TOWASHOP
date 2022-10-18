@@ -52,3 +52,19 @@ insert into TOWASHOP.dbo.Orders(CREATED_BY,CREATED_AT,UPDATED_AT,ORDER_TYPE,PAYM
 	values ('UID1000', getdate() , getdate(), GETDATE(),0/* new*/,0 /* paid*/,20,20,1,Null);
 
 	select getdate();
+
+--OD_ID INT IDENTITY(1,1),
+--	OD_OID INT,
+--	OD_PID NVARCHAR(8),
+--	UNIT_PRICE FLOAT NOT NULL DEFAULT (0),
+--	QUANTITY SMALLINT NOT NULL DEFAULT (1),
+--	DISCOUNT FLOAT NOT NULL DEFAULT(0),
+
+select * from dbo.ORDER_DETAILS;
+select * from dbo.ORDERS;
+select * from dbo.PRODUCTS;
+
+exec spOrderDetails_Insert 1000,'P2',20,1,0;
+
+
+
