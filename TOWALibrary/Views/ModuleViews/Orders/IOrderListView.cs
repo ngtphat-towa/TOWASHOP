@@ -31,6 +31,14 @@ namespace TOWALibrary.Views.ModuleViews.Orders
         void SetOrderDetailsListViewBindingSource(BindingSource bindingSource);
         string SearchValue { get; set; }
         string Message { set; }
+
+        #region Order Type Filter
+
+        #endregion
+        #region FilterDateTime
+        DateTime DateFrom { get; set; }
+        DateTime DateTo { get; set; }
+        #endregion
         void Show();
 
     }

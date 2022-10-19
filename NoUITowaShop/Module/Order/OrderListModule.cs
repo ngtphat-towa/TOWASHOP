@@ -29,6 +29,10 @@ namespace NoUITowaShop.Module.Order
                 string[] OrderType = new string[] { "All", "Retail Order", "Customer Order", "Supply Stock" };
                 this.cbOrderType.DataSource = OrderType;
                 this.cbOrderType.SelectedIndex = 0;
+                //Initialize Order Status Type - Default is All
+                string[] OrderStatusType = new string[] { "All", "New", "Paid", "Delivering" };
+                this.cbStatus.DataSource = OrderStatusType;
+                this.cbStatus.SelectedIndex = 0;
             };
 
             // This event will handle the filter: Order Type, Date Time
@@ -37,15 +41,20 @@ namespace NoUITowaShop.Module.Order
             {
                 FilterChangedEvent?.Invoke(this.cbOrderType, EventArgs.Empty);
             };
+            this.cbStatus.SelectedIndexChanged += delegate
+            {
+                FilterChangedEvent?.Invoke(this.cbStatus, EventArgs.Empty);
+            };
 
             this.datePickerFrom.ValueChanged += delegate
             {
-                FilterChangedEvent?.Invoke(this.cbOrderType, EventArgs.Empty);
+                FilterChangedEvent?.Invoke(this.datePickerFrom, EventArgs.Empty);
             };
             this.datePickerTo.ValueChanged += delegate
             {
-                FilterChangedEvent?.Invoke(this.cbOrderType, EventArgs.Empty);
+                FilterChangedEvent?.Invoke(this.datePickerTo, EventArgs.Empty);
             };
+
             #endregion
 
             // Automatically change the order details by selected order
@@ -138,7 +147,9 @@ namespace NoUITowaShop.Module.Order
 
         #region Attribute
         public string SearchValue { get => this.txtSearch.Text; set=> txtSearch.Text= value; }
-       public string Message {  set=> this.lbErrorMessage.Text= value; }
+         public string Message {  set=> this.lbErrorMessage.Text= value; }
+       public DateTime DateFrom { get => this.datePickerFrom.Value; set => this.datePickerFrom.Value = value; }
+        public DateTime DateTo { get => this.datePickerTo.Value; set=> this.datePickerTo.Value= value; }
         #endregion
     }
 }
