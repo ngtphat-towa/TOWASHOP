@@ -18,6 +18,7 @@ namespace TOWALibrary.Repositories.Order.Orders
  
         private readonly IOrderDetailRepository orderDetailRepository = DBManager.OrderDetailRepository;
         private readonly IAccountRepository accountRepository = DBManager.AccountRepository;
+        private readonly IProductRepository productRepository = DBManager.ProductRepository;
 
         public void Add(OrderModel model)
         {
@@ -195,19 +196,28 @@ namespace TOWALibrary.Repositories.Order.Orders
                     }
                     foreach (var orderDetail in model.OrderDetails)
                     {
+                        OrderDetailModel oldModel = orderDetailRepository.GetByID(orderDetail.OD_ID);
                         switch (orderDetail.Status)
                         {
                             case 0:
+                                productRepository.UpdateProductStock(orderDetail.OD_PID, 0, orderDetail.Quantity);
+                                productRepository.UpdateProductOrder(orderDetail.OD_PID, 0, orderDetail.Quantity);
+
                                 orderDetailRepository.Add(orderDetail);
                                 break;
                             case 1:
+                                productRepository.UpdateProductStock(orderDetail.OD_OID, oldModel.Quantity, orderDetail.Quantity);
+                                productRepository.UpdateProductOrder(orderDetail.OD_OID, oldModel.Quantity, orderDetail.Quantity);
+
                                 orderDetailRepository.Update(orderDetail);
                                 break;
                             case 2:
+                                productRepository.UpdateProductStock(orderDetail.OD_PID, oldModel.Quantity, 0);
+                                productRepository.UpdateProductOrder(orderDetail.OD_PID, oldModel.Quantity, 0);
+
                                 orderDetailRepository.Delete(orderDetail);
                                 break;
                             default:
-                                orderDetailRepository.Add(orderDetail);
                                 break;
                         }
                     }

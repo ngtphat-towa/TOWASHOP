@@ -15,35 +15,10 @@ namespace TOWALibrary.Repositories.Order.OrderDetails
     public class OrderDetailRepository : IOrderDetailRepository
     {
         private readonly IProductRepository productRepository = DBManager.ProductRepository;
-
+        
 
         public void Add(OrderDetailModel model)
         {
-            using (var command = DBManager.Connection.CreateNewCommand())
-            {
-                command.CommandText = "spProduct_UpdateProductStock";
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.CreateDbParameter("@OD_OID", DbType.String, model.OD_PID);
-                command.CreateDbParameter("@OLD_QUANTITY", DbType.String, 0);
-                command.CreateDbParameter("@NEW_QUANTITY", DbType.String, model.Quantity);
-
-                command.ExecuteNonQuery();
-
-            };
-            using (var command = DBManager.Connection.CreateNewCommand())
-            {
-                command.CommandText = "spProduct_UpdateProductOrder";
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.CreateDbParameter("@OD_OID", DbType.String, model.OD_PID);
-                command.CreateDbParameter("@OLD_QUANTITY", DbType.String, 0);
-                command.CreateDbParameter("@NEW_QUANTITY", DbType.String, model.Quantity);
-
-                command.ExecuteNonQuery();
-
-            };
-
             using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     command.CommandText = "spOrderDetails_Insert";
@@ -57,37 +32,10 @@ namespace TOWALibrary.Repositories.Order.OrderDetails
 
                     command.ExecuteNonQuery();
                 };
-
-               
         }
 
         public void Delete(OrderDetailModel model)
         {
-            OrderDetailModel oldModel = GetByID(model.OD_ID);
-            using (var command = DBManager.Connection.CreateNewCommand())
-            {
-                command.CommandText = "spProduct_UpdateProductStock";
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.CreateDbParameter("@OD_OID", DbType.String, model.OD_PID);
-                command.CreateDbParameter("@OLD_QUANTITY", DbType.String, oldModel.Quantity);
-                command.CreateDbParameter("@NEW_QUANTITY", DbType.String, 0);
-
-                command.ExecuteNonQuery();
-
-            };
-            using (var command = DBManager.Connection.CreateNewCommand())
-            {
-                command.CommandText = "spProduct_UpdateProductProduct";
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.CreateDbParameter("@OD_OID", DbType.String, model.OD_PID);
-                command.CreateDbParameter("@OLD_QUANTITY", DbType.String, oldModel.Quantity);
-                command.CreateDbParameter("@NEW_QUANTITY", DbType.String, 0);
-
-                command.ExecuteNonQuery();
-
-            };
 
             using (var command = DBManager.Connection.CreateNewCommand())
             {
@@ -173,32 +121,6 @@ namespace TOWALibrary.Repositories.Order.OrderDetails
         }
         public void Update(OrderDetailModel model)
         {
-            OrderDetailModel oldModel = GetByID(model.OD_ID);
-            using (var command = DBManager.Connection.CreateNewCommand())
-            {
-                command.CommandText = "spProduct_UpdateProductStock";
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.CreateDbParameter("@OD_OID", DbType.String, model.OD_PID);
-                command.CreateDbParameter("@OLD_QUANTITY", DbType.String, oldModel.Quantity);
-                command.CreateDbParameter("@NEW_QUANTITY", DbType.String, model.Quantity);
-
-                command.ExecuteNonQuery();
-
-            };
-            using (var command = DBManager.Connection.CreateNewCommand())
-            {
-                command.CommandText = "spProduct_UpdateProductProduct";
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.CreateDbParameter("@OD_OID", DbType.String, model.OD_PID);
-                command.CreateDbParameter("@OLD_QUANTITY", DbType.String, oldModel.Quantity);
-                command.CreateDbParameter("@NEW_QUANTITY", DbType.String, model.Quantity);
-
-                command.ExecuteNonQuery();
-
-            };
-
             using (var command = DBManager.Connection.CreateNewCommand())
             {
                 command.CommandText = "spOrderDetails_Insert";

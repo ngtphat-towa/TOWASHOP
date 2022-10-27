@@ -18,5 +18,7 @@ namespace TOWALibrary.Repositories.Inventory.Products
         ICollection<ProductModel> GetByValue(string value);
         ICollection<CategoryModel> GetCategories();
         ICollection<SupplierModel> GetSupliers();
+        void UpdateProductOrder(string PID, int oldQuanity, int newQuantity);
+        void UpdateProductStock(string PID, int oldQuanity, int newQuantity);
     }
 }

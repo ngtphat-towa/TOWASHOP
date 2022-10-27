@@ -203,5 +203,37 @@ namespace TOWALibrary.Repositories.Inventory.Products
                 }
             }
         }
+
+        public void UpdateProductOrder(string PID, int oldQuanity, int newQuantity)
+        {
+            using (var command = DBManager.Connection.CreateNewCommand())
+            {
+                command.CommandText = "spProduct_UpdateProductOrder";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.CreateDbParameter("@OD_OID", DbType.String, PID);
+                command.CreateDbParameter("@OLD_QUANTITY", DbType.String, oldQuanity);
+                command.CreateDbParameter("@NEW_QUANTITY", DbType.String, newQuantity);
+
+                command.ExecuteNonQuery();
+
+            };
+        }
+
+        public void UpdateProductStock(string PID, int oldQuanity, int newQuantity)
+        {
+            using (var command = DBManager.Connection.CreateNewCommand())
+            {
+                command.CommandText = "spProduct_UpdateProductStock";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.CreateDbParameter("@OD_OID", DbType.String, PID);
+                command.CreateDbParameter("@OLD_QUANTITY", DbType.String, oldQuanity);
+                command.CreateDbParameter("@NEW_QUANTITY", DbType.String, newQuantity);
+
+                command.ExecuteNonQuery();
+
+            };
+        }
     }
 }
