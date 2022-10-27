@@ -13,7 +13,7 @@ namespace TOWALibrary.Models.Order.Orders
 
     public class OrderModel
     {
-        #region Privat Fields
+        #region Private Fields
         // Intail info
         private string _OID;
         private string _CreatedByUID;
@@ -53,7 +53,6 @@ namespace TOWALibrary.Models.Order.Orders
 
         #region Non-Display Attribute
         [Browsable(false)]
-
         public AccountModel CreatedBy { get => createdBy; set => createdBy = value; }
         [Browsable(false)]
         public int OrderType { get => _OrderType; set => _OrderType = value; }
