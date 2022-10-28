@@ -18,7 +18,7 @@ namespace TOWALibrary.Repositories.Inventory.Categories
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spCategory_Insert";
+                    command.CommandText = "spCategory_Insert";
                     command.CommandType = CommandType.StoredProcedure;
                     command.CreateDbParameter("@CATEGORYNAME", DbType.String, model.CategoryName);
                     command.CreateDbParameter("@C_DESCRIPTION", DbType.String, model.Description);
@@ -37,7 +37,7 @@ namespace TOWALibrary.Repositories.Inventory.Categories
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spCategory_Delete";
+                    command.CommandText = "spCategory_Delete";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("@SLID", DbType.String, CID);
@@ -55,7 +55,7 @@ namespace TOWALibrary.Repositories.Inventory.Categories
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spCategory_GetAll";
+                    command.CommandText = "spCategory_GetAll";
                     command.CommandType = CommandType.StoredProcedure;
 
                     using (var reader = command.ExecuteReader())
@@ -83,7 +83,7 @@ namespace TOWALibrary.Repositories.Inventory.Categories
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spCategory_GetByValue";
+                    command.CommandText = "spCategory_GetByValue";
                     command.CommandType = CommandType.StoredProcedure;
                     command.CreateDbParameter("@VALUE", DbType.String, value);
 
@@ -111,7 +111,7 @@ namespace TOWALibrary.Repositories.Inventory.Categories
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spCategory_Update";
+                    command.CommandText = "spCategory_Update";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("@CATEGORYID", DbType.String, model.CATEID);

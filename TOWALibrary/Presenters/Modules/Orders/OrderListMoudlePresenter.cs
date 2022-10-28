@@ -25,13 +25,12 @@ namespace TOWALibrary.Presenters.Modules.Orders
             this.orderListBindingSource = new BindingSource();
             this.orderDetailListBindingSource = new BindingSource();
             //Wire up event handler methods to view events
-            this.view.ShowBillReviewByOrderEvent += ShowBillReviewByOrder;
+            this.view.SelectedOrderChangedEvent += ShowBillReviewByOrder;
             this.view.SearchEvent += SearchOrder;
             this.view.AddNewEvent += AddNewOrder;
             this.view.EditEvent += LoadSelectedOrderToEdit;
-            this.view.DeleteEvent += DeleteSelectedOrder;
-            this.view.SaveEvent += SaveOrder;
-            this.view.CancelEvent += CancelAction;
+      
+
             //Set binding source
             this.view.SetOrderListViewBindingSource(orderListBindingSource);
             this.view.SetOrderDetailsListViewBindingSource(orderDetailListBindingSource);
@@ -44,7 +43,6 @@ namespace TOWALibrary.Presenters.Modules.Orders
         {
             orderList = repository.GetAll();
             orderListBindingSource.DataSource = orderList;
-               
         }
 
         private void CancelAction(object sender, EventArgs e)
@@ -53,11 +51,6 @@ namespace TOWALibrary.Presenters.Modules.Orders
         }
 
         private void SaveOrder(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void DeleteSelectedOrder(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
@@ -80,6 +73,8 @@ namespace TOWALibrary.Presenters.Modules.Orders
         private void ShowBillReviewByOrder(object sender, EventArgs e)
         {
             OrderModel model = (OrderModel)orderListBindingSource.Current;
+            if (model == null)
+                return;
             this.orderDetailListBindingSource.DataSource = model.OrderDetails;
         }
     }

@@ -26,7 +26,7 @@ namespace TOWALibrary.Repositories.Inventory.Products
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spProduct_Insert";
+                    command.CommandText = "spProduct_Insert";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("@PRODUCTNAME", DbType.String, model.ProductName);
@@ -55,7 +55,7 @@ namespace TOWALibrary.Repositories.Inventory.Products
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spProduct_Delete";
+                    command.CommandText = "spProduct_Delete";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("@PID", DbType.String, PID);
@@ -77,7 +77,7 @@ namespace TOWALibrary.Repositories.Inventory.Products
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spProduct_GetAll";
+                    command.CommandText = "spProduct_GetAll";
                     command.CommandType = CommandType.StoredProcedure;
 
                     using (var reader = command.ExecuteReader())
@@ -126,7 +126,7 @@ namespace TOWALibrary.Repositories.Inventory.Products
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spProduct_GetByValue";
+                    command.CommandText = "spProduct_GetByValue";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("@VALUE", DbType.String, "%"+ value.Trim() + "%");
@@ -182,7 +182,7 @@ namespace TOWALibrary.Repositories.Inventory.Products
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spProduct_Update";
+                    command.CommandText = "spProduct_Update";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("@PRODUCTID", DbType.String, model.PID);
@@ -202,6 +202,38 @@ namespace TOWALibrary.Repositories.Inventory.Products
 
                 }
             }
+        }
+
+        public void UpdateProductOrder(string PID, int oldQuanity, int newQuantity)
+        {
+            using (var command = DBManager.Connection.CreateNewCommand())
+            {
+                command.CommandText = "spProduct_UpdateProductOrder";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.CreateDbParameter("@OD_OID", DbType.String, PID);
+                command.CreateDbParameter("@OLD_QUANTITY", DbType.String, oldQuanity);
+                command.CreateDbParameter("@NEW_QUANTITY", DbType.String, newQuantity);
+
+                command.ExecuteNonQuery();
+
+            };
+        }
+
+        public void UpdateProductStock(string PID, int oldQuanity, int newQuantity)
+        {
+            using (var command = DBManager.Connection.CreateNewCommand())
+            {
+                command.CommandText = "spProduct_UpdateProductStock";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.CreateDbParameter("@OD_OID", DbType.String, PID);
+                command.CreateDbParameter("@OLD_QUANTITY", DbType.String, oldQuanity);
+                command.CreateDbParameter("@NEW_QUANTITY", DbType.String, newQuantity);
+
+                command.ExecuteNonQuery();
+
+            };
         }
     }
 }

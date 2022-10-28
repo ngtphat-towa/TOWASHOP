@@ -29,6 +29,7 @@ namespace NoUITowaShop.Module.Inventory
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelOption = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -60,6 +61,7 @@ namespace NoUITowaShop.Module.Inventory
             this.tbPanelDFFooter = new System.Windows.Forms.TableLayoutPanel();
             this.tbPanelSLAdress = new System.Windows.Forms.TableLayoutPanel();
             this.tbpanelHheader = new System.Windows.Forms.TableLayoutPanel();
+            this.categoryModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelOption.SuspendLayout();
             this.gbComent.SuspendLayout();
             this.tbPanelSLInfo.SuspendLayout();
@@ -73,6 +75,7 @@ namespace NoUITowaShop.Module.Inventory
             this.tabDefine.SuspendLayout();
             this.tbPanelSLAdress.SuspendLayout();
             this.tbpanelHheader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelOption
@@ -323,7 +326,7 @@ namespace NoUITowaShop.Module.Inventory
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(1186, 399);
+            this.dataGridView.Size = new System.Drawing.Size(1186, 395);
             this.dataGridView.TabIndex = 7;
             // 
             // tableOption
@@ -432,10 +435,10 @@ namespace NoUITowaShop.Module.Inventory
             this.tabDefine.Controls.Add(this.tbPanelSLAdress);
             this.tabDefine.Controls.Add(this.tbPanelSLInfo);
             this.tabDefine.Controls.Add(this.tbpanelHheader);
-            this.tabDefine.Location = new System.Drawing.Point(4, 29);
+            this.tabDefine.Location = new System.Drawing.Point(4, 25);
             this.tabDefine.Name = "tabDefine";
             this.tabDefine.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDefine.Size = new System.Drawing.Size(1192, 607);
+            this.tabDefine.Size = new System.Drawing.Size(1192, 611);
             this.tabDefine.TabIndex = 1;
             this.tabDefine.Text = "Define category";
             // 
@@ -447,7 +450,7 @@ namespace NoUITowaShop.Module.Inventory
             this.tbPanelDFFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.39233F));
             this.tbPanelDFFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbPanelDFFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbPanelDFFooter.Location = new System.Drawing.Point(3, 570);
+            this.tbPanelDFFooter.Location = new System.Drawing.Point(3, 574);
             this.tbPanelDFFooter.Name = "tbPanelDFFooter";
             this.tbPanelDFFooter.RowCount = 1;
             this.tbPanelDFFooter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -489,6 +492,10 @@ namespace NoUITowaShop.Module.Inventory
             this.tbpanelHheader.Size = new System.Drawing.Size(1186, 40);
             this.tbpanelHheader.TabIndex = 0;
             // 
+            // categoryModelBindingSource
+            // 
+            this.categoryModelBindingSource.DataSource = typeof(TOWALibrary.Models.Inventory.Categoires.CategoryModel);
+            // 
             // CategoryModule
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -516,6 +523,7 @@ namespace NoUITowaShop.Module.Inventory
             this.tbPanelSLAdress.ResumeLayout(false);
             this.tbpanelHheader.ResumeLayout(false);
             this.tbpanelHheader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryModelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -552,5 +560,6 @@ namespace NoUITowaShop.Module.Inventory
         private System.Windows.Forms.TableLayoutPanel tbpanelHheader;
         private System.Windows.Forms.Label lbDescription;
         private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.BindingSource categoryModelBindingSource;
     }
 }

@@ -22,28 +22,106 @@ namespace NoUITowaShop.Module.Order
         {
             InitializeComponent();
 
-           
+            //Initialize Filter
+            this.Load += delegate
+            {
+                //Initialize Order Type - Default is All
+                string[] OrderType = new string[] { "All", "Retail Order", "Customer Order", "Supply Stock" };
+                this.cbOrderType.DataSource = OrderType;
+                this.cbOrderType.SelectedIndex = 0;
+                //Initialize Order Status Type - Default is All
+                string[] OrderStatusType = new string[] { "All", "New", "Paid", "Delivering" };
+                this.cbStatus.DataSource = OrderStatusType;
+                this.cbStatus.SelectedIndex = 0;
+            };
 
+            // This event will handle the filter: Order Type, Date Time
+            #region FilterChangedEvent
+            this.cbOrderType.SelectedIndexChanged += delegate
+            {
+                FilterChangedEvent?.Invoke(this.cbOrderType, EventArgs.Empty);
+            };
+            this.cbStatus.SelectedIndexChanged += delegate
+            {
+                FilterChangedEvent?.Invoke(this.cbStatus, EventArgs.Empty);
+            };
+
+            this.datePickerFrom.ValueChanged += delegate
+            {
+                FilterChangedEvent?.Invoke(this.datePickerFrom, EventArgs.Empty);
+            };
+            this.datePickerTo.ValueChanged += delegate
+            {
+                FilterChangedEvent?.Invoke(this.datePickerTo, EventArgs.Empty);
+            };
+
+            #endregion
+
+            // Automatically change the order details by selected order
+            #region Order Details by selected order
             this.dgvOrderList.SelectionChanged += delegate
             {
-                ShowBillReviewByOrderEvent?.Invoke(this, EventArgs.Empty);
+                // Selected Order Changed -> Order Detail Changed
+                SelectedOrderChangedEvent?.Invoke(this, EventArgs.Empty);
             };
-            
+            this.cbOrderType.SelectedIndexChanged += delegate
+            {
+                // Choose to view by Order Type
+                OrderTypeChangedEvent?.Invoke(this.cbOrderType, EventArgs.Empty);
+            };
+            #endregion
+
+            // Those event is main CURDS event to handle Order,Order Details
+            #region Major Option 
+            this.btnNew.Click += delegate
+            {
+                // Open then moudule to create new Order
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+            };
+            this.btnEdit.Click += delegate
+            {
+                // To edit the order not paid
+                EditEvent?.Invoke(this, EventArgs.Empty);
+            };
+            this.txtSearch.TextChanged += delegate
+            {
+                // Navie 1 keyword for search
+                SearchEvent?.Invoke(this, EventArgs.Empty);
+            };
+            this.btnRefresh.Click += delegate
+            {
+                //Refresh control, Order type : All, Clean search value
+                RefreshEvent?.Invoke(this, EventArgs.Empty);
+                #endregion
+
+            };
         }
         #endregion
 
+        #region Function
+        public void SetOrderListViewBindingSource(BindingSource bindingSource)
+        {
+            this.dgvOrderList.DataSource = bindingSource;
+        }
 
-        #region Singleton
-        private static OrderListModule instance;
+        public void SetOrderDetailsListViewBindingSource(BindingSource bindingSource)
+        {
+            this.dgvOrderDetailsList.DataSource = bindingSource;
+        }
+        #endregion
 
-        public event EventHandler ShowBillReviewByOrderEvent;
+        #region EvenHandler
+        public event EventHandler SelectedOrderChangedEvent;
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
         public event EventHandler EditEvent;
-        public event EventHandler DeleteEvent;
-        public event EventHandler SaveEvent;
-        public event EventHandler CancelEvent;
+        public event EventHandler RefreshEvent;
+        public event EventHandler OrderTypeChangedEvent;
+        public event EventHandler FilterChangedEvent;
+        #endregion
 
+        #region Singleton
+        private static OrderListModule instance;
         public static OrderListModule GetInstance(Form parentContainer)
         {
             if (instance == null || ((Form)instance).IsDisposed)
@@ -65,18 +143,13 @@ namespace NoUITowaShop.Module.Order
             }
             return instance;
         }
+        #endregion
 
-        public void SetOrderListViewBindingSource(BindingSource bindingSource)
-        {
-            this.dgvOrderList.DataSource = bindingSource;
-        }
-
-        public void SetOrderDetailsListViewBindingSource(BindingSource bindingSource)
-        {
-            this.dgvOrderDetailsList.DataSource = bindingSource;
-        }
-
-
+        #region Attribute
+        public string SearchValue { get => this.txtSearch.Text; set=> txtSearch.Text= value; }
+         public string Message {  set=> this.lbErrorMessage.Text= value; }
+       public DateTime DateFrom { get => this.datePickerFrom.Value; set => this.datePickerFrom.Value = value; }
+        public DateTime DateTo { get => this.datePickerTo.Value; set=> this.datePickerTo.Value= value; }
         #endregion
     }
 }

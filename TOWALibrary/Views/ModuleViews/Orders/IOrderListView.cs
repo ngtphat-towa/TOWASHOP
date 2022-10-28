@@ -9,15 +9,36 @@ namespace TOWALibrary.Views.ModuleViews.Orders
 {
    public interface IOrderListMoudleView
     {
-        event EventHandler ShowBillReviewByOrderEvent;
+        event EventHandler SelectedOrderChangedEvent;
+        event EventHandler OrderTypeChangedEvent;
+
+        event EventHandler FilterChangedEvent;
+
         event EventHandler SearchEvent;
         event EventHandler AddNewEvent;
         event EventHandler EditEvent;
-        event EventHandler DeleteEvent;
-        event EventHandler SaveEvent;
-        event EventHandler CancelEvent;
+        event EventHandler RefreshEvent;
+
+        /// <summary>
+        /// Set data grid view with the bindingSource of Order list
+        /// </summary>
+        /// <param name="bindingSource"></param>
         void SetOrderListViewBindingSource(BindingSource bindingSource);
+        /// <summary>
+        /// Set Order Details by Order
+        /// </summary>
+        /// <param name="bindingSource"></param>
         void SetOrderDetailsListViewBindingSource(BindingSource bindingSource);
+        string SearchValue { get; set; }
+        string Message { set; }
+
+        #region Order Type Filter
+
+        #endregion
+        #region FilterDateTime
+        DateTime DateFrom { get; set; }
+        DateTime DateTo { get; set; }
+        #endregion
         void Show();
 
     }

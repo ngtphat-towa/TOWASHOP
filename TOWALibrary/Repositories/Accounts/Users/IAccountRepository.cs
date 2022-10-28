@@ -10,5 +10,6 @@ namespace TOWALibrary.Repositories.Accounts.Users
    public interface IAccountRepository 
     {
         AccountModel GetAccountByUsername(string username);
+        AccountModel GetAccountByUID(string UID);
     }
 }

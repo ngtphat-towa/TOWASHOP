@@ -10,9 +10,8 @@ namespace TOWALibrary.Repositories.Order.Orders
    public interface IOrderRepository
     {
         ICollection<OrderModel> GetAll();
-        ICollection<OrderModel> GetByValue();
+        ICollection<OrderModel> GetByValue(string value);
         void Update(OrderModel model);
         void Add(OrderModel model);
-        void Delete(OrderModel model);
     }
 }

@@ -7,7 +7,7 @@ using TOWALibrary.Models.Account.Roles;
 using TOWALibrary.Models.Account.Users;
 using TOWALibrary.Views;
 
-namespace TOWALibrary.Repositories.Accounts.Services
+namespace TOWALibrary.Models.Accounts.Users.Services
 {
     public interface IUserService
     {
