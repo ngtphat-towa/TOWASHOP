@@ -23,5 +23,9 @@ namespace TOWALibrary.Models.Order.Orders
         {
             return Status[OrderStatusNumber];
         }
+        public static bool ISCreatedDateFromTo(this IOrderModel model, DateTime dateFrom, DateTime dateTo)
+        {
+            return model.CreatedAt >= dateFrom && model.CreatedAt <= dateTo;
+        }
     }
 }

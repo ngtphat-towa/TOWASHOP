@@ -11,7 +11,7 @@ using TOWALibrary.Models.Order.OrderDetails;
 namespace TOWALibrary.Models.Order.Orders
 {
 
-    public class OrderModel
+    public class OrderModel : IOrderModel
     {
         #region Private Fields
         // Intail info
@@ -25,7 +25,7 @@ namespace TOWALibrary.Models.Order.Orders
         // General info
         private float total;
         private float grandTotal;
-        
+
         // meta
         private int status;
         private string comments;
@@ -60,7 +60,7 @@ namespace TOWALibrary.Models.Order.Orders
         public int PaymentMethod { get => _paymentMethod; set => _paymentMethod = value; }
         [Browsable(false)]
         public float Total { get => total; set => total = value; }
-  
+
         [Browsable(false)]
         public string Comments { get => comments; set => comments = value; }
         [Browsable(false)]

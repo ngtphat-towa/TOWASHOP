@@ -33,18 +33,6 @@ namespace TOWALibrary.Models.Inventory.Categoires
         [Browsable(false)]
         public virtual ICollection<ProductModel> Products { get; set; }
 
-        [Browsable(false)]
-        [DisplayName("Products")]
-        public string ProductIDList
-        {
-            get
-            {
-                if (Products == null || this.Products.ToList().Count==0)
-                    return "";
-                return string.Join(",", Products.ToList().Select(p => p.PID).ToArray());
-            }
-        }
-
         #endregion
     }
 }

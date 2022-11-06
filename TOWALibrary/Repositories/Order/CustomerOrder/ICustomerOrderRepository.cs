@@ -13,5 +13,6 @@ namespace TOWALibrary.Repositories.Order.CustomerOrder
         ICollection<CustomerOrderModel> GetByValue(string value);
         void Update(CustomerOrderModel model);
         void Add(CustomerOrderModel model);
+
     }
 }

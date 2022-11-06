@@ -6,13 +6,17 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TOWALibrary.Presenters.Modules.Orders;
 using TOWALibrary.Repositories.Accounts.Users;
+using TOWALibrary.Repositories.Contacts.Customers;
 using TOWALibrary.Repositories.Contacts.Suppliers;
 using TOWALibrary.Repositories.DBConnector;
 using TOWALibrary.Repositories.Inventory.Categories;
 using TOWALibrary.Repositories.Inventory.Products;
+using TOWALibrary.Repositories.Order.CustomerOrder;
 using TOWALibrary.Repositories.Order.OrderDetails;
 using TOWALibrary.Repositories.Order.Orders;
+using TOWALibrary.Repositories.Order.SupplyOrders;
 
 namespace TOWALibrary.Repositories
 {
@@ -117,6 +121,42 @@ namespace TOWALibrary.Repositories
                     accountRepository = new AccountRepository();
                 }
                 return accountRepository;
+            }
+        }
+        private static ICustomerRepository customerRepository;
+        public static ICustomerRepository CustomerRepository
+        {
+            get
+            {
+                if (customerRepository == null)
+                {
+                    customerRepository = new CustomerRepository();
+                }
+                return customerRepository;
+            }
+        }
+        private static ICustomerOrderRepository customerOrderRepository;
+        public static ICustomerOrderRepository CustomerOrderRepository
+        {
+            get
+            {
+                if (customerOrderRepository == null)
+                {
+                    customerOrderRepository = new CustomerOrderRepository();
+                }
+                return customerOrderRepository;
+            }
+        }
+        private static IStockOrderRepository stockOrderRepository;
+        public static IStockOrderRepository StockOrderRepository
+        {
+            get
+            {
+                if (stockOrderRepository == null)
+                {
+                    stockOrderRepository = new StockOrderRepository();
+                }
+                return stockOrderRepository;
             }
         }
     }

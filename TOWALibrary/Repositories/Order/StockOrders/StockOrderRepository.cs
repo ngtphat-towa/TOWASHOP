@@ -4,23 +4,23 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TOWALibrary.Models.Order.OrderDetails;
-using TOWALibrary.Models.Order.Orders;
+using TOWALibrary.Models.Order.OrderType;
 using TOWALibrary.Repositories.Accounts.Users;
+using TOWALibrary.Repositories.Contacts.Suppliers;
 using TOWALibrary.Repositories.Helpers;
 using TOWALibrary.Repositories.Inventory.Products;
 using TOWALibrary.Repositories.Order.OrderDetails;
 
-namespace TOWALibrary.Repositories.Order.Orders
+namespace TOWALibrary.Repositories.Order.SupplyOrders
 {
-    public class OrderRepository : IOrderRepository
+    // TODO- Implement this sir
+    public class StockOrderRepository : IStockOrderRepository
     {
- 
         private readonly IOrderDetailRepository orderDetailRepository = DBManager.OrderDetailRepository;
         private readonly IAccountRepository accountRepository = DBManager.AccountRepository;
         private readonly IProductRepository productRepository = DBManager.ProductRepository;
-
-        public void Add(OrderModel model)
+        private readonly ISupplierRepository supplierRepository = DBManager.SupplierRepository;
+        public void Add(StockOrderModel model)
         {
             using (var connection = DBManager.Connection.GetDbConnection())
             {
@@ -47,11 +47,23 @@ namespace TOWALibrary.Repositories.Order.Orders
                     }
                     foreach (var orderDetail in model.OrderDetails)
                     {
+                        productRepository.UpdateProductStock(orderDetail.OD_PID, 0, orderDetail.Quantity);
                         orderDetailRepository.Add(orderDetail);
                     }
+                    using (var command = DBManager.Connection.CreateNewCommand())
+                    {
+                        connection.Open();
+                        command.CommandText = "spStockOrder_Insert";
+                        command.CommandType = CommandType.StoredProcedure;
 
+                        command.CreateDbParameter("@SO_SLID", DbType.String, model.SO_SLID);
+                        command.CreateDbParameter("@CO_OID", DbType.String, model.OID);
 
-                    dbTransaction.Commit();                  
+                        command.ExecuteNonQuery();
+
+                    }
+
+                    dbTransaction.Commit();
 
                 }
                 catch (Exception ex)
@@ -64,44 +76,46 @@ namespace TOWALibrary.Repositories.Order.Orders
                     catch (Exception exR)
                     {
 
-                        throw new Exception(ex.Message+"\n"+ exR.Message);
+                        throw new Exception(ex.Message + "\n" + exR.Message);
                     }
-                    
+
                 }
             }
         }
 
 
-        public ICollection<OrderModel> GetAll()
+        public ICollection<StockOrderModel> GetAll()
         {
-            List<OrderModel> models = new List<OrderModel>();
+            List<StockOrderModel> models = new List<StockOrderModel>();
 
             using (var connection = DBManager.Connection.GetDbConnection())
             {
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "spOrder_GetAll";
+                    command.CommandText = "spStockOrder_GetAll";
                     command.CommandType = CommandType.StoredProcedure;
 
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            OrderModel model = new OrderModel
-                            {
-                                OID = Convert.ToString(reader["ORDERID"]),
-                                CreatedByUID = Convert.ToString(reader["CREATED_BY"]),
-                                CreatedAt = Convert.ToDateTime(reader["CREATED_AT"]),
-                                UpdatedAt = Convert.ToDateTime(reader["UPDATED_AT"]),
-                                OrderType = Convert.ToInt32(reader["ORDER_TYPE"]),
-                                PaymentMethod = Convert.ToInt32(reader["PAYMENT_METHOD"]),
-                                Total = (float)Convert.ToDecimal(reader["TOTAL"]),
-                                GrandTotal = (float)Convert.ToDecimal(reader["GRAND_TOTAL"]),
-                                 Status = Convert.ToInt32(reader["STATUS"]),
-                                Comments = Convert.ToString(reader["COMMENTS"])
+                            StockOrderModel model = new StockOrderModel();
 
-                            };
+                            model.SO_ID = Convert.ToInt32(reader["SO_ID"]);
+                            model.SO_SLID = Convert.ToString(reader["SO_SLID"]);
+                            model.OID = Convert.ToString(reader["ORDERID"]);
+                            model.CreatedByUID = Convert.ToString(reader["CREATED_BY"]);
+                            model.CreatedAt = Convert.ToDateTime(reader["CREATED_AT"]);
+                            model.UpdatedAt = Convert.ToDateTime(reader["UPDATED_AT"]);
+                            model.OrderType = Convert.ToInt32(reader["ORDER_TYPE"]);
+                            model.PaymentMethod = Convert.ToInt32(reader["PAYMENT_METHOD"]);
+                            model.Total = (float)Convert.ToDecimal(reader["TOTAL"]);
+                            model.GrandTotal = (float)Convert.ToDecimal(reader["GRAND_TOTAL"]);
+                            model.Status = Convert.ToInt32(reader["STATUS"]);
+                            model.Comments = Convert.ToString(reader["COMMENTS"]);
+
+
                             models.Add(model);
                         }
                     }
@@ -111,64 +125,15 @@ namespace TOWALibrary.Repositories.Order.Orders
                     {
                         m.OrderDetails = orderDetailRepository.GetByOrder(m.OID);
                         m.CreatedBy = accountRepository.GetAccountByUID(m.CreatedByUID);
-
+                        m.Supplier = supplierRepository.GetByValue(m.SO_SLID).FirstOrDefault();
                     }
-
                 }
             }
 
             return models;
         }
 
-        public ICollection<OrderModel> GetByValue(string value)
-        {
-            List<OrderModel> models = new List<OrderModel>();
-
-            using (var connection = DBManager.Connection.GetDbConnection())
-            {
-                using (var command = DBManager.Connection.CreateNewCommand())
-                {
-                    connection.Open();
-                    command.CommandText = "spOrder_GetByValue";
-                    command.CommandType = CommandType.StoredProcedure;
-
-                    command.CreateDbParameter("@VALUE", DbType.String,'%'+ value.Trim()+'%');
-
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            OrderModel model = new OrderModel
-                            {
-                                OID = Convert.ToString(reader["ORDERID"]),
-                                CreatedByUID = Convert.ToString(reader["CREATED_BY"]),
-                                CreatedAt = Convert.ToDateTime(reader["CREATED_AT"]),
-                                UpdatedAt = Convert.ToDateTime(reader["UPDATED_AT"]),
-                                OrderType = Convert.ToInt32(reader["ORDER_TYPE"]),
-                                PaymentMethod = Convert.ToInt32(reader["PAYMENT_METHOD"]),
-                                Total = (float)Convert.ToDecimal(reader["TOTAL"]),
-                                GrandTotal = (float)Convert.ToDecimal(reader["GRAND_TOTAL"]),
-                                Comments = Convert.ToString(reader["COMMENTS"]),
-                                Status = Convert.ToInt32(reader["STATUS"])
-
-                            };
-                            models.Add(model);
-                        }
-                    }
-                    if (models.Count() == 0)
-                        return models;
-                    foreach (var m in models)
-                    {
-                        m.OrderDetails = orderDetailRepository.GetByOrder(m.OID);
-                        m.CreatedBy = accountRepository.GetAccountByUID(m.CreatedByUID);
-                    }
-
-                }
-            }
-            return models;
-        }
-
-        public void Update(OrderModel model)
+        public void Update(StockOrderModel model)
         {
             using (var connection = DBManager.Connection.GetDbConnection())
             {
@@ -193,27 +158,24 @@ namespace TOWALibrary.Repositories.Order.Orders
                         command.CreateDbParameter("@COMMENTS", DbType.String, model.Comments);
 
                         command.ExecuteNonQuery();
-                    }
+                    };
                     foreach (var orderDetail in model.OrderDetails)
                     {
-                        OrderDetailModel oldModel = orderDetailRepository.GetByID(orderDetail.OD_ID);
+                        var oldModel = orderDetailRepository.GetByID(orderDetail.OD_ID);
                         switch (orderDetail.Status)
                         {
                             case 0:
                                 productRepository.UpdateProductStock(orderDetail.OD_PID, 0, orderDetail.Quantity);
-                                productRepository.UpdateProductOrder(orderDetail.OD_PID, 0, orderDetail.Quantity);
 
                                 orderDetailRepository.Add(orderDetail);
                                 break;
                             case 1:
                                 productRepository.UpdateProductStock(orderDetail.OD_OID, oldModel.Quantity, orderDetail.Quantity);
-                                productRepository.UpdateProductOrder(orderDetail.OD_OID, oldModel.Quantity, orderDetail.Quantity);
 
                                 orderDetailRepository.Update(orderDetail);
                                 break;
                             case 2:
                                 productRepository.UpdateProductStock(orderDetail.OD_PID, oldModel.Quantity, 0);
-                                productRepository.UpdateProductOrder(orderDetail.OD_PID, oldModel.Quantity, 0);
 
                                 orderDetailRepository.Delete(orderDetail);
                                 break;
@@ -222,6 +184,20 @@ namespace TOWALibrary.Repositories.Order.Orders
                         }
                     }
 
+                    using (var command = DBManager.Connection.CreateNewCommand())
+                    {
+                        connection.Open();
+                        command.CommandText = "spStockOrder_Update";
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.CreateDbParameter("@SO_ID", DbType.Int32, model.SO_ID);
+                        command.CreateDbParameter("@SO_SLID", DbType.String, model.SO_SLID);
+                        command.CreateDbParameter("@SO_OID", DbType.String, model.OID);
+
+                        command.ExecuteNonQuery();
+
+                    };
+                    
 
                     dbTransaction.Commit();
 
@@ -241,6 +217,57 @@ namespace TOWALibrary.Repositories.Order.Orders
 
                 }
             }
+        }
+
+        public ICollection<StockOrderModel> GetByValue(string value)
+        {
+            List<StockOrderModel> models = new List<StockOrderModel>();
+
+            using (var connection = DBManager.Connection.GetDbConnection())
+            {
+                using (var command = DBManager.Connection.CreateNewCommand())
+                {
+                    connection.Open();
+                    command.CommandText = "spStockOrder_GetByValue";
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.CreateDbParameter("@VALUE", DbType.String, "%" + value.Trim() + "%");
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            StockOrderModel model = new StockOrderModel();
+
+                            model.SO_ID = Convert.ToInt32(reader["SO_ID"]);
+                            model.SO_SLID = Convert.ToString(reader["SO_SLID"]);
+                            model.OID = Convert.ToString(reader["ORDERID"]);
+                            model.CreatedByUID = Convert.ToString(reader["CREATED_BY"]);
+                            model.CreatedAt = Convert.ToDateTime(reader["CREATED_AT"]);
+                            model.UpdatedAt = Convert.ToDateTime(reader["UPDATED_AT"]);
+                            model.OrderType = Convert.ToInt32(reader["ORDER_TYPE"]);
+                            model.PaymentMethod = Convert.ToInt32(reader["PAYMENT_METHOD"]);
+                            model.Total = (float)Convert.ToDecimal(reader["TOTAL"]);
+                            model.GrandTotal = (float)Convert.ToDecimal(reader["GRAND_TOTAL"]);
+                            model.Status = Convert.ToInt32(reader["STATUS"]);
+                            model.Comments = Convert.ToString(reader["COMMENTS"]);
+
+
+                            models.Add(model);
+                        }
+                    }
+                    if (models.Count() == 0)
+                        return models;
+                    foreach (var m in models)
+                    {
+                        m.OrderDetails = orderDetailRepository.GetByOrder(m.OID);
+                        m.CreatedBy = accountRepository.GetAccountByUID(m.CreatedByUID);
+                        m.Supplier = supplierRepository.GetByValue(m.SO_SLID).FirstOrDefault();
+                    }
+                }
+            }
+
+            return models;
         }
     }
 }
