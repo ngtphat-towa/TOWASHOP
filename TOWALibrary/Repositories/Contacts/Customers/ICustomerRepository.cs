@@ -14,5 +14,6 @@ namespace TOWALibrary.Repositories.Contacts.Customers
         void Delete(string SLID);
         ICollection<CustomerModel> GetAll();
         ICollection<CustomerModel> GetByValue(string value);
+        
     }
 }

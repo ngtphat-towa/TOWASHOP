@@ -11,7 +11,7 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
     {
         void Add(SupplierModel model);
         void Update(SupplierModel model);
-        void Delete(string SLID);
+        void Delete(string CTID);
         ICollection<SupplierModel> GetAll();
         ICollection<SupplierModel> GetByValue(string value);
     }

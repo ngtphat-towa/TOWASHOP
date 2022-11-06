@@ -56,22 +56,22 @@ namespace TOWALibrary.Repositories.Order.CustomerOrder
                     {
                         while (reader.Read())
                         {
-                            CustomerOrderModel model = new CustomerOrderModel
-                            {
-                                CO_ID = Convert.ToInt32(reader["CO_CTID"]),
-                                CO_CTID = Convert.ToString(reader["CO_CTID"]),
-                                OID = Convert.ToString(reader["ORDERID"]),
-                                CreatedByUID = Convert.ToString(reader["CREATED_BY"]),
-                                CreatedAt = Convert.ToDateTime(reader["CREATED_AT"]),
-                                UpdatedAt = Convert.ToDateTime(reader["UPDATED_AT"]),
-                                OrderType = Convert.ToInt32(reader["ORDER_TYPE"]),
-                                PaymentMethod = Convert.ToInt32(reader["PAYMENT_METHOD"]),
-                                Total = (float)Convert.ToDecimal(reader["TOTAL"]),
-                                GrandTotal = (float)Convert.ToDecimal(reader["GRAND_TOTAL"]),
-                                Status = Convert.ToInt32(reader["STATUS"]),
-                                Comments = Convert.ToString(reader["COMMENTS"])
+                            CustomerOrderModel model = new CustomerOrderModel();
 
-                            };
+                            model.CO_ID = Convert.ToInt32(reader["CO_ID"]);
+                            model.CO_CTID = Convert.ToString(reader["CO_CTID"]);
+                            model.OID = Convert.ToString(reader["ORDERID"]);
+                            model.CreatedByUID = Convert.ToString(reader["CREATED_BY"]);
+                            model.CreatedAt = Convert.ToDateTime(reader["CREATED_AT"]);
+                            model.UpdatedAt = Convert.ToDateTime(reader["UPDATED_AT"]);
+                            model.OrderType = Convert.ToInt32(reader["ORDER_TYPE"]);
+                            model.PaymentMethod = Convert.ToInt32(reader["PAYMENT_METHOD"]);
+                            model.Total = (float)Convert.ToDecimal(reader["TOTAL"]);
+                            model.GrandTotal = (float)Convert.ToDecimal(reader["GRAND_TOTAL"]);
+                            model.Status = Convert.ToInt32(reader["STATUS"]);
+                            model.Comments = Convert.ToString(reader["COMMENTS"]);
+
+                            
                             models.Add(model);
                         }
                     }
@@ -110,7 +110,7 @@ namespace TOWALibrary.Repositories.Order.CustomerOrder
                         {
                             CustomerOrderModel model = new CustomerOrderModel
                             {
-                                CO_ID = Convert.ToInt32(reader["CO_CTID"]),
+                                CO_ID = Convert.ToInt32(reader["CO_ID"]),
                                 CO_CTID = Convert.ToString(reader["CO_CTID"]),
                                 OID = Convert.ToString(reader["ORDERID"]),
                                 CreatedByUID = Convert.ToString(reader["CREATED_BY"]),

@@ -95,14 +95,14 @@ namespace TOWALibrary.Repositories.Contacts.Customers
                     command.CommandText = "dbo.spCustomer_GetByValue";
                     command.CommandType = CommandType.StoredProcedure;
 
-                    command.CreateDbParameter("@SEARCHVALUE", DbType.String, "%" + value.Trim() + "%");
+                    command.CreateDbParameter("@SEARCHVALUE", DbType.String, value.Trim()  );
 
                     using (var reader = command.ExecuteReader())
                         while (reader.Read())
                         {
                             models.Add(new CustomerModel
                             {
-                                CTID = Convert.ToString(reader["SUPPLIERID"]),
+                                CTID = Convert.ToString(reader["CUSTOMERID"]),
                                 CID = Convert.ToString(reader["CID"]),
                                 FirstName = Convert.ToString(reader["FIRST_NAME"]),
                                 LastName = Convert.ToString(reader["LAST_NAME"]),

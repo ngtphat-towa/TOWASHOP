@@ -14,7 +14,7 @@ namespace TOWALibrary.Models.Order.OrderType
         #region Constructor
         public CustomerOrderModel()
         {
-
+       
         }
         #endregion
 
@@ -28,14 +28,19 @@ namespace TOWALibrary.Models.Order.OrderType
         [DisplayName("CTID")]
         public string CO_CTID { get => _CO_CTID; set => _CO_CTID = value; }
         [DisplayName("Customer Name")]
-        public string CustomerName { get => Customer.FullName; }
+        public string CustomerName {
+            get
+            {
+                return Customer?.FullName;
+            }
+        }
         #endregion
 
         #region Non-Display Attribute
         [Browsable(false)]
         public int CO_ID { get => _CO_ID; set => _CO_ID = value; }
         [Browsable(false)]
-        public CustomerModel Customer { get => customer; set => customer = value; }
+        public  CustomerModel Customer { get => customer; set => customer = value; }
         #endregion
 
     }
