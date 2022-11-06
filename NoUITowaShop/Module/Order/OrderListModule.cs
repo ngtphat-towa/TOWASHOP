@@ -22,37 +22,66 @@ namespace NoUITowaShop.Module.Order
         {
             InitializeComponent();
 
-            //Initialize Filter
+            // Initialize Filter
+            string[] OrderType = new string[] { "All", "Retail Order", "Customer Order", "Supply Stock" };
+            this.cbOrderType.DataSource = OrderType;
+            string[] OrderStatusType = new string[] { "All", "New", "Paid", "Delivering" };
+            this.cbStatus.DataSource = OrderStatusType;
+            string[] PaymentMethod = new string[] { "All", "Cash", "Credit" };
+
             this.Load += delegate
             {
+                // Handle to not reload mutipile times
+                this.IsResetFilter = true;
+                //Initialize Order Payment - Default is All
+                this.cbPaymentMethod.DataSource = PaymentMethod;
                 //Initialize Order Type - Default is All
-                string[] OrderType = new string[] { "All", "Retail Order", "Customer Order", "Supply Stock" };
-                this.cbOrderType.DataSource = OrderType;
                 this.cbOrderType.SelectedIndex = 0;
+
                 //Initialize Order Status Type - Default is All
-                string[] OrderStatusType = new string[] { "All", "New", "Paid", "Delivering" };
-                this.cbStatus.DataSource = OrderStatusType;
                 this.cbStatus.SelectedIndex = 0;
+
+                // Initiallize Order Payment Method
+                this.cbPaymentMethod.SelectedIndex = 0;
+                // Start at the monday of week
+                //  this.datePickerFrom.Value = DateTime.Today.AddDays(1-Convert.ToDouble(DateTime.Today.DayOfWeek));
+                // Set the date to the first date of month #Note: -1 for the datetime of example orders
+                this.datePickerFrom.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month - 1, 1);
+
             };
 
+            //this.Load += delegate
+            //{
+            //    this.
+            //    FilterChangedEvent?.Invoke(this.cbOrderType, EventArgs.Empty);
+            //};
             // This event will handle the filter: Order Type, Date Time
             #region FilterChangedEvent
             this.cbOrderType.SelectedIndexChanged += delegate
             {
-                FilterChangedEvent?.Invoke(this.cbOrderType, EventArgs.Empty);
+                if (!IsResetFilter)
+                    FilterChangedEvent?.Invoke(this.cbOrderType, EventArgs.Empty);
             };
             this.cbStatus.SelectedIndexChanged += delegate
             {
-                FilterChangedEvent?.Invoke(this.cbStatus, EventArgs.Empty);
+                if (!IsResetFilter)
+                    FilterChangedEvent?.Invoke(this.cbStatus, EventArgs.Empty);
             };
+            this.cbPaymentMethod.SelectedIndexChanged += delegate
+             {
+                 if (!IsResetFilter)
+                     FilterChangedEvent?.Invoke(this.cbPaymentMethod, EventArgs.Empty);
+             };
 
             this.datePickerFrom.ValueChanged += delegate
             {
-                FilterChangedEvent?.Invoke(this.datePickerFrom, EventArgs.Empty);
+                if (!IsResetFilter)
+                    FilterChangedEvent?.Invoke(this.datePickerFrom, EventArgs.Empty);
             };
             this.datePickerTo.ValueChanged += delegate
             {
-                FilterChangedEvent?.Invoke(this.datePickerTo, EventArgs.Empty);
+                if (!IsResetFilter)
+                    FilterChangedEvent?.Invoke(this.datePickerTo, EventArgs.Empty);
             };
 
             #endregion
@@ -62,13 +91,14 @@ namespace NoUITowaShop.Module.Order
             this.dgvOrderList.SelectionChanged += delegate
             {
                 // Selected Order Changed -> Order Detail Changed
+               // if (this.dgvOrderList.RowCount!=0)
                 SelectedOrderChangedEvent?.Invoke(this, EventArgs.Empty);
             };
-            this.cbOrderType.SelectedIndexChanged += delegate
-            {
-                // Choose to view by Order Type
-                OrderTypeChangedEvent?.Invoke(this.cbOrderType, EventArgs.Empty);
-            };
+            //this.cbOrderType.SelectedIndexChanged += delegate
+            //{
+            //    // Choose to view by Order Type
+            //    OrderTypeChangedEvent?.Invoke(this.cbOrderType, EventArgs.Empty);
+            //};
             #endregion
 
             // Those event is main CURDS event to handle Order,Order Details
@@ -83,40 +113,43 @@ namespace NoUITowaShop.Module.Order
                 // To edit the order not paid
                 EditEvent?.Invoke(this, EventArgs.Empty);
             };
-            this.txtSearch.TextChanged += delegate
+            this.btnSearch.Click += delegate
             {
                 // Navie 1 keyword for search
-                SearchEvent?.Invoke(this, EventArgs.Empty);
+                this.IsValueSearch = true;
+                FilterChangedEvent?.Invoke(this, EventArgs.Empty);
             };
             this.btnRefresh.Click += delegate
             {
                 //Refresh control, Order type : All, Clean search value
+                this.IsResetFilter = true;
                 RefreshEvent?.Invoke(this, EventArgs.Empty);
-                #endregion
-
             };
+            #endregion
         }
         #endregion
 
         #region Function
         public void SetOrderListViewBindingSource(BindingSource bindingSource)
         {
+            this.dgvOrderDetailsList.DataSource = null;
             this.dgvOrderList.DataSource = bindingSource;
         }
 
         public void SetOrderDetailsListViewBindingSource(BindingSource bindingSource)
         {
+            this.dgvOrderDetailsList.DataSource = null;
             this.dgvOrderDetailsList.DataSource = bindingSource;
         }
         #endregion
 
         #region EvenHandler
         public event EventHandler SelectedOrderChangedEvent;
-        public event EventHandler SearchEvent;
+     //   public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
         public event EventHandler EditEvent;
         public event EventHandler RefreshEvent;
-        public event EventHandler OrderTypeChangedEvent;
+        //public event EventHandler OrderTypeChangedEvent;
         public event EventHandler FilterChangedEvent;
         #endregion
 
@@ -146,10 +179,20 @@ namespace NoUITowaShop.Module.Order
         #endregion
 
         #region Attribute
+        #region Private
+
+        #endregion
         public string SearchValue { get => this.txtSearch.Text; set=> txtSearch.Text= value; }
          public string Message {  set=> this.lbErrorMessage.Text= value; }
        public DateTime DateFrom { get => this.datePickerFrom.Value; set => this.datePickerFrom.Value = value; }
         public DateTime DateTo { get => this.datePickerTo.Value; set=> this.datePickerTo.Value= value; }
+        public int OrderType { get => this.cbOrderType.SelectedIndex; set =>this.cbOrderType.SelectedIndex= value; }
+        public int OrderStatus { get => this.cbStatus.SelectedIndex; set => this.cbStatus.SelectedIndex =value; }
+        public int PaymentMethod  { get => this.cbPaymentMethod.SelectedIndex; set => this.cbPaymentMethod.SelectedIndex = value; }
+        public bool IsValueSearch { get ; set  ; }
+        public bool IsResetFilter { get ; set ; }
+        public bool IsEditOrder { get ; set; }
+
         #endregion
     }
 }

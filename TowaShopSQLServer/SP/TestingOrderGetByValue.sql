@@ -24,4 +24,4 @@ select * from ORDERS O
 	left join CUSTOMER_ORDERS on ORDERID  = CO_OID
 		where SO_OID IS NOT NULl OR CO_OID IS NOT NULL
 	
-
+execute dbo.spOrder_GetByValue '%%';

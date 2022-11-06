@@ -16,6 +16,7 @@ using TOWALibrary.Views.MainViews;
 using TOWALibrary.Views.ModuleViews.Contacts;
 using TOWALibrary.Views.ModuleViews.Inventory;
 using TOWALibrary.Views.ModuleViews.Orders;
+using TOWALibrary.Views.ModuleViews.Orders.OrderDetails;
 
 namespace SimpleUITowaShop
 {
@@ -34,6 +35,7 @@ namespace SimpleUITowaShop
         public event EventHandler ShowCategoryModuleView;
         public event EventHandler ShowProductModuleView;
         public event EventHandler ShowOrderListModuleView;
+        public event EventHandler ShowOrderFormView;
 
         private void AssociateAndRaiseViewEvents()
         {
@@ -52,6 +54,10 @@ namespace SimpleUITowaShop
             {
                 ShowOrderListModuleView?.Invoke(this, EventArgs.Empty);
             };
+            this.newOrderToolStripMenuItem.Click += delegate
+             {
+                 ShowOrderFormView?.Invoke(this, EventArgs.Empty);
+             };
             this.FormClosed += delegate
             {
                 if (MessageBox.Show("Are you want to exit the application?","",MessageBoxButtons.YesNo)==DialogResult.Yes)
@@ -78,6 +84,10 @@ namespace SimpleUITowaShop
         public IOrderListMoudleView OrderListModuleView
         {
             get => OrderListModule.GetInstance(this);
+        }
+        public IOrderFormView OrderFormView
+        {
+            get => OrderForm.Instance;
         }
 
 

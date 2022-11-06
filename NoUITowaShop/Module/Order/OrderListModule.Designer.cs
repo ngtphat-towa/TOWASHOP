@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace NoUITowaShop.Module.Order
 {
     partial class OrderListModule
@@ -42,24 +44,27 @@ namespace NoUITowaShop.Module.Order
             this.txtTotal = new System.Windows.Forms.NumericUpDown();
             this.lbTotal = new System.Windows.Forms.Label();
             this.tableOption = new System.Windows.Forms.TableLayoutPanel();
+            this.gbPaymentMethod = new System.Windows.Forms.GroupBox();
+            this.cbPaymentMethod = new System.Windows.Forms.ComboBox();
             this.gbStatus = new System.Windows.Forms.GroupBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.gbOrderType = new System.Windows.Forms.GroupBox();
-            this.cbOrderType = new System.Windows.Forms.ComboBox();
             this.gbOptions = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbOptionBtn = new System.Windows.Forms.TableLayoutPanel();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
-            this.lbErrorMessage = new System.Windows.Forms.Label();
             this.gbDateTo = new System.Windows.Forms.GroupBox();
             this.datePickerTo = new System.Windows.Forms.DateTimePicker();
             this.gbDateFrom = new System.Windows.Forms.GroupBox();
             this.datePickerFrom = new System.Windows.Forms.DateTimePicker();
-            this.gpSearch = new System.Windows.Forms.GroupBox();
+            this.gbOrderType = new System.Windows.Forms.GroupBox();
+            this.cbOrderType = new System.Windows.Forms.ComboBox();
+            this.lbErrorMessage = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.tbPanelLFooter = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.lbSearch = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderList)).BeginInit();
             this.gbReviewBill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetailsList)).BeginInit();
@@ -68,14 +73,14 @@ namespace NoUITowaShop.Module.Order
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal)).BeginInit();
             this.tableOption.SuspendLayout();
+            this.gbPaymentMethod.SuspendLayout();
             this.gbStatus.SuspendLayout();
-            this.gbOrderType.SuspendLayout();
             this.gbOptions.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tbOptionBtn.SuspendLayout();
             this.gbDateTo.SuspendLayout();
             this.gbDateFrom.SuspendLayout();
-            this.gpSearch.SuspendLayout();
-            this.tbPanelLFooter.SuspendLayout();
+            this.gbOrderType.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvOrderList
@@ -99,7 +104,7 @@ namespace NoUITowaShop.Module.Order
             this.dgvOrderList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvOrderList.RowTemplate.Height = 24;
             this.dgvOrderList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrderList.Size = new System.Drawing.Size(753, 450);
+            this.dgvOrderList.Size = new System.Drawing.Size(753, 429);
             this.dgvOrderList.TabIndex = 0;
             // 
             // gbReviewBill
@@ -111,7 +116,7 @@ namespace NoUITowaShop.Module.Order
             this.gbReviewBill.Controls.Add(this.dgvOrderDetailsList);
             this.gbReviewBill.Location = new System.Drawing.Point(768, 3);
             this.gbReviewBill.Name = "gbReviewBill";
-            this.gbReviewBill.Size = new System.Drawing.Size(429, 476);
+            this.gbReviewBill.Size = new System.Drawing.Size(429, 455);
             this.gbReviewBill.TabIndex = 1;
             this.gbReviewBill.TabStop = false;
             this.gbReviewBill.Text = "Review Bill";
@@ -151,7 +156,7 @@ namespace NoUITowaShop.Module.Order
             this.dgvOrderDetailsList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvOrderDetailsList.RowTemplate.Height = 24;
             this.dgvOrderDetailsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrderDetailsList.Size = new System.Drawing.Size(423, 450);
+            this.dgvOrderDetailsList.Size = new System.Drawing.Size(423, 429);
             this.dgvOrderDetailsList.TabIndex = 0;
             // 
             // gbRecentRecord
@@ -163,26 +168,28 @@ namespace NoUITowaShop.Module.Order
             this.gbRecentRecord.Controls.Add(this.dgvOrderList);
             this.gbRecentRecord.Location = new System.Drawing.Point(3, 3);
             this.gbRecentRecord.Name = "gbRecentRecord";
-            this.gbRecentRecord.Size = new System.Drawing.Size(759, 476);
+            this.gbRecentRecord.Size = new System.Drawing.Size(759, 455);
             this.gbRecentRecord.TabIndex = 0;
             this.gbRecentRecord.TabStop = false;
             this.gbRecentRecord.Text = "Recent Orders";
             // 
             // tableOrderList
             // 
+            this.tableOrderList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableOrderList.ColumnCount = 2;
             this.tableOrderList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.83333F));
             this.tableOrderList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.16667F));
             this.tableOrderList.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableOrderList.Controls.Add(this.gbRecentRecord, 0, 0);
             this.tableOrderList.Controls.Add(this.gbReviewBill, 1, 0);
-            this.tableOrderList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableOrderList.Location = new System.Drawing.Point(0, 87);
+            this.tableOrderList.Location = new System.Drawing.Point(0, 108);
             this.tableOrderList.Name = "tableOrderList";
             this.tableOrderList.RowCount = 2;
             this.tableOrderList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableOrderList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
-            this.tableOrderList.Size = new System.Drawing.Size(1200, 535);
+            this.tableOrderList.Size = new System.Drawing.Size(1200, 514);
             this.tableOrderList.TabIndex = 11;
             // 
             // tableLayoutPanel2
@@ -193,7 +200,7 @@ namespace NoUITowaShop.Module.Order
             this.tableLayoutPanel2.Controls.Add(this.txtTotal, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.lbTotal, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 485);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 464);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -223,27 +230,52 @@ namespace NoUITowaShop.Module.Order
             // tableOption
             // 
             this.tableOption.ColumnCount = 6;
-            this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.18446F));
-            this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.75F));
-            this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.75F));
-            this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.41667F));
-            this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.91667F));
-            this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.83333F));
+            this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.65378F));
+            this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.65378F));
+            this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.65378F));
+            this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.01406F));
+            this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.78383F));
+            this.tableOption.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.24077F));
+            this.tableOption.Controls.Add(this.gbPaymentMethod, 2, 0);
             this.tableOption.Controls.Add(this.gbStatus, 1, 0);
-            this.tableOption.Controls.Add(this.gbOrderType, 0, 0);
             this.tableOption.Controls.Add(this.gbOptions, 5, 0);
-            this.tableOption.Controls.Add(this.lbErrorMessage, 2, 1);
             this.tableOption.Controls.Add(this.gbDateTo, 4, 0);
             this.tableOption.Controls.Add(this.gbDateFrom, 3, 0);
-            this.tableOption.Controls.Add(this.gpSearch, 2, 0);
+            this.tableOption.Controls.Add(this.gbOrderType, 0, 0);
             this.tableOption.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableOption.Location = new System.Drawing.Point(0, 0);
             this.tableOption.Name = "tableOption";
-            this.tableOption.RowCount = 2;
+            this.tableOption.RowCount = 1;
             this.tableOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableOption.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            this.tableOption.Size = new System.Drawing.Size(1200, 87);
+            this.tableOption.Size = new System.Drawing.Size(1200, 69);
             this.tableOption.TabIndex = 10;
+            // 
+            // gbPaymentMethod
+            // 
+            this.gbPaymentMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbPaymentMethod.Controls.Add(this.cbPaymentMethod);
+            this.gbPaymentMethod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbPaymentMethod.Location = new System.Drawing.Point(305, 3);
+            this.gbPaymentMethod.Name = "gbPaymentMethod";
+            this.gbPaymentMethod.Size = new System.Drawing.Size(145, 63);
+            this.gbPaymentMethod.TabIndex = 15;
+            this.gbPaymentMethod.TabStop = false;
+            this.gbPaymentMethod.Text = "# Payment:";
+            // 
+            // cbPaymentMethod
+            // 
+            this.cbPaymentMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPaymentMethod.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPaymentMethod.FormattingEnabled = true;
+            this.cbPaymentMethod.Location = new System.Drawing.Point(6, 25);
+            this.cbPaymentMethod.Name = "cbPaymentMethod";
+            this.cbPaymentMethod.Size = new System.Drawing.Size(133, 31);
+            this.cbPaymentMethod.TabIndex = 0;
             // 
             // gbStatus
             // 
@@ -252,9 +284,9 @@ namespace NoUITowaShop.Module.Order
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbStatus.Controls.Add(this.cbStatus);
             this.gbStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gbStatus.Location = new System.Drawing.Point(161, 3);
+            this.gbStatus.Location = new System.Drawing.Point(154, 3);
             this.gbStatus.Name = "gbStatus";
-            this.gbStatus.Size = new System.Drawing.Size(147, 58);
+            this.gbStatus.Size = new System.Drawing.Size(145, 63);
             this.gbStatus.TabIndex = 14;
             this.gbStatus.TabStop = false;
             this.gbStatus.Text = "# Order Status:";
@@ -269,65 +301,38 @@ namespace NoUITowaShop.Module.Order
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(6, 25);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(135, 31);
+            this.cbStatus.Size = new System.Drawing.Size(133, 31);
             this.cbStatus.TabIndex = 0;
-            // 
-            // gbOrderType
-            // 
-            this.gbOrderType.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbOrderType.Controls.Add(this.cbOrderType);
-            this.gbOrderType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gbOrderType.Location = new System.Drawing.Point(3, 3);
-            this.gbOrderType.Name = "gbOrderType";
-            this.gbOrderType.Size = new System.Drawing.Size(152, 58);
-            this.gbOrderType.TabIndex = 9;
-            this.gbOrderType.TabStop = false;
-            this.gbOrderType.Text = "# Order type:";
-            // 
-            // cbOrderType
-            // 
-            this.cbOrderType.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbOrderType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbOrderType.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbOrderType.FormattingEnabled = true;
-            this.cbOrderType.Location = new System.Drawing.Point(6, 25);
-            this.cbOrderType.Name = "cbOrderType";
-            this.cbOrderType.Size = new System.Drawing.Size(140, 31);
-            this.cbOrderType.TabIndex = 0;
             // 
             // gbOptions
             // 
             this.gbOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbOptions.Controls.Add(this.tableLayoutPanel1);
-            this.gbOptions.Location = new System.Drawing.Point(891, 3);
+            this.gbOptions.Controls.Add(this.tbOptionBtn);
+            this.gbOptions.Location = new System.Drawing.Point(873, 3);
             this.gbOptions.Name = "gbOptions";
-            this.gbOptions.Size = new System.Drawing.Size(306, 58);
+            this.gbOptions.Size = new System.Drawing.Size(324, 63);
             this.gbOptions.TabIndex = 12;
             this.gbOptions.TabStop = false;
             this.gbOptions.Text = "Option";
             // 
-            // tableLayoutPanel1
+            // tbOptionBtn
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.btnRefresh, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnEdit, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnNew, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 23);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 32);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tbOptionBtn.ColumnCount = 3;
+            this.tbOptionBtn.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbOptionBtn.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbOptionBtn.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbOptionBtn.Controls.Add(this.btnRefresh, 2, 0);
+            this.tbOptionBtn.Controls.Add(this.btnEdit, 1, 0);
+            this.tbOptionBtn.Controls.Add(this.btnNew, 0, 0);
+            this.tbOptionBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbOptionBtn.Location = new System.Drawing.Point(3, 23);
+            this.tbOptionBtn.Name = "tbOptionBtn";
+            this.tbOptionBtn.RowCount = 1;
+            this.tbOptionBtn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tbOptionBtn.Size = new System.Drawing.Size(318, 37);
+            this.tbOptionBtn.TabIndex = 0;
             // 
             // btnRefresh
             // 
@@ -338,9 +343,9 @@ namespace NoUITowaShop.Module.Order
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnRefresh.Location = new System.Drawing.Point(203, 3);
+            this.btnRefresh.Location = new System.Drawing.Point(215, 3);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(94, 26);
+            this.btnRefresh.Size = new System.Drawing.Size(100, 31);
             this.btnRefresh.TabIndex = 2;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = false;
@@ -354,9 +359,9 @@ namespace NoUITowaShop.Module.Order
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnEdit.Location = new System.Drawing.Point(103, 3);
+            this.btnEdit.Location = new System.Drawing.Point(109, 3);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(94, 26);
+            this.btnEdit.Size = new System.Drawing.Size(100, 31);
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Modify";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -372,22 +377,10 @@ namespace NoUITowaShop.Module.Order
             this.btnNew.ForeColor = System.Drawing.SystemColors.Control;
             this.btnNew.Location = new System.Drawing.Point(3, 3);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(94, 26);
+            this.btnNew.Size = new System.Drawing.Size(100, 31);
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "Add";
             this.btnNew.UseVisualStyleBackColor = false;
-            // 
-            // lbErrorMessage
-            // 
-            this.lbErrorMessage.AutoSize = true;
-            this.lbErrorMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbErrorMessage.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbErrorMessage.ForeColor = System.Drawing.Color.DarkRed;
-            this.lbErrorMessage.Location = new System.Drawing.Point(314, 64);
-            this.lbErrorMessage.Name = "lbErrorMessage";
-            this.lbErrorMessage.Size = new System.Drawing.Size(132, 20);
-            this.lbErrorMessage.TabIndex = 13;
-            this.lbErrorMessage.Text = "This Order is Empty";
             // 
             // gbDateTo
             // 
@@ -396,9 +389,9 @@ namespace NoUITowaShop.Module.Order
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbDateTo.Controls.Add(this.datePickerTo);
             this.gbDateTo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gbDateTo.Location = new System.Drawing.Point(700, 3);
+            this.gbDateTo.Location = new System.Drawing.Point(672, 3);
             this.gbDateTo.Name = "gbDateTo";
-            this.gbDateTo.Size = new System.Drawing.Size(185, 58);
+            this.gbDateTo.Size = new System.Drawing.Size(195, 63);
             this.gbDateTo.TabIndex = 10;
             this.gbDateTo.TabStop = false;
             this.gbDateTo.Text = "# Date To:";
@@ -409,11 +402,12 @@ namespace NoUITowaShop.Module.Order
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.datePickerTo.Checked = false;
-            this.datePickerTo.CustomFormat = "dd/mm/yyyy";
+            this.datePickerTo.CustomFormat = "dd/MM/yyyy";
             this.datePickerTo.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datePickerTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datePickerTo.Location = new System.Drawing.Point(0, 23);
             this.datePickerTo.Name = "datePickerTo";
-            this.datePickerTo.Size = new System.Drawing.Size(179, 29);
+            this.datePickerTo.Size = new System.Drawing.Size(189, 29);
             this.datePickerTo.TabIndex = 0;
             // 
             // gbDateFrom
@@ -423,9 +417,9 @@ namespace NoUITowaShop.Module.Order
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbDateFrom.Controls.Add(this.datePickerFrom);
             this.gbDateFrom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gbDateFrom.Location = new System.Drawing.Point(515, 3);
+            this.gbDateFrom.Location = new System.Drawing.Point(456, 3);
             this.gbDateFrom.Name = "gbDateFrom";
-            this.gbDateFrom.Size = new System.Drawing.Size(179, 58);
+            this.gbDateFrom.Size = new System.Drawing.Size(210, 63);
             this.gbDateFrom.TabIndex = 11;
             this.gbDateFrom.TabStop = false;
             this.gbDateFrom.Text = "# Date From:";
@@ -436,37 +430,62 @@ namespace NoUITowaShop.Module.Order
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.datePickerFrom.Checked = false;
-            this.datePickerFrom.CustomFormat = "dd/mm/yyyy";
+            this.datePickerFrom.CustomFormat = "dd/MM/yyyy";
             this.datePickerFrom.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datePickerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datePickerFrom.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.datePickerFrom.Location = new System.Drawing.Point(0, 23);
             this.datePickerFrom.Name = "datePickerFrom";
-            this.datePickerFrom.Size = new System.Drawing.Size(173, 29);
+            this.datePickerFrom.Size = new System.Drawing.Size(204, 29);
             this.datePickerFrom.TabIndex = 0;
             // 
-            // gpSearch
+            // gbOrderType
             // 
-            this.gpSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gbOrderType.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gpSearch.Controls.Add(this.txtSearch);
-            this.gpSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gpSearch.Location = new System.Drawing.Point(314, 3);
-            this.gpSearch.Name = "gpSearch";
-            this.gpSearch.Size = new System.Drawing.Size(195, 58);
-            this.gpSearch.TabIndex = 8;
-            this.gpSearch.TabStop = false;
-            this.gpSearch.Text = "# Search";
+            this.gbOrderType.Controls.Add(this.cbOrderType);
+            this.gbOrderType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbOrderType.Location = new System.Drawing.Point(3, 3);
+            this.gbOrderType.Name = "gbOrderType";
+            this.gbOrderType.Size = new System.Drawing.Size(145, 63);
+            this.gbOrderType.TabIndex = 9;
+            this.gbOrderType.TabStop = false;
+            this.gbOrderType.Text = "# Order type:";
+            // 
+            // cbOrderType
+            // 
+            this.cbOrderType.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbOrderType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbOrderType.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbOrderType.FormattingEnabled = true;
+            this.cbOrderType.Location = new System.Drawing.Point(6, 25);
+            this.cbOrderType.Name = "cbOrderType";
+            this.cbOrderType.Size = new System.Drawing.Size(133, 31);
+            this.cbOrderType.TabIndex = 0;
+            // 
+            // lbErrorMessage
+            // 
+            this.lbErrorMessage.AutoSize = true;
+            this.lbErrorMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbErrorMessage.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbErrorMessage.ForeColor = System.Drawing.Color.DarkRed;
+            this.lbErrorMessage.Location = new System.Drawing.Point(683, 0);
+            this.lbErrorMessage.Name = "lbErrorMessage";
+            this.lbErrorMessage.Size = new System.Drawing.Size(0, 20);
+            this.lbErrorMessage.TabIndex = 13;
             // 
             // txtSearch
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(3, 25);
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(119, 3);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(186, 30);
+            this.txtSearch.Size = new System.Drawing.Size(419, 33);
             this.txtSearch.TabIndex = 0;
             // 
             // tbPanelLFooter
@@ -476,7 +495,6 @@ namespace NoUITowaShop.Module.Order
             this.tbPanelLFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbPanelLFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.39233F));
             this.tbPanelLFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
-            this.tbPanelLFooter.Controls.Add(this.label1, 1, 0);
             this.tbPanelLFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tbPanelLFooter.Location = new System.Drawing.Point(0, 622);
             this.tbPanelLFooter.Name = "tbPanelLFooter";
@@ -485,24 +503,59 @@ namespace NoUITowaShop.Module.Order
             this.tbPanelLFooter.Size = new System.Drawing.Size(1200, 18);
             this.tbPanelLFooter.TabIndex = 9;
             // 
-            // label1
+            // tableLayoutPanel3
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tableLayoutPanel3.ColumnCount = 4;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.07317F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.41033F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.5165F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 518F));
+            this.tableLayoutPanel3.Controls.Add(this.btnSearch, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.txtSearch, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lbSearch, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lbErrorMessage, 3, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 69);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1200, 36);
+            this.tableLayoutPanel3.TabIndex = 12;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(234, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(730, 18);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.btnSearch.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSearch.Location = new System.Drawing.Point(544, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(133, 30);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "Find";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            // 
+            // lbSearch
+            // 
+            this.lbSearch.AutoSize = true;
+            this.lbSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSearch.Location = new System.Drawing.Point(3, 0);
+            this.lbSearch.Name = "lbSearch";
+            this.lbSearch.Size = new System.Drawing.Size(110, 36);
+            this.lbSearch.TabIndex = 1;
+            this.lbSearch.Text = "# Search";
+            this.lbSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // OrderListModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 640);
+            this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableOrderList);
             this.Controls.Add(this.tableOption);
             this.Controls.Add(this.tbPanelLFooter);
@@ -520,17 +573,15 @@ namespace NoUITowaShop.Module.Order
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal)).EndInit();
             this.tableOption.ResumeLayout(false);
-            this.tableOption.PerformLayout();
+            this.gbPaymentMethod.ResumeLayout(false);
             this.gbStatus.ResumeLayout(false);
-            this.gbOrderType.ResumeLayout(false);
             this.gbOptions.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tbOptionBtn.ResumeLayout(false);
             this.gbDateTo.ResumeLayout(false);
             this.gbDateFrom.ResumeLayout(false);
-            this.gpSearch.ResumeLayout(false);
-            this.gpSearch.PerformLayout();
-            this.tbPanelLFooter.ResumeLayout(false);
-            this.tbPanelLFooter.PerformLayout();
+            this.gbOrderType.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -547,22 +598,25 @@ namespace NoUITowaShop.Module.Order
         private System.Windows.Forms.DateTimePicker datePickerFrom;
         private System.Windows.Forms.GroupBox gbDateTo;
         private System.Windows.Forms.DateTimePicker datePickerTo;
-        private System.Windows.Forms.GroupBox gbOrderType;
-        private System.Windows.Forms.ComboBox cbOrderType;
-        private System.Windows.Forms.GroupBox gpSearch;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.GroupBox gbOptions;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.TableLayoutPanel tbPanelLFooter;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbErrorMessage;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.NumericUpDown txtTotal;
         private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.GroupBox gbStatus;
         private System.Windows.Forms.ComboBox cbStatus;
+        private System.Windows.Forms.GroupBox gbPaymentMethod ;
+        private System.Windows.Forms.ComboBox cbPaymentMethod;
+        private System.Windows.Forms.GroupBox gbOptions;
+        private System.Windows.Forms.TableLayoutPanel tbOptionBtn;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.GroupBox gbOrderType;
+        private System.Windows.Forms.ComboBox cbOrderType;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label lbSearch;
     }
 }

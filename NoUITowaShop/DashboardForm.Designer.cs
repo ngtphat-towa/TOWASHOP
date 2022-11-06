@@ -40,7 +40,6 @@ namespace SimpleUITowaShop
             this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orderListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.staffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,13 +55,12 @@ namespace SimpleUITowaShop
             this.inventoryToolStripMenuItem,
             this.contactToolStripMenuItem,
             this.orderToolStripMenuItem,
-            this.reportsToolStripMenuItem,
             this.staffToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
-            this.mainMenuStrip.Size = new System.Drawing.Size(1182, 33);
+            this.mainMenuStrip.Padding = new System.Windows.Forms.Padding(11, 3, 0, 3);
+            this.mainMenuStrip.Size = new System.Drawing.Size(1313, 33);
             this.mainMenuStrip.TabIndex = 0;
             // 
             // dashboardToolStripMenuItem
@@ -111,7 +109,7 @@ namespace SimpleUITowaShop
             // supplierToolStripMenuItem
             // 
             this.supplierToolStripMenuItem.Name = "supplierToolStripMenuItem";
-            this.supplierToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.supplierToolStripMenuItem.Size = new System.Drawing.Size(162, 28);
             this.supplierToolStripMenuItem.Text = "Supplier";
             // 
             // orderToolStripMenuItem
@@ -135,12 +133,6 @@ namespace SimpleUITowaShop
             this.orderListToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.orderListToolStripMenuItem.Text = "Order List";
             // 
-            // reportsToolStripMenuItem
-            // 
-            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(87, 27);
-            this.reportsToolStripMenuItem.Text = "Reports";
-            // 
             // staffToolStripMenuItem
             // 
             this.staffToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -152,7 +144,7 @@ namespace SimpleUITowaShop
             // employeeListToolStripMenuItem
             // 
             this.employeeListToolStripMenuItem.Name = "employeeListToolStripMenuItem";
-            this.employeeListToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.employeeListToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.employeeListToolStripMenuItem.Text = "Employee list";
             // 
             // helpToolStripMenuItem
@@ -163,11 +155,11 @@ namespace SimpleUITowaShop
             // 
             // DashboardForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 653);
+            this.ClientSize = new System.Drawing.Size(1313, 653);
             this.Controls.Add(this.mainMenuStrip);
-            this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mainMenuStrip;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -193,7 +185,6 @@ namespace SimpleUITowaShop
         private System.Windows.Forms.ToolStripMenuItem orderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newOrderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem orderListToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supplierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem staffToolStripMenuItem;
