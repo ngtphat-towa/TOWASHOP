@@ -100,17 +100,24 @@
     <Compile Include="Models\Account\Employees\EmployeeModel.cs" />
     <Compile Include="Models\Account\Roles\RoleModel.cs" />
     <Compile Include="Models\Account\Users\AccountModel.cs" />
+    <Compile Include="Models\Contact\Customers\CustomerModel.cs" />
     <Compile Include="Models\Contact\Suppliers\SupplierModel.cs" />
     <Compile Include="Models\Inventory\Categoires\CategoryModel.cs" />
     <Compile Include="Models\Inventory\Products\ProductModel.cs" />
     <Compile Include="Models\Order\OrderDetails\OrderDetailModel.cs" />
+    <Compile Include="Models\Order\Orders\IOrderModel.cs" />
     <Compile Include="Models\Order\Orders\OrderFormatHelper.cs" />
     <Compile Include="Models\Order\Orders\OrderModel.cs" />
+    <Compile Include="Models\Order\OrderType\CustomerOrderModel.cs" />
+    <Compile Include="Models\Order\OrderType\StockOrderModel.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Presenters\MainViews\AdminPresenter.cs" />
     <Compile Include="Presenters\Modules\Contacts\SupplierModulePresenter.cs" />
     <Compile Include="Presenters\Modules\Inventory\CategoryModulePresenter.cs" />
     <Compile Include="Presenters\Modules\Inventory\ProductModulePresenter.cs" />
+    <Compile Include="Presenters\Modules\Orders\IOrderFormRequest.cs" />
+    <Compile Include="Presenters\Modules\Orders\OrderDetails\OrderFormPresenter.cs" />
+    <Compile Include="Presenters\Modules\Orders\OrderListFilter.cs" />
     <Compile Include="Presenters\Modules\Orders\OrderListMoudlePresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Accounts\Roles\IRoleRepository.cs" />
@@ -119,6 +126,8 @@
     <Compile Include="Repositories\Accounts\Users\IAccountRepository.cs" />
     <Compile Include="Models\Account\Users\Services\UserService.cs" />
     <Compile Include="Models\Account\Users\Services\IUserService.cs" />
+    <Compile Include="Repositories\Contacts\Customers\CustomerRepository.cs" />
+    <Compile Include="Repositories\Contacts\Customers\ICustomerRepository.cs" />
     <Compile Include="Repositories\Contacts\Suppliers\ISupplierRepository.cs" />
     <Compile Include="Repositories\Contacts\Suppliers\SupplierRepository.cs" />
     <Compile Include="Repositories\DBConnector\MySqlDBConnector.cs" />
@@ -130,10 +139,14 @@
     <Compile Include="Repositories\Inventory\Categories\ICategoryRepository.cs" />
     <Compile Include="Repositories\Inventory\Products\IProductRepository.cs" />
     <Compile Include="Repositories\Inventory\Products\ProductRepository.cs" />
+    <Compile Include="Repositories\Order\CustomerOrder\CustomerOrderRepository.cs" />
+    <Compile Include="Repositories\Order\CustomerOrder\ICustomerOrderRepository.cs" />
     <Compile Include="Repositories\Order\OrderDetails\IOrderDetailRepository.cs" />
     <Compile Include="Repositories\Order\OrderDetails\OrderDetailRepository.cs" />
     <Compile Include="Repositories\Order\Orders\IOrderRepository.cs" />
     <Compile Include="Repositories\Order\Orders\OrderRepository.cs" />
+    <Compile Include="Repositories\Order\StockOrders\IStockOrderRepository.cs" />
+    <Compile Include="Repositories\Order\StockOrders\StockOrderRepository.cs" />
     <Compile Include="Views\MainViews\IEmployeeView.cs" />
     <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Views\MainViews\IAdminView.cs" />
@@ -144,6 +157,8 @@
     <Compile Include="Views\ModuleViews\Inventory\ICategoryModuleView.cs" />
     <Compile Include="Views\ModuleViews\Inventory\IProductModuleView.cs" />
     <Compile Include="Views\ModuleViews\Orders\IOrderListView.cs" />
+    <Compile Include="Views\ModuleViews\Orders\OrderDetails\IOrderFormView.cs" />
+    <Compile Include="Views\ModuleViews\Orders\IOrderInfoControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

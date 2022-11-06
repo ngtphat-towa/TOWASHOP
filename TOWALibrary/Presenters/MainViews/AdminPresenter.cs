@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using TOWALibrary.Presenters.Modules.Contacts;
 using TOWALibrary.Presenters.Modules.Inventory.Categories;
 using TOWALibrary.Presenters.Modules.Inventory.Products;
 using TOWALibrary.Presenters.Modules.Orders;
+using TOWALibrary.Presenters.Modules.Orders.OrderDetails;
 using TOWALibrary.Repositories;
 using TOWALibrary.Repositories.Contacts.Suppliers;
 using TOWALibrary.Repositories.Inventory.Categories;
@@ -16,6 +18,7 @@ using TOWALibrary.Views.MainViews;
 using TOWALibrary.Views.ModuleViews.Contacts;
 using TOWALibrary.Views.ModuleViews.Inventory;
 using TOWALibrary.Views.ModuleViews.Orders;
+using TOWALibrary.Views.ModuleViews.Orders.OrderDetails;
 
 namespace TOWALibrary.Presenters.MainViews
 {
@@ -30,14 +33,22 @@ namespace TOWALibrary.Presenters.MainViews
             this.view.ShowCategoryModuleView += ShowCategoryModuleView;
             this.view.ShowProductModuleView += ShowProductModuleView;
             this.view.ShowOrderListModuleView += ShowOrderListModuleView;
+            this.view.ShowOrderFormView += ShowOrderFormView;
             this.view.Show();
+        }
+
+        private void ShowOrderFormView(object sender, EventArgs e)
+        {
+            IOrderFormView formView = view.OrderFormView;
+            new OrderFormPresenter(formView);
+            // TODO - change this after debug
+            ((Form)formView).Show();
         }
 
         private void ShowOrderListModuleView(object sender, EventArgs e)
         {
             IOrderListMoudleView moduleView = view.OrderListModuleView;
-            IOrderRepository repository = DBManager.OrderRepository;
-            new OrderListMoudlePresenter(moduleView, repository);
+            new OrderListMoudlePresenter(moduleView);
         }
 
         private void ShowProductModuleView(object sender, EventArgs e)
