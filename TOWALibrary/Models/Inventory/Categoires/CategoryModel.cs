@@ -20,14 +20,20 @@ namespace TOWALibrary.Models.Inventory.Categoires
         #endregion
         #region Property
 
-        [DisplayName("CID")]
+        [DisplayName("#Category ID")]
         public int CATEID { get => _CATEID; set => _CATEID = value; }
+
         [DisplayName("Name")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Category name is required")]
+        [StringLength(255, ErrorMessage = "The maximum length of the comment is 255 characters.")]
         public string CategoryName { get => categoryName; set => categoryName = value; }
+
         [DisplayName("Description")]
+        [StringLength(60, ErrorMessage = "The maximum length of the description is 60 characters.")]
         public string Description { get => description; set => description = value; }
 
         [DisplayName("Comment")]
+        [StringLength(255, ErrorMessage = "The maximum length of the comment is 255 characters.")]
         public string Content { get => content; set => content = value; }
 
         [Browsable(false)]

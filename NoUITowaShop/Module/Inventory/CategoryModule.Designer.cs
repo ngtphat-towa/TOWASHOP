@@ -87,13 +87,13 @@ namespace NoUITowaShop.Module.Inventory
             this.panelOption.Controls.Add(this.btnSave);
             this.panelOption.Location = new System.Drawing.Point(702, 3);
             this.panelOption.Name = "panelOption";
-            this.panelOption.Size = new System.Drawing.Size(460, 59);
+            this.panelOption.Size = new System.Drawing.Size(460, 72);
             this.panelOption.TabIndex = 4;
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnCancel.Location = new System.Drawing.Point(36, -3);
+            this.btnCancel.Location = new System.Drawing.Point(36, 10);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(191, 45);
             this.btnCancel.TabIndex = 2;
@@ -103,7 +103,7 @@ namespace NoUITowaShop.Module.Inventory
             // btnSave
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSave.Location = new System.Drawing.Point(253, -3);
+            this.btnSave.Location = new System.Drawing.Point(253, 10);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(182, 45);
             this.btnSave.TabIndex = 0;
@@ -326,7 +326,7 @@ namespace NoUITowaShop.Module.Inventory
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(1186, 395);
+            this.dataGridView.Size = new System.Drawing.Size(1186, 383);
             this.dataGridView.TabIndex = 7;
             // 
             // tableOption
@@ -435,10 +435,10 @@ namespace NoUITowaShop.Module.Inventory
             this.tabDefine.Controls.Add(this.tbPanelSLAdress);
             this.tabDefine.Controls.Add(this.tbPanelSLInfo);
             this.tabDefine.Controls.Add(this.tbpanelHheader);
-            this.tabDefine.Location = new System.Drawing.Point(4, 25);
+            this.tabDefine.Location = new System.Drawing.Point(4, 29);
             this.tabDefine.Name = "tabDefine";
             this.tabDefine.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDefine.Size = new System.Drawing.Size(1192, 611);
+            this.tabDefine.Size = new System.Drawing.Size(1192, 607);
             this.tabDefine.TabIndex = 1;
             this.tabDefine.Text = "Define category";
             // 
@@ -450,7 +450,7 @@ namespace NoUITowaShop.Module.Inventory
             this.tbPanelDFFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.39233F));
             this.tbPanelDFFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbPanelDFFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbPanelDFFooter.Location = new System.Drawing.Point(3, 574);
+            this.tbPanelDFFooter.Location = new System.Drawing.Point(3, 570);
             this.tbPanelDFFooter.Name = "tbPanelDFFooter";
             this.tbPanelDFFooter.RowCount = 1;
             this.tbPanelDFFooter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -472,7 +472,7 @@ namespace NoUITowaShop.Module.Inventory
             this.tbPanelSLAdress.Name = "tbPanelSLAdress";
             this.tbPanelSLAdress.RowCount = 1;
             this.tbPanelSLAdress.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbPanelSLAdress.Size = new System.Drawing.Size(1186, 65);
+            this.tbPanelSLAdress.Size = new System.Drawing.Size(1186, 78);
             this.tbPanelSLAdress.TabIndex = 2;
             // 
             // tbpanelHheader

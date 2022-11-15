@@ -14,6 +14,7 @@ using TOWALibrary.Repositories.Contacts.Suppliers;
 using TOWALibrary.Repositories.Inventory.Categories;
 using TOWALibrary.Repositories.Inventory.Products;
 using TOWALibrary.Repositories.Order.Orders;
+using TOWALibrary.Services.CategoryServices;
 using TOWALibrary.Views.MainViews;
 using TOWALibrary.Views.ModuleViews.Contacts;
 using TOWALibrary.Views.ModuleViews.Inventory;
@@ -61,8 +62,8 @@ namespace TOWALibrary.Presenters.MainViews
         private void ShowCategoryModuleView(object sender, EventArgs e)
         {
             ICategoryModuleView moduleView = view.CategoryModuleView;
-            ICategoryRepository repository = DBManager.CategoryRepository;
-            new CategoryModulePresenter(moduleView, repository);
+            ICategoryServices services = new CategoryServices();
+            new CategoryModulePresenter(moduleView, services);
         }
 
         private void ShowSupplierModuleView(object sender, EventArgs e)
