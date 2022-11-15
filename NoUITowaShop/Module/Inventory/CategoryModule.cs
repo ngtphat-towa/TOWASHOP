@@ -19,7 +19,6 @@ namespace NoUITowaShop.Module.Inventory
             InitializeComponent();
             AssociateAndRaiseViewEvents();
             tabCategories.TabPages.Remove(tabDefine);
-
         }
         #endregion
 
