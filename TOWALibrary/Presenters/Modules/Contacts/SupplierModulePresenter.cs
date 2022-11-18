@@ -40,9 +40,6 @@ namespace TOWALibrary.Presenters.Modules.Contacts
         {
             supplierList = repository.GetAll();
             suppliersBindingSource.DataSource = supplierList;
-            
-
-
         }
 
         private void CancelAction(object sender, EventArgs e)
@@ -52,19 +49,20 @@ namespace TOWALibrary.Presenters.Modules.Contacts
 
         private void SaveSupplier(object sender, EventArgs e)
         {
-            var model = new SupplierModel
-            {
-                SLID = view.SLID,
-                SupplierName = view.SupplierName,
-                ContactName = view.ContactName,
-                ContactPhone = view.ContactPhone,
-                Address = view.Address,
-                City = view.City,
-                Country = view.Country,
-                Content = view.Content
-            };
+
             try
             {
+                var model = new SupplierModel
+                {
+                    SLID = view.SLID,
+                    SupplierName = view.SupplierName,
+                    ContactName = view.ContactName,
+                    ContactPhone = view.ContactPhone,
+                    Address = view.Address,
+                    City = view.City,
+                    Country = view.Country,
+                    Content = view.Content
+                };
                 // TODO - Vailidate the model 
                 if (view.IsEdit == true)
                 {
@@ -127,10 +125,7 @@ namespace TOWALibrary.Presenters.Modules.Contacts
         private void SearchSupplier(object sender, EventArgs e)
         {
             bool emptyValue = string.IsNullOrEmpty(this.view.SearchValue);
-            if (emptyValue == false)
                 supplierList = repository.GetByValue(this.view.SearchValue);
-            else
-                supplierList = repository.GetAll();
             suppliersBindingSource.DataSource = supplierList;
         }
         private void CleanViewFeilds()

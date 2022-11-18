@@ -13,7 +13,5 @@ namespace TOWALibrary.Repositories.Order.SupplyOrders
         void Update(StockOrderModel model);
         void Add(StockOrderModel model);
         ICollection<StockOrderModel> GetByValue(string value );
-
-
     }
 }

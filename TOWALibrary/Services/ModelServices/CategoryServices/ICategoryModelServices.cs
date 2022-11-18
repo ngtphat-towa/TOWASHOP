@@ -8,7 +8,7 @@ using TOWALibrary.Repositories.Inventory.Categories;
 
 namespace TOWALibrary.Services.CategoryServices
 {
-   public interface ICategoryServices: ICategoryRepository
+   public interface ICategoryModelServices : ICategoryRepository
     {
         void ValidateModel(CategoryModel model);
     }

@@ -12,7 +12,7 @@ namespace TOWALibrary.Repositories.DBConnector
     {
         public MySqlDBConnector()
         {
-            ConnectionString = DBManager.ConnectionString("SqlConnection");
+            ConnectionString = DBManager.ConnectionString("MySqlConnection");
             connection = new MySqlConnection(ConnectionString);
         }
         private readonly string ConnectionString;

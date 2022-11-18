@@ -10,6 +10,9 @@ using TOWALibrary.Models.Accounts.Users.Services;
 using TOWALibrary.Repositories.Accounts.Users;
 using TOWALibrary.Views;
 using TOWALibrary.Views.MainViews;
+using NoUITowaShop.ModelListForm;
+using TOWALibrary.Services.CommonServices;
+using TOWALibrary.Services.ModelServices.UserServices;
 
 namespace SimpleUITowaShop
 {
@@ -38,6 +41,7 @@ namespace SimpleUITowaShop
             #endregion
 
             StartWithDashboard();
+            //StartWithForm();
         }
 
         private static void StartWithDashboard()
@@ -47,10 +51,16 @@ namespace SimpleUITowaShop
             IAdminView view = DashboardForm.Instance;
 
             new AdminPresenter(view);
+            GlobalConfig.CurrentUser = new AccountModelServices().GetAccountByUsername("admin");
 
             MainViewNavigator.SetMainView(DashboardForm.Instance);
 
             Application.Run((Form)view);
+        }
+        private static void StartWithForm()
+        {
+            //DBManager.InitializeConnections(DataProvider.SQLServer);
+            //Application.Run(new ProductListForm(t));
         }
 
     }

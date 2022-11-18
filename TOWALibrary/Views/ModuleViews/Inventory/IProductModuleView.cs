@@ -15,11 +15,11 @@ namespace TOWALibrary.Views.ModuleViews.Inventory
         string ProductName { get ; set ; }
          string Barcode { get; set; }
          string QuantityPerUnit { get; set; }
-         decimal UnitPrice { get; set; }
-        decimal SalesPrice { get; set; }
+         double UnitPrice { get; set; }
+        double SalesPrice { get; set; }
          int UnitOnStock { get; set; }
         int UnitOnOrder { get; set; }
-         decimal VAT { get ; set ; }
+         double VAT { get ; set ; }
          string Status { get; set; }
          string Content { get ; set ; }
         bool IsSuccessful { get; set; }
@@ -27,8 +27,8 @@ namespace TOWALibrary.Views.ModuleViews.Inventory
         string Message { get; set; }
         string SelectedSLID { get; set; }
         int SelectedCID { get; set; }
-        void SetSupplierList(ICollection<SupplierModel> supplierList);
-        void SetCategoryList(ICollection<CategoryModel> categoryList);
+        void SetSupplierList(BindingSource bindingSource);
+        void SetCategoryList(BindingSource bindingSource);
         void SetListViewBindingSource(BindingSource bindingSource);
         string SearchValue { get; set; }
         event EventHandler SearchEvent;

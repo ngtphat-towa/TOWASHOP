@@ -30,20 +30,20 @@ namespace NoUITowaShop.Module.Product
         {
             dataGridView.DataSource = list;
         }
-        public void SetSupplierList(ICollection<SupplierModel> suppliers)
+        public void SetSupplierList(BindingSource bindingSource)
         {
 
-            cbSupplierList.DataSource = suppliers;
-            cbSupplierList.DisplayMember = "SupplierName";
-            cbSupplierList.ValueMember = "SLID";
+            cbSupplierList.DataSource = bindingSource;
+            cbSupplierList.DisplayMember = "Name";
+            cbSupplierList.ValueMember = "ID";
             // None for initial
 
         }
-        public void SetCategoryList(ICollection<CategoryModel> categories)
+        public void SetCategoryList(BindingSource bindingSource)
         {
-            cbCategoryList.DataSource = categories;
-            cbCategoryList.DisplayMember = "CategoryName";
-            cbCategoryList.ValueMember = "CATEID";
+            cbCategoryList.DataSource = bindingSource;
+            cbCategoryList.DisplayMember = "Name";
+            cbCategoryList.ValueMember = "ID";
         }
         #endregion
 
@@ -122,11 +122,11 @@ namespace NoUITowaShop.Module.Product
         public new string ProductName { get => txtProductName.Text; set => txtProductName.Text = value; }
         public string Barcode { get => txtBarcode.Text; set => txtBarcode.Text = value; }
         public string QuantityPerUnit { get => txtQuantityPerUnit.Text; set => txtQuantityPerUnit.Text = value; }
-        public decimal UnitPrice { get => txtUnitPrice.Value; set => txtUnitPrice.Value = value; }
-        public decimal SalesPrice { get => txtSalePrice.Value; set => txtSalePrice.Value = value; }
+        public double UnitPrice { get => Convert.ToDouble(txtUnitPrice.Value); set => txtUnitPrice.Value = Convert.ToDecimal(value); }
+        public double SalesPrice { get => Convert.ToDouble(txtSalePrice.Value); set => txtSalePrice.Value = Convert.ToDecimal(value); }
         public int UnitOnStock { get => Convert.ToInt32(txtUnitOnStock.Value); set => txtUnitOnStock.Value = value; }
         public int UnitOnOrder { get => Convert.ToInt32(txtUnitOnOrder.Value); set => txtUnitOnOrder.Value = value; }
-        public decimal VAT { get => txtVAT.Value; set => txtVAT.Value = value; }
+        public double VAT { get => Convert.ToDouble(txtVAT.Value); set => txtVAT.Value = Convert.ToDecimal(value); }
         public string Status { get => cbStatus.SelectedItem.ToString(); set => cbStatus.SelectedItem = value; }
         public string Content { get => txtContent.Text; set => txtContent.Text = value; }
         public string Message { get => message; set => message = value; }
@@ -134,6 +134,7 @@ namespace NoUITowaShop.Module.Product
         public bool IsEdit { get => isEdit; set => isEdit = value; }
         public bool IsSuccessful { get => isSuccessful; set => isSuccessful = value; }
         public string SelectedSLID { get => cbSupplierList.SelectedValue.ToString(); set => cbSupplierList.SelectedValue = value; }
+        // TODO--System.InvalidCastException: 'Unable to cast object of type 'System.ValueTuple`2[System.Int32,System.String]' to type 'System.IConvertible'.'
         public int SelectedCID { get => Convert.ToInt32(cbCategoryList.SelectedValue); set => cbCategoryList.SelectedValue= value; }
         
         #endregion

@@ -24,7 +24,7 @@ namespace TOWALibrary.Repositories.Order.OrderDetails
                     command.CommandText = "spOrderDetails_Insert";
                     command.CommandType = CommandType.StoredProcedure;
 
-                    command.CreateDbParameter("@OD_OID", DbType.String, model.OD_OID);
+                    command.CreateDbParameter("@OD_OID", DbType.Int32, model.OD_OID);
                     command.CreateDbParameter("@OD_PID", DbType.String, model.OD_PID);
                     command.CreateDbParameter("@UNIT_PRICE", DbType.String, model.UnitPrice);
                     command.CreateDbParameter("@QUANTITY", DbType.String, model.Quantity);
@@ -49,7 +49,7 @@ namespace TOWALibrary.Repositories.Order.OrderDetails
             }
         }
 
-        public ICollection<OrderDetailModel> GetByOrder(string OID)
+        public ICollection<OrderDetailModel> GetByOrder(int OID)
         {
             List<OrderDetailModel> models = new List<OrderDetailModel>();
 
@@ -62,7 +62,7 @@ namespace TOWALibrary.Repositories.Order.OrderDetails
                     command.CommandText = "spOrderDetails_GetByOrder";
                     command.CommandType = CommandType.StoredProcedure;
 
-                    command.CreateDbParameter("@OD_OID", DbType.String, OID);
+                    command.CreateDbParameter("@OD_OID", DbType.Int32, OID);
                     using (var reader = command.ExecuteReader())
                     {
 
@@ -71,12 +71,11 @@ namespace TOWALibrary.Repositories.Order.OrderDetails
                             OrderDetailModel model = new OrderDetailModel
                             {
                                 OD_ID = Convert.ToInt32(reader["OD_ID"]),
-                                OD_OID = Convert.ToString(reader["OD_OID"]),
+                                OD_OID = Convert.ToInt32(reader["OD_OID"]),
                                 OD_PID = Convert.ToString(reader["OD_PID"]),
                                 Quantity = Convert.ToInt32(reader["QUANTITY"]),
-                                UnitPrice = (float)Convert.ToDouble(reader["UNIT_PRICE"]),
-                                Discount = (float)Convert.ToDouble(reader["DISCOUNT"])
-
+                                UnitPrice = Convert.ToDouble(reader["UNIT_PRICE"]),
+                                Discount = Convert.ToDouble(reader["DISCOUNT"])
                             };
                             model.Product = productRepository.GetByValue(model.OD_PID).FirstOrDefault();
                             models.Add(model);
@@ -106,11 +105,11 @@ namespace TOWALibrary.Repositories.Order.OrderDetails
                         OrderDetailModel model = new OrderDetailModel
                         {
                             OD_ID = Convert.ToInt32(reader["OD_ID"]),
-                            OD_OID = Convert.ToString(reader["OD_OID"]),
+                            OD_OID = Convert.ToInt32(reader["OD_OID"]),
                             OD_PID = Convert.ToString(reader["OD_PID"]),
                             Quantity = Convert.ToInt32(reader["QUANTITY"]),
-                            UnitPrice = (float)Convert.ToDouble(reader["UNIT_PRICE"]),
-                            Discount = (float)Convert.ToDouble(reader["DISCOUNT"])
+                            UnitPrice = (double)Convert.ToDouble(reader["UNIT_PRICE"]),
+                            Discount = (double)Convert.ToDouble(reader["DISCOUNT"])
                         };
                         model.Product = productRepository.GetByValue(model.OD_PID).FirstOrDefault();
                         models.Add(model);

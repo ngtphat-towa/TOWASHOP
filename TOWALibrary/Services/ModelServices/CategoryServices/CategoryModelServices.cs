@@ -10,7 +10,7 @@ using TOWALibrary.Services.CommonServices;
 
 namespace TOWALibrary.Services.CategoryServices
 {
-    public class CategoryServices : ICategoryServices
+    public class CategoryModelServices : ICategoryModelServices
     {
         private readonly ICategoryRepository _categoryRepository = DBManager.CategoryRepository;
         public void Add(CategoryModel model)
@@ -18,7 +18,7 @@ namespace TOWALibrary.Services.CategoryServices
             _categoryRepository.Add(model);
         }
 
-        public void Delete(string CID)
+        public void Delete(int CID)
         {
             _categoryRepository.Delete(CID);
         }
@@ -42,9 +42,9 @@ namespace TOWALibrary.Services.CategoryServices
         public void ValidateModel(CategoryModel model)
         {
             ModelDataValidationCheck.Validate(model);
-            var models = _categoryRepository.GetAll().FirstOrDefault(c=>c.CategoryName == model.CategoryName);
-            if (model != null)
-                throw new Exception("This category name already exits! \n Category name must be unique");
+            //var models = _categoryRepository.GetAll().FirstOrDefault(c=>c.CategoryName == model.CategoryName);
+            //if (models != null)
+            //    throw new Exception("This category name already exits! \n Category name must be unique");
         }
     }
 }

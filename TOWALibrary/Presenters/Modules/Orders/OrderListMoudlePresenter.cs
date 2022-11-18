@@ -9,6 +9,7 @@ using TOWALibrary.Repositories;
 using TOWALibrary.Repositories.Order.CustomerOrder;
 using TOWALibrary.Repositories.Order.Orders;
 using TOWALibrary.Repositories.Order.SupplyOrders;
+using TOWALibrary.Services.ModelServices.OrderServices;
 using TOWALibrary.Views.ModuleViews.Orders;
 
 namespace TOWALibrary.Presenters.Modules.Orders
@@ -16,16 +17,15 @@ namespace TOWALibrary.Presenters.Modules.Orders
    public class OrderListMoudlePresenter
     {
         private readonly IOrderListMoudleView view;
-        private readonly IOrderRepository orderRepository = DBManager.OrderRepository;
-        private readonly ICustomerOrderRepository customerOrderRepository= DBManager.CustomerOrderRepository;
-        private readonly IStockOrderRepository stockOrderRepository = DBManager.StockOrderRepository;
+        private readonly IOrderServices services;
         // private readonly List<OrderModel> orderList;
         private readonly BindingSource orderListBindingSource;
         private BindingSource orderDetailListBindingSource;
 
-        public OrderListMoudlePresenter(IOrderListMoudleView view)
+        public OrderListMoudlePresenter(IOrderListMoudleView view, IOrderServices services)
         {
             this.view = view;
+            this.services = services;
             this.orderListBindingSource = new BindingSource();
             this.orderDetailListBindingSource = new BindingSource();
             //Wire up event handler methods to view events
@@ -72,49 +72,33 @@ namespace TOWALibrary.Presenters.Modules.Orders
             this.view.IsResetFilter = false;
             FilterChangedEvent(this, EventArgs.Empty);
         }
-        private void OrderTypeChangedEvent(object sender, EventArgs e)
-        {
-            
-            switch (this.view.OrderType)
-            {
-                case 1:
-                    var retailOrderList = orderRepository.GetAll().Where(p => p.OrderType == 0);
-                    orderListBindingSource.DataSource = retailOrderList;
-                    break;
-                case 2:
-                    var customerOrderList = customerOrderRepository.GetAll();
-                    orderListBindingSource.DataSource = customerOrderList;
-                    break;
-                case 3:
-                    var stockOrderList = stockOrderRepository.GetAll();
-                    orderListBindingSource.DataSource = stockOrderList;
-                    break;
-                default:
-                    orderDetailListBindingSource.Clear();
-                    orderListBindingSource.DataSource = orderRepository.GetAll();
-                    break;
-            }
-        }
+
 
         private void FilterChangedEvent(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    orderDetailListBindingSource.DataSource = null;
-            //   orderListBindingSource.SetOrderListByFilter(this.view.SearchValue, this.view.OrderType, this.view.OrderStatus, this.view.PaymentMethod , this.view.DateFrom, this.view.DateTo);
-            //}
-            //catch (Exception ex)
-            //{
+            try
+            {
+                var SearchValue = "";
+                if (this.view.IsValueSearch)
+                    SearchValue = this.view.SearchValue;
 
-            //    this.view.Message = ex.Message;
-            //}
-            var SearchValue = "";
-            if (this.view.IsValueSearch)
-                SearchValue = this.view.SearchValue;
+                this.view.IsValueSearch = false;
+                orderDetailListBindingSource.DataSource = null;
+                services.SetOrderListByFilter(orderListBindingSource,
+                                              SearchValue,
+                                              this.view.OrderType,
+                                              this.view.OrderStatus,
+                                              this.view.PaymentMethod,
+                                              this.view.DateFrom,
+                                              this.view.DateTo);
+                this.view.Message = "";
+            }
+            catch (Exception ex)
+            {
 
-            this.view.IsValueSearch = false;
-            orderDetailListBindingSource.DataSource = null;
-            orderListBindingSource.SetOrderListByFilter(SearchValue, this.view.OrderType, this.view.OrderStatus, this.view.PaymentMethod , this.view.DateFrom, this.view.DateTo);
+                this.view.Message = ex.Message;
+            }
+          
         }
 
         private void CancelAction(object sender, EventArgs e)

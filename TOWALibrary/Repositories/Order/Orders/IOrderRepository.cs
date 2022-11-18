@@ -7,7 +7,7 @@ using TOWALibrary.Models.Order.Orders;
 
 namespace TOWALibrary.Repositories.Order.Orders
 {
-   public interface IOrderRepository
+   public interface IOrderRepository 
     {
         ICollection<OrderModel> GetAll();
         ICollection<OrderModel> GetByValue(string value);

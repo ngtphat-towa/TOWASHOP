@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TOWALibrary.Models.Order.OrderType;
 using TOWALibrary.Presenters.Modules.Contacts;
 using TOWALibrary.Presenters.Modules.Inventory.Categories;
 using TOWALibrary.Presenters.Modules.Inventory.Products;
@@ -15,6 +16,14 @@ using TOWALibrary.Repositories.Inventory.Categories;
 using TOWALibrary.Repositories.Inventory.Products;
 using TOWALibrary.Repositories.Order.Orders;
 using TOWALibrary.Services.CategoryServices;
+using TOWALibrary.Services.ModelServices.CustomerServices;
+using TOWALibrary.Services.ModelServices.OrderDetailServices;
+using TOWALibrary.Services.ModelServices.OrderServices;
+using TOWALibrary.Services.ModelServices.OrderServices.OrderType.CustomerOrder;
+using TOWALibrary.Services.ModelServices.OrderServices.OrderType.Order;
+using TOWALibrary.Services.ModelServices.OrderServices.OrderType.StockOrder;
+using TOWALibrary.Services.ModelServices.ProductServices;
+using TOWALibrary.Services.ModelServices.SupplierServices;
 using TOWALibrary.Views.MainViews;
 using TOWALibrary.Views.ModuleViews.Contacts;
 using TOWALibrary.Views.ModuleViews.Inventory;
@@ -26,7 +35,26 @@ namespace TOWALibrary.Presenters.MainViews
     public class AdminPresenter
     {
         private readonly IAdminView view;
+        // Inventory
+        #region Inventory Servives
+        private IProductModelServices _productModelServices;
+        private ICategoryModelServices _categoryModelServices;
+        #endregion
 
+        #region Contact Services
+        private ISupplierModelServices _supplierModelServices;
+        private ICustomerModelServices _customerModelServices;
+        #endregion
+
+        #region Order Serivces 
+        private IOrderServices _orderServices;
+        private IOrderDetailModelServices _orderDetailModelServices;
+        // Order Type
+        private IStockOrderModelServices _stockOrderModelServices;
+        private ICustomerOrderModelServices _customerOrderModelServices;
+        private IOrderModelServices _orderModelServices;
+        #endregion
+        
         public AdminPresenter(IAdminView view)
         {
             this.view = view;
@@ -35,13 +63,38 @@ namespace TOWALibrary.Presenters.MainViews
             this.view.ShowProductModuleView += ShowProductModuleView;
             this.view.ShowOrderListModuleView += ShowOrderListModuleView;
             this.view.ShowOrderFormView += ShowOrderFormView;
+
+            //Inventory Servives
+            _productModelServices = new ProductModelServices();
+            _categoryModelServices = new CategoryModelServices();
+        
+            // Contact Services
+            _supplierModelServices = new SupplierModelServices();
+            _customerModelServices = new CustomerModelServices();
+
+            // Orderr Type
+            _stockOrderModelServices = new StockOrderModelServices();
+            _customerOrderModelServices = new CustomerOrderModelServices();
+            _orderModelServices = new OrderModelServices();
+            // Order Serivces 
+            _orderServices = new OrderServices(_orderModelServices,_stockOrderModelServices, _customerOrderModelServices);
+            _orderDetailModelServices = new OrderDetailModelServices();
             this.view.Show();
+
+
         }
 
         private void ShowOrderFormView(object sender, EventArgs e)
         {
             IOrderFormView formView = view.OrderFormView;
-            new OrderFormPresenter(formView);
+
+            new OrderFormPresenter(formView,
+                                   _orderServices,
+                                   _orderDetailModelServices,
+                                   _productModelServices,
+                                   _categoryModelServices,
+                                   _customerModelServices,
+                                   _supplierModelServices);
             // TODO - change this after debug
             ((Form)formView).Show();
         }
@@ -49,21 +102,24 @@ namespace TOWALibrary.Presenters.MainViews
         private void ShowOrderListModuleView(object sender, EventArgs e)
         {
             IOrderListMoudleView moduleView = view.OrderListModuleView;
-            new OrderListMoudlePresenter(moduleView);
+            IOrderServices services = new OrderServices(new OrderModelServices(),new StockOrderModelServices(), new CustomerOrderModelServices());
+            new OrderListMoudlePresenter(moduleView, services);
         }
 
         private void ShowProductModuleView(object sender, EventArgs e)
         {
             IProductModuleView moduleView = view.ProductModuleView;
-            IProductRepository repository = DBManager.ProductRepository;
-            new ProductModulePresenter(moduleView, repository);
+            // 
+            new ProductModulePresenter(moduleView,
+                                       _productModelServices,
+                                       _categoryModelServices,
+                                       _supplierModelServices);
         }
 
         private void ShowCategoryModuleView(object sender, EventArgs e)
         {
             ICategoryModuleView moduleView = view.CategoryModuleView;
-            ICategoryServices services = new CategoryServices();
-            new CategoryModulePresenter(moduleView, services);
+            new CategoryModulePresenter(moduleView, _categoryModelServices);
         }
 
         private void ShowSupplierModuleView(object sender, EventArgs e)

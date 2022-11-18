@@ -10,6 +10,7 @@ using TOWALibrary.Repositories.Accounts.Users;
 using TOWALibrary.Repositories.Helpers;
 using TOWALibrary.Repositories.Inventory.Products;
 using TOWALibrary.Repositories.Order.OrderDetails;
+using TOWALibrary.Services.ModelServices.OrderServices;
 
 namespace TOWALibrary.Repositories.Order.Orders
 {
@@ -43,32 +44,41 @@ namespace TOWALibrary.Repositories.Order.Orders
                         command.CreateDbParameter("@STATUS", DbType.Int16, model.Status);
                         command.CreateDbParameter("@COMMENTS", DbType.String, model.Comments);
 
+                        command.CreateDbParameter("@OID", DbType.Int32, null, ParameterDirection.Output);
+
                         command.ExecuteNonQuery();
+
+                        model.OID = Convert.ToInt32( command.Parameters["@OID"].Value);
                     }
                     foreach (var orderDetail in model.OrderDetails)
                     {
+                        orderDetail.OD_OID = model.OID;
+
+                        productRepository.UpdateProductStock(orderDetail.OD_PID, 0, orderDetail.Quantity);
+                        productRepository.UpdateProductOrder(orderDetail.OD_PID, 0, orderDetail.Quantity);
+                        
                         orderDetailRepository.Add(orderDetail);
                     }
 
 
-                    dbTransaction.Commit();                  
+                dbTransaction.Commit();
 
-                }
-                catch (Exception ex)
-                {
-                    try
-                    {
-                        dbTransaction.Rollback();
-
-                    }
-                    catch (Exception exR)
-                    {
-
-                        throw new Exception(ex.Message+"\n"+ exR.Message);
-                    }
-                    
-                }
             }
+                catch (Exception ex)
+            {
+                try
+                {
+                    dbTransaction.Rollback();
+
+                }
+                catch (Exception exR)
+                {
+
+                    throw new Exception(ex.Message + "\n" + exR.Message);
+                }
+
+            }
+        }
         }
 
 
@@ -90,14 +100,14 @@ namespace TOWALibrary.Repositories.Order.Orders
                         {
                             OrderModel model = new OrderModel
                             {
-                                OID = Convert.ToString(reader["ORDERID"]),
+                                OID = Convert.ToInt32(reader["ORDERID"]),
                                 CreatedByUID = Convert.ToString(reader["CREATED_BY"]),
                                 CreatedAt = Convert.ToDateTime(reader["CREATED_AT"]),
                                 UpdatedAt = Convert.ToDateTime(reader["UPDATED_AT"]),
                                 OrderType = Convert.ToInt32(reader["ORDER_TYPE"]),
                                 PaymentMethod = Convert.ToInt32(reader["PAYMENT_METHOD"]),
-                                Total = (float)Convert.ToDecimal(reader["TOTAL"]),
-                                GrandTotal = (float)Convert.ToDecimal(reader["GRAND_TOTAL"]),
+                                Total = (float)Convert.ToDouble(reader["TOTAL"]),
+                                GrandTotal = (float)Convert.ToDouble(reader["GRAND_TOTAL"]),
                                  Status = Convert.ToInt32(reader["STATUS"]),
                                 Comments = Convert.ToString(reader["COMMENTS"])
 
@@ -140,14 +150,14 @@ namespace TOWALibrary.Repositories.Order.Orders
                         {
                             OrderModel model = new OrderModel
                             {
-                                OID = Convert.ToString(reader["ORDERID"]),
+                                OID = Convert.ToInt32(reader["ORDERID"]),
                                 CreatedByUID = Convert.ToString(reader["CREATED_BY"]),
                                 CreatedAt = Convert.ToDateTime(reader["CREATED_AT"]),
                                 UpdatedAt = Convert.ToDateTime(reader["UPDATED_AT"]),
                                 OrderType = Convert.ToInt32(reader["ORDER_TYPE"]),
                                 PaymentMethod = Convert.ToInt32(reader["PAYMENT_METHOD"]),
-                                Total = (float)Convert.ToDecimal(reader["TOTAL"]),
-                                GrandTotal = (float)Convert.ToDecimal(reader["GRAND_TOTAL"]),
+                                Total = (float)Convert.ToDouble(reader["TOTAL"]),
+                                GrandTotal = (float)Convert.ToDouble(reader["GRAND_TOTAL"]),
                                 Comments = Convert.ToString(reader["COMMENTS"]),
                                 Status = Convert.ToInt32(reader["STATUS"])
 
@@ -199,19 +209,19 @@ namespace TOWALibrary.Repositories.Order.Orders
                         OrderDetailModel oldModel = orderDetailRepository.GetByID(orderDetail.OD_ID);
                         switch (orderDetail.Status)
                         {
-                            case 0:
+                            case OrderDetailStatus.New:
                                 productRepository.UpdateProductStock(orderDetail.OD_PID, 0, orderDetail.Quantity);
                                 productRepository.UpdateProductOrder(orderDetail.OD_PID, 0, orderDetail.Quantity);
 
                                 orderDetailRepository.Add(orderDetail);
                                 break;
-                            case 1:
-                                productRepository.UpdateProductStock(orderDetail.OD_OID, oldModel.Quantity, orderDetail.Quantity);
-                                productRepository.UpdateProductOrder(orderDetail.OD_OID, oldModel.Quantity, orderDetail.Quantity);
+                            case OrderDetailStatus.Modify:
+                                productRepository.UpdateProductStock(orderDetail.OD_PID, oldModel.Quantity, orderDetail.Quantity);
+                                productRepository.UpdateProductOrder(orderDetail.OD_PID, oldModel.Quantity, orderDetail.Quantity);
 
                                 orderDetailRepository.Update(orderDetail);
                                 break;
-                            case 2:
+                            case OrderDetailStatus.Remove:
                                 productRepository.UpdateProductStock(orderDetail.OD_PID, oldModel.Quantity, 0);
                                 productRepository.UpdateProductOrder(orderDetail.OD_PID, oldModel.Quantity, 0);
 

@@ -8,61 +8,73 @@ using TOWALibrary.Models.Contact.Suppliers;
 using TOWALibrary.Models.Inventory.Categoires;
 using TOWALibrary.Models.Inventory.Products;
 using TOWALibrary.Repositories.Inventory.Products;
+using TOWALibrary.Services.CategoryServices;
+using TOWALibrary.Services.ModelServices.ProductServices;
+using TOWALibrary.Services.ModelServices.SupplierServices;
 using TOWALibrary.Views.ModuleViews.Inventory;
 
 namespace TOWALibrary.Presenters.Modules.Inventory.Products
 {
     public class ProductModulePresenter
     {
-        private readonly IProductModuleView view;
-        private readonly IProductRepository repository;
-        private BindingSource bindingSource;
-        private ICollection<ProductModel> productList;
-        private ICollection<SupplierModel> supplierList;
-        private ICollection<CategoryModel> categoryList;
-        public ProductModulePresenter(IProductModuleView view, IProductRepository repository)
+        private readonly IProductModuleView _view;
+        private readonly IProductModelServices _productServices;
+        private readonly ICategoryModelServices _categoryServices;
+        private readonly ISupplierModelServices _supplierServices;
+
+        private BindingSource productBindingSource;
+        private BindingSource categoryBindingSource;
+        private BindingSource supplierBiningSource;
+
+    
+        public ProductModulePresenter(IProductModuleView view, IProductModelServices productServices, ICategoryModelServices categoryServices, ISupplierModelServices supplierServices)
         {
-            this.view = view;
-            this.repository = repository;
-            this.bindingSource = new BindingSource();
+            this._view = view;
+            this._productServices = productServices;
+            this._categoryServices = categoryServices;
+            this._supplierServices = supplierServices;
+            //Intailize all binding source
+            this.productBindingSource = new BindingSource();
+            this.categoryBindingSource = new BindingSource();
+            this.supplierBiningSource = new BindingSource();
             //Wire up event handler methods to view events
-            this.view.SearchEvent += SearchProduct;
-            this.view.AddNewEvent += AddNewProduct;
-            this.view.EditEvent += LoadSelectedProductToEdit;
-            this.view.DeleteEvent += DeleteSelectedProduct;
-            this.view.SaveEvent += SaveProduct;
-            this.view.CancelEvent += CancelAction;
+            this._view.SearchEvent += SearchProduct;
+            this._view.AddNewEvent += AddNewProduct;
+            this._view.EditEvent += LoadSelectedProductToEdit;
+            this._view.DeleteEvent += DeleteSelectedProduct;
+            this._view.SaveEvent += SaveProduct;
+            this._view.CancelEvent += CancelAction;
             //Set binding source
-            this.view.SetListViewBindingSource(bindingSource);
+            this._view.SetListViewBindingSource(productBindingSource);
             LoadAllProdcutList();
             LoadAllCategories();
             LoadAllSuppliers();
             
             //Show view
-            this.view.Show();
+            this._view.Show();
         }
 
         private void LoadSelectedProductToEdit(object sender, EventArgs e)
         {
-            ProductModel model = (ProductModel)bindingSource.Current;
+            ProductModel model = (ProductModel)productBindingSource.Current;
             // Product Info
-            this.view.PID = model.PID;
-            this.view.ProductName = model.ProductName;
-            this.view.Barcode = model.Barcode;
+            this._view.PID = model.PID;
+            this._view.ProductName = model.ProductName;
+            this._view.Barcode = model.Barcode;
             // Stock Info
-            this.view.QuantityPerUnit = model.QuantityPerUnit;
-            this.view.UnitOnOrder = model.UnitOnOrder;
-            this.view.UnitOnStock = model.UnitOnStock;
+            this._view.QuantityPerUnit = model.QuantityPerUnit;
+            this._view.UnitOnOrder = model.UnitOnOrder;
+            this._view.UnitOnStock = model.UnitOnStock;
             // Sale info
-            this.view.UnitPrice = Convert.ToDecimal(model.UnitPrice);
-            this.view.SalesPrice = Convert.ToDecimal(model.SalesPrice);
-            this.view.Status = model.Status;
-            this.view.VAT = Convert.ToDecimal(model.VAT);
+            this._view.UnitPrice = Convert.ToDouble(model.UnitPrice);
+            this._view.SalesPrice = Convert.ToDouble(model.SalesPrice);
+            this._view.Status = model.Status;
+            this._view.VAT = Convert.ToDouble(model.VAT);
             // Details 
-            this.view.SelectedSLID = model.Supplier.SLID;
-            this.view.SelectedCID = model.Category.CATEID;
-            this.view.Content = model.Content;
-            view.IsEdit = true;
+            this._view.SelectedSLID = model.Supplier.SLID;
+            this._view.SelectedCID = model.Category.CATEID;
+            this._view.Content = model.Content;
+            _view.IsEdit = true;
 
         }
 
@@ -76,40 +88,41 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Products
 
             var model = new ProductModel
             {
-                PID = view.PID,
-                ProductName = view.ProductName,
-                Barcode = view.Barcode,
-                QuantityPerUnit = view.QuantityPerUnit,
-                UnitOnStock = view.UnitOnStock,
-                UnitOnOrder = view.UnitOnOrder,
-                UnitPrice = (double)view.UnitPrice,
-                SalesPrice = (double)view.SalesPrice,
-                Status = view.Status,
-                Supplier = supplierList.Where(x=> x.SLID.Equals(view.SelectedSLID)).FirstOrDefault(),
-                Category = categoryList.Where(x=> x.CATEID==view.SelectedCID).FirstOrDefault()
+                PID = _view.PID,
+                ProductName = _view.ProductName,
+                Barcode = _view.Barcode,
+                QuantityPerUnit = _view.QuantityPerUnit,
+                UnitOnStock = _view.UnitOnStock,
+                UnitOnOrder = _view.UnitOnOrder,
+                UnitPrice = (double)_view.UnitPrice,
+                SalesPrice = (double)_view.SalesPrice,
+                Status = _view.Status,
+                Supplier = _supplierServices.GetByValue(_view.SelectedSLID.Trim()).FirstOrDefault(),
+
+                Category = _categoryServices.GetByValue( _view.SelectedCID.ToString() ).FirstOrDefault()
             };
             try
             {
-                // TODO - Vailidate the model 
-                if (view.IsEdit == true)
+                _productServices.ValidateModel(model);
+                if (_view.IsEdit == true)
                 {
-                    repository.Update(model);
-                    view.Message = "Product updated successfully!";
+                    _productServices.Update(model);
+                    _view.Message = "Product updated successfully!";
                 }
                 else
                 {
-                    repository.Add(model);
-                    view.Message = "Product added successfully!";
+                    _productServices.Add(model);
+                    _view.Message = "Product added successfully!";
                 }
-                view.IsSuccessful = true;
+                _view.IsSuccessful = true;
                 LoadAllProdcutList();
                 CleanViewFeilds();
 
             }
             catch (Exception ex)
             {
-                view.IsSuccessful = false;
-                view.Message = ex.Message;
+                _view.IsSuccessful = false;
+                _view.Message = ex.Message;
             }
         }
 
@@ -117,70 +130,66 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Products
         {
             try
             {
-                var model = (ProductModel)bindingSource.Current;
-                repository.Delete(model.PID.ToString());
-                view.IsSuccessful = true;
-                view.Message = "Product deleted successfully";
+                var model = (ProductModel)productBindingSource.Current;
+                _productServices.Delete(model.PID.ToString());
+                _view.IsSuccessful = true;
+                _view.Message = "Product deleted successfully";
                 LoadAllProdcutList();
             }
             catch (Exception)
             {
-                view.IsSuccessful = false;
-                view.Message = "An error occurred, could not delete this product";
+                _view.IsSuccessful = false;
+                _view.Message = "An error occurred, could not delete this product";
             }
         }
 
         private void AddNewProduct(object sender, EventArgs e)
         {
-            this.view.IsEdit = false;
+            this._view.IsEdit = false;
         }
 
         private void SearchProduct(object sender, EventArgs e)
         {
-            bool emptyValue = string.IsNullOrEmpty(this.view.SearchValue);
-            if (emptyValue == false)
-                productList = repository.GetByValue(this.view.SearchValue);
-            else
-                productList = repository.GetAll();
-            bindingSource.DataSource = productList;
+            productBindingSource.DataSource = null;
+            productBindingSource.DataSource = _productServices.GetByValue(this._view.SearchValue);            
         }
 
         private void LoadAllProdcutList()
         {
-            productList=repository.GetAll();
-            bindingSource.DataSource = productList;
+            productBindingSource.DataSource = null;
+            productBindingSource.DataSource = _productServices.GetAll();
         }
         private void LoadAllCategories()
         {
-            categoryList = repository.GetCategories();
-            this.view.SetCategoryList(categoryList);
+            categoryBindingSource.DataSource = _categoryServices.GetAll().Select(c => (ID: c.CATEID, Name: c.CategoryName));
+            this._view.SetCategoryList(categoryBindingSource);
         }
         private void LoadAllSuppliers()
         {
-            supplierList = repository.GetSupliers();
-            this.view.SetSupplierList(supplierList);
+            supplierBiningSource.DataSource = _supplierServices.GetAll().Select(c => (ID: c.SLID, Name: c.SupplierName)); ;
+            this._view.SetSupplierList(supplierBiningSource);
         }
         private void CleanViewFeilds()
         {
             // Product Info
-            this.view.PID = "P0";
-            this.view.ProductName = "";
-            this.view.Barcode = "";
+            this._view.PID = "P0";
+            this._view.ProductName = "";
+            this._view.Barcode = "";
             // Stock Info
-            this.view.QuantityPerUnit = "";
-            this.view.UnitOnOrder = 0;
-            this.view.UnitOnStock = 0;
+            this._view.QuantityPerUnit = "";
+            this._view.UnitOnOrder = 0;
+            this._view.UnitOnStock = 0;
             // Sale info
-            this.view.UnitPrice = 0;
-            this.view.SalesPrice = 0;
-            this.view.VAT = 0;
+            this._view.UnitPrice = 0;
+            this._view.SalesPrice = 0;
+            this._view.VAT = 0;
             // Details 
             LoadAllCategories();
-            this.view.SetSupplierList(supplierList);
+            this._view.SetSupplierList(supplierBiningSource);
             LoadAllSuppliers();
-            this.view.SetCategoryList(categoryList);
-            this.view.Content = "";
-            this.view.Status = "On Hand";
+            this._view.SetCategoryList(categoryBindingSource);
+            this._view.Content = "";
+            this._view.Status = "On Hand";
             
         }
     }

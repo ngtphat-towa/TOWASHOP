@@ -21,6 +21,7 @@ namespace NoUITowaShop.Module.Order.OrderPanel
         public TextBox PhoneNumber { get => this.txtPhoneNumber; }
         public Button AdvancedSearch { get => this.btnAdvancedSearch; }
 
+
         private static SupplierOrderInfo instance;
 
         public static SupplierOrderInfo Instance
@@ -28,7 +29,7 @@ namespace NoUITowaShop.Module.Order.OrderPanel
             get
             {
 
-                if (instance == null)
+                if (instance == null || instance.IsDisposed)
                 {
                     instance = new SupplierOrderInfo();
                     instance.BorderStyle = BorderStyle.None;

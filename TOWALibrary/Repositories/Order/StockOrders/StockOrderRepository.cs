@@ -4,12 +4,15 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TOWALibrary.Models.Order.OrderDetails;
+using TOWALibrary.Models.Order.Orders;
 using TOWALibrary.Models.Order.OrderType;
 using TOWALibrary.Repositories.Accounts.Users;
 using TOWALibrary.Repositories.Contacts.Suppliers;
 using TOWALibrary.Repositories.Helpers;
 using TOWALibrary.Repositories.Inventory.Products;
 using TOWALibrary.Repositories.Order.OrderDetails;
+using TOWALibrary.Repositories.Order.Orders;
 
 namespace TOWALibrary.Repositories.Order.SupplyOrders
 {
@@ -56,7 +59,7 @@ namespace TOWALibrary.Repositories.Order.SupplyOrders
                         command.CommandText = "spStockOrder_Insert";
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.CreateDbParameter("@SO_SLID", DbType.String, model.SO_SLID);
+                        command.CreateDbParameter("@SO_SLID", DbType.String, ((IStockOrder)model).SO_SLID);
                         command.CreateDbParameter("@CO_OID", DbType.String, model.OID);
 
                         command.ExecuteNonQuery();
@@ -102,16 +105,16 @@ namespace TOWALibrary.Repositories.Order.SupplyOrders
                         {
                             StockOrderModel model = new StockOrderModel();
 
-                            model.SO_ID = Convert.ToInt32(reader["SO_ID"]);
-                            model.SO_SLID = Convert.ToString(reader["SO_SLID"]);
-                            model.OID = Convert.ToString(reader["ORDERID"]);
+                            ((IStockOrder) model).SO_ID = Convert.ToInt32(reader["SO_ID"]);
+                            ((IStockOrder)model).SO_SLID = Convert.ToString(reader["SO_SLID"]);
+                            model.OID = Convert.ToInt32(reader["ORDERID"]);
                             model.CreatedByUID = Convert.ToString(reader["CREATED_BY"]);
                             model.CreatedAt = Convert.ToDateTime(reader["CREATED_AT"]);
                             model.UpdatedAt = Convert.ToDateTime(reader["UPDATED_AT"]);
                             model.OrderType = Convert.ToInt32(reader["ORDER_TYPE"]);
                             model.PaymentMethod = Convert.ToInt32(reader["PAYMENT_METHOD"]);
-                            model.Total = (float)Convert.ToDecimal(reader["TOTAL"]);
-                            model.GrandTotal = (float)Convert.ToDecimal(reader["GRAND_TOTAL"]);
+                            model.Total = (float)Convert.ToDouble(reader["TOTAL"]);
+                            model.GrandTotal = (float)Convert.ToDouble(reader["GRAND_TOTAL"]);
                             model.Status = Convert.ToInt32(reader["STATUS"]);
                             model.Comments = Convert.ToString(reader["COMMENTS"]);
 
@@ -125,7 +128,7 @@ namespace TOWALibrary.Repositories.Order.SupplyOrders
                     {
                         m.OrderDetails = orderDetailRepository.GetByOrder(m.OID);
                         m.CreatedBy = accountRepository.GetAccountByUID(m.CreatedByUID);
-                        m.Supplier = supplierRepository.GetByValue(m.SO_SLID).FirstOrDefault();
+                        ((IStockOrder)m).Supplier = supplierRepository.GetByValue(((IStockOrder)m).SO_SLID).FirstOrDefault();
                     }
                 }
             }
@@ -164,17 +167,17 @@ namespace TOWALibrary.Repositories.Order.SupplyOrders
                         var oldModel = orderDetailRepository.GetByID(orderDetail.OD_ID);
                         switch (orderDetail.Status)
                         {
-                            case 0:
+                            case OrderDetailStatus.New:
                                 productRepository.UpdateProductStock(orderDetail.OD_PID, 0, orderDetail.Quantity);
 
                                 orderDetailRepository.Add(orderDetail);
                                 break;
-                            case 1:
-                                productRepository.UpdateProductStock(orderDetail.OD_OID, oldModel.Quantity, orderDetail.Quantity);
+                            case OrderDetailStatus.Modify:
+                                productRepository.UpdateProductStock(orderDetail.OD_PID, oldModel.Quantity, orderDetail.Quantity);
 
                                 orderDetailRepository.Update(orderDetail);
                                 break;
-                            case 2:
+                            case OrderDetailStatus.Remove:
                                 productRepository.UpdateProductStock(orderDetail.OD_PID, oldModel.Quantity, 0);
 
                                 orderDetailRepository.Delete(orderDetail);
@@ -190,8 +193,8 @@ namespace TOWALibrary.Repositories.Order.SupplyOrders
                         command.CommandText = "spStockOrder_Update";
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.CreateDbParameter("@SO_ID", DbType.Int32, model.SO_ID);
-                        command.CreateDbParameter("@SO_SLID", DbType.String, model.SO_SLID);
+                        command.CreateDbParameter("@SO_ID", DbType.Int32, ((IStockOrder)model).SO_ID);
+                        command.CreateDbParameter("@SO_SLID", DbType.String, ((IStockOrder)model).SO_SLID);
                         command.CreateDbParameter("@SO_OID", DbType.String, model.OID);
 
                         command.ExecuteNonQuery();
@@ -239,16 +242,16 @@ namespace TOWALibrary.Repositories.Order.SupplyOrders
                         {
                             StockOrderModel model = new StockOrderModel();
 
-                            model.SO_ID = Convert.ToInt32(reader["SO_ID"]);
-                            model.SO_SLID = Convert.ToString(reader["SO_SLID"]);
-                            model.OID = Convert.ToString(reader["ORDERID"]);
+                            ((IStockOrder) model).SO_ID = Convert.ToInt32(reader["SO_ID"]);
+                            ((IStockOrder)model).SO_SLID = Convert.ToString(reader["SO_SLID"]);
+                            model.OID = Convert.ToInt32(reader["ORDERID"]);
                             model.CreatedByUID = Convert.ToString(reader["CREATED_BY"]);
                             model.CreatedAt = Convert.ToDateTime(reader["CREATED_AT"]);
                             model.UpdatedAt = Convert.ToDateTime(reader["UPDATED_AT"]);
                             model.OrderType = Convert.ToInt32(reader["ORDER_TYPE"]);
                             model.PaymentMethod = Convert.ToInt32(reader["PAYMENT_METHOD"]);
-                            model.Total = (float)Convert.ToDecimal(reader["TOTAL"]);
-                            model.GrandTotal = (float)Convert.ToDecimal(reader["GRAND_TOTAL"]);
+                            model.Total = (float)Convert.ToDouble(reader["TOTAL"]);
+                            model.GrandTotal = (float)Convert.ToDouble(reader["GRAND_TOTAL"]);
                             model.Status = Convert.ToInt32(reader["STATUS"]);
                             model.Comments = Convert.ToString(reader["COMMENTS"]);
 
@@ -262,7 +265,8 @@ namespace TOWALibrary.Repositories.Order.SupplyOrders
                     {
                         m.OrderDetails = orderDetailRepository.GetByOrder(m.OID);
                         m.CreatedBy = accountRepository.GetAccountByUID(m.CreatedByUID);
-                        m.Supplier = supplierRepository.GetByValue(m.SO_SLID).FirstOrDefault();
+                        var so = m as IStockOrder;
+                       so.Supplier = supplierRepository.GetByValue(so.SO_SLID).FirstOrDefault();
                     }
                 }
             }
