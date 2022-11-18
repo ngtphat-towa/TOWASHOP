@@ -10,20 +10,19 @@ namespace TOWALibrary.Models.Order.Orders
     public interface IOrderModel
     {
         #region Display Attribute
-        [DisplayName("Order ID")]
-        string OID { get; set; }
-        [DisplayName("Created By")]
+
+        int OID { get; set; }
+
         string CreatedByUID { get; set; }
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{dd/MM/yyyy}")]
-        [DisplayName("Created By")]
+
         DateTime CreatedAt { get; set; }
-        [DisplayName("Type")]
+
         string OrderTypeString { get; }
-        [DisplayName("Payment")]
+ 
         string PaymentMethodString { get; }
-        [DisplayName("Total")]
-        float GrandTotal { get; set; }
-        [DisplayName("Status")]
+
+        double GrandTotal { get; set; }
+
         string StatusString { get; }
         #endregion
         string Comments { get; set; }
@@ -37,7 +36,9 @@ namespace TOWALibrary.Models.Order.Orders
       
         int Status { get; set; }
     
-        float Total { get; set; }
+        double Total { get; set; }
         DateTime UpdatedAt { get; set; }
     }
+
 }
+

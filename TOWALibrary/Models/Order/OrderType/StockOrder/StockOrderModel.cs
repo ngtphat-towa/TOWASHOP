@@ -11,7 +11,7 @@ using TOWALibrary.Models.Order.Orders;
 
 namespace TOWALibrary.Models.Order.OrderType
 {
-    public class StockOrderModel : OrderModel
+    public class StockOrderModel : OrderModel, IStockOrder
     {
         #region Constructor
         public StockOrderModel(){

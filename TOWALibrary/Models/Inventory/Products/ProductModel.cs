@@ -52,11 +52,11 @@ namespace TOWALibrary.Models.Inventory.Products
         [DisplayName("Content")]
         public string Content { get => content; set => content = value; }
         [DisplayName("Suplier")]
-        public string SupplierID
+        public string SupplierName
         {
             get
             {
-                return Supplier.SLID;
+                return Supplier.SupplierName;
             }
         }
         [DisplayName("Category")]

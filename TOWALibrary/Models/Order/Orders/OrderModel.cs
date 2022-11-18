@@ -15,7 +15,7 @@ namespace TOWALibrary.Models.Order.Orders
     {
         #region Private Fields
         // Intail info
-        private string _OID;
+        private int _OID;
         private string _CreatedByUID;
         private AccountModel createdBy;
         private DateTime createdAt;
@@ -23,8 +23,8 @@ namespace TOWALibrary.Models.Order.Orders
         private int _OrderType;
         private int _paymentMethod;
         // General info
-        private float total;
-        private float grandTotal;
+        private double total;
+        private double grandTotal;
 
         // meta
         private int status;
@@ -35,7 +35,7 @@ namespace TOWALibrary.Models.Order.Orders
 
         #region Display Attribute
         [DisplayName("Order ID")]
-        public string OID { get => _OID; set => _OID = value; }
+        public int OID { get => _OID; set => _OID = value; }
         [DisplayName("Created By")]
         public string CreatedByUID { get => _CreatedByUID; set => _CreatedByUID = value; }
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
@@ -46,7 +46,7 @@ namespace TOWALibrary.Models.Order.Orders
         [DisplayName("Payment")]
         public string PaymentMethodString { get => PaymentMethod.PaymentMethodString(); }
         [DisplayName("Total")]
-        public float GrandTotal { get => grandTotal; set => grandTotal = value; }
+        public double GrandTotal { get => grandTotal; set => grandTotal = value; }
         [DisplayName("Status")]
         public string StatusString { get => Status.OrderStatusString(); }
         #endregion
@@ -59,7 +59,7 @@ namespace TOWALibrary.Models.Order.Orders
         [Browsable(false)]
         public int PaymentMethod { get => _paymentMethod; set => _paymentMethod = value; }
         [Browsable(false)]
-        public float Total { get => total; set => total = value; }
+        public double Total { get => total; set => total = value; }
 
         [Browsable(false)]
         public string Comments { get => comments; set => comments = value; }
