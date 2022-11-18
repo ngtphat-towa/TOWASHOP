@@ -97,8 +97,9 @@ namespace TOWALibrary.Presenters.Modules.Orders.OrderDetails
         private void OrderDetailValueChangedEvent( )
         {
             _view.Total = _orderDetailModelServices.GetTotalCost(_orderDetailModels);
-            _view.TotalDiscount = _orderDetailModelServices.GetTotalDiscount(_orderDetailModels);
             _view.GrandTotal = _orderDetailModelServices.GetGrandTotal(_orderDetailModels);
+            _view.TotalDiscount = Convert.ToDouble(_view.GrandTotal)/Convert.ToDouble(_view.Total);
+
         }
 
         private void SaveOrderEvent(object sender, EventArgs e)
@@ -117,16 +118,85 @@ namespace TOWALibrary.Presenters.Modules.Orders.OrderDetails
                 default:
                     break;
             }
+            _view.IsSuccessful = true;
+            _view.Message = "Order added successfully";
         }
 
         private void SaveStockOrder()
         {
-            throw new NotImplementedException();
+            StockOrderModel model = new StockOrderModel();
+            //Intial Info
+            model.OID = _view.OID;
+            model.CreatedByUID = _view.CreatedByUID;
+            model.CreatedBy = GlobalConfig.CurrentUser;
+
+            // OrderType Info
+            model.OrderType = _view.OrderType;
+            model.PaymentMethod = _view.PaymentMethod;
+            // General info
+            model.OrderDetails = _orderDetailModels;
+            model.Total = _view.Total;
+            model.GrandTotal = _view.GrandTotal;
+            //meta
+            model.Status = _view.OrderStatus;
+            model.Comments = _view.Comments;
+
+            // Customer Info 
+            model.SO_SLID = _view.SLID;
+            model.Supplier = _supplierModelServices.GetByValue(_view.SLID).FirstOrDefault();
+            // Check Model
+            _orderServices.StockOrderModelServices.ValidateModel(model);
+            if (!_view.IsEditMode)
+            {
+                model.CreatedAt = DateTime.Now;
+                model.UpdatedAt = DateTime.Now;
+                _orderServices.StockOrderModelServices.Add(model);
+
+            }
+            else
+            {
+                model.UpdatedAt = DateTime.Now;
+                _orderServices.StockOrderModelServices.Update(model);
+            }
+
         }
 
         private void SaveCustomerOrder()
         {
-            throw new NotImplementedException();
+            CustomerOrderModel model = new CustomerOrderModel();
+            //Intial Info
+            model.OID = _view.OID;
+            model.CreatedByUID = _view.CreatedByUID;
+            model.CreatedBy = GlobalConfig.CurrentUser;
+
+            // OrderType Info
+            model.OrderType = _view.OrderType;
+            model.PaymentMethod = _view.PaymentMethod;
+            // General info
+            model.OrderDetails = _orderDetailModels;
+            model.Total = _view.Total;
+            model.GrandTotal = _view.GrandTotal;
+            //meta
+            model.Status = _view.OrderStatus;
+            model.Comments = _view.Comments;
+   
+            // Customer Info 
+            model.CO_CTID = _view.CTID;
+            model.Customer = _customerModelServices.GetByValue(_view.CTID).FirstOrDefault();
+            // Check Model
+            _orderServices.CustomerOrderModelServices.ValidateModel(model);
+            if (!_view.IsEditMode)
+            {
+                model.CreatedAt = DateTime.Now;
+                model.UpdatedAt = DateTime.Now;
+                _orderServices.CustomerOrderModelServices.Add(model);
+
+            }
+            else
+            {
+                model.UpdatedAt = DateTime.Now;
+                _orderServices.CustomerOrderModelServices.Update(model);
+            }
         }
 
         private void SaveRetailOrder()
@@ -163,7 +233,6 @@ namespace TOWALibrary.Presenters.Modules.Orders.OrderDetails
                 _orderServices.OrderModelServices.Update(model);
 
             }
-
         }
 
         private void EditOrderDetailValueEvent(object sender, EventArgs e)
@@ -242,7 +311,7 @@ namespace TOWALibrary.Presenters.Modules.Orders.OrderDetails
                 _orderDetailModels.Add(model);
             }
             model.Discount = _view.OD_Discount;
-            model.UnitPrice = model.Product.SalesPrice* (100 -  model.Discount)/100;
+            model.UnitPrice = model.Product.SalesPrice;
 
 
             _orderDetailBindingSource.DataSource = null;

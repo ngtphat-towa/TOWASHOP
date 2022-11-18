@@ -11,7 +11,5 @@ namespace TOWALibrary.Repositories
     {
         DbConnection GetDbConnection();
         DbCommand CreateNewCommand( );
-       
-        
     }
 }

@@ -32,7 +32,9 @@ namespace TOWALibrary.Services.ModelServices.OrderServices
         }
 
         public IOrderModelServices OrderModelServices { get => orderModelServices;  }
-        public IStockOrderModelServices StockOrderModelServices { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IStockOrderModelServices StockOrderModelServices { get => stockOrderServices; }
+
+        public ICustomerOrderModelServices CustomerOrderModelServices => customerOrderServices;
 
         public void AddNewOrder(List<OrderDetailModel> orderDetails, int OrderType, int OrderStatus, int PaymentMethod)
         {

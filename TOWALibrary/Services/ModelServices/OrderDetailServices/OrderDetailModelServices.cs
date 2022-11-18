@@ -41,7 +41,7 @@ namespace TOWALibrary.Services.ModelServices.OrderDetailServices
         {
             double output =0;
             if (models.Count >0)
-                output = models.Sum(item => item.Quantity * item.Product.SalesPrice * (1 - item.Discount / 100));
+                output = models.Sum(item => item.Quantity * item.Product.SalesPrice * (1-item.Discount/100)) ;
             return output;
         }
 
@@ -53,21 +53,21 @@ namespace TOWALibrary.Services.ModelServices.OrderDetailServices
             return output;
         }
 
-        public double GetTotalDiscount(List<OrderDetailModel> models)
-        {
-            double output = 0;
-            if (models.Count > 0)
-            {
-                double cal = 1;
-                foreach (var item in models)
-                {
-                    cal *=( 1 - item.Discount/100);
-                }
-                output =( 1 - cal)*100;
-            }
+        //public double GetTotalDiscount(List<OrderDetailModel> models)
+        //{
+        //    double output = 0;
+        //    if (models.Count > 0)
+        //    {
+        //        double cal = 1;
+        //        foreach (var item in models)
+        //        {
+        //            cal *=( 1 - item.Discount/100);
+        //        }
+        //        output =( 1 - cal)*100;
+        //    }
 
-            return output ;
-        }
+        //    return output ;
+        //}
 
   
 

@@ -15,7 +15,5 @@ namespace TOWALibrary.Repositories.Order.OrderDetails
         void Add(OrderDetailModel model);
         void Delete(OrderDetailModel model);
         OrderDetailModel GetByID(int OD_ID);
-
-
     }
 }

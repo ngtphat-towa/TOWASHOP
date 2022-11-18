@@ -29,9 +29,7 @@ namespace TOWALibrary.Repositories.DBConnector
             connection = new SqlConnection(ConnectionString);
             return connection;
         }
-
- 
-
+        
         private static IDBConnector instance;
         public static IDBConnector GetInstance()
         {
@@ -47,5 +45,7 @@ namespace TOWALibrary.Repositories.DBConnector
             DbDataAdapter dbDataAdapter = new SqlDataAdapter();
             return dbDataAdapter;
         }
+
+
     }
 }

@@ -40,9 +40,9 @@ namespace TOWALibrary.Models.Inventory.Products
         public double UnitPrice { get => unitPrice; set => unitPrice = value; }
         [DisplayName("Sales Price")]
         public double SalesPrice { get => salesPrice; set => salesPrice = value; }
-        [DisplayName("Unit On Stock")]
+        [DisplayName("Stock Quantity")]
         public int UnitOnStock { get => unitOnStock; set => unitOnStock = value; }
-        [DisplayName("Unit On Order")]
+        [DisplayName("Sold Quantity ")]
         public int UnitOnOrder { get => unitOnOrder; set => unitOnOrder = value; }
         [DisplayName("VAT")]
         public double VAT { get => _VAT; set => _VAT = value; }

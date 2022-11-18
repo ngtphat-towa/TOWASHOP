@@ -46,10 +46,17 @@ namespace TOWALibrary.Repositories.Order.SupplyOrders
                         command.CreateDbParameter("@STATUS", DbType.Int16, model.Status);
                         command.CreateDbParameter("@COMMENTS", DbType.String, model.Comments);
 
+
+                        command.CreateDbParameter("@OID", DbType.Int32, null, ParameterDirection.Output);
+
                         command.ExecuteNonQuery();
+
+                        model.OID = Convert.ToInt32(command.Parameters["@OID"].Value);
                     }
                     foreach (var orderDetail in model.OrderDetails)
                     {
+                        orderDetail.OD_OID = model.OID;
+
                         productRepository.UpdateProductStock(orderDetail.OD_PID, 0, orderDetail.Quantity);
                         orderDetailRepository.Add(orderDetail);
                     }
@@ -63,25 +70,20 @@ namespace TOWALibrary.Repositories.Order.SupplyOrders
                         command.CreateDbParameter("@CO_OID", DbType.String, model.OID);
 
                         command.ExecuteNonQuery();
-
                     }
-
                     dbTransaction.Commit();
-
                 }
                 catch (Exception ex)
                 {
                     try
                     {
                         dbTransaction.Rollback();
-
                     }
                     catch (Exception exR)
                     {
 
                         throw new Exception(ex.Message + "\n" + exR.Message);
                     }
-
                 }
             }
         }
@@ -165,6 +167,8 @@ namespace TOWALibrary.Repositories.Order.SupplyOrders
                     foreach (var orderDetail in model.OrderDetails)
                     {
                         var oldModel = orderDetailRepository.GetByID(orderDetail.OD_ID);
+                        orderDetail.OD_OID = model.OID;
+
                         switch (orderDetail.Status)
                         {
                             case OrderDetailStatus.New:

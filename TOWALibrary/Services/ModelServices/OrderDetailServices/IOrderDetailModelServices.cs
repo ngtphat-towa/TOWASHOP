@@ -12,7 +12,7 @@ namespace TOWALibrary.Services.ModelServices.OrderDetailServices
     {
         void ValidateModel(OrderDetailModel model);
         double GetTotalCost(List<OrderDetailModel> models);
-        double GetTotalDiscount(List<OrderDetailModel> models);
+       // double GetTotalDiscount(List<OrderDetailModel> models);
         double GetGrandTotal(List<OrderDetailModel> models);
     }
 }
