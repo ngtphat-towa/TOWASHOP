@@ -208,6 +208,8 @@ namespace NoUITowaShop.Module.Order
         public string OD_PID { get ; set; }
         public double OD_Discount { get ; set ; }
         public int OD_Quantity { get ; set ; }
+        public int OD_OrderType { get => OrderType; }
+
         #endregion
         public double DiscountValue { get =>Convert.ToDouble( this.txtDiscountValue.Value); set => this.txtDiscountValue.Value = Convert.ToDecimal(value); }
         public int QuantityValue { get => Convert.ToInt32(this.txtQuantityValue.Value); set => this.txtQuantityValue.Value= Convert.ToDecimal(value); }

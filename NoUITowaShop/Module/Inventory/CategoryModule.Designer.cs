@@ -30,8 +30,7 @@ namespace NoUITowaShop.Module.Inventory
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panelOption = new System.Windows.Forms.Panel();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.gbComent = new System.Windows.Forms.GroupBox();
@@ -59,10 +58,10 @@ namespace NoUITowaShop.Module.Inventory
             this.tbPanelSLFooter = new System.Windows.Forms.TableLayoutPanel();
             this.tabDefine = new System.Windows.Forms.TabPage();
             this.tbPanelDFFooter = new System.Windows.Forms.TableLayoutPanel();
-            this.tbPanelSLAdress = new System.Windows.Forms.TableLayoutPanel();
             this.tbpanelHheader = new System.Windows.Forms.TableLayoutPanel();
             this.categoryModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panelOption.SuspendLayout();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.gbComent.SuspendLayout();
             this.tbPanelSLInfo.SuspendLayout();
             this.gbCategoryInfo.SuspendLayout();
@@ -73,42 +72,34 @@ namespace NoUITowaShop.Module.Inventory
             this.tableOption.SuspendLayout();
             this.gpSearch.SuspendLayout();
             this.tabDefine.SuspendLayout();
-            this.tbPanelSLAdress.SuspendLayout();
             this.tbpanelHheader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryModelBindingSource)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelOption
-            // 
-            this.panelOption.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelOption.Controls.Add(this.btnCancel);
-            this.panelOption.Controls.Add(this.btnSave);
-            this.panelOption.Location = new System.Drawing.Point(702, 3);
-            this.panelOption.Name = "panelOption";
-            this.panelOption.Size = new System.Drawing.Size(460, 72);
-            this.panelOption.TabIndex = 4;
             // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnCancel.Location = new System.Drawing.Point(36, 10);
+            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCancel.Location = new System.Drawing.Point(244, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(191, 45);
+            this.btnCancel.Size = new System.Drawing.Size(235, 48);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSave.Location = new System.Drawing.Point(253, 10);
+            this.btnSave.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSave.Location = new System.Drawing.Point(3, 3);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(182, 45);
+            this.btnSave.Size = new System.Drawing.Size(235, 48);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // gbComent
             // 
@@ -311,14 +302,14 @@ namespace NoUITowaShop.Module.Inventory
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.Color.Snow;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(3, 115);
             this.dataGridView.Name = "dataGridView";
@@ -326,7 +317,7 @@ namespace NoUITowaShop.Module.Inventory
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(1186, 383);
+            this.dataGridView.Size = new System.Drawing.Size(1186, 375);
             this.dataGridView.TabIndex = 7;
             // 
             // tableOption
@@ -431,8 +422,8 @@ namespace NoUITowaShop.Module.Inventory
             // tabDefine
             // 
             this.tabDefine.BackColor = System.Drawing.Color.Transparent;
+            this.tabDefine.Controls.Add(this.tableLayoutPanel1);
             this.tabDefine.Controls.Add(this.tbPanelDFFooter);
-            this.tabDefine.Controls.Add(this.tbPanelSLAdress);
             this.tabDefine.Controls.Add(this.tbPanelSLInfo);
             this.tabDefine.Controls.Add(this.tbpanelHheader);
             this.tabDefine.Location = new System.Drawing.Point(4, 29);
@@ -457,24 +448,6 @@ namespace NoUITowaShop.Module.Inventory
             this.tbPanelDFFooter.Size = new System.Drawing.Size(1186, 34);
             this.tbPanelDFFooter.TabIndex = 4;
             // 
-            // tbPanelSLAdress
-            // 
-            this.tbPanelSLAdress.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPanelSLAdress.ColumnCount = 4;
-            this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.30131F));
-            this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.69869F));
-            this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tbPanelSLAdress.Controls.Add(this.panelOption, 2, 0);
-            this.tbPanelSLAdress.Location = new System.Drawing.Point(3, 443);
-            this.tbPanelSLAdress.Name = "tbPanelSLAdress";
-            this.tbPanelSLAdress.RowCount = 1;
-            this.tbPanelSLAdress.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbPanelSLAdress.Size = new System.Drawing.Size(1186, 78);
-            this.tbPanelSLAdress.TabIndex = 2;
-            // 
             // tbpanelHheader
             // 
             this.tbpanelHheader.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -496,6 +469,35 @@ namespace NoUITowaShop.Module.Inventory
             // 
             this.categoryModelBindingSource.DataSource = typeof(TOWALibrary.Models.Inventory.Categoires.CategoryModel);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 488F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 510);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1186, 60);
+            this.tableLayoutPanel1.TabIndex = 5;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.btnCancel, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnSave, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(701, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(482, 54);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
             // CategoryModule
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -505,7 +507,6 @@ namespace NoUITowaShop.Module.Inventory
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CategoryModule";
             this.Text = "CategoryMoule";
-            this.panelOption.ResumeLayout(false);
             this.gbComent.ResumeLayout(false);
             this.gbComent.PerformLayout();
             this.tbPanelSLInfo.ResumeLayout(false);
@@ -520,17 +521,16 @@ namespace NoUITowaShop.Module.Inventory
             this.gpSearch.ResumeLayout(false);
             this.gpSearch.PerformLayout();
             this.tabDefine.ResumeLayout(false);
-            this.tbPanelSLAdress.ResumeLayout(false);
             this.tbpanelHheader.ResumeLayout(false);
             this.tbpanelHheader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryModelBindingSource)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelOption;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.GroupBox gbComent;
@@ -556,10 +556,11 @@ namespace NoUITowaShop.Module.Inventory
         private System.Windows.Forms.TableLayoutPanel tbPanelSLFooter;
         private System.Windows.Forms.TabPage tabDefine;
         private System.Windows.Forms.TableLayoutPanel tbPanelDFFooter;
-        private System.Windows.Forms.TableLayoutPanel tbPanelSLAdress;
         private System.Windows.Forms.TableLayoutPanel tbpanelHheader;
         private System.Windows.Forms.Label lbDescription;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.BindingSource categoryModelBindingSource;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }
