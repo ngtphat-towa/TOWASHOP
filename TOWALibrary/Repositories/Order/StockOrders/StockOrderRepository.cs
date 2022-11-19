@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using TOWALibrary.Models.Order.OrderDetails;
 using TOWALibrary.Models.Order.Orders;
 using TOWALibrary.Models.Order.OrderType;
@@ -25,64 +26,65 @@ namespace TOWALibrary.Repositories.Order.SupplyOrders
         private readonly ISupplierRepository supplierRepository = DBManager.SupplierRepository;
         public void Add(StockOrderModel model)
         {
-            using (var connection = DBManager.Connection.GetDbConnection())
+            using (var transactionScope = new TransactionScope())
             {
-                connection.Open();
-                var dbTransaction = connection.BeginTransaction();
-                try
+                using (var connection = DBManager.Connection.GetDbConnection())
                 {
-                    using (var command = DBManager.Connection.CreateNewCommand())
-                    {
-                        command.CommandText = "spOrder_Insert";
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.CreateDbParameter("@CREATED_BY", DbType.String, model.CreatedBy.UID);
-                        command.CreateDbParameter("@CREATED_AT", DbType.DateTime, model.CreatedAt);
-                        command.CreateDbParameter("@UPDATED_AT", DbType.DateTime, model.UpdatedAt);
-                        command.CreateDbParameter("@ORDER_TYPE", DbType.Int16, model.OrderType);
-                        command.CreateDbParameter("@PAYMENT_METHOD", DbType.Int16, model.PaymentMethod);
-                        command.CreateDbParameter("@TOTAL", DbType.Double, model.Total);
-                        command.CreateDbParameter("@GRAND_TOTAL", DbType.Double, model.GrandTotal);
-                        command.CreateDbParameter("@STATUS", DbType.Int16, model.Status);
-                        command.CreateDbParameter("@COMMENTS", DbType.String, model.Comments);
-
-
-                        command.CreateDbParameter("@OID", DbType.Int32, null, ParameterDirection.Output);
-
-                        command.ExecuteNonQuery();
-
-                        model.OID = Convert.ToInt32(command.Parameters["@OID"].Value);
-                    }
-                    foreach (var orderDetail in model.OrderDetails)
-                    {
-                        orderDetail.OD_OID = model.OID;
-
-                        productRepository.UpdateProductStock(orderDetail.OD_PID, 0, orderDetail.Quantity);
-                        orderDetailRepository.Add(orderDetail);
-                    }
-                    using (var command = DBManager.Connection.CreateNewCommand())
-                    {
-                        connection.Open();
-                        command.CommandText = "spStockOrder_Insert";
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.CreateDbParameter("@SO_SLID", DbType.String, ((IStockOrder)model).SO_SLID);
-                        command.CreateDbParameter("@CO_OID", DbType.String, model.OID);
-
-                        command.ExecuteNonQuery();
-                    }
-                    dbTransaction.Commit();
-                }
-                catch (Exception ex)
-                {
+                    connection.Open();
                     try
                     {
-                        dbTransaction.Rollback();
-                    }
-                    catch (Exception exR)
-                    {
+                        using (var command = DBManager.Connection.CreateNewCommand())
+                        {
+                            command.CommandText = "spOrder_Insert";
+                            command.CommandType = CommandType.StoredProcedure;
 
-                        throw new Exception(ex.Message + "\n" + exR.Message);
+                            command.CreateDbParameter("@CREATED_BY", DbType.String, model.CreatedBy.UID);
+                            command.CreateDbParameter("@CREATED_AT", DbType.DateTime, model.CreatedAt);
+                            command.CreateDbParameter("@UPDATED_AT", DbType.DateTime, model.UpdatedAt);
+                            command.CreateDbParameter("@ORDER_TYPE", DbType.Int16, model.OrderType);
+                            command.CreateDbParameter("@PAYMENT_METHOD", DbType.Int16, model.PaymentMethod);
+                            command.CreateDbParameter("@TOTAL", DbType.Double, model.Total);
+                            command.CreateDbParameter("@GRAND_TOTAL", DbType.Double, model.GrandTotal);
+                            command.CreateDbParameter("@STATUS", DbType.Int16, model.Status);
+                            command.CreateDbParameter("@COMMENTS", DbType.String, model.Comments);
+
+
+                            command.CreateDbParameter("@OID", DbType.Int32, null, ParameterDirection.Output);
+
+                            command.ExecuteNonQuery();
+
+                            model.OID = Convert.ToInt32(command.Parameters["@OID"].Value);
+                        }
+                        foreach (var orderDetail in model.OrderDetails)
+                        {
+                            orderDetail.OD_OID = model.OID;
+
+                            productRepository.UpdateProductStock(orderDetail.OD_PID, orderDetail.Quantity,0);
+                            orderDetailRepository.Add(orderDetail);
+                        }
+                        using (var command = DBManager.Connection.CreateNewCommand())
+                        {
+                            command.CommandText = "spStockOrder_Insert";
+                            command.CommandType = CommandType.StoredProcedure;
+
+                            command.CreateDbParameter("@SO_SLID", DbType.String, model.SO_SLID);
+                            command.CreateDbParameter("@SO_OID", DbType.String, model.OID);
+
+                            command.ExecuteNonQuery();
+                        }
+                        transactionScope.Complete();
+                    }
+                    catch (Exception ex)
+                    {
+                        try
+                        {
+                            transactionScope.Dispose();
+                        }
+                        catch (Exception exR)
+                        {
+
+                            throw new Exception(ex.Message + "\n" + exR.Message);
+                        }
                     }
                 }
             }
@@ -140,88 +142,88 @@ namespace TOWALibrary.Repositories.Order.SupplyOrders
 
         public void Update(StockOrderModel model)
         {
-            using (var connection = DBManager.Connection.GetDbConnection())
+            using (var transactionScope = new TransactionScope())
             {
-                connection.Open();
-                var dbTransaction = connection.BeginTransaction();
-                try
+                using (var connection = DBManager.Connection.GetDbConnection())
                 {
-                    using (var command = DBManager.Connection.CreateNewCommand())
-                    {
-                        command.CommandText = "spOrder_Update";
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.CreateDbParameter("@CREATED_BY", DbType.String, model.OID);
-                        command.CreateDbParameter("@CREATED_BY", DbType.String, model.CreatedBy.UID);
-                        command.CreateDbParameter("@CREATED_AT", DbType.DateTime, model.CreatedAt);
-                        command.CreateDbParameter("@UPDATED_AT", DbType.DateTime, model.UpdatedAt);
-                        command.CreateDbParameter("@ORDER_TYPE", DbType.Int16, model.OrderType);
-                        command.CreateDbParameter("@PAYMENT_METHOD", DbType.Int16, model.PaymentMethod);
-                        command.CreateDbParameter("@TOTAL", DbType.Double, model.Total);
-                        command.CreateDbParameter("@GRAND_TOTAL", DbType.Double, model.GrandTotal);
-                        command.CreateDbParameter("@STATUS", DbType.Int16, model.Status);
-                        command.CreateDbParameter("@COMMENTS", DbType.String, model.Comments);
-
-                        command.ExecuteNonQuery();
-                    };
-                    foreach (var orderDetail in model.OrderDetails)
-                    {
-                        var oldModel = orderDetailRepository.GetByID(orderDetail.OD_ID);
-                        orderDetail.OD_OID = model.OID;
-
-                        switch (orderDetail.Status)
-                        {
-                            case OrderDetailStatus.New:
-                                productRepository.UpdateProductStock(orderDetail.OD_PID, 0, orderDetail.Quantity);
-
-                                orderDetailRepository.Add(orderDetail);
-                                break;
-                            case OrderDetailStatus.Modify:
-                                productRepository.UpdateProductStock(orderDetail.OD_PID, oldModel.Quantity, orderDetail.Quantity);
-
-                                orderDetailRepository.Update(orderDetail);
-                                break;
-                            case OrderDetailStatus.Remove:
-                                productRepository.UpdateProductStock(orderDetail.OD_PID, oldModel.Quantity, 0);
-
-                                orderDetailRepository.Delete(orderDetail);
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-
-                    using (var command = DBManager.Connection.CreateNewCommand())
-                    {
-                        connection.Open();
-                        command.CommandText = "spStockOrder_Update";
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.CreateDbParameter("@SO_ID", DbType.Int32, ((IStockOrder)model).SO_ID);
-                        command.CreateDbParameter("@SO_SLID", DbType.String, ((IStockOrder)model).SO_SLID);
-                        command.CreateDbParameter("@SO_OID", DbType.String, model.OID);
-
-                        command.ExecuteNonQuery();
-
-                    };
-                    
-
-                    dbTransaction.Commit();
-
-                }
-                catch (Exception ex)
-                {
+                    connection.Open();
                     try
                     {
-                        dbTransaction.Rollback();
+                        using (var command = DBManager.Connection.CreateNewCommand())
+                        {
+                            command.CommandText = "spOrder_Update";
+                            command.CommandType = CommandType.StoredProcedure;
+
+                            command.CreateDbParameter("@CREATED_BY", DbType.String, model.OID);
+                            command.CreateDbParameter("@CREATED_BY", DbType.String, model.CreatedBy.UID);
+                            command.CreateDbParameter("@CREATED_AT", DbType.DateTime, model.CreatedAt);
+                            command.CreateDbParameter("@UPDATED_AT", DbType.DateTime, model.UpdatedAt);
+                            command.CreateDbParameter("@ORDER_TYPE", DbType.Int16, model.OrderType);
+                            command.CreateDbParameter("@PAYMENT_METHOD", DbType.Int16, model.PaymentMethod);
+                            command.CreateDbParameter("@TOTAL", DbType.Double, model.Total);
+                            command.CreateDbParameter("@GRAND_TOTAL", DbType.Double, model.GrandTotal);
+                            command.CreateDbParameter("@STATUS", DbType.Int16, model.Status);
+                            command.CreateDbParameter("@COMMENTS", DbType.String, model.Comments);
+
+                            command.ExecuteNonQuery();
+                        };
+                        foreach (var orderDetail in model.OrderDetails)
+                        {
+                            var oldModel = orderDetailRepository.GetByID(orderDetail.OD_ID);
+                            orderDetail.OD_OID = model.OID;
+
+                            switch (orderDetail.Status)
+                            {
+                                case OrderDetailStatus.New:
+                                    productRepository.UpdateProductStock(orderDetail.OD_PID, orderDetail.Quantity,0);
+
+                                    orderDetailRepository.Add(orderDetail);
+                                    break;
+                                case OrderDetailStatus.Modify:
+                                    productRepository.UpdateProductStock(orderDetail.OD_PID, orderDetail.Quantity, oldModel.Quantity);
+
+                                    orderDetailRepository.Update(orderDetail);
+                                    break;
+                                case OrderDetailStatus.Remove:
+                                    productRepository.UpdateProductStock(orderDetail.OD_PID, 0, oldModel.Quantity);
+
+                                    orderDetailRepository.Delete(orderDetail);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+
+                        using (var command = DBManager.Connection.CreateNewCommand())
+                        {
+                            command.CommandText = "spStockOrder_Update";
+                            command.CommandType = CommandType.StoredProcedure;
+
+                            command.CreateDbParameter("@SO_ID", DbType.Int32, ((IStockOrder)model).SO_ID);
+                            command.CreateDbParameter("@SO_SLID", DbType.String, ((IStockOrder)model).SO_SLID);
+                            command.CreateDbParameter("@SO_OID", DbType.String, model.OID);
+
+                            command.ExecuteNonQuery();
+
+                        };
+
+
+                        transactionScope.Complete();
 
                     }
-                    catch (Exception exR)
+                    catch (Exception ex)
                     {
+                        try
+                        {
+                            transactionScope.Dispose();
+                        }
+                        catch (Exception exR)
+                        {
 
-                        throw new Exception(ex.Message + "\n" + exR.Message);
+                            throw new Exception(ex.Message + "\n" + exR.Message);
+                        }
+
                     }
-
                 }
             }
         }

@@ -39,7 +39,7 @@ namespace TOWALibrary.Repositories.Inventory.Products
                     command.CreateDbParameter("@VAT", DbType.Double, model.VAT);
                     command.CreateDbParameter("@STATUS", DbType.String, model.Status);
                     command.CreateDbParameter("@PC_CATEID", DbType.Int32, model.Category.CATEID);
-                    command.CreateDbParameter("@PC_CATEID", DbType.String, model.Supplier.SLID);
+                    command.CreateDbParameter("@PS_SLID", DbType.String, model.Supplier.SLID);
 
                     command.ExecuteNonQuery();
 
