@@ -42,9 +42,6 @@ namespace TOWALibrary.Services.CategoryServices
         public void ValidateModel(CategoryModel model)
         {
             ModelDataValidationCheck.Validate(model);
-            //var models = _categoryRepository.GetAll().FirstOrDefault(c=>c.CategoryName == model.CategoryName);
-            //if (models != null)
-            //    throw new Exception("This category name already exits! \n Category name must be unique");
         }
     }
 }

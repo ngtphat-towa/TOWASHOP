@@ -90,7 +90,11 @@ namespace TOWALibrary.Presenters.ModelListVew
             {
                 // Validate changed OrderDetail values - Quantity
                 string PID = _view.PID;
+                if(_view.CallingForm.OD_OrderType!=2)//Stock
                 _productModelServices.ValidateProductQuantity(PID, _view.Quantity);
+                else
+                     if (_view.Quantity <= 0)
+                    throw new Exception("The stock must be larger 1 items");
                 // Discount Range
                 _productModelServices.ValidateOrderDiscount(_view.Quantity);
 

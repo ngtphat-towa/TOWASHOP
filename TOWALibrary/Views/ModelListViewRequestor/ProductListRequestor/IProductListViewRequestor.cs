@@ -11,6 +11,7 @@ namespace TOWALibrary.Views.ModelListViewRequester
         string OD_PID { get; set; }
         double OD_Discount { get; set; }
         int OD_Quantity { get; set; }
+        int OD_OrderType { get; }
         void AddNewProductOrderToList();
     }
 }

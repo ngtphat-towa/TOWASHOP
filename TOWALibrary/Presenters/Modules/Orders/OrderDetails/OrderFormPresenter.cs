@@ -104,6 +104,7 @@ namespace TOWALibrary.Presenters.Modules.Orders.OrderDetails
 
         private void SaveOrderEvent(object sender, EventArgs e)
         {
+            
             switch (_view.OrderType)
             {
                 case 0:
@@ -120,6 +121,7 @@ namespace TOWALibrary.Presenters.Modules.Orders.OrderDetails
             }
             _view.IsSuccessful = true;
             _view.Message = "Order added successfully";
+            
         }
 
         private void SaveStockOrder()
@@ -244,7 +246,11 @@ namespace TOWALibrary.Presenters.Modules.Orders.OrderDetails
 
                 // Validate changed OrderDetail values - Quantity
                 string PID = ((OrderDetailModel)_orderDetailBindingSource.Current).OD_PID;
-                _productModelServices.ValidateProductQuantity(PID,_view.QuantityValue);
+                if (_view.OrderType != 2)// Stock 
+                    _productModelServices.ValidateProductQuantity(PID, _view.QuantityValue);
+                else
+                     if (_view.QuantityValue <= 0)
+                    throw new Exception("The stock must be larger 1 items");
                 // Discount Range
                 _productModelServices.ValidateOrderDiscount(_view.DiscountValue);
 

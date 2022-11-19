@@ -161,12 +161,12 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Products
         }
         private void LoadAllCategories()
         {
-            categoryBindingSource.DataSource = _categoryServices.GetAll().Select(c => (ID: c.CATEID, Name: c.CategoryName));
+            categoryBindingSource.DataSource = _categoryServices.GetAll().Select(c => new { ID = c.CATEID, Name = c.CategoryName });
             this._view.SetCategoryList(categoryBindingSource);
         }
         private void LoadAllSuppliers()
         {
-            supplierBiningSource.DataSource = _supplierServices.GetAll().Select(c => (ID: c.SLID, Name: c.SupplierName)); ;
+            supplierBiningSource.DataSource = _supplierServices.GetAll().Select(c => new { ID = c.SLID, Name = c.SupplierName }); ;
             this._view.SetSupplierList(supplierBiningSource);
         }
         private void CleanViewFeilds()
