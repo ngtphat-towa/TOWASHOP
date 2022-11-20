@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TOWALibrary.Presenters.Modules.Orders;
+using TOWALibrary.Presenters.Modules.Orders.OrderDetails;
 using TOWALibrary.Views.ModelListVew;
 using TOWALibrary.Views.ModelListViewRequester;
 using TOWALibrary.Views.ModuleViews.Orders.OrderDetails;
@@ -17,8 +19,10 @@ namespace NoUITowaShop.Module.Order
 {
     public partial class OrderForm : Form, IOrderFormView
     {
+        private readonly OrderFormPresenter  presenter;
         public OrderForm()
         {
+            
             InitializeComponent();
             // Initialize Filter
             string[] OrderType = new string[] { "Retail Order", "Customer Order", "Supply Stock" };
@@ -77,6 +81,15 @@ namespace NoUITowaShop.Module.Order
                  MessageBox.Show(Message);
                  
              };
+            this.btnResetChange.Click += delegate
+            {
+                this.ResetOrderDetailListEvent?.Invoke(this, EventArgs.Empty);
+            };
+            this.btnRemoveProduct.Click += delegate
+             {
+                 this.RemoveSelectedOrderItemsEvent?.Invoke(this, EventArgs.Empty);
+             };
+            this.presenter = new OrderFormPresenter(this);
 
         }
         #region Custom Control
@@ -93,8 +106,9 @@ namespace NoUITowaShop.Module.Order
         public event EventHandler BarcodeIDChangedEvent;
         public event EventHandler SelectedOrderDetailChangedEvent;
         public event EventHandler EditOrderDetailValueEvent;
-        public event EventHandler RemoveSelectedProductEvent;
+        public event EventHandler RemoveSelectedOrderItemsEvent;
         public event EventHandler SaveOrderEvent;
+        public event EventHandler LoadEditOrderFormEvent;
 
         #endregion
 
@@ -117,7 +131,7 @@ namespace NoUITowaShop.Module.Order
             {
                 if (instance.WindowState == FormWindowState.Minimized)
                 {
-
+                    instance.MdiParent = parentContainer;
                     instance.WindowState = parentContainer.WindowState;
                 }
 
@@ -141,12 +155,11 @@ namespace NoUITowaShop.Module.Order
         public void SetProductOrderDetailBindingSource(BindingSource bindingSource)
         {
             this.dgvOrderList.DataSource = bindingSource;
+
+
         }
 
-        public void ShowMessage(string msg)
-        {
-            
-        }
+
 
         public void SetCustomerNameListDetailBindingSource(BindingSource bindingSource)
         {
@@ -166,6 +179,11 @@ namespace NoUITowaShop.Module.Order
             this.supplierOrderInfoControl.SupplierList.ValueMember = "ID";
 
             this.supplierOrderInfoControl.PhoneNumber.DataBindings.Add("Text", bindingSource, "Phone");
+        }
+
+        public void LoadOrderToEdit()
+        {
+            this.LoadEditOrderFormEvent?.Invoke(this, EventArgs.Empty);
         }
 
         public static OrderForm Instance
@@ -195,7 +213,6 @@ namespace NoUITowaShop.Module.Order
             get => (this.rbtnIsCash.Checked)? 0 : 1; 
             set {
                 this.rbtnIsCash.Checked = (value == 0);
-                this.PaymentMethod = value;
             }
         }
         public string CustomerPhone { get => this.customerOrderInfoControl.PhoneNumber.Text; set =>this.customerOrderInfoControl.PhoneNumber.Text=value; }
@@ -213,7 +230,19 @@ namespace NoUITowaShop.Module.Order
         #endregion
         public double DiscountValue { get =>Convert.ToDouble( this.txtDiscountValue.Value); set => this.txtDiscountValue.Value = Convert.ToDecimal(value); }
         public int QuantityValue { get => Convert.ToInt32(this.txtQuantityValue.Value); set => this.txtQuantityValue.Value= Convert.ToDecimal(value); }
-        public int OID { get ; set ; }
+        private int _OID;
+        public int OID
+        {
+            get => _OID; set
+            {
+                if (value != 0)
+                    this.lbOID.Text ="ID: "+ value.ToString();
+                else
+                    this.lbOID.Text = "New Order";
+
+                _OID = value;
+            }
+        }
         public bool IsEditMode { get ; set ; }
         public string CreatedByUID { get =>  this.lbCreatedByAccount.Text ; set => this.lbCreatedByAccount.Text = value; }
         public string Message { get ; set; }
@@ -224,6 +253,8 @@ namespace NoUITowaShop.Module.Order
         public string SLID { get => supplierOrderInfoControl.SupplierList.SelectedValue.ToString() ; set => supplierOrderInfoControl.SupplierList.SelectedValue= value; }
         public string CTID { get => customerOrderInfoControl.CustomerList.SelectedValue.ToString(); set => customerOrderInfoControl.CustomerList.SelectedValue = value; }
         public string Comments { get => txtComment.Text; set => txtComment.Text = value; }
+        public DateTime CreatedAt { get => dateCreatedAt.Value; set => dateCreatedAt.Value =value; }
+        public IOrderFormRequest CallingForm { get ; set ; }
 
         #endregion
 

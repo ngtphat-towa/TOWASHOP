@@ -47,8 +47,7 @@ namespace TOWALibrary.Presenters.MainViews
         #endregion
 
         #region Order Serivces 
-        private IOrderServices _orderServices;
-        private IOrderDetailModelServices _orderDetailModelServices;
+
         // Order Type
         private IStockOrderModelServices _stockOrderModelServices;
         private ICustomerOrderModelServices _customerOrderModelServices;
@@ -76,9 +75,6 @@ namespace TOWALibrary.Presenters.MainViews
             _stockOrderModelServices = new StockOrderModelServices();
             _customerOrderModelServices = new CustomerOrderModelServices();
             _orderModelServices = new OrderModelServices();
-            // Order Serivces 
-            _orderServices = new OrderServices(_orderModelServices,_stockOrderModelServices, _customerOrderModelServices);
-            _orderDetailModelServices = new OrderDetailModelServices();
             this.view.Show();
 
 
@@ -87,23 +83,14 @@ namespace TOWALibrary.Presenters.MainViews
         private void ShowOrderFormView(object sender, EventArgs e)
         {
             IOrderFormView formView = view.OrderFormView;
-
-            new OrderFormPresenter(formView,
-                                   _orderServices,
-                                   _orderDetailModelServices,
-                                   _productModelServices,
-                                   _categoryModelServices,
-                                   _customerModelServices,
-                                   _supplierModelServices);
             // TODO - change this after debug
-            ((Form)formView).Show();
+            formView.Show();
         }
 
         private void ShowOrderListModuleView(object sender, EventArgs e)
         {
             IOrderListMoudleView moduleView = view.OrderListModuleView;
-            IOrderServices services = new OrderServices(new OrderModelServices(),new StockOrderModelServices(), new CustomerOrderModelServices());
-            new OrderListMoudlePresenter(moduleView, services);
+            moduleView.Show();
         }
 
         private void ShowProductModuleView(object sender, EventArgs e)

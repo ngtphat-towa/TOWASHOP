@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TOWALibrary.Views.ModuleViews.Orders.OrderDetails;
 
 namespace TOWALibrary.Views.ModuleViews.Orders
 {
@@ -19,6 +20,8 @@ namespace TOWALibrary.Views.ModuleViews.Orders
         event EventHandler AddNewEvent;
         event EventHandler EditEvent;
         event EventHandler RefreshEvent;
+        event EventHandler LoadEditOrderFormEvent;
+
 
         /// <summary>
         /// Set data grid view with the bindingSource of Order list
@@ -34,6 +37,8 @@ namespace TOWALibrary.Views.ModuleViews.Orders
 
         string Message { set; }
 
+        IOrderFormView OrderFormView { get; }
+
         #region Order Type/Status Filter
         int OrderType { get; set; }
         int OrderStatus { get; set; }
@@ -41,6 +46,15 @@ namespace TOWALibrary.Views.ModuleViews.Orders
         bool IsValueSearch { get; set; }
         bool IsResetFilter { get; set; }
         bool IsEditOrder { get; set; }
+        bool IsSuccessful { get; set; }
+        bool IsEditable { get; set; }
+        #endregion
+
+        #region Statistical tables
+        int TotalNumberOrder { get; set; }
+        double TotalStock { get; set; }
+        int TotalPaid { get; set; }
+        double TotalSold { get; set; }
         #endregion
 
         #region FilterDateTime

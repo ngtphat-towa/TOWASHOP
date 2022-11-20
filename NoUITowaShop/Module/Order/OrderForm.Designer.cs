@@ -29,7 +29,7 @@ namespace NoUITowaShop.Module.Order
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabTableHeader = new System.Windows.Forms.TableLayoutPanel();
             this.cbOrderType = new System.Windows.Forms.ComboBox();
             this.lbOrderType = new System.Windows.Forms.Label();
@@ -74,6 +74,7 @@ namespace NoUITowaShop.Module.Order
             this.txtDiscountValue = new System.Windows.Forms.NumericUpDown();
             this.lbQuantity = new System.Windows.Forms.Label();
             this.btnResetChange = new System.Windows.Forms.Button();
+            this.lbOID = new System.Windows.Forms.Label();
             this.tabTableHeader.SuspendLayout();
             this.gbRecentRecord.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderList)).BeginInit();
@@ -98,19 +99,21 @@ namespace NoUITowaShop.Module.Order
             // tabTableHeader
             // 
             this.tabTableHeader.BackColor = System.Drawing.Color.Crimson;
-            this.tabTableHeader.ColumnCount = 7;
-            this.tabTableHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.16667F));
-            this.tabTableHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.91667F));
-            this.tabTableHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.16667F));
-            this.tabTableHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.58333F));
-            this.tabTableHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.33333F));
-            this.tabTableHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.83333F));
-            this.tabTableHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.916667F));
-            this.tabTableHeader.Controls.Add(this.cbOrderType, 1, 0);
-            this.tabTableHeader.Controls.Add(this.lbOrderType, 0, 0);
-            this.tabTableHeader.Controls.Add(this.lbOrderStatus, 2, 0);
-            this.tabTableHeader.Controls.Add(this.cbOrderStatus, 3, 0);
-            this.tabTableHeader.Controls.Add(this.btnCancel, 6, 0);
+            this.tabTableHeader.ColumnCount = 8;
+            this.tabTableHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.25F));
+            this.tabTableHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tabTableHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.83333F));
+            this.tabTableHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tabTableHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.41667F));
+            this.tabTableHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tabTableHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.226234F));
+            this.tabTableHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.614786F));
+            this.tabTableHeader.Controls.Add(this.lbOID, 0, 0);
+            this.tabTableHeader.Controls.Add(this.lbOrderType, 1, 0);
+            this.tabTableHeader.Controls.Add(this.lbOrderStatus, 3, 0);
+            this.tabTableHeader.Controls.Add(this.cbOrderStatus, 4, 0);
+            this.tabTableHeader.Controls.Add(this.btnCancel, 7, 0);
+            this.tabTableHeader.Controls.Add(this.cbOrderType, 2, 0);
             this.tabTableHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabTableHeader.Location = new System.Drawing.Point(0, 0);
             this.tabTableHeader.Name = "tabTableHeader";
@@ -130,9 +133,9 @@ namespace NoUITowaShop.Module.Order
             "Retail Order",
             "Customer Order",
             "Supply Stock"});
-            this.cbOrderType.Location = new System.Drawing.Point(149, 3);
+            this.cbOrderType.Location = new System.Drawing.Point(342, 3);
             this.cbOrderType.Name = "cbOrderType";
-            this.cbOrderType.Size = new System.Drawing.Size(209, 32);
+            this.cbOrderType.Size = new System.Drawing.Size(208, 32);
             this.cbOrderType.TabIndex = 0;
             // 
             // lbOrderType
@@ -143,9 +146,9 @@ namespace NoUITowaShop.Module.Order
             this.lbOrderType.AutoSize = true;
             this.lbOrderType.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbOrderType.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lbOrderType.Location = new System.Drawing.Point(3, 0);
+            this.lbOrderType.Location = new System.Drawing.Point(138, 0);
             this.lbOrderType.Name = "lbOrderType";
-            this.lbOrderType.Size = new System.Drawing.Size(140, 35);
+            this.lbOrderType.Size = new System.Drawing.Size(198, 35);
             this.lbOrderType.TabIndex = 1;
             this.lbOrderType.Text = "Order Type";
             this.lbOrderType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -158,9 +161,9 @@ namespace NoUITowaShop.Module.Order
             this.lbOrderStatus.AutoSize = true;
             this.lbOrderStatus.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbOrderStatus.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lbOrderStatus.Location = new System.Drawing.Point(364, 0);
+            this.lbOrderStatus.Location = new System.Drawing.Point(556, 0);
             this.lbOrderStatus.Name = "lbOrderStatus";
-            this.lbOrderStatus.Size = new System.Drawing.Size(140, 35);
+            this.lbOrderStatus.Size = new System.Drawing.Size(144, 35);
             this.lbOrderStatus.TabIndex = 2;
             this.lbOrderStatus.Text = "Order Status";
             this.lbOrderStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -176,9 +179,9 @@ namespace NoUITowaShop.Module.Order
             "Paid",
             "New",
             "Delivering"});
-            this.cbOrderStatus.Location = new System.Drawing.Point(510, 3);
+            this.cbOrderStatus.Location = new System.Drawing.Point(706, 3);
             this.cbOrderStatus.Name = "cbOrderStatus";
-            this.cbOrderStatus.Size = new System.Drawing.Size(145, 32);
+            this.cbOrderStatus.Size = new System.Drawing.Size(143, 32);
             this.cbOrderStatus.TabIndex = 3;
             // 
             // btnCancel
@@ -189,9 +192,9 @@ namespace NoUITowaShop.Module.Order
             this.btnCancel.BackColor = System.Drawing.Color.GhostWhite;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancel.Location = new System.Drawing.Point(1083, 3);
+            this.btnCancel.Location = new System.Drawing.Point(1121, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(114, 29);
+            this.btnCancel.Size = new System.Drawing.Size(76, 29);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -215,9 +218,9 @@ namespace NoUITowaShop.Module.Order
             // 
             this.dgvOrderList.AllowUserToAddRows = false;
             this.dgvOrderList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrderList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrderList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvOrderList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrderList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvOrderList.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -749,6 +752,22 @@ namespace NoUITowaShop.Module.Order
             this.btnResetChange.Text = "Reset";
             this.btnResetChange.UseVisualStyleBackColor = false;
             // 
+            // lbOID
+            // 
+            this.lbOID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbOID.AutoSize = true;
+            this.lbOID.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOID.ForeColor = System.Drawing.Color.GhostWhite;
+            this.lbOID.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbOID.Location = new System.Drawing.Point(3, 0);
+            this.lbOID.Name = "lbOID";
+            this.lbOID.Size = new System.Drawing.Size(129, 35);
+            this.lbOID.TabIndex = 6;
+            this.lbOID.Text = "New Order";
+            this.lbOID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -840,5 +859,6 @@ namespace NoUITowaShop.Module.Order
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Panel panelOrderControl;
         private System.Windows.Forms.DataGridView dgvOrderList;
+        private System.Windows.Forms.Label lbOID;
     }
 }

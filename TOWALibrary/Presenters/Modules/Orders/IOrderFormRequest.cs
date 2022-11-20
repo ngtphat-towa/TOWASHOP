@@ -8,8 +8,7 @@ using System.Windows.Forms;
 namespace TOWALibrary.Presenters.Modules.Orders
 {
    public interface IOrderFormRequest
-    {
-                                                    
-        void SaveOrderDetails();
+    {                                       
+        void SaveComplete();
     }
 }

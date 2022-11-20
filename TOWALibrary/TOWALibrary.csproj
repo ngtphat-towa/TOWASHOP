@@ -151,6 +151,7 @@
     <Compile Include="Repositories\Order\StockOrders\StockOrderRepository.cs" />
     <Compile Include="Services\CommonServices\GlobalConfig.cs" />
     <Compile Include="Services\CommonServices\ModelDataValidationCheck.cs" />
+    <Compile Include="Services\CommonServices\ServicesManager.cs" />
     <Compile Include="Services\ModelServices\CategoryServices\CategoryModelServices.cs" />
     <Compile Include="Services\ModelServices\CategoryServices\ICategoryModelServices.cs" />
     <Compile Include="Services\ModelServices\CustomerServices\CustomerModelSerivces.cs" />

@@ -13,7 +13,7 @@ namespace TOWALibrary.Models.Order.OrderDetails
 {
     public enum OrderDetailStatus
     {
-        New, Modify, Remove
+        New, Modify, Remove, Load
     }
     public class OrderDetailModel
     {
