@@ -142,9 +142,9 @@ namespace TOWALibrary.Repositories.Order.CustomerOrder
             return models;
         }
 
-        public void Update(CustomerOrderModel model)
+        public void Update(CustomerOrderModel oldModel,CustomerOrderModel model)
         {
-            orderRepository.Update(model);
+            orderRepository.Update(oldModel,model);
             using (var connection = DBManager.Connection.GetDbConnection())
             {
                 using (var command = DBManager.Connection.CreateNewCommand())

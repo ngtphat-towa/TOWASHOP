@@ -78,6 +78,7 @@ namespace TOWALibrary.Repositories.Order.OrderDetails
                                 Discount = Convert.ToDouble(reader["DISCOUNT"])
                             };
                             model.Product = productRepository.GetByValue(model.OD_PID).FirstOrDefault();
+                            model.Status = OrderDetailStatus.Load;
                             models.Add(model);
                         }
                     }
@@ -93,7 +94,7 @@ namespace TOWALibrary.Repositories.Order.OrderDetails
             using (var command = DBManager.Connection.CreateNewCommand())
             {
 
-                command.CommandText = "spOrderDetails_GetByID";
+                command.CommandText = "spOrderDetail_GetByID";
                 command.CommandType = CommandType.StoredProcedure;
 
                 command.CreateDbParameter("@OD_ID", DbType.String, OD_ID);
@@ -112,6 +113,7 @@ namespace TOWALibrary.Repositories.Order.OrderDetails
                             Discount = (double)Convert.ToDouble(reader["DISCOUNT"])
                         };
                         model.Product = productRepository.GetByValue(model.OD_PID).FirstOrDefault();
+                        model.Status = OrderDetailStatus.Load;
                         models.Add(model);
                     }
                 }
@@ -122,9 +124,10 @@ namespace TOWALibrary.Repositories.Order.OrderDetails
         {
             using (var command = DBManager.Connection.CreateNewCommand())
             {
-                command.CommandText = "spOrderDetails_Insert";
+                command.CommandText = "spOrderDetails_Update";
                 command.CommandType = CommandType.StoredProcedure;
 
+                command.CreateDbParameter("@OD_ID", DbType.String, model.OD_ID);
                 command.CreateDbParameter("@OD_OID", DbType.String, model.OD_OID);
                 command.CreateDbParameter("@OD_PID", DbType.String, model.OD_PID);
                 command.CreateDbParameter("@UNIT_PRICE", DbType.String, model.UnitPrice);

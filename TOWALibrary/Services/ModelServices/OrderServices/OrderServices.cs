@@ -12,6 +12,7 @@ using TOWALibrary.Repositories.Order.CustomerOrder;
 using TOWALibrary.Repositories.Order.OrderDetails;
 using TOWALibrary.Repositories.Order.Orders;
 using TOWALibrary.Repositories.Order.SupplyOrders;
+using TOWALibrary.Services.CommonServices;
 using TOWALibrary.Services.ModelServices.OrderServices.OrderType.CustomerOrder;
 using TOWALibrary.Services.ModelServices.OrderServices.OrderType.Order;
 using TOWALibrary.Services.ModelServices.OrderServices.OrderType.StockOrder;
@@ -20,15 +21,12 @@ namespace TOWALibrary.Services.ModelServices.OrderServices
 {
     public class OrderServices : IOrderServices
     {
-        readonly IStockOrderModelServices stockOrderServices;
-        readonly ICustomerOrderModelServices customerOrderServices;
-        readonly IOrderModelServices orderModelServices;
+        readonly IStockOrderModelServices stockOrderServices= ServicesManager.StockOrderModelServices;
+        readonly ICustomerOrderModelServices customerOrderServices = ServicesManager.CustomerOrderModelServices;
+        readonly IOrderModelServices orderModelServices = ServicesManager.OrderModelServices;
 
-        public OrderServices(IOrderModelServices orderModelServices, IStockOrderModelServices stockOrderServices, ICustomerOrderModelServices customerOrderServices)
+        public OrderServices()
         {
-            this.stockOrderServices = stockOrderServices;
-            this.customerOrderServices = customerOrderServices;
-            this.orderModelServices = orderModelServices;
         }
 
         public IOrderModelServices OrderModelServices { get => orderModelServices;  }

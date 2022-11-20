@@ -113,10 +113,10 @@ namespace TOWALibrary.Repositories.Order.Orders
                                 Total = (float)Convert.ToDouble(reader["TOTAL"]),
                                 GrandTotal = (float)Convert.ToDouble(reader["GRAND_TOTAL"]),
                                  Status = Convert.ToInt32(reader["STATUS"]),
-                                Comments = Convert.ToString(reader["COMMENTS"])
-
+                                Comments = Convert.ToString(reader["COMMENTS"]),
                             };
                             models.Add(model);
+
                         }
                     }
                     if (models.Count() == 0)
@@ -182,22 +182,25 @@ namespace TOWALibrary.Repositories.Order.Orders
             return models;
         }
 
-        public void Update(OrderModel model)
+        public void Update(OrderModel oldModel, OrderModel model)
         {
-            using (var transactionScope = new TransactionScope())
-            {
-                using (var connection = DBManager.Connection.GetDbConnection())
+          
+                using (var transactionScope = new TransactionScope())
                 {
-                    connection.Open();
-
-                    try
+                try
+                {
+                    using (var connection = DBManager.Connection.GetDbConnection())
                     {
+                        connection.Open();
+
+
                         using (var command = DBManager.Connection.CreateNewCommand())
                         {
                             command.CommandText = "spOrder_Update";
                             command.CommandType = CommandType.StoredProcedure;
 
-                            command.CreateDbParameter("@CREATED_BY", DbType.String, model.OID);
+                            command.CreateDbParameter("@ORDERID", DbType.String, model.OID);
+
                             command.CreateDbParameter("@CREATED_BY", DbType.String, model.CreatedBy.UID);
                             command.CreateDbParameter("@CREATED_AT", DbType.DateTime, model.CreatedAt);
                             command.CreateDbParameter("@UPDATED_AT", DbType.DateTime, model.UpdatedAt);
@@ -212,24 +215,26 @@ namespace TOWALibrary.Repositories.Order.Orders
                         }
                         foreach (var orderDetail in model.OrderDetails)
                         {
-                            OrderDetailModel oldModel = orderDetailRepository.GetByID(orderDetail.OD_ID);
+                            OrderDetailModel orderDetailModel = oldModel.OrderDetails.FirstOrDefault(p => p.OD_ID == orderDetail.OD_ID);
                             switch (orderDetail.Status)
                             {
                                 case OrderDetailStatus.New:
+                                    orderDetail.OD_OID = model.OID;
+
                                     productRepository.UpdateProductStock(orderDetail.OD_PID, 0, orderDetail.Quantity);
                                     productRepository.UpdateProductOrder(orderDetail.OD_PID, 0, orderDetail.Quantity);
 
                                     orderDetailRepository.Add(orderDetail);
                                     break;
                                 case OrderDetailStatus.Modify:
-                                    productRepository.UpdateProductStock(orderDetail.OD_PID, oldModel.Quantity, orderDetail.Quantity);
-                                    productRepository.UpdateProductOrder(orderDetail.OD_PID, oldModel.Quantity, orderDetail.Quantity);
+                                    productRepository.UpdateProductStock(orderDetail.OD_PID, orderDetailModel.Quantity, orderDetail.Quantity);
+                                    productRepository.UpdateProductOrder(orderDetail.OD_PID, orderDetailModel.Quantity, orderDetail.Quantity);
 
                                     orderDetailRepository.Update(orderDetail);
                                     break;
                                 case OrderDetailStatus.Remove:
-                                    productRepository.UpdateProductStock(orderDetail.OD_PID, oldModel.Quantity, 0);
-                                    productRepository.UpdateProductOrder(orderDetail.OD_PID, oldModel.Quantity, 0);
+                                    productRepository.UpdateProductStock(orderDetail.OD_PID, orderDetailModel.Quantity, 0);
+                                    productRepository.UpdateProductOrder(orderDetail.OD_PID, orderDetailModel.Quantity, 0);
 
                                     orderDetailRepository.Delete(orderDetail);
                                     break;
@@ -240,19 +245,19 @@ namespace TOWALibrary.Repositories.Order.Orders
                         transactionScope.Complete();
 
                     }
-                    catch (Exception ex)
+                }
+                catch (Exception ex)
+                {
+                    try
                     {
-                        try
-                        {
-                            transactionScope.Dispose();
-                        }
-                        catch (Exception exR)
-                        {
-
-                            throw new Exception(ex.Message + "\n" + exR.Message);
-                        }
-
+                        transactionScope.Dispose();
                     }
+                    catch (Exception exR)
+                    {
+
+                        throw new Exception(ex.Message + "\n" + exR.Message);
+                    }
+
                 }
             }
         }

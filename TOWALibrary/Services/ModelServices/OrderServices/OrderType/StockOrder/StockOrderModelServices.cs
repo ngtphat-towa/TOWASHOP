@@ -30,9 +30,9 @@ namespace TOWALibrary.Services.ModelServices.OrderServices.OrderType.StockOrder
             return _stockOrderRepository.GetByValue(value);
         }
 
-        public void Update(StockOrderModel model)
+        public void Update(StockOrderModel oldModel, StockOrderModel model)
         {
-            _stockOrderRepository.Update(model);
+            _stockOrderRepository.Update(oldModel,model);
         }
 
         public void ValidateModel(StockOrderModel model)

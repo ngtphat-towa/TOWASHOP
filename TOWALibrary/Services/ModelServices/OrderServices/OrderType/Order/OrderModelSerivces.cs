@@ -28,9 +28,9 @@ namespace TOWALibrary.Services.ModelServices.OrderServices.OrderType.Order
             return _orderRepository.GetByValue(value);
         }
 
-        public void Update(OrderModel model)
+        public void Update(OrderModel oldModel,OrderModel model)
         {
-            _orderRepository.Update(model);
+            _orderRepository.Update(oldModel,model);
         }
 
         public void ValidateModel(OrderModel model)

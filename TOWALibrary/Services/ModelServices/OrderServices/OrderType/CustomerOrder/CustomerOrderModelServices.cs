@@ -27,9 +27,9 @@ namespace TOWALibrary.Services.ModelServices.OrderServices.OrderType.CustomerOrd
             return _customerOrderRepository.GetByValue(value);
         }
 
-        public void Update(CustomerOrderModel model)
+        public void Update(CustomerOrderModel oldModel, CustomerOrderModel model)
         {
-            _customerOrderRepository.Update(model);
+            _customerOrderRepository.Update(oldModel,model);
         }
 
         public void ValidateModel(CustomerOrderModel model)

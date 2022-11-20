@@ -140,7 +140,7 @@ namespace TOWALibrary.Repositories.Order.SupplyOrders
             return models;
         }
 
-        public void Update(StockOrderModel model)
+        public void Update(StockOrderModel oldModel,StockOrderModel model)
         {
             using (var transactionScope = new TransactionScope())
             {
@@ -169,7 +169,7 @@ namespace TOWALibrary.Repositories.Order.SupplyOrders
                         };
                         foreach (var orderDetail in model.OrderDetails)
                         {
-                            var oldModel = orderDetailRepository.GetByID(orderDetail.OD_ID);
+                            var orderDetailModel = oldModel.OrderDetails.FirstOrDefault(p => p.OD_ID == orderDetail.OD_ID);
                             orderDetail.OD_OID = model.OID;
 
                             switch (orderDetail.Status)
@@ -180,12 +180,12 @@ namespace TOWALibrary.Repositories.Order.SupplyOrders
                                     orderDetailRepository.Add(orderDetail);
                                     break;
                                 case OrderDetailStatus.Modify:
-                                    productRepository.UpdateProductStock(orderDetail.OD_PID, orderDetail.Quantity, oldModel.Quantity);
+                                    productRepository.UpdateProductStock(orderDetail.OD_PID, orderDetail.Quantity, orderDetailModel.Quantity);
 
                                     orderDetailRepository.Update(orderDetail);
                                     break;
                                 case OrderDetailStatus.Remove:
-                                    productRepository.UpdateProductStock(orderDetail.OD_PID, 0, oldModel.Quantity);
+                                    productRepository.UpdateProductStock(orderDetail.OD_PID, 0, orderDetailModel.Quantity);
 
                                     orderDetailRepository.Delete(orderDetail);
                                     break;
