@@ -220,7 +220,7 @@ namespace NoUITowaShop.ModelListForm
             this.tbProductOrders.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.16814F));
             this.tbProductOrders.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.46902F));
             this.tbProductOrders.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 214F));
-            this.tbProductOrders.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 253F));
+            this.tbProductOrders.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 254F));
             this.tbProductOrders.Controls.Add(this.lbMessage, 0, 0);
             this.tbProductOrders.Controls.Add(this.tbDiscount, 2, 0);
             this.tbProductOrders.Controls.Add(this.tbQuanitty, 3, 0);
@@ -241,7 +241,7 @@ namespace NoUITowaShop.ModelListForm
             this.lbMessage.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMessage.Location = new System.Drawing.Point(3, 0);
             this.lbMessage.Name = "lbMessage";
-            this.lbMessage.Size = new System.Drawing.Size(236, 37);
+            this.lbMessage.Size = new System.Drawing.Size(235, 37);
             this.lbMessage.TabIndex = 4;
             this.lbMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -253,7 +253,7 @@ namespace NoUITowaShop.ModelListForm
             this.tbDiscount.Controls.Add(this.lbDiscount, 0, 0);
             this.tbDiscount.Controls.Add(this.txtDiscountValue, 1, 0);
             this.tbDiscount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbDiscount.Location = new System.Drawing.Point(338, 0);
+            this.tbDiscount.Location = new System.Drawing.Point(336, 0);
             this.tbDiscount.Margin = new System.Windows.Forms.Padding(0);
             this.tbDiscount.Name = "tbDiscount";
             this.tbDiscount.RowCount = 1;
@@ -291,7 +291,7 @@ namespace NoUITowaShop.ModelListForm
             this.tbQuanitty.Controls.Add(this.txtQuanityValue, 0, 0);
             this.tbQuanitty.Controls.Add(this.lbDiscounts, 0, 0);
             this.tbQuanitty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbQuanitty.Location = new System.Drawing.Point(558, 0);
+            this.tbQuanitty.Location = new System.Drawing.Point(556, 0);
             this.tbQuanitty.Margin = new System.Windows.Forms.Padding(0);
             this.tbQuanitty.Name = "tbQuanitty";
             this.tbQuanitty.RowCount = 1;
@@ -335,9 +335,9 @@ namespace NoUITowaShop.ModelListForm
             this.lbProductID.AutoSize = true;
             this.lbProductID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbProductID.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbProductID.Location = new System.Drawing.Point(245, 0);
+            this.lbProductID.Location = new System.Drawing.Point(244, 0);
             this.lbProductID.Name = "lbProductID";
-            this.lbProductID.Size = new System.Drawing.Size(90, 37);
+            this.lbProductID.Size = new System.Drawing.Size(89, 37);
             this.lbProductID.TabIndex = 2;
             this.lbProductID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -346,9 +346,9 @@ namespace NoUITowaShop.ModelListForm
             this.checkboxIsMutiAdded.AutoSize = true;
             this.checkboxIsMutiAdded.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkboxIsMutiAdded.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkboxIsMutiAdded.Location = new System.Drawing.Point(775, 3);
+            this.checkboxIsMutiAdded.Location = new System.Drawing.Point(773, 3);
             this.checkboxIsMutiAdded.Name = "checkboxIsMutiAdded";
-            this.checkboxIsMutiAdded.Size = new System.Drawing.Size(248, 31);
+            this.checkboxIsMutiAdded.Size = new System.Drawing.Size(250, 31);
             this.checkboxIsMutiAdded.TabIndex = 5;
             this.checkboxIsMutiAdded.Text = "Multiple Added";
             this.checkboxIsMutiAdded.UseVisualStyleBackColor = true;

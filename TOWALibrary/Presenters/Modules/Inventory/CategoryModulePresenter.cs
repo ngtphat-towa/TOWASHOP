@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using TOWALibrary.Models.Inventory.Categoires;
 using TOWALibrary.Repositories.Inventory.Categories;
 using TOWALibrary.Services.CategoryServices;
+using TOWALibrary.Services.CommonServices;
 using TOWALibrary.Views.ModuleViews.Inventory;
 
 namespace TOWALibrary.Presenters.Modules.Inventory.Categories
@@ -17,12 +18,11 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Categories
         private BindingSource _categoryBindingSource;
         private ICollection<CategoryModel> _categoryList;
 
-        private readonly ICategoryModelServices _categoryServices;
+        private readonly ICategoryModelServices _categoryServices = ServicesManager.CategoryModelServices;
 
-        public CategoryModulePresenter(ICategoryModuleView view, ICategoryModelServices services)
+        public CategoryModulePresenter(ICategoryModuleView view)
         {
             _view = view;
-            _categoryServices = services;
             this._categoryBindingSource = new BindingSource();
             //Wire up event handler methods to view events
             _view.SearchEvent += SearchCategory;
@@ -34,8 +34,7 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Categories
             //Set binding source
             _view.SetListViewBindingSource(_categoryBindingSource);
             LoadAllCategoryList();
-            //Show view
-            _view.Show();
+            
         }
 
         private void LoadAllCategoryList()
@@ -47,8 +46,6 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Categories
         {
             CleanViewFeilds();
         }
-
-      
 
         private void SaveCategory(object sender, EventArgs e)
         {

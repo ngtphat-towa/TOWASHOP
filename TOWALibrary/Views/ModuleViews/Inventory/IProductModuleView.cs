@@ -27,8 +27,13 @@ namespace TOWALibrary.Views.ModuleViews.Inventory
         string Message { get; set; }
         string SelectedSLID { get; set; }
         int SelectedCID { get; set; }
+        string SelectedSLIDName { get; set; }
+        int SelectedCIDName { get; set; }
+        bool IsValueSearch { get; set; }
         void SetSupplierList(BindingSource bindingSource);
         void SetCategoryList(BindingSource bindingSource);
+        void SetCategoryNameListBindingSource(BindingSource bindingSource);
+        void SetSupplierNameListBindingSource(BindingSource bindingSource);
         void SetListViewBindingSource(BindingSource bindingSource);
         string SearchValue { get; set; }
         event EventHandler SearchEvent;
@@ -37,6 +42,7 @@ namespace TOWALibrary.Views.ModuleViews.Inventory
         event EventHandler DeleteEvent;
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;
+        
         void Show();
       
     }

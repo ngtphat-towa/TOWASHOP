@@ -33,7 +33,7 @@ namespace TOWALibrary.Models.Contact.Suppliers
         public string SLID { get => _SLID; set => _SLID = value; }
 
         [DisplayName("Name")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Supplier name is required")]
+        [Required( ErrorMessage = "Supplier name is required")]
         [StringLength(30, ErrorMessage = "The maximum length of the supplier name is 30 characters!")]
         public string SupplierName { get => supplierName; set => supplierName = value; }
        
@@ -42,7 +42,7 @@ namespace TOWALibrary.Models.Contact.Suppliers
         public string ContactName { get => contactName; set => contactName = value; }
 
         [DisplayName("Contact Phone")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Contact name is required")]
+        [Required( ErrorMessage = "Contact name is required")]
         [StringLength(30, ErrorMessage = "The maximum length of the supplier name is 30 characters!")]
         
         public string ContactPhone { get => contactPhone; set => contactPhone = value; }

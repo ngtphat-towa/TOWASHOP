@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TOWALibrary.Models.Contact.Suppliers;
 using TOWALibrary.Models.Inventory.Categoires;
+using TOWALibrary.Presenters.Modules.Inventory.Products;
 using TOWALibrary.Views.ModuleViews.Inventory;
 
 namespace NoUITowaShop.Module.Product
@@ -16,9 +17,11 @@ namespace NoUITowaShop.Module.Product
     public partial class ProductModule : Form, IProductModuleView
     {
         #region Contructor
+        private ProductModulePresenter presenter;
         public ProductModule()
         {
             InitializeComponent();
+            presenter = new ProductModulePresenter(this);
             AssociateAndRaiseViewEvents();
             tabProducts.TabPages.Remove(tabDefine);
 
@@ -45,6 +48,20 @@ namespace NoUITowaShop.Module.Product
             cbCategoryList.DisplayMember = "Name";
             cbCategoryList.ValueMember = "ID";
         }
+
+        public void SetCategoryNameListBindingSource(BindingSource bindingSource)
+        {
+            cbCategoryListName.DataSource = bindingSource;
+            cbCategoryListName.DisplayMember = "Name";
+            cbCategoryListName.ValueMember = "ID";
+        }
+
+        public void SetSupplierNameListBindingSource(BindingSource bindingSource)
+        {
+            cbSupplierListName.DataSource = bindingSource;
+            cbSupplierListName.DisplayMember = "Name";
+            cbSupplierListName.ValueMember = "ID";
+        }
         #endregion
 
         #region EvenntHandler and Views Event
@@ -55,7 +72,10 @@ namespace NoUITowaShop.Module.Product
             this.txtSearch.KeyDown += (s, e) =>
             {
                 if (e.KeyCode == Keys.Enter)
+                {
+                    IsValueSearch = true;
                     SearchEvent?.Invoke(this, EventArgs.Empty);
+                }
             };
             // Add new product
             this.btnAdd.Click += delegate
@@ -99,7 +119,14 @@ namespace NoUITowaShop.Module.Product
                 }
                 MessageBox.Show(Message);
             };
-
+            this.cbCategoryListName.SelectedIndexChanged += delegate
+            {
+                this.SearchEvent?.Invoke(this, EventArgs.Empty);
+            };
+            this.cbSupplierListName.SelectedIndexChanged += delegate
+            {
+                this.SearchEvent?.Invoke(this, EventArgs.Empty);
+            };
         }
 
         #endregion
@@ -136,7 +163,10 @@ namespace NoUITowaShop.Module.Product
         public string SelectedSLID { get => cbSupplierList.SelectedValue.ToString(); set => cbSupplierList.SelectedValue = value; }
         // TODO--System.InvalidCastException: 'Unable to cast object of type 'System.ValueTuple`2[System.Int32,System.String]' to type 'System.IConvertible'.'
         public int SelectedCID { get => Convert.ToInt32(cbCategoryList.SelectedValue); set => cbCategoryList.SelectedValue= value; }
-        
+        public string SelectedSLIDName { get => cbSupplierListName.SelectedValue.ToString(); set => cbSupplierListName.SelectedValue = value; }
+        public int SelectedCIDName { get => Convert.ToInt32(cbCategoryListName.SelectedValue); set => cbCategoryListName.SelectedValue = value; }
+        public bool IsValueSearch { get ; set ; }
+
         #endregion
 
         #region Singleton 
@@ -164,6 +194,7 @@ namespace NoUITowaShop.Module.Product
             }
             return instance;
         }
+
 
 
         #endregion

@@ -43,6 +43,7 @@ namespace SimpleUITowaShop
             this.staffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,7 +102,8 @@ namespace SimpleUITowaShop
             // contactToolStripMenuItem
             // 
             this.contactToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.supplierToolStripMenuItem});
+            this.supplierToolStripMenuItem,
+            this.customerToolStripMenuItem});
             this.contactToolStripMenuItem.Name = "contactToolStripMenuItem";
             this.contactToolStripMenuItem.Size = new System.Drawing.Size(86, 27);
             this.contactToolStripMenuItem.Text = "Contact";
@@ -109,7 +111,7 @@ namespace SimpleUITowaShop
             // supplierToolStripMenuItem
             // 
             this.supplierToolStripMenuItem.Name = "supplierToolStripMenuItem";
-            this.supplierToolStripMenuItem.Size = new System.Drawing.Size(162, 28);
+            this.supplierToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.supplierToolStripMenuItem.Text = "Supplier";
             // 
             // orderToolStripMenuItem
@@ -124,13 +126,13 @@ namespace SimpleUITowaShop
             // newOrderToolStripMenuItem
             // 
             this.newOrderToolStripMenuItem.Name = "newOrderToolStripMenuItem";
-            this.newOrderToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.newOrderToolStripMenuItem.Size = new System.Drawing.Size(183, 28);
             this.newOrderToolStripMenuItem.Text = "New Order";
             // 
             // orderListToolStripMenuItem
             // 
             this.orderListToolStripMenuItem.Name = "orderListToolStripMenuItem";
-            this.orderListToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.orderListToolStripMenuItem.Size = new System.Drawing.Size(183, 28);
             this.orderListToolStripMenuItem.Text = "Order List";
             // 
             // staffToolStripMenuItem
@@ -144,7 +146,7 @@ namespace SimpleUITowaShop
             // employeeListToolStripMenuItem
             // 
             this.employeeListToolStripMenuItem.Name = "employeeListToolStripMenuItem";
-            this.employeeListToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.employeeListToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
             this.employeeListToolStripMenuItem.Text = "Employee list";
             // 
             // helpToolStripMenuItem
@@ -152,6 +154,12 @@ namespace SimpleUITowaShop
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(63, 27);
             this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // customerToolStripMenuItem
+            // 
+            this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.customerToolStripMenuItem.Text = "Customer";
             // 
             // DashboardForm
             // 
@@ -189,5 +197,6 @@ namespace SimpleUITowaShop
         private System.Windows.Forms.ToolStripMenuItem supplierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem staffToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem employeeListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem;
     }
 }

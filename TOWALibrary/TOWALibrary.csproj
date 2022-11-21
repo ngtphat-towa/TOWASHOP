@@ -115,6 +115,7 @@
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Presenters\MainViews\AdminPresenter.cs" />
     <Compile Include="Presenters\ModelListVew\ProductListFormPresenter.cs" />
+    <Compile Include="Presenters\Modules\Contacts\CustomerModulePresenter.cs" />
     <Compile Include="Presenters\Modules\Contacts\SupplierModulePresenter.cs" />
     <Compile Include="Presenters\Modules\Inventory\CategoryModulePresenter.cs" />
     <Compile Include="Presenters\Modules\Inventory\ProductModulePresenter.cs" />
@@ -180,6 +181,7 @@
     <Compile Include="Views\MainViews\IManagerView.cs" />
     <Compile Include="Views\ModelListVew\IProductListView.cs" />
     <Compile Include="Views\ModelListViewRequestor\ProductListRequestor\IProductListViewRequestor.cs" />
+    <Compile Include="Views\ModuleViews\Contacts\ICustomerModuleView.cs" />
     <Compile Include="Views\ModuleViews\Contacts\ISupplierModuleView.cs" />
     <Compile Include="Views\ModuleViews\Inventory\ICategoryModuleView.cs" />
     <Compile Include="Views\ModuleViews\Inventory\IProductModuleView.cs" />

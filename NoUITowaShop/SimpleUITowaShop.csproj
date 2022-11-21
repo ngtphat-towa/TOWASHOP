@@ -65,6 +65,12 @@
     <Compile Include="ModelListForm\ProductListForm.Designer.cs">
       <DependentUpon>ProductListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Module\Contact\CustomerModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Contact\CustomerModule.Designer.cs">
+      <DependentUpon>CustomerModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Module\Contact\SupplierModule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModelListForm\ProductListForm.resx">
       <DependentUpon>ProductListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Contact\CustomerModule.resx">
+      <DependentUpon>CustomerModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Module\Contact\SupplierModule.resx">
       <DependentUpon>SupplierModule.cs</DependentUpon>

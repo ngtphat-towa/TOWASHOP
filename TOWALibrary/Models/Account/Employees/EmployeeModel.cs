@@ -81,7 +81,7 @@ namespace TOWALibrary.Models.Account.Employees
         public string FirstName { get => firstName; set => firstName = value; }
 
         [Browsable(false)]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Last name is required")]
+        [Required( ErrorMessage = "Last name is required")]
         [StringLength(15, ErrorMessage = "The maximum length of the last name is 15 characters!")]
         public string LastName { get => lastName; set => lastName = value; }
 

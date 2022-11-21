@@ -33,7 +33,11 @@ namespace TOWALibrary.Models.Contact.Customers
 
         [DisplayName("#Customer ID")]
         public string CTID { get => _CTID; set => _CTID = value; }
-       
+        [DisplayName("Citizen ID")]
+        [StringLength(11, ErrorMessage = "The maximum length of the CID is 11 characters!")]
+
+        public string CID { get => _CID; set => _CID = value; }
+
         [DisplayName("Full Name")]
         public string FullName { get => string.Concat(FirstName, LastName); }
         
@@ -52,18 +56,16 @@ namespace TOWALibrary.Models.Contact.Customers
 
         #region Non-Display Attribute
 
-        [Browsable(false)]
-        [DisplayName("Citizen ID")]
-        [StringLength(11, ErrorMessage = "The maximum length of the CID is 11 characters!")]
-        public string CID { get => _CID; set => _CID = value; }
+     
+
 
         [Browsable(false)]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "First name is required")]
+        [Required( ErrorMessage = "First name is required")]
         [StringLength(15, ErrorMessage = "The maximum length of the first name is 15 characters!")]
         public string FirstName { get => firstName; set => firstName = value; }
        
         [Browsable(false)]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Last name is required")]
+        [Required( ErrorMessage = "Last name is required")]
         [StringLength(15, ErrorMessage = "The maximum length of the last name is 15 characters!")]
         public string LastName { get => lastName; set => lastName = value; }
 

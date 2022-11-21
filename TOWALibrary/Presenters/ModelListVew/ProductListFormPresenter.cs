@@ -51,7 +51,6 @@ namespace TOWALibrary.Presenters.ModelListVew
 
         private void SearchFilterChangedEvent(object sender, EventArgs e)
         {
-            // TODO Implement the serives
             var SearchValue = "";
             if(_view.IsValueSearch)
                 SearchValue = _view.SearchValue;

@@ -36,11 +36,15 @@ namespace SimpleUITowaShop
         public event EventHandler ShowProductModuleView;
         public event EventHandler ShowOrderListModuleView;
         public event EventHandler ShowOrderFormView;
+        public event EventHandler ShowCustomerModuleView;
 
         private void AssociateAndRaiseViewEvents()
         {
             this.supplierToolStripMenuItem.Click += delegate {
                 ShowSupplierModuleView?.Invoke(this,EventArgs.Empty);
+            };
+            this.customerToolStripMenuItem.Click += delegate {
+                ShowCustomerModuleView?.Invoke(this, EventArgs.Empty);
             };
             this.categoriesToolStripMenuItem.Click += delegate
              {
@@ -58,10 +62,18 @@ namespace SimpleUITowaShop
              {
                  ShowOrderFormView?.Invoke(this, EventArgs.Empty);
              };
-            this.FormClosed += delegate
+            this.FormClosing += (s,e) =>
             {
-                if (MessageBox.Show("Are you want to exit the application?","",MessageBoxButtons.YesNo)==DialogResult.Yes)
-                    Application.Exit();
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    DialogResult result = MessageBox.Show("Are you want to exit the application?", "", MessageBoxButtons.YesNo);
+
+                    if (result == DialogResult.Yes)
+                        Application.Exit();
+                    else
+                        e.Cancel = true;
+                }
+
             };
         }
 
@@ -89,6 +101,7 @@ namespace SimpleUITowaShop
         {
             get => OrderForm.Instance;
         }
+        public ICustomerModuleView CustomerModuleView => CustomerModule.GetInstance(this);
 
 
         #endregion
@@ -107,6 +120,7 @@ namespace SimpleUITowaShop
                 return instance;
             }
         }
+
 
 
 

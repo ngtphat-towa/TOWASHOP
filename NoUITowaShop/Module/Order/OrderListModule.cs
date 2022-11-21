@@ -31,6 +31,7 @@ namespace NoUITowaShop.Module.Order
             this.cbStatus.DataSource = OrderStatusType;
             string[] PaymentMethod = new string[] { "All", "Cash", "Credit" };
 
+
             this.Load += delegate
             {
                 // Handle to not reload mutipile times
@@ -48,9 +49,10 @@ namespace NoUITowaShop.Module.Order
                 // Start at the monday of week
                 //  this.datePickerFrom.Value = DateTime.Today.AddDays(1-Convert.ToDouble(DateTime.Today.DayOfWeek));
                 // Set the date to the first date of month #Note: -1 for the datetime of example orders
-                this.datePickerFrom.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month - 1, 1);
+                this.datePickerFrom.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month-1, 1);
 
             };
+            _presenter = new OrderListMoudlePresenter(this);
 
             //this.Load += delegate
             //{
@@ -133,7 +135,6 @@ namespace NoUITowaShop.Module.Order
 
             };
             #endregion
-            _presenter = new OrderListMoudlePresenter(this);
 
         }
         #endregion

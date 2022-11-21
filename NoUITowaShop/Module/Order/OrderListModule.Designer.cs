@@ -333,7 +333,7 @@ namespace NoUITowaShop.Module.Order
             this.lbErrorMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbErrorMessage.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbErrorMessage.ForeColor = System.Drawing.Color.DarkRed;
-            this.lbErrorMessage.Location = new System.Drawing.Point(665, 0);
+            this.lbErrorMessage.Location = new System.Drawing.Point(664, 0);
             this.lbErrorMessage.Name = "lbErrorMessage";
             this.lbErrorMessage.Size = new System.Drawing.Size(0, 20);
             this.lbErrorMessage.TabIndex = 13;
@@ -370,7 +370,7 @@ namespace NoUITowaShop.Module.Order
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.07317F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.41033F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.5165F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 537F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 538F));
             this.tableLayoutPanel3.Controls.Add(this.btnSearch, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.txtSearch, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.lbSearch, 0, 0);
@@ -394,7 +394,7 @@ namespace NoUITowaShop.Module.Order
             this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
             this.btnSearch.Location = new System.Drawing.Point(529, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(130, 30);
+            this.btnSearch.Size = new System.Drawing.Size(129, 30);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Find";
             this.btnSearch.UseVisualStyleBackColor = false;

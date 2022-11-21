@@ -35,25 +35,25 @@ namespace TOWALibrary.Presenters.MainViews
     public class AdminPresenter
     {
         private readonly IAdminView view;
-        // Inventory
+        //// Inventory
         #region Inventory Servives
-        private IProductModelServices _productModelServices;
-        private ICategoryModelServices _categoryModelServices;
+        //private IProductModelServices _productModelServices;
+        //private ICategoryModelServices _categoryModelServices;
+        //#endregion
+
+        //#region Contact Services
+        //private ISupplierModelServices _supplierModelServices;
+        //private ICustomerModelServices _customerModelServices;
+        //#endregion
+
+        //#region Order Serivces 
+
+        //// Order Type
+        //private IStockOrderModelServices _stockOrderModelServices;
+        //private ICustomerOrderModelServices _customerOrderModelServices;
+        //private IOrderModelServices _orderModelServices;
         #endregion
 
-        #region Contact Services
-        private ISupplierModelServices _supplierModelServices;
-        private ICustomerModelServices _customerModelServices;
-        #endregion
-
-        #region Order Serivces 
-
-        // Order Type
-        private IStockOrderModelServices _stockOrderModelServices;
-        private ICustomerOrderModelServices _customerOrderModelServices;
-        private IOrderModelServices _orderModelServices;
-        #endregion
-        
         public AdminPresenter(IAdminView view)
         {
             this.view = view;
@@ -62,58 +62,52 @@ namespace TOWALibrary.Presenters.MainViews
             this.view.ShowProductModuleView += ShowProductModuleView;
             this.view.ShowOrderListModuleView += ShowOrderListModuleView;
             this.view.ShowOrderFormView += ShowOrderFormView;
-
-            //Inventory Servives
-            _productModelServices = new ProductModelServices();
-            _categoryModelServices = new CategoryModelServices();
+            this.view.ShowCustomerModuleView += ShowCustomerModuleView;
+            ////Inventory Servives
+            //_productModelServices = new ProductModelServices();
+            //_categoryModelServices = new CategoryModelServices();
         
-            // Contact Services
-            _supplierModelServices = new SupplierModelServices();
-            _customerModelServices = new CustomerModelServices();
+            //// Contact Services
+            //_supplierModelServices = new SupplierModelServices();
+            //_customerModelServices = new CustomerModelServices();
 
-            // Orderr Type
-            _stockOrderModelServices = new StockOrderModelServices();
-            _customerOrderModelServices = new CustomerOrderModelServices();
-            _orderModelServices = new OrderModelServices();
+            //// Orderr Type
+            //_stockOrderModelServices = new StockOrderModelServices();
+            //_customerOrderModelServices = new CustomerOrderModelServices();
+            //_orderModelServices = new OrderModelServices();
             this.view.Show();
 
 
         }
 
+        private void ShowCustomerModuleView(object sender, EventArgs e)
+        {
+            view.CustomerModuleView.Show();
+        }
+
         private void ShowOrderFormView(object sender, EventArgs e)
         {
-            IOrderFormView formView = view.OrderFormView;
-            // TODO - change this after debug
-            formView.Show();
+            view.OrderFormView.Show();
         }
 
         private void ShowOrderListModuleView(object sender, EventArgs e)
         {
-            IOrderListMoudleView moduleView = view.OrderListModuleView;
-            moduleView.Show();
+            view.OrderListModuleView.Show();
         }
 
         private void ShowProductModuleView(object sender, EventArgs e)
         {
-            IProductModuleView moduleView = view.ProductModuleView;
-            // 
-            new ProductModulePresenter(moduleView,
-                                       _productModelServices,
-                                       _categoryModelServices,
-                                       _supplierModelServices);
+            view.ProductModuleView.Show();
         }
 
         private void ShowCategoryModuleView(object sender, EventArgs e)
         {
-            ICategoryModuleView moduleView = view.CategoryModuleView;
-            new CategoryModulePresenter(moduleView, _categoryModelServices);
+            view.CategoryModuleView.Show();
         }
 
         private void ShowSupplierModuleView(object sender, EventArgs e)
         {
-            ISupplierModuleView moduleView = view.SupplierModuleView;
-            ISupplierRepository repository = DBManager.SupplierRepository;
-            new SupplierModulePresenter(moduleView, repository);
+            view.SupplierModuleView.Show();
         }
 
         
