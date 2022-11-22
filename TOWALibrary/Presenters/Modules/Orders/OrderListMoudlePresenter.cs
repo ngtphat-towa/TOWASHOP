@@ -145,6 +145,7 @@ namespace TOWALibrary.Presenters.Modules.Orders
 
                 _view.OrderFormView.OID = model.OID;
                 _view.OrderFormView.IsEditMode = true;
+                _view.OrderFormView.IsChangeableOrdeType = false;
 
                 _view.OrderFormView.CreatedByUID = model.CreatedByUID;
                 //_view.OrderFormView.DateCreated
@@ -157,10 +158,11 @@ namespace TOWALibrary.Presenters.Modules.Orders
                 _view.OrderFormView.OrderStatus = model.Status;
                 _view.OrderFormView.CreatedAt = model.CreatedAt;
 
-                ((Form)_view.OrderFormView).ShowDialog();
+               
 
                 _view.OrderFormView.LoadOrderToEdit();
                 _view.OrderFormView.CallingForm = (IOrderFormRequest)_view;
+                _view.OrderFormView.Show();
             }
             catch (Exception Ex)
             {
@@ -172,7 +174,7 @@ namespace TOWALibrary.Presenters.Modules.Orders
 
         private void AddNewOrder(object sender, EventArgs e)
         {
-           ((Form) _view.OrderFormView).ShowDialog();
+           _view.OrderFormView.Show();
         }
 
 

@@ -287,6 +287,7 @@ namespace NoUITowaShop.Module.Order
         public DateTime CreatedAt { get => dateCreatedAt.Value; set => dateCreatedAt.Value =value; }
         public IOrderFormRequest CallingForm { get ; set ; }
         public string ProductSearch { get => this.txtProductSearch.Text; set => this.txtProductSearch.Text= value; }
+        public bool IsChangeableOrdeType { get => this.cbOrderType.Enabled; set => this.cbOrderType.Enabled= value; }
 
         #endregion
 

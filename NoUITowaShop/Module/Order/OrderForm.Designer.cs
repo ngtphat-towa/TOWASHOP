@@ -29,7 +29,7 @@ namespace NoUITowaShop.Module.Order
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabTableHeader = new System.Windows.Forms.TableLayoutPanel();
             this.lbOID = new System.Windows.Forms.Label();
             this.lbOrderType = new System.Windows.Forms.Label();
@@ -217,9 +217,9 @@ namespace NoUITowaShop.Module.Order
             // 
             this.dgvOrderList.AllowUserToAddRows = false;
             this.dgvOrderList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrderList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrderList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrderList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrderList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvOrderList.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -654,6 +654,11 @@ namespace NoUITowaShop.Module.Order
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtQuantityValue.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuantityValue.Location = new System.Drawing.Point(761, 3);
+            this.txtQuantityValue.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
             this.txtQuantityValue.Name = "txtQuantityValue";
             this.txtQuantityValue.Size = new System.Drawing.Size(186, 33);
             this.txtQuantityValue.TabIndex = 7;
@@ -723,6 +728,11 @@ namespace NoUITowaShop.Module.Order
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDiscountValue.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiscountValue.Location = new System.Drawing.Point(461, 3);
+            this.txtDiscountValue.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
             this.txtDiscountValue.Name = "txtDiscountValue";
             this.txtDiscountValue.Size = new System.Drawing.Size(185, 33);
             this.txtDiscountValue.TabIndex = 5;

@@ -43,7 +43,7 @@ namespace TOWALibrary.Views.ModuleViews.Orders.OrderDetails
         bool IsEditMode { get; set; }
         string Message { get; set; }
         bool IsSuccessful { get; set; }
-        
+        bool IsChangeableOrdeType { get; set; }
         double Total { get; set; }
         double GrandTotal { get; set; }
         double TotalDiscount { get; set; }
