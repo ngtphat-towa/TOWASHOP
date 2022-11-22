@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TOWALibrary.Repositories.Accounts.Users;
 using TOWALibrary.Views;
+using TOWALibrary.Views.MainViews;
 
 namespace TOWALibrary.Services.ModelServices.UserServices
 {
@@ -21,6 +22,6 @@ namespace TOWALibrary.Services.ModelServices.UserServices
         /// Using role for the view authenitcation 
         /// </summary>
         /// <returns></returns>
-        MainViewType GetRoleView();
+        IMainView GetRoleView();
     }
 }

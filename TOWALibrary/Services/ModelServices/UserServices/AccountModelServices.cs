@@ -7,6 +7,7 @@ using TOWALibrary.Models.Account.Users;
 using TOWALibrary.Repositories;
 using TOWALibrary.Repositories.Accounts.Users;
 using TOWALibrary.Views;
+using TOWALibrary.Views.MainViews;
 
 namespace TOWALibrary.Services.ModelServices.UserServices
 {
@@ -25,19 +26,16 @@ namespace TOWALibrary.Services.ModelServices.UserServices
             return _accountRepository.GetAccountByUsername(username);
         }
 
-        public MainViewType GetRoleView()
+        public IMainView GetRoleView()
         {
             switch (roleID)
             {
                 case 1:
-                    return MainViewType.Admin;
-
+                    return MainViewType.Admin.GetMainView();
                 case 2:
-                    return MainViewType.Manager;
-                case 3:
-                    return MainViewType.Employee;
+                    return MainViewType.Employee.GetMainView();
                 default:
-                    return MainViewType.Employee;
+                    return MainViewType.Employee.GetMainView();
             }
 
         }

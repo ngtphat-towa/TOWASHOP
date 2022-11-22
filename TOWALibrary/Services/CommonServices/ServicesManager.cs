@@ -12,11 +12,24 @@ using TOWALibrary.Services.ModelServices.OrderServices.OrderType.Order;
 using TOWALibrary.Services.ModelServices.OrderServices.OrderType.StockOrder;
 using TOWALibrary.Services.ModelServices.ProductServices;
 using TOWALibrary.Services.ModelServices.SupplierServices;
+using TOWALibrary.Services.ModelServices.UserServices;
 
 namespace TOWALibrary.Services.CommonServices
 {
     public static class ServicesManager
     {
+        private static IAccountModelServices accountModelServices;
+      public static IAccountModelServices AccountModelServices
+        {
+            get
+            {
+                if (accountModelServices == null)
+                {
+                    accountModelServices = new AccountModelServices();
+                }
+                return accountModelServices;
+            }
+        }
         private static IProductModelServices productModelServices;
         public static IProductModelServices ProductModelServices
         {
