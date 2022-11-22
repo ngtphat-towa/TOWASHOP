@@ -35,7 +35,7 @@ namespace TOWALibrary.Repositories.DBConnector
         {
             if (instance == null)
             {
-                instance = new SqlDBConnector();
+                instance = new MySqlDBConnector();
             }
             return instance;
         }

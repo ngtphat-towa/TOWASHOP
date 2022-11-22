@@ -20,7 +20,7 @@ namespace TOWALibrary.Repositories.Accounts.Roles
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.AccountRole_GetAll";
+                    command.CommandText = "spAccountRole_GetAll";
                     command.CommandType = CommandType.StoredProcedure;
                     var reader = command.ExecuteReader();
                     while (reader.Read()) {

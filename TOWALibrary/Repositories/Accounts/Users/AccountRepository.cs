@@ -24,7 +24,7 @@ namespace TOWALibrary.Repositories.Accounts.Users
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = @"dbo.spAccount_GetByUID";
+                    command.CommandText ="spAccount_GetByUID";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("@UID", DbType.String, UID);
@@ -68,7 +68,7 @@ namespace TOWALibrary.Repositories.Accounts.Users
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = @"dbo.spAccount_GetByUsername";
+                    command.CommandText ="spAccount_GetByUsername";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("@USERNAME", DbType.String, username);

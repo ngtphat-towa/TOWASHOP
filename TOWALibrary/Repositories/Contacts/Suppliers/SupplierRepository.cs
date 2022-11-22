@@ -17,7 +17,7 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spSupplier_Insert";
+                    command.CommandText = "spSupplier_Insert";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("@SUPPLIER_NAME", DbType.String, model.SupplierName);
@@ -35,13 +35,13 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
 
         public void Delete(string SLID)
         {
-            //dbo.spSupplier_Delete
+            //spSupplier_Delete
             using (var connection = DBManager.Connection.GetDbConnection())
             {
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spSupplier_Delete";
+                    command.CommandText = "spSupplier_Delete";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("@SLID", DbType.String, SLID);
@@ -58,7 +58,7 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spSupplier_GetAll";
+                    command.CommandText = "spSupplier_GetAll";
                     command.CommandType = CommandType.StoredProcedure;
 
                     using (var reader = command.ExecuteReader())
@@ -90,7 +90,7 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spSupplier_GetByValue";
+                    command.CommandText = "spSupplier_GetByValue";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("@SEARCHVALUE", DbType.String,"%"+ value.Trim()+"%");
@@ -122,7 +122,7 @@ namespace TOWALibrary.Repositories.Contacts.Suppliers
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spSupplier_Update";
+                    command.CommandText = "spSupplier_Update";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("SLID", DbType.String, model.SLID);

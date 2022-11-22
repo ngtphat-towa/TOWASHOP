@@ -18,7 +18,7 @@ namespace TOWALibrary.Repositories.Contacts.Customers
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spCustomer_Insert";
+                    command.CommandText = "spCustomer_Insert";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("@CID", DbType.String, model.CID);
@@ -41,7 +41,7 @@ namespace TOWALibrary.Repositories.Contacts.Customers
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spCustomer_Delete";
+                    command.CommandText = "spCustomer_Delete";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("@CUSTOMERID", DbType.String, CTID);
@@ -59,7 +59,7 @@ namespace TOWALibrary.Repositories.Contacts.Customers
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spCustomer_GetAll";
+                    command.CommandText = "spCustomer_GetAll";
                     command.CommandType = CommandType.StoredProcedure;
 
                     using (var reader = command.ExecuteReader())
@@ -91,7 +91,7 @@ namespace TOWALibrary.Repositories.Contacts.Customers
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spCustomer_GetByValue";
+                    command.CommandText = "spCustomer_GetByValue";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("@SEARCHVALUE", DbType.String, value.Trim()  );
@@ -124,7 +124,7 @@ namespace TOWALibrary.Repositories.Contacts.Customers
                 using (var command = DBManager.Connection.CreateNewCommand())
                 {
                     connection.Open();
-                    command.CommandText = "dbo.spCustomer_Update";
+                    command.CommandText = "spCustomer_Update";
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.CreateDbParameter("@CUSTOMERID", DbType.String, model.CTID);
