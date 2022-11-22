@@ -11,16 +11,20 @@ using TOWALibrary.Models.Order.Orders;
 
 namespace TOWALibrary.Models.Order.OrderDetails
 {
+    public enum OrderDetailStatus
+    {
+        New, Modify, Remove, Load
+    }
     public class OrderDetailModel
     {
         #region Private Fields
         private int _OD_ID;
-        private string _OD_OID;
+        private int _OD_OID;
         private string _OD_PID;
         private ProductModel product;
         private int quantity;
-        private float unitPrice;
-        private float discount;
+        private double unitPrice;
+        private double discount;
 
         #endregion
         #region Property
@@ -28,13 +32,13 @@ namespace TOWALibrary.Models.Order.OrderDetails
         [DisplayName("Product Name")]
         public string ProductName { get => Product.ProductName; }
         [DisplayName("Unit")]
-        public string ProductUnit { get => Product.QuantityPerUnit; }
-        [DisplayName("Unit")]
         public int Quantity { get => quantity; set => quantity = value; }
+        [DisplayName("Product Unit")]
+        public string ProductUnit { get => Product.QuantityPerUnit; }
         [DisplayName("Price")]
-        public float UnitPrice { get => unitPrice; set => unitPrice = value; }
+        public double UnitPrice { get => unitPrice; set => unitPrice = value; }
         [DisplayName("Discount %")]
-        public float Discount { get => discount; set => discount = value; }
+        public double Discount { get => discount; set => discount = value; }
         #endregion
 
         #region Non-Display Attribute
@@ -42,7 +46,7 @@ namespace TOWALibrary.Models.Order.OrderDetails
         public int OD_ID { get => _OD_ID; set => _OD_ID = value; }
 
         [Browsable(false)]
-        public string OD_OID { get => _OD_OID; set => _OD_OID = value; }
+        public int OD_OID { get => _OD_OID; set => _OD_OID = value; }
 
         [Browsable(false)]
         public string OD_PID { get => _OD_PID; set => _OD_PID = value; }
@@ -51,7 +55,7 @@ namespace TOWALibrary.Models.Order.OrderDetails
         public ProductModel Product { get => product; set => product = value; }
 
         [Browsable(false)]
-        public int Status { get; set; }
+        public OrderDetailStatus Status { get; set; }
         #endregion
 
         #endregion

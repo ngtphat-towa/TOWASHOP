@@ -7,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TOWALibrary.Presenters.Modules.Contacts;
 using TOWALibrary.Repositories.Contacts.Suppliers;
 using TOWALibrary.Views.ModuleViews.Contacts;
 namespace NoUITowaShop.Module.Contact
 {
     public partial class SupplierModule : Form, ISupplierModuleView
     {
+        private SupplierModulePresenter presenter;
         public SupplierModule()
         {
             InitializeComponent();
             AssociateAndRaiseViewEvents();
+            presenter = new SupplierModulePresenter(this);
             tabSuppliers.TabPages.Remove(tabDefine);
         }
 
@@ -174,6 +177,10 @@ namespace NoUITowaShop.Module.Contact
             return instance;
         }
         #endregion
-      
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

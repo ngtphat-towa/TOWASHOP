@@ -24,7 +24,7 @@ namespace TOWALibrary.Models.Inventory.Categoires
         public int CATEID { get => _CATEID; set => _CATEID = value; }
 
         [DisplayName("Name")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Category name is required")]
+        [Required(ErrorMessage = "Category name is required")]
         [StringLength(255, ErrorMessage = "The maximum length of the comment is 255 characters.")]
         public string CategoryName { get => categoryName; set => categoryName = value; }
 

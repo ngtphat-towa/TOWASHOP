@@ -10,18 +10,20 @@ using TOWALibrary.Views.ModuleViews.Orders.OrderDetails;
 
 namespace TOWALibrary.Views.MainViews
 {
-  public  interface IAdminView 
+  public  interface IAdminView : IMainView
     {
         ISupplierModuleView SupplierModuleView { get; }
+        ICustomerModuleView CustomerModuleView { get; }
         ICategoryModuleView CategoryModuleView { get; }
         IProductModuleView ProductModuleView { get; }
         IOrderListMoudleView  OrderListModuleView { get; }
         IOrderFormView OrderFormView { get; }
+        
         event EventHandler ShowSupplierModuleView;
+        event EventHandler ShowCustomerModuleView;
         event EventHandler ShowCategoryModuleView;
         event EventHandler ShowProductModuleView;
         event EventHandler ShowOrderListModuleView;
         event EventHandler ShowOrderFormView;
-        void Show();
     }
 }

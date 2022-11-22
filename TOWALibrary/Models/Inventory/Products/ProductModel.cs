@@ -31,32 +31,12 @@ namespace TOWALibrary.Models.Inventory.Products
         public string PID { get => _PID; set => _PID = value; }
         [DisplayName("Name")]
         public string ProductName { get => productName; set => productName = value; }
-        [DisplayName ("Barcode")]
-        [Browsable(false)]
-        public string Barcode { get => barcode; set => barcode = value; }
-        [DisplayName("QPUnit")]
-        public string QuantityPerUnit { get => quantityPerUnit; set => quantityPerUnit = value; }
-        [DisplayName("Unit Price")]
-        public double UnitPrice { get => unitPrice; set => unitPrice = value; }
-        [DisplayName("Sales Price")]
-        public double SalesPrice { get => salesPrice; set => salesPrice = value; }
-        [DisplayName("Unit On Stock")]
-        public int UnitOnStock { get => unitOnStock; set => unitOnStock = value; }
-        [DisplayName("Unit On Order")]
-        public int UnitOnOrder { get => unitOnOrder; set => unitOnOrder = value; }
-        [DisplayName("VAT")]
-        public double VAT { get => _VAT; set => _VAT = value; }
-        [DisplayName("Status")]
-        public string Status { get => status; set => status = value; }
-        [Browsable(false)]
-        [DisplayName("Content")]
-        public string Content { get => content; set => content = value; }
         [DisplayName("Suplier")]
-        public string SupplierID
+        public string SupplierName
         {
             get
             {
-                return Supplier.SLID;
+                return Supplier.SupplierName;
             }
         }
         [DisplayName("Category")]
@@ -67,6 +47,27 @@ namespace TOWALibrary.Models.Inventory.Products
                 return Category.CategoryName;
             }
         }
+        [DisplayName ("Barcode")]
+        [Browsable(false)]
+        public string Barcode { get => barcode; set => barcode = value; }
+        [DisplayName("QPUnit")]
+        public string QuantityPerUnit { get => quantityPerUnit; set => quantityPerUnit = value; }
+        [DisplayName("Unit Price")]
+        public double UnitPrice { get => unitPrice; set => unitPrice = value; }
+        [DisplayName("Sales Price")]
+        public double SalesPrice { get => salesPrice; set => salesPrice = value; }
+        [DisplayName("Stock Quantity")]
+        public int UnitOnStock { get => unitOnStock; set => unitOnStock = value; }
+        [DisplayName("Sold Quantity ")]
+        public int UnitOnOrder { get => unitOnOrder; set => unitOnOrder = value; }
+        [DisplayName("VAT")]
+        public double VAT { get => _VAT; set => _VAT = value; }
+        [DisplayName("Status")]
+        public string Status { get => status; set => status = value; }
+        [Browsable(false)]
+        [DisplayName("Content")]
+        public string Content { get => content; set => content = value; }
+
         [Browsable(false)]
         public virtual SupplierModel Supplier { get; set; }
         [Browsable(false)]

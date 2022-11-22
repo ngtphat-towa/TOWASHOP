@@ -11,7 +11,7 @@ namespace TOWALibrary.Repositories.Helpers
    public static class DBHelper
     {
         public static DbParameter CreateDbParameter(this DbCommand command, 
-            string parameterName, DbType dbType, object value, 
+            string parameterName, DbType dbType, object value =null, 
             ParameterDirection direction=ParameterDirection.Input,  string sourceColumn = null, int size=0)
         {
             DbParameter p = command.CreateParameter();

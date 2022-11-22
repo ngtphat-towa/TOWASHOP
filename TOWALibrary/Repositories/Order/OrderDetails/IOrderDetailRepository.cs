@@ -10,12 +10,10 @@ namespace TOWALibrary.Repositories.Order.OrderDetails
 {
   public interface IOrderDetailRepository
     {
-        ICollection<OrderDetailModel> GetByOrder(string OID);
+        ICollection<OrderDetailModel> GetByOrder(int OID);
         void Update(OrderDetailModel model);
         void Add(OrderDetailModel model);
         void Delete(OrderDetailModel model);
         OrderDetailModel GetByID(int OD_ID);
-
-
     }
 }

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TOWALibrary.Models.Accounts.Users.Services;
+using TOWALibrary.Services.CommonServices;
+using TOWALibrary.Services.ModelServices.UserServices;
 using TOWALibrary.Views;
+using TOWALibrary.Views.MainViews;
 
 namespace TOWALibrary.Presenters
 {
@@ -12,14 +14,13 @@ namespace TOWALibrary.Presenters
     {
         #region Intialize private fields 
         private readonly ILoginView loginView;
-        private readonly IUserService userService;
+        private readonly IAccountModelServices userService =ServicesManager.AccountModelServices;
         #endregion
 
         #region Contructor
-        public LoginPresenter(ILoginView loginView, IUserService userService)
+        public LoginPresenter(ILoginView loginView)
         {
             this.loginView = loginView;
-            this.userService = userService;
             // Wire up event handlers
             this.loginView.LoginAction += LoginEvent;
             this.loginView.CancelAction += delegate
@@ -36,10 +37,14 @@ namespace TOWALibrary.Presenters
         {
             try
             {
-                 userService.Validate(this.loginView.Username, this.loginView.Password);
+
+                    userService.Validate(this.loginView.Username, this.loginView.Password);
                     loginView.IsSuccessful = true;
+
+                    GlobalConfig.CurrentUser = userService.GetAccountByUsername(loginView.Username);
                     this.loginView.Hide();
-                    userService.GetRoleView().Navigate();
+                     IMainView view = userService.GetRoleView();
+                    view.Show();
                 
             }
             catch (Exception ex)

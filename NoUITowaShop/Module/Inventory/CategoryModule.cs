@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TOWALibrary.Presenters.Modules.Inventory.Categories;
 using TOWALibrary.Views.ModuleViews.Inventory;
 
 namespace NoUITowaShop.Module.Inventory
@@ -14,10 +15,13 @@ namespace NoUITowaShop.Module.Inventory
     public partial class CategoryModule : Form, ICategoryModuleView
     {
         #region Contructor
+        private  CategoryModulePresenter presenter;
         public CategoryModule()
         {
             InitializeComponent();
+
             AssociateAndRaiseViewEvents();
+            this.presenter = new CategoryModulePresenter(this);
             tabCategories.TabPages.Remove(tabDefine);
         }
         #endregion

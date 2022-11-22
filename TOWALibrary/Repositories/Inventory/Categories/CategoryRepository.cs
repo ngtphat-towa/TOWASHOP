@@ -30,7 +30,7 @@ namespace TOWALibrary.Repositories.Inventory.Categories
         }
 
 
-        public void Delete(string CID)
+        public void Delete(int CID)
         {
             using (var connection = DBManager.Connection.GetDbConnection())
             {
@@ -40,7 +40,7 @@ namespace TOWALibrary.Repositories.Inventory.Categories
                     command.CommandText = "spCategory_Delete";
                     command.CommandType = CommandType.StoredProcedure;
 
-                    command.CreateDbParameter("@SLID", DbType.String, CID);
+                    command.CreateDbParameter("@CID", DbType.Int32, CID);
 
                     command.ExecuteNonQuery();
                 }
@@ -85,7 +85,7 @@ namespace TOWALibrary.Repositories.Inventory.Categories
                     connection.Open();
                     command.CommandText = "spCategory_GetByValue";
                     command.CommandType = CommandType.StoredProcedure;
-                    command.CreateDbParameter("@VALUE", DbType.String, value);
+                    command.CreateDbParameter("@VALUE", DbType.String,'%'+ value+'%');
 
                     using (var reader = command.ExecuteReader())
                         while (reader.Read())
@@ -114,7 +114,7 @@ namespace TOWALibrary.Repositories.Inventory.Categories
                     command.CommandText = "spCategory_Update";
                     command.CommandType = CommandType.StoredProcedure;
 
-                    command.CreateDbParameter("@CATEGORYID", DbType.String, model.CATEID);
+                    command.CreateDbParameter("@CID", DbType.String, model.CATEID);
                     command.CreateDbParameter("@CATEGORYNAME", DbType.String, model.CategoryName);
                     command.CreateDbParameter("@C_DESCRIPTION", DbType.String, model.Description);
                     command.CreateDbParameter("@CONTENT", DbType.String, model.Content);

@@ -57,7 +57,7 @@ namespace NoUITowaShop.Module.Order.OrderPanel
             this.tbpGB.ColumnCount = 3;
             this.tbpGB.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tbpGB.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tbpGB.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.tbpGB.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tbpGB.Controls.Add(this.btnAdvancedSearch, 2, 0);
             this.tbpGB.Controls.Add(this.lbCustomerPhone, 0, 1);
             this.tbpGB.Controls.Add(this.lbName, 0, 0);
@@ -81,9 +81,9 @@ namespace NoUITowaShop.Module.Order.OrderPanel
             this.btnAdvancedSearch.BackColor = System.Drawing.Color.Coral;
             this.btnAdvancedSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdvancedSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAdvancedSearch.Location = new System.Drawing.Point(288, 3);
+            this.btnAdvancedSearch.Location = new System.Drawing.Point(284, 3);
             this.btnAdvancedSearch.Name = "btnAdvancedSearch";
-            this.btnAdvancedSearch.Size = new System.Drawing.Size(46, 34);
+            this.btnAdvancedSearch.Size = new System.Drawing.Size(50, 34);
             this.btnAdvancedSearch.TabIndex = 1;
             this.btnAdvancedSearch.Text = "?";
             this.btnAdvancedSearch.UseVisualStyleBackColor = false;
@@ -97,7 +97,7 @@ namespace NoUITowaShop.Module.Order.OrderPanel
             this.lbCustomerPhone.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F);
             this.lbCustomerPhone.Location = new System.Drawing.Point(3, 40);
             this.lbCustomerPhone.Name = "lbCustomerPhone";
-            this.lbCustomerPhone.Size = new System.Drawing.Size(79, 41);
+            this.lbCustomerPhone.Size = new System.Drawing.Size(78, 41);
             this.lbCustomerPhone.TabIndex = 0;
             this.lbCustomerPhone.Text = "Phone";
             this.lbCustomerPhone.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -111,7 +111,7 @@ namespace NoUITowaShop.Module.Order.OrderPanel
             this.lbName.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F);
             this.lbName.Location = new System.Drawing.Point(3, 0);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(79, 40);
+            this.lbName.Size = new System.Drawing.Size(78, 40);
             this.lbName.TabIndex = 3;
             this.lbName.Text = "Name";
             this.lbName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -122,9 +122,9 @@ namespace NoUITowaShop.Module.Order.OrderPanel
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPhoneNumber.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhoneNumber.Location = new System.Drawing.Point(88, 43);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(87, 43);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(194, 30);
+            this.txtPhoneNumber.Size = new System.Drawing.Size(191, 30);
             this.txtPhoneNumber.TabIndex = 4;
             // 
             // cbSupplierListName
@@ -134,9 +134,9 @@ namespace NoUITowaShop.Module.Order.OrderPanel
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbSupplierListName.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSupplierListName.FormattingEnabled = true;
-            this.cbSupplierListName.Location = new System.Drawing.Point(88, 3);
+            this.cbSupplierListName.Location = new System.Drawing.Point(87, 3);
             this.cbSupplierListName.Name = "cbSupplierListName";
-            this.cbSupplierListName.Size = new System.Drawing.Size(194, 32);
+            this.cbSupplierListName.Size = new System.Drawing.Size(191, 32);
             this.cbSupplierListName.TabIndex = 2;
             // 
             // SupplierOrderInfo

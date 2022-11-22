@@ -23,32 +23,57 @@ namespace TOWALibrary.Models.Contact.Suppliers
         private string city;
         private string country;
         private string content;
-        
+
         #endregion
         #region Property
-        [DisplayName("SLID")]
-        [Column(Order = 1)]
+
+        #region Display Attribute
+
+        [DisplayName("#Supplier ID")]
         public string SLID { get => _SLID; set => _SLID = value; }
+
+        [DisplayName("Name")]
+        [Required( ErrorMessage = "Supplier name is required")]
+        [StringLength(30, ErrorMessage = "The maximum length of the supplier name is 30 characters!")]
         public string SupplierName { get => supplierName; set => supplierName = value; }
+       
+        [DisplayName("Contact Person")]
+        [StringLength(30, ErrorMessage = "The maximum length of the contact name is 30 characters!")]
         public string ContactName { get => contactName; set => contactName = value; }
+
+        [DisplayName("Contact Phone")]
+        [Required( ErrorMessage = "Contact name is required")]
+        [StringLength(30, ErrorMessage = "The maximum length of the supplier name is 30 characters!")]
+        
         public string ContactPhone { get => contactPhone; set => contactPhone = value; }
+        [DisplayName("Address")]
+        public string FullAddress => String.Join(", ", Address, City, Country);
+
+        [DisplayName("Comment")]
+        [StringLength(255, ErrorMessage = "The maximum length of the comment is 255 characters!")]
+        public string Content { get => content; set => content = value; }
+        #endregion
+
+        #region Non-Display Attribute
+
+        [Browsable(false)]
+        [StringLength(50, ErrorMessage = "The maximum length of the address is 50 characters!")]
         public string Address { get => address; set => address = value; }
+
+        [Browsable(false)]
+        [StringLength(20, ErrorMessage = "The maximum length of the city name is 20 characters!")]
         public string City { get => city; set => city = value; }
+
+        [Browsable(false)]
+        [StringLength(20, ErrorMessage = "The maximum length of the country name is 20 characters!")]
         public string Country { get => country; set => country = value; }
 
-        public string Content { get => content; set => content = value; }
+
         [Browsable(false)]
         public virtual ICollection<ProductModel> Products { get; set; }
-        [DisplayName("Product")]
-        public string ProductIDList
-        {
-            get
-            {
-                if (Products == null || this.Products.ToList().Count == 0)
-                    return "";
-                return string.Join(",", Products.Select(p => p.PID).ToArray());
-            }
-        }
+
+        #endregion
+
         #endregion
     }
 }

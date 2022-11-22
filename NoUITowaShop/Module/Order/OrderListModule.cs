@@ -7,27 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TOWALibrary.Presenters.Modules.Orders;
 using TOWALibrary.Repositories.Inventory.Products;
 using TOWALibrary.Repositories.Order.OrderDetails;
 using TOWALibrary.Repositories.Order.Orders;
 using TOWALibrary.Views.ModuleViews.Orders;
+using TOWALibrary.Views.ModuleViews.Orders.OrderDetails;
 
 namespace NoUITowaShop.Module.Order
 {
-    public partial class OrderListModule : Form, IOrderListMoudleView
+    public partial class OrderListModule : Form, IOrderListMoudleView, IOrderFormRequest
     {
-        
+
         #region Contructor
+        private readonly OrderListMoudlePresenter _presenter;
         public OrderListModule()
         {
             InitializeComponent();
-
             // Initialize Filter
             string[] OrderType = new string[] { "All", "Retail Order", "Customer Order", "Supply Stock" };
             this.cbOrderType.DataSource = OrderType;
             string[] OrderStatusType = new string[] { "All", "New", "Paid", "Delivering" };
             this.cbStatus.DataSource = OrderStatusType;
             string[] PaymentMethod = new string[] { "All", "Cash", "Credit" };
+
 
             this.Load += delegate
             {
@@ -46,9 +49,10 @@ namespace NoUITowaShop.Module.Order
                 // Start at the monday of week
                 //  this.datePickerFrom.Value = DateTime.Today.AddDays(1-Convert.ToDouble(DateTime.Today.DayOfWeek));
                 // Set the date to the first date of month #Note: -1 for the datetime of example orders
-                this.datePickerFrom.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month - 1, 1);
+                this.datePickerFrom.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month-1, 1);
 
             };
+            _presenter = new OrderListMoudlePresenter(this);
 
             //this.Load += delegate
             //{
@@ -125,7 +129,13 @@ namespace NoUITowaShop.Module.Order
                 this.IsResetFilter = true;
                 RefreshEvent?.Invoke(this, EventArgs.Empty);
             };
+            this.btnEdit.Click += delegate
+            {
+                LoadEditOrderFormEvent?.Invoke(this,EventArgs.Empty);
+
+            };
             #endregion
+
         }
         #endregion
 
@@ -151,6 +161,7 @@ namespace NoUITowaShop.Module.Order
         public event EventHandler RefreshEvent;
         //public event EventHandler OrderTypeChangedEvent;
         public event EventHandler FilterChangedEvent;
+        public event EventHandler LoadEditOrderFormEvent;
         #endregion
 
         #region Singleton
@@ -176,6 +187,11 @@ namespace NoUITowaShop.Module.Order
             }
             return instance;
         }
+
+        public void SaveComplete()
+        {
+            this.RefreshEvent?.Invoke(this,EventArgs.Empty);
+        }
         #endregion
 
         #region Attribute
@@ -193,6 +209,18 @@ namespace NoUITowaShop.Module.Order
         public bool IsResetFilter { get ; set ; }
         public bool IsEditOrder { get ; set; }
 
+        public IOrderFormView OrderFormView => OrderForm.Instance;
+
+        public bool IsSuccessful { get; set; }
+        public bool IsEditable { get => this.btnEdit.Enabled; set => this.btnEdit.Enabled=value; }
+
+        #region Statistical tables
+        public int TotalNumberOrder { get =>Convert.ToInt32(this.lbTotalNumber.Text); set=> this.lbTotalNumber.Text = value.ToString(); }
+        public double TotalStock { get=>Convert.ToDouble(lbSupplied.Text); set=>this.lbSupplied.Text =value.ToString(); }
+        public int TotalPaid { get=> Convert.ToInt32(lbPaid.Text); set=> this.lbPaid.Text =value.ToString(); }
+        public double TotalSold { get=>Convert.ToDouble(lbSold.Text); set=>this.lbSold.Text =value.ToString(); }
+       
+        #endregion
         #endregion
     }
 }

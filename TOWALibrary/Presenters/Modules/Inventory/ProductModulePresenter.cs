@@ -8,61 +8,119 @@ using TOWALibrary.Models.Contact.Suppliers;
 using TOWALibrary.Models.Inventory.Categoires;
 using TOWALibrary.Models.Inventory.Products;
 using TOWALibrary.Repositories.Inventory.Products;
+using TOWALibrary.Services.CategoryServices;
+using TOWALibrary.Services.CommonServices;
+using TOWALibrary.Services.ModelServices.ProductServices;
+using TOWALibrary.Services.ModelServices.SupplierServices;
 using TOWALibrary.Views.ModuleViews.Inventory;
 
 namespace TOWALibrary.Presenters.Modules.Inventory.Products
 {
     public class ProductModulePresenter
     {
-        private readonly IProductModuleView view;
-        private readonly IProductRepository repository;
-        private BindingSource bindingSource;
-        private ICollection<ProductModel> productList;
-        private ICollection<SupplierModel> supplierList;
-        private ICollection<CategoryModel> categoryList;
-        public ProductModulePresenter(IProductModuleView view, IProductRepository repository)
+        
+
+        #region Services
+        private readonly IProductModelServices _productModelServices = ServicesManager.ProductModelServices;
+        private readonly ICategoryModelServices _categoryModelServices = ServicesManager.CategoryModelServices;
+        private readonly ISupplierModelServices _supplierModelServices = ServicesManager.SupplierModelServices;
+
+        #endregion
+
+        #region BindingSource
+        private BindingSource _productBindingSource;
+        private BindingSource _categoryBindingSource;
+        private BindingSource _supplierBindingSource;
+        private BindingSource _categoryNameBindingSource;
+        private BindingSource _supplierNameBiningSource;
+        #endregion
+
+        #region Contructor
+        private readonly IProductModuleView _view;
+        public ProductModulePresenter(IProductModuleView view)
         {
-            this.view = view;
-            this.repository = repository;
-            this.bindingSource = new BindingSource();
+            _view = view;
+            //Intailize all binding source
+            _productBindingSource = new BindingSource();
+            _categoryBindingSource = new BindingSource();
+            _supplierBindingSource = new BindingSource();
+            // Filter sources
+            _supplierNameBiningSource = new BindingSource();
+            _categoryNameBindingSource = new BindingSource();
             //Wire up event handler methods to view events
-            this.view.SearchEvent += SearchProduct;
-            this.view.AddNewEvent += AddNewProduct;
-            this.view.EditEvent += LoadSelectedProductToEdit;
-            this.view.DeleteEvent += DeleteSelectedProduct;
-            this.view.SaveEvent += SaveProduct;
-            this.view.CancelEvent += CancelAction;
+            _view.SearchEvent += SearchProduct;
+            _view.AddNewEvent += AddNewProduct;
+            _view.EditEvent += LoadSelectedProductToEdit;
+            _view.DeleteEvent += DeleteSelectedProduct;
+            _view.SaveEvent += SaveProduct;
+            _view.CancelEvent += CancelAction;
+
             //Set binding source
-            this.view.SetListViewBindingSource(bindingSource);
-            LoadAllProdcutList();
-            LoadAllCategories();
-            LoadAllSuppliers();
-            
-            //Show view
-            this.view.Show();
+            //Set binding source for filter
+            LoadAllList();
+   
+
+        }
+        #endregion
+
+
+        private void LoadAllList()
+        {
+            LoadCategoryList();
+            LoadSupplierList();  
+            // Load product list
+            var productList = _productModelServices.GetAll().ToList();
+            _productBindingSource.DataSource = productList;
+            _view.SetListViewBindingSource(_productBindingSource);
+
+        }
+
+        private void LoadSupplierList()
+        {
+            // Module
+            _supplierBindingSource.DataSource = _supplierModelServices.GetAll().Select(c => new { ID = c.SLID, Name = c.SupplierName }); ;
+            _view.SetSupplierList(_supplierBindingSource);
+            // Filter
+            var supplierNameList = _supplierModelServices.GetAll().Select(p => new { ID = p.SLID, Name = p.SupplierName }).ToList();
+            supplierNameList.Insert(0, new { ID = "SL0", Name = "All" });
+            _supplierNameBiningSource.DataSource = supplierNameList;
+            _view.SetSupplierNameListBindingSource(_supplierNameBiningSource);
+        }
+
+        private void LoadCategoryList()
+        {
+            // Module
+            _categoryBindingSource.DataSource = _categoryModelServices.GetAll().Select(c => new { ID = c.CATEID, Name = c.CategoryName });
+            _view.SetCategoryList(_categoryBindingSource);
+            // Filter
+            var categoryList = _categoryModelServices.GetAll().Select(p => new { ID = p.CATEID, Name = p.CategoryName }).ToList();
+            categoryList.Insert(0, new { ID = 0, Name = "All" });
+            _categoryNameBindingSource.DataSource = categoryList;
+            _view.SetCategoryNameListBindingSource(_categoryNameBindingSource);
+
         }
 
         private void LoadSelectedProductToEdit(object sender, EventArgs e)
         {
-            ProductModel model = (ProductModel)bindingSource.Current;
+            ProductModel model = (ProductModel)_productBindingSource.Current;
             // Product Info
-            this.view.PID = model.PID;
-            this.view.ProductName = model.ProductName;
-            this.view.Barcode = model.Barcode;
+            _view.PID = model.PID;
+            _view.ProductName = model.ProductName;
+            _view.Barcode = model.Barcode;
             // Stock Info
-            this.view.QuantityPerUnit = model.QuantityPerUnit;
-            this.view.UnitOnOrder = model.UnitOnOrder;
-            this.view.UnitOnStock = model.UnitOnStock;
+            _view.QuantityPerUnit = model.QuantityPerUnit;
+            _view.UnitOnOrder = model.UnitOnOrder;
+            _view.UnitOnStock = model.UnitOnStock;
             // Sale info
-            this.view.UnitPrice = Convert.ToDecimal(model.UnitPrice);
-            this.view.SalesPrice = Convert.ToDecimal(model.SalesPrice);
-            this.view.Status = model.Status;
-            this.view.VAT = Convert.ToDecimal(model.VAT);
+            _view.UnitPrice = Convert.ToDouble(model.UnitPrice);
+            _view.SalesPrice = Convert.ToDouble(model.SalesPrice);
+            _view.Status = model.Status;
+            _view.VAT = Convert.ToDouble(model.VAT);
             // Details 
-            this.view.SelectedSLID = model.Supplier.SLID;
-            this.view.SelectedCID = model.Category.CATEID;
-            this.view.Content = model.Content;
-            view.IsEdit = true;
+            _view.SelectedSLID = model.Supplier.SLID;
+            _view.SelectedCID = model.Category.CATEID;
+            _view.Content = model.Content;
+            _view.IsEdit = true;
 
         }
 
@@ -76,40 +134,41 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Products
 
             var model = new ProductModel
             {
-                PID = view.PID,
-                ProductName = view.ProductName,
-                Barcode = view.Barcode,
-                QuantityPerUnit = view.QuantityPerUnit,
-                UnitOnStock = view.UnitOnStock,
-                UnitOnOrder = view.UnitOnOrder,
-                UnitPrice = (double)view.UnitPrice,
-                SalesPrice = (double)view.SalesPrice,
-                Status = view.Status,
-                Supplier = supplierList.Where(x=> x.SLID.Equals(view.SelectedSLID)).FirstOrDefault(),
-                Category = categoryList.Where(x=> x.CATEID==view.SelectedCID).FirstOrDefault()
+                PID = _view.PID,
+                ProductName = _view.ProductName,
+                Barcode = _view.Barcode,
+                QuantityPerUnit = _view.QuantityPerUnit,
+                UnitOnStock = _view.UnitOnStock,
+                UnitOnOrder = _view.UnitOnOrder,
+                UnitPrice = (double)_view.UnitPrice,
+                SalesPrice = (double)_view.SalesPrice,
+                Status = _view.Status,
+                Supplier = _supplierModelServices.GetByValue(_view.SelectedSLID.Trim()).FirstOrDefault(),
+
+                Category = _categoryModelServices.GetByValue( _view.SelectedCID.ToString() ).FirstOrDefault()
             };
             try
             {
-                // TODO - Vailidate the model 
-                if (view.IsEdit == true)
+                _productModelServices.ValidateModel(model);
+                if (_view.IsEdit == true)
                 {
-                    repository.Update(model);
-                    view.Message = "Product updated successfully!";
+                    _productModelServices.Update(model);
+                    _view.Message = "Product updated successfully!";
                 }
                 else
                 {
-                    repository.Add(model);
-                    view.Message = "Product added successfully!";
+                    _productModelServices.Add(model);
+                    _view.Message = "Product added successfully!";
                 }
-                view.IsSuccessful = true;
-                LoadAllProdcutList();
+                _view.IsSuccessful = true;
+                Refresh();
                 CleanViewFeilds();
 
             }
             catch (Exception ex)
             {
-                view.IsSuccessful = false;
-                view.Message = ex.Message;
+                _view.IsSuccessful = false;
+                _view.Message = ex.Message;
             }
         }
 
@@ -117,70 +176,64 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Products
         {
             try
             {
-                var model = (ProductModel)bindingSource.Current;
-                repository.Delete(model.PID.ToString());
-                view.IsSuccessful = true;
-                view.Message = "Product deleted successfully";
-                LoadAllProdcutList();
+                var model = (ProductModel)_productBindingSource.Current;
+                _productModelServices.Delete(model.PID.ToString());
+                _view.IsSuccessful = true;
+                _view.Message = "Product deleted successfully";
+                Refresh();
             }
             catch (Exception)
             {
-                view.IsSuccessful = false;
-                view.Message = "An error occurred, could not delete this product";
+                _view.IsSuccessful = false;
+                _view.Message = "An error occurred, could not delete this product";
             }
         }
 
         private void AddNewProduct(object sender, EventArgs e)
         {
-            this.view.IsEdit = false;
+            _view.IsEdit = false;
         }
 
         private void SearchProduct(object sender, EventArgs e)
         {
-            bool emptyValue = string.IsNullOrEmpty(this.view.SearchValue);
-            if (emptyValue == false)
-                productList = repository.GetByValue(this.view.SearchValue);
-            else
-                productList = repository.GetAll();
-            bindingSource.DataSource = productList;
+            var SearchValue = "";
+            if (_view.IsValueSearch)
+                SearchValue = _view.SearchValue;
+
+            var CID = Convert.ToInt32(_view.SelectedCIDName);
+            var SLID = _view.SelectedSLIDName;
+            var productList = _productModelServices.GetByValue(SearchValue)
+                .Where(p => CID == 0 || (p.Category.CATEID == CID))
+                .Where(p => SLID.Equals("SL0") || SLID.Equals(p.Supplier.SLID)).ToList();
+
+            _productBindingSource.DataSource = productList;
+            _view.IsValueSearch = false;
         }
 
-        private void LoadAllProdcutList()
+        private void Refresh()
         {
-            productList=repository.GetAll();
-            bindingSource.DataSource = productList;
+            _view.SelectedSLIDName = "SL0";
+            _view.SelectedCIDName = 0;
+            _productBindingSource.DataSource = _productModelServices.GetAll().ToList();
         }
-        private void LoadAllCategories()
-        {
-            categoryList = repository.GetCategories();
-            this.view.SetCategoryList(categoryList);
-        }
-        private void LoadAllSuppliers()
-        {
-            supplierList = repository.GetSupliers();
-            this.view.SetSupplierList(supplierList);
-        }
+
         private void CleanViewFeilds()
         {
             // Product Info
-            this.view.PID = "P0";
-            this.view.ProductName = "";
-            this.view.Barcode = "";
+            _view.PID = "P0";
+            _view.ProductName = "";
+            _view.Barcode = "";
             // Stock Info
-            this.view.QuantityPerUnit = "";
-            this.view.UnitOnOrder = 0;
-            this.view.UnitOnStock = 0;
+            _view.QuantityPerUnit = "";
+            _view.UnitOnOrder = 0;
+            _view.UnitOnStock = 0;
             // Sale info
-            this.view.UnitPrice = 0;
-            this.view.SalesPrice = 0;
-            this.view.VAT = 0;
+            _view.UnitPrice = 0;
+            _view.SalesPrice = 0;
+            _view.VAT = 0;
             // Details 
-            LoadAllCategories();
-            this.view.SetSupplierList(supplierList);
-            LoadAllSuppliers();
-            this.view.SetCategoryList(categoryList);
-            this.view.Content = "";
-            this.view.Status = "On Hand";
+            _view.Content = "";
+            _view.Status = "On Hand";
             
         }
     }

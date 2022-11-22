@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TOWALibrary.Presenters;
 using TOWALibrary.Views;
 
 namespace SimpleUITowaShop
@@ -14,9 +15,11 @@ namespace SimpleUITowaShop
     public partial class LoginForm : Form, ILoginView
     {
         #region Contructor
+        private LoginPresenter loginPresenter;
         public LoginForm()
         {
             InitializeComponent();
+            loginPresenter = new LoginPresenter(this);
             SubscribeEventHanders();
         }
 

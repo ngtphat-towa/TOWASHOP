@@ -35,14 +35,6 @@ namespace NoUITowaShop.Module.Order
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dgvOrderList = new System.Windows.Forms.DataGridView();
-            this.gbReviewBill = new System.Windows.Forms.GroupBox();
-            this.dgvOrderDetailsList = new System.Windows.Forms.DataGridView();
-            this.gbRecentRecord = new System.Windows.Forms.GroupBox();
-            this.tableOrderList = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtTotal = new System.Windows.Forms.NumericUpDown();
-            this.lbTotal = new System.Windows.Forms.Label();
             this.tableOption = new System.Windows.Forms.TableLayoutPanel();
             this.gbPaymentMethod = new System.Windows.Forms.GroupBox();
             this.cbPaymentMethod = new System.Windows.Forms.ComboBox();
@@ -65,13 +57,20 @@ namespace NoUITowaShop.Module.Order
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lbSearch = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderList)).BeginInit();
-            this.gbReviewBill.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetailsList)).BeginInit();
-            this.gbRecentRecord.SuspendLayout();
-            this.tableOrderList.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTotal)).BeginInit();
+            this.gbReviewBill = new System.Windows.Forms.GroupBox();
+            this.dgvOrderDetailsList = new System.Windows.Forms.DataGridView();
+            this.gbRecentRecord = new System.Windows.Forms.GroupBox();
+            this.dgvOrderList = new System.Windows.Forms.DataGridView();
+            this.tableOrderList = new System.Windows.Forms.TableLayoutPanel();
+            this.tbStatistical = new System.Windows.Forms.TableLayoutPanel();
+            this.lbTotal_Number = new System.Windows.Forms.Label();
+            this.lbNumber__Sold = new System.Windows.Forms.Label();
+            this.lbTotalNumber = new System.Windows.Forms.Label();
+            this.lbNumber_Paid = new System.Windows.Forms.Label();
+            this.lbNumber_Profit = new System.Windows.Forms.Label();
+            this.lbPaid = new System.Windows.Forms.Label();
+            this.lbSupplied = new System.Windows.Forms.Label();
+            this.lbSold = new System.Windows.Forms.Label();
             this.tableOption.SuspendLayout();
             this.gbPaymentMethod.SuspendLayout();
             this.gbStatus.SuspendLayout();
@@ -81,151 +80,13 @@ namespace NoUITowaShop.Module.Order
             this.gbDateFrom.SuspendLayout();
             this.gbOrderType.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.gbReviewBill.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetailsList)).BeginInit();
+            this.gbRecentRecord.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderList)).BeginInit();
+            this.tableOrderList.SuspendLayout();
+            this.tbStatistical.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dgvOrderList
-            // 
-            this.dgvOrderList.AllowUserToAddRows = false;
-            this.dgvOrderList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrderList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvOrderList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvOrderList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvOrderList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvOrderList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvOrderList.ColumnHeadersHeight = 29;
-            this.dgvOrderList.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dgvOrderList.Location = new System.Drawing.Point(3, 23);
-            this.dgvOrderList.Name = "dgvOrderList";
-            this.dgvOrderList.ReadOnly = true;
-            this.dgvOrderList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvOrderList.RowTemplate.Height = 24;
-            this.dgvOrderList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrderList.Size = new System.Drawing.Size(753, 429);
-            this.dgvOrderList.TabIndex = 0;
-            // 
-            // gbReviewBill
-            // 
-            this.gbReviewBill.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbReviewBill.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.gbReviewBill.Controls.Add(this.dgvOrderDetailsList);
-            this.gbReviewBill.Location = new System.Drawing.Point(768, 3);
-            this.gbReviewBill.Name = "gbReviewBill";
-            this.gbReviewBill.Size = new System.Drawing.Size(429, 455);
-            this.gbReviewBill.TabIndex = 1;
-            this.gbReviewBill.TabStop = false;
-            this.gbReviewBill.Text = "Review Bill";
-            // 
-            // dgvOrderDetailsList
-            // 
-            this.dgvOrderDetailsList.AllowUserToAddRows = false;
-            this.dgvOrderDetailsList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dgvOrderDetailsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvOrderDetailsList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvOrderDetailsList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvOrderDetailsList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvOrderDetailsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvOrderDetailsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvOrderDetailsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrderDetailsList.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dgvOrderDetailsList.Location = new System.Drawing.Point(3, 23);
-            this.dgvOrderDetailsList.Name = "dgvOrderDetailsList";
-            this.dgvOrderDetailsList.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrderDetailsList.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvOrderDetailsList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvOrderDetailsList.RowTemplate.Height = 24;
-            this.dgvOrderDetailsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrderDetailsList.Size = new System.Drawing.Size(423, 429);
-            this.dgvOrderDetailsList.TabIndex = 0;
-            // 
-            // gbRecentRecord
-            // 
-            this.gbRecentRecord.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbRecentRecord.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.gbRecentRecord.Controls.Add(this.dgvOrderList);
-            this.gbRecentRecord.Location = new System.Drawing.Point(3, 3);
-            this.gbRecentRecord.Name = "gbRecentRecord";
-            this.gbRecentRecord.Size = new System.Drawing.Size(759, 455);
-            this.gbRecentRecord.TabIndex = 0;
-            this.gbRecentRecord.TabStop = false;
-            this.gbRecentRecord.Text = "Recent Orders";
-            // 
-            // tableOrderList
-            // 
-            this.tableOrderList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableOrderList.ColumnCount = 2;
-            this.tableOrderList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.83333F));
-            this.tableOrderList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.16667F));
-            this.tableOrderList.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableOrderList.Controls.Add(this.gbRecentRecord, 0, 0);
-            this.tableOrderList.Controls.Add(this.gbReviewBill, 1, 0);
-            this.tableOrderList.Location = new System.Drawing.Point(0, 108);
-            this.tableOrderList.Name = "tableOrderList";
-            this.tableOrderList.RowCount = 2;
-            this.tableOrderList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableOrderList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
-            this.tableOrderList.Size = new System.Drawing.Size(1200, 514);
-            this.tableOrderList.TabIndex = 11;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.24506F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.75494F));
-            this.tableLayoutPanel2.Controls.Add(this.txtTotal, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lbTotal, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 464);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(759, 47);
-            this.tableLayoutPanel2.TabIndex = 3;
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTotal.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(354, 3);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(402, 43);
-            this.txtTotal.TabIndex = 0;
-            // 
-            // lbTotal
-            // 
-            this.lbTotal.AutoSize = true;
-            this.lbTotal.Font = new System.Drawing.Font("Microsoft YaHei UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTotal.Location = new System.Drawing.Point(3, 0);
-            this.lbTotal.Name = "lbTotal";
-            this.lbTotal.Size = new System.Drawing.Size(89, 37);
-            this.lbTotal.TabIndex = 1;
-            this.lbTotal.Text = "Total";
-            this.lbTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tableOption
             // 
@@ -472,7 +333,7 @@ namespace NoUITowaShop.Module.Order
             this.lbErrorMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbErrorMessage.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbErrorMessage.ForeColor = System.Drawing.Color.DarkRed;
-            this.lbErrorMessage.Location = new System.Drawing.Point(683, 0);
+            this.lbErrorMessage.Location = new System.Drawing.Point(661, 0);
             this.lbErrorMessage.Name = "lbErrorMessage";
             this.lbErrorMessage.Size = new System.Drawing.Size(0, 20);
             this.lbErrorMessage.TabIndex = 13;
@@ -483,9 +344,9 @@ namespace NoUITowaShop.Module.Order
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(119, 3);
+            this.txtSearch.Location = new System.Drawing.Point(115, 3);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(419, 33);
+            this.txtSearch.Size = new System.Drawing.Size(405, 33);
             this.txtSearch.TabIndex = 0;
             // 
             // tbPanelLFooter
@@ -509,7 +370,7 @@ namespace NoUITowaShop.Module.Order
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.07317F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.41033F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.5165F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 518F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 541F));
             this.tableLayoutPanel3.Controls.Add(this.btnSearch, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.txtSearch, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.lbSearch, 0, 0);
@@ -531,9 +392,9 @@ namespace NoUITowaShop.Module.Order
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSearch.Location = new System.Drawing.Point(544, 3);
+            this.btnSearch.Location = new System.Drawing.Point(526, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(133, 30);
+            this.btnSearch.Size = new System.Drawing.Size(129, 30);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Find";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -545,10 +406,232 @@ namespace NoUITowaShop.Module.Order
             this.lbSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSearch.Location = new System.Drawing.Point(3, 0);
             this.lbSearch.Name = "lbSearch";
-            this.lbSearch.Size = new System.Drawing.Size(110, 36);
+            this.lbSearch.Size = new System.Drawing.Size(106, 36);
             this.lbSearch.TabIndex = 1;
             this.lbSearch.Text = "# Search";
             this.lbSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // gbReviewBill
+            // 
+            this.gbReviewBill.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbReviewBill.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.gbReviewBill.Controls.Add(this.dgvOrderDetailsList);
+            this.gbReviewBill.Location = new System.Drawing.Point(768, 3);
+            this.gbReviewBill.Name = "gbReviewBill";
+            this.gbReviewBill.Size = new System.Drawing.Size(429, 456);
+            this.gbReviewBill.TabIndex = 1;
+            this.gbReviewBill.TabStop = false;
+            this.gbReviewBill.Text = "Review Bill";
+            // 
+            // dgvOrderDetailsList
+            // 
+            this.dgvOrderDetailsList.AllowUserToAddRows = false;
+            this.dgvOrderDetailsList.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgvOrderDetailsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvOrderDetailsList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvOrderDetailsList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvOrderDetailsList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvOrderDetailsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvOrderDetailsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvOrderDetailsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrderDetailsList.GridColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgvOrderDetailsList.Location = new System.Drawing.Point(3, 23);
+            this.dgvOrderDetailsList.Name = "dgvOrderDetailsList";
+            this.dgvOrderDetailsList.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrderDetailsList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvOrderDetailsList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvOrderDetailsList.RowTemplate.Height = 24;
+            this.dgvOrderDetailsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOrderDetailsList.Size = new System.Drawing.Size(423, 430);
+            this.dgvOrderDetailsList.TabIndex = 0;
+            // 
+            // gbRecentRecord
+            // 
+            this.gbRecentRecord.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbRecentRecord.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.gbRecentRecord.Controls.Add(this.dgvOrderList);
+            this.gbRecentRecord.Location = new System.Drawing.Point(3, 3);
+            this.gbRecentRecord.Name = "gbRecentRecord";
+            this.gbRecentRecord.Size = new System.Drawing.Size(759, 456);
+            this.gbRecentRecord.TabIndex = 0;
+            this.gbRecentRecord.TabStop = false;
+            this.gbRecentRecord.Text = "Recent Orders";
+            // 
+            // dgvOrderList
+            // 
+            this.dgvOrderList.AllowUserToAddRows = false;
+            this.dgvOrderList.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrderList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvOrderList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvOrderList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvOrderList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvOrderList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvOrderList.ColumnHeadersHeight = 29;
+            this.dgvOrderList.GridColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgvOrderList.Location = new System.Drawing.Point(3, 23);
+            this.dgvOrderList.Name = "dgvOrderList";
+            this.dgvOrderList.ReadOnly = true;
+            this.dgvOrderList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvOrderList.RowTemplate.Height = 24;
+            this.dgvOrderList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOrderList.Size = new System.Drawing.Size(753, 430);
+            this.dgvOrderList.TabIndex = 0;
+            // 
+            // tableOrderList
+            // 
+            this.tableOrderList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableOrderList.ColumnCount = 2;
+            this.tableOrderList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.83333F));
+            this.tableOrderList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.16667F));
+            this.tableOrderList.Controls.Add(this.gbRecentRecord, 0, 0);
+            this.tableOrderList.Controls.Add(this.gbReviewBill, 1, 0);
+            this.tableOrderList.Controls.Add(this.tbStatistical, 0, 1);
+            this.tableOrderList.Location = new System.Drawing.Point(0, 108);
+            this.tableOrderList.Name = "tableOrderList";
+            this.tableOrderList.RowCount = 2;
+            this.tableOrderList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableOrderList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableOrderList.Size = new System.Drawing.Size(1200, 514);
+            this.tableOrderList.TabIndex = 11;
+            // 
+            // tbStatistical
+            // 
+            this.tbStatistical.ColumnCount = 4;
+            this.tbStatistical.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbStatistical.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbStatistical.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbStatistical.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbStatistical.Controls.Add(this.lbTotal_Number, 0, 0);
+            this.tbStatistical.Controls.Add(this.lbNumber__Sold, 3, 0);
+            this.tbStatistical.Controls.Add(this.lbTotalNumber, 0, 1);
+            this.tbStatistical.Controls.Add(this.lbNumber_Paid, 1, 0);
+            this.tbStatistical.Controls.Add(this.lbNumber_Profit, 2, 0);
+            this.tbStatistical.Controls.Add(this.lbPaid, 1, 1);
+            this.tbStatistical.Controls.Add(this.lbSupplied, 2, 1);
+            this.tbStatistical.Controls.Add(this.lbSold, 3, 1);
+            this.tbStatistical.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbStatistical.Location = new System.Drawing.Point(0, 462);
+            this.tbStatistical.Margin = new System.Windows.Forms.Padding(0);
+            this.tbStatistical.Name = "tbStatistical";
+            this.tbStatistical.RowCount = 2;
+            this.tbStatistical.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tbStatistical.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tbStatistical.Size = new System.Drawing.Size(765, 52);
+            this.tbStatistical.TabIndex = 2;
+            // 
+            // lbTotal_Number
+            // 
+            this.lbTotal_Number.AutoSize = true;
+            this.lbTotal_Number.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbTotal_Number.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotal_Number.Location = new System.Drawing.Point(3, 0);
+            this.lbTotal_Number.Name = "lbTotal_Number";
+            this.lbTotal_Number.Size = new System.Drawing.Size(185, 26);
+            this.lbTotal_Number.TabIndex = 2;
+            this.lbTotal_Number.Text = "#Order number:";
+            this.lbTotal_Number.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lbNumber__Sold
+            // 
+            this.lbNumber__Sold.AutoSize = true;
+            this.lbNumber__Sold.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbNumber__Sold.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumber__Sold.Location = new System.Drawing.Point(576, 0);
+            this.lbNumber__Sold.Name = "lbNumber__Sold";
+            this.lbNumber__Sold.Size = new System.Drawing.Size(186, 26);
+            this.lbNumber__Sold.TabIndex = 4;
+            this.lbNumber__Sold.Text = "Total Sold";
+            this.lbNumber__Sold.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lbTotalNumber
+            // 
+            this.lbTotalNumber.AutoSize = true;
+            this.lbTotalNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbTotalNumber.Location = new System.Drawing.Point(3, 26);
+            this.lbTotalNumber.Name = "lbTotalNumber";
+            this.lbTotalNumber.Size = new System.Drawing.Size(185, 26);
+            this.lbTotalNumber.TabIndex = 5;
+            this.lbTotalNumber.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lbNumber_Paid
+            // 
+            this.lbNumber_Paid.AutoSize = true;
+            this.lbNumber_Paid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbNumber_Paid.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumber_Paid.Location = new System.Drawing.Point(194, 0);
+            this.lbNumber_Paid.Name = "lbNumber_Paid";
+            this.lbNumber_Paid.Size = new System.Drawing.Size(185, 26);
+            this.lbNumber_Paid.TabIndex = 6;
+            this.lbNumber_Paid.Text = "Total Paid";
+            this.lbNumber_Paid.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lbNumber_Profit
+            // 
+            this.lbNumber_Profit.AutoSize = true;
+            this.lbNumber_Profit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbNumber_Profit.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumber_Profit.Location = new System.Drawing.Point(385, 0);
+            this.lbNumber_Profit.Name = "lbNumber_Profit";
+            this.lbNumber_Profit.Size = new System.Drawing.Size(185, 26);
+            this.lbNumber_Profit.TabIndex = 7;
+            this.lbNumber_Profit.Text = "Total Supplied";
+            this.lbNumber_Profit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lbPaid
+            // 
+            this.lbPaid.AutoSize = true;
+            this.lbPaid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbPaid.Location = new System.Drawing.Point(194, 26);
+            this.lbPaid.Name = "lbPaid";
+            this.lbPaid.Size = new System.Drawing.Size(185, 26);
+            this.lbPaid.TabIndex = 8;
+            this.lbPaid.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lbSupplied
+            // 
+            this.lbSupplied.AutoSize = true;
+            this.lbSupplied.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbSupplied.Location = new System.Drawing.Point(385, 26);
+            this.lbSupplied.Name = "lbSupplied";
+            this.lbSupplied.Size = new System.Drawing.Size(185, 26);
+            this.lbSupplied.TabIndex = 9;
+            this.lbSupplied.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lbSold
+            // 
+            this.lbSold.AutoSize = true;
+            this.lbSold.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbSold.Location = new System.Drawing.Point(576, 26);
+            this.lbSold.Name = "lbSold";
+            this.lbSold.Size = new System.Drawing.Size(186, 26);
+            this.lbSold.TabIndex = 10;
+            this.lbSold.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // OrderListModule
             // 
@@ -564,14 +647,6 @@ namespace NoUITowaShop.Module.Order
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "OrderListModule";
             this.Text = "OrderModule";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderList)).EndInit();
-            this.gbReviewBill.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetailsList)).EndInit();
-            this.gbRecentRecord.ResumeLayout(false);
-            this.tableOrderList.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTotal)).EndInit();
             this.tableOption.ResumeLayout(false);
             this.gbPaymentMethod.ResumeLayout(false);
             this.gbStatus.ResumeLayout(false);
@@ -582,17 +657,18 @@ namespace NoUITowaShop.Module.Order
             this.gbOrderType.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.gbReviewBill.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetailsList)).EndInit();
+            this.gbRecentRecord.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderList)).EndInit();
+            this.tableOrderList.ResumeLayout(false);
+            this.tbStatistical.ResumeLayout(false);
+            this.tbStatistical.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvOrderList;
-        private System.Windows.Forms.GroupBox gbReviewBill;
-        private System.Windows.Forms.DataGridView dgvOrderDetailsList;
-        private System.Windows.Forms.GroupBox gbRecentRecord;
-        private System.Windows.Forms.TableLayoutPanel tableOrderList;
         private System.Windows.Forms.TableLayoutPanel tableOption;
         private System.Windows.Forms.GroupBox gbDateFrom;
         private System.Windows.Forms.DateTimePicker datePickerFrom;
@@ -601,9 +677,6 @@ namespace NoUITowaShop.Module.Order
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.TableLayoutPanel tbPanelLFooter;
         private System.Windows.Forms.Label lbErrorMessage;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.NumericUpDown txtTotal;
-        private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.GroupBox gbStatus;
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.GroupBox gbPaymentMethod ;
@@ -618,5 +691,19 @@ namespace NoUITowaShop.Module.Order
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lbSearch;
+        private System.Windows.Forms.GroupBox gbReviewBill;
+        private System.Windows.Forms.DataGridView dgvOrderDetailsList;
+        private System.Windows.Forms.GroupBox gbRecentRecord;
+        private System.Windows.Forms.DataGridView dgvOrderList;
+        private System.Windows.Forms.TableLayoutPanel tableOrderList;
+        private System.Windows.Forms.TableLayoutPanel tbStatistical;
+        private System.Windows.Forms.Label lbTotal_Number;
+        private System.Windows.Forms.Label lbNumber__Sold;
+        private System.Windows.Forms.Label lbTotalNumber;
+        private System.Windows.Forms.Label lbNumber_Paid;
+        private System.Windows.Forms.Label lbNumber_Profit;
+        private System.Windows.Forms.Label lbPaid;
+        private System.Windows.Forms.Label lbSupplied;
+        private System.Windows.Forms.Label lbSold;
     }
 }

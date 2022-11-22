@@ -39,7 +39,7 @@ namespace TOWALibrary.Repositories.Inventory.Products
                     command.CreateDbParameter("@VAT", DbType.Double, model.VAT);
                     command.CreateDbParameter("@STATUS", DbType.String, model.Status);
                     command.CreateDbParameter("@PC_CATEID", DbType.Int32, model.Category.CATEID);
-                    command.CreateDbParameter("@PC_CATEID", DbType.String, model.Supplier.SLID);
+                    command.CreateDbParameter("@PS_SLID", DbType.String, model.Supplier.SLID);
 
                     command.ExecuteNonQuery();
 
@@ -211,7 +211,7 @@ namespace TOWALibrary.Repositories.Inventory.Products
                 command.CommandText = "spProduct_UpdateProductOrder";
                 command.CommandType = CommandType.StoredProcedure;
 
-                command.CreateDbParameter("@OD_OID", DbType.String, PID);
+                command.CreateDbParameter("@OD_PID", DbType.String, PID);
                 command.CreateDbParameter("@OLD_QUANTITY", DbType.String, oldQuanity);
                 command.CreateDbParameter("@NEW_QUANTITY", DbType.String, newQuantity);
 
@@ -227,7 +227,7 @@ namespace TOWALibrary.Repositories.Inventory.Products
                 command.CommandText = "spProduct_UpdateProductStock";
                 command.CommandType = CommandType.StoredProcedure;
 
-                command.CreateDbParameter("@OD_OID", DbType.String, PID);
+                command.CreateDbParameter("@OD_PID", DbType.String, PID);
                 command.CreateDbParameter("@OLD_QUANTITY", DbType.String, oldQuanity);
                 command.CreateDbParameter("@NEW_QUANTITY", DbType.String, newQuantity);
 

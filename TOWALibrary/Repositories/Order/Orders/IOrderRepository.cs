@@ -7,11 +7,11 @@ using TOWALibrary.Models.Order.Orders;
 
 namespace TOWALibrary.Repositories.Order.Orders
 {
-   public interface IOrderRepository
+   public interface IOrderRepository 
     {
         ICollection<OrderModel> GetAll();
         ICollection<OrderModel> GetByValue(string value);
-        void Update(OrderModel model);
+        void Update(OrderModel oldModel, OrderModel model);
         void Add(OrderModel model);
 
     }

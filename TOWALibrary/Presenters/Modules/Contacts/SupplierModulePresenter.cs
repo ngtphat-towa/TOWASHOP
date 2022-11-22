@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TOWALibrary.Models.Contact.Suppliers;
 using TOWALibrary.Repositories.Contacts.Suppliers;
+using TOWALibrary.Services.CommonServices;
+using TOWALibrary.Services.ModelServices.SupplierServices;
 using TOWALibrary.Views.ModuleViews.Contacts;
 
 namespace TOWALibrary.Presenters.Modules.Contacts
@@ -13,14 +15,13 @@ namespace TOWALibrary.Presenters.Modules.Contacts
     public class SupplierModulePresenter
     {
         private readonly ISupplierModuleView view;
-        private readonly ISupplierRepository repository;
-        private readonly BindingSource suppliersBindingSource;
+        private readonly ISupplierModelServices supplierModelServices = ServicesManager.SupplierModelServices;
+        private  BindingSource suppliersBindingSource;
         private ICollection<SupplierModel> supplierList;
 
-        public SupplierModulePresenter(ISupplierModuleView view, ISupplierRepository repository)
+        public SupplierModulePresenter(ISupplierModuleView view)
         {
             this.view = view;
-            this.repository = repository;
             this.suppliersBindingSource = new BindingSource();
             //Wire up event handler methods to view events
             this.view.SearchEvent += SearchSupplier;
@@ -32,17 +33,12 @@ namespace TOWALibrary.Presenters.Modules.Contacts
             //Set binding source
             this.view.SetListViewBindingSource(suppliersBindingSource);
             LoadAllSupplierList();
-            //Show view
-            this.view.Show();
         }
 
         private void LoadAllSupplierList()
         {
-            supplierList = repository.GetAll();
+            supplierList = supplierModelServices.GetAll();
             suppliersBindingSource.DataSource = supplierList;
-            
-
-
         }
 
         private void CancelAction(object sender, EventArgs e)
@@ -52,28 +48,29 @@ namespace TOWALibrary.Presenters.Modules.Contacts
 
         private void SaveSupplier(object sender, EventArgs e)
         {
-            var model = new SupplierModel
-            {
-                SLID = view.SLID,
-                SupplierName = view.SupplierName,
-                ContactName = view.ContactName,
-                ContactPhone = view.ContactPhone,
-                Address = view.Address,
-                City = view.City,
-                Country = view.Country,
-                Content = view.Content
-            };
+
             try
             {
-                // TODO - Vailidate the model 
+                var model = new SupplierModel
+                {
+                    SLID = view.SLID,
+                    SupplierName = view.SupplierName,
+                    ContactName = view.ContactName,
+                    ContactPhone = view.ContactPhone,
+                    Address = view.Address,
+                    City = view.City,
+                    Country = view.Country,
+                    Content = view.Content
+                };
+                supplierModelServices.ValidateModel(model);
                 if (view.IsEdit == true)
                 {
-                    repository.Update(model);
+                    supplierModelServices.Update(model);
                     view.Message = "Supplier updated successfully!";
                 }
                 else
                 {
-                    repository.Add(model);
+                    supplierModelServices.Add(model);
                     view.Message = "Supplier added successfully!";
                 }
                 view.IsSuccessful = true;
@@ -93,7 +90,7 @@ namespace TOWALibrary.Presenters.Modules.Contacts
             try
             {
                 var model = (SupplierModel)suppliersBindingSource.Current;
-                repository.Delete(model.SLID);
+                supplierModelServices.Delete(model.SLID);
                 view.IsSuccessful = true;
                 view.Message = "Supplier deleted successfully";
                 LoadAllSupplierList();
@@ -127,10 +124,7 @@ namespace TOWALibrary.Presenters.Modules.Contacts
         private void SearchSupplier(object sender, EventArgs e)
         {
             bool emptyValue = string.IsNullOrEmpty(this.view.SearchValue);
-            if (emptyValue == false)
-                supplierList = repository.GetByValue(this.view.SearchValue);
-            else
-                supplierList = repository.GetAll();
+                supplierList = supplierModelServices.GetByValue(this.view.SearchValue);
             suppliersBindingSource.DataSource = supplierList;
         }
         private void CleanViewFeilds()

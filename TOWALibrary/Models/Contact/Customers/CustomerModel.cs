@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,33 +31,55 @@ namespace TOWALibrary.Models.Contact.Customers
 
         #region Display Attribute
 
-        [DisplayName("Customer ID")]
+        [DisplayName("#Customer ID")]
         public string CTID { get => _CTID; set => _CTID = value; }
-        [DisplayName("CID")]
+        [DisplayName("Citizen ID")]
+        [StringLength(11, ErrorMessage = "The maximum length of the CID is 11 characters!")]
+
         public string CID { get => _CID; set => _CID = value; }
+
         [DisplayName("Full Name")]
         public string FullName { get => string.Concat(FirstName, LastName); }
+        
         [DisplayName("Phone")]
+        [StringLength(20, ErrorMessage = "The maximum length of phone number is 20 characters!")]
         public string ContactPhone { get => contactPhone; set => contactPhone = value; }
+        
         [DisplayName("Address")]
         public string FullAddress { get => String.Join(", ", Address, City, Country); }
+
+        [DisplayName("Comment")]
+        [StringLength(255, ErrorMessage = "The maximum length of the comment is 255 characters!")]
+        public string Content { get => content; set => content = value; }
 
         #endregion
 
         #region Non-Display Attribute
 
+     
+
+
         [Browsable(false)]
+        [Required( ErrorMessage = "First name is required")]
+        [StringLength(15, ErrorMessage = "The maximum length of the first name is 15 characters!")]
         public string FirstName { get => firstName; set => firstName = value; }
+       
         [Browsable(false)]
+        [Required( ErrorMessage = "Last name is required")]
+        [StringLength(15, ErrorMessage = "The maximum length of the last name is 15 characters!")]
         public string LastName { get => lastName; set => lastName = value; }
+
         [Browsable(false)]
+        [StringLength(50, ErrorMessage = "The maximum length of the address is 50 characters!")]
         public string Address { get => address; set => address = value; }
+        
         [Browsable(false)]
+        [StringLength(20, ErrorMessage = "The maximum length of the city name is 20 characters!")]
         public string City { get => city; set => city = value; }
+        
         [Browsable(false)]
+        [StringLength(20, ErrorMessage = "The maximum length of the country name is 20 characters!")]
         public string Country { get => country; set => country = value; }
-        [Browsable(false)]
-        public string Content { get => content; set => content = value; }
 
         #endregion
 

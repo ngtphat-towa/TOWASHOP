@@ -9,7 +9,7 @@ using TOWALibrary.Models.Order.Orders;
 
 namespace TOWALibrary.Models.Order.OrderType
 {
-   public class CustomerOrderModel: OrderModel
+   public class CustomerOrderModel: OrderModel, ICustomerOrder
     {
         #region Constructor
         public CustomerOrderModel()

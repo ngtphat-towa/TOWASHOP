@@ -44,6 +44,8 @@ namespace NoUITowaShop.Module.Contact
             this.lbSLHeader = new System.Windows.Forms.Label();
             this.tabDefine = new System.Windows.Forms.TabPage();
             this.tbPanelDFFooter = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.tbPanelSLAdress = new System.Windows.Forms.TableLayoutPanel();
             this.gpAddressInfo = new System.Windows.Forms.GroupBox();
             this.lbContry = new System.Windows.Forms.Label();
@@ -54,9 +56,9 @@ namespace NoUITowaShop.Module.Contact
             this.lbAddress = new System.Windows.Forms.Label();
             this.panelOption = new System.Windows.Forms.Panel();
             this.gbComent = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtContent = new System.Windows.Forms.TextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tbPanelSLInfo = new System.Windows.Forms.TableLayoutPanel();
             this.gbContactInfo = new System.Windows.Forms.GroupBox();
             this.lbPhone = new System.Windows.Forms.Label();
@@ -81,6 +83,8 @@ namespace NoUITowaShop.Module.Contact
             this.gpAddressInfo.SuspendLayout();
             this.panelOption.SuspendLayout();
             this.gbComent.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.tbPanelSLInfo.SuspendLayout();
             this.gbContactInfo.SuspendLayout();
             this.gbSupplierInfo.SuspendLayout();
@@ -228,7 +232,7 @@ namespace NoUITowaShop.Module.Contact
             // 
             // tbPanelSLFooter
             // 
-            this.tbPanelSLFooter.BackColor = System.Drawing.Color.Navy;
+            this.tbPanelSLFooter.BackColor = System.Drawing.Color.CornflowerBlue;
             this.tbPanelSLFooter.ColumnCount = 3;
             this.tbPanelSLFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbPanelSLFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.39233F));
@@ -243,7 +247,7 @@ namespace NoUITowaShop.Module.Contact
             // 
             // tbPanelSLList
             // 
-            this.tbPanelSLList.BackColor = System.Drawing.Color.DarkBlue;
+            this.tbPanelSLList.BackColor = System.Drawing.Color.CornflowerBlue;
             this.tbPanelSLList.ColumnCount = 3;
             this.tbPanelSLList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbPanelSLList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.39233F));
@@ -285,18 +289,42 @@ namespace NoUITowaShop.Module.Contact
             // 
             // tbPanelDFFooter
             // 
-            this.tbPanelDFFooter.BackColor = System.Drawing.Color.Navy;
+            this.tbPanelDFFooter.BackColor = System.Drawing.Color.CornflowerBlue;
             this.tbPanelDFFooter.ColumnCount = 3;
             this.tbPanelDFFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbPanelDFFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.39233F));
             this.tbPanelDFFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbPanelDFFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbPanelDFFooter.Location = new System.Drawing.Point(3, 574);
+            this.tbPanelDFFooter.Location = new System.Drawing.Point(3, 569);
             this.tbPanelDFFooter.Name = "tbPanelDFFooter";
             this.tbPanelDFFooter.RowCount = 1;
             this.tbPanelDFFooter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbPanelDFFooter.Size = new System.Drawing.Size(1186, 34);
+            this.tbPanelDFFooter.Size = new System.Drawing.Size(1186, 35);
             this.tbPanelDFFooter.TabIndex = 4;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSave.Location = new System.Drawing.Point(3, 3);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(220, 35);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(229, 3);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(220, 35);
+            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // tbPanelSLAdress
             // 
@@ -307,14 +335,14 @@ namespace NoUITowaShop.Module.Contact
             this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.30131F));
             this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.69869F));
-            this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tbPanelSLAdress.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tbPanelSLAdress.Controls.Add(this.gpAddressInfo, 1, 0);
             this.tbPanelSLAdress.Controls.Add(this.panelOption, 2, 0);
             this.tbPanelSLAdress.Location = new System.Drawing.Point(3, 229);
             this.tbPanelSLAdress.Name = "tbPanelSLAdress";
             this.tbPanelSLAdress.RowCount = 1;
             this.tbPanelSLAdress.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbPanelSLAdress.Size = new System.Drawing.Size(1186, 286);
+            this.tbPanelSLAdress.Size = new System.Drawing.Size(1186, 317);
             this.tbPanelSLAdress.TabIndex = 2;
             // 
             // gpAddressInfo
@@ -331,7 +359,7 @@ namespace NoUITowaShop.Module.Contact
             this.gpAddressInfo.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpAddressInfo.Location = new System.Drawing.Point(23, 3);
             this.gpAddressInfo.Name = "gpAddressInfo";
-            this.gpAddressInfo.Size = new System.Drawing.Size(673, 280);
+            this.gpAddressInfo.Size = new System.Drawing.Size(671, 311);
             this.gpAddressInfo.TabIndex = 1;
             this.gpAddressInfo.TabStop = false;
             this.gpAddressInfo.Text = "Address info";
@@ -353,7 +381,7 @@ namespace NoUITowaShop.Module.Contact
             this.txtCountry.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCountry.Location = new System.Drawing.Point(23, 236);
             this.txtCountry.Name = "txtCountry";
-            this.txtCountry.Size = new System.Drawing.Size(637, 37);
+            this.txtCountry.Size = new System.Drawing.Size(635, 37);
             this.txtCountry.TabIndex = 4;
             // 
             // lbCity
@@ -373,7 +401,7 @@ namespace NoUITowaShop.Module.Contact
             this.txtCity.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCity.Location = new System.Drawing.Point(23, 164);
             this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(637, 37);
+            this.txtCity.Size = new System.Drawing.Size(635, 37);
             this.txtCity.TabIndex = 2;
             // 
             // txtAddress
@@ -384,7 +412,7 @@ namespace NoUITowaShop.Module.Contact
             this.txtAddress.Location = new System.Drawing.Point(23, 66);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(637, 62);
+            this.txtAddress.Size = new System.Drawing.Size(635, 62);
             this.txtAddress.TabIndex = 1;
             // 
             // lbAddress
@@ -403,57 +431,65 @@ namespace NoUITowaShop.Module.Contact
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelOption.Controls.Add(this.gbComent);
-            this.panelOption.Controls.Add(this.btnCancel);
-            this.panelOption.Controls.Add(this.btnSave);
-            this.panelOption.Location = new System.Drawing.Point(702, 3);
+            this.panelOption.Location = new System.Drawing.Point(700, 3);
             this.panelOption.Name = "panelOption";
-            this.panelOption.Size = new System.Drawing.Size(459, 280);
+            this.panelOption.Size = new System.Drawing.Size(458, 311);
             this.panelOption.TabIndex = 4;
             // 
             // gbComent
             // 
-            this.gbComent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbComent.Controls.Add(this.txtContent);
+            this.gbComent.Controls.Add(this.tableLayoutPanel1);
+            this.gbComent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbComent.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold);
-            this.gbComent.Location = new System.Drawing.Point(3, 3);
+            this.gbComent.Location = new System.Drawing.Point(0, 0);
+            this.gbComent.Margin = new System.Windows.Forms.Padding(0);
             this.gbComent.Name = "gbComent";
-            this.gbComent.Size = new System.Drawing.Size(456, 195);
+            this.gbComent.Size = new System.Drawing.Size(458, 311);
             this.gbComent.TabIndex = 3;
             this.gbComent.TabStop = false;
             this.gbComent.Text = "Comment";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.txtContent, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 33);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.09091F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.90909F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(452, 275);
+            this.tableLayoutPanel1.TabIndex = 4;
             // 
             // txtContent
             // 
             this.txtContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtContent.Location = new System.Drawing.Point(6, 36);
+            this.txtContent.Location = new System.Drawing.Point(3, 3);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(447, 153);
+            this.txtContent.Size = new System.Drawing.Size(446, 228);
             this.txtContent.TabIndex = 0;
             // 
-            // btnCancel
+            // tableLayoutPanel2
             // 
-            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnCancel.Location = new System.Drawing.Point(35, 218);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(191, 45);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSave.Location = new System.Drawing.Point(252, 218);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(182, 45);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.btnCancel, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnSave, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 234);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(452, 41);
+            this.tableLayoutPanel2.TabIndex = 1;
             // 
             // tbPanelSLInfo
             // 
@@ -461,7 +497,7 @@ namespace NoUITowaShop.Module.Contact
             this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.38865F));
             this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.61135F));
-            this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tbPanelSLInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tbPanelSLInfo.Controls.Add(this.gbContactInfo, 2, 0);
             this.tbPanelSLInfo.Controls.Add(this.gbSupplierInfo, 1, 0);
             this.tbPanelSLInfo.Dock = System.Windows.Forms.DockStyle.Top;
@@ -483,9 +519,9 @@ namespace NoUITowaShop.Module.Contact
             this.gbContactInfo.Controls.Add(this.txtContactName);
             this.gbContactInfo.Controls.Add(this.lbContactName);
             this.gbContactInfo.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbContactInfo.Location = new System.Drawing.Point(703, 3);
+            this.gbContactInfo.Location = new System.Drawing.Point(701, 3);
             this.gbContactInfo.Name = "gbContactInfo";
-            this.gbContactInfo.Size = new System.Drawing.Size(458, 180);
+            this.gbContactInfo.Size = new System.Drawing.Size(457, 180);
             this.gbContactInfo.TabIndex = 1;
             this.gbContactInfo.TabStop = false;
             this.gbContactInfo.Text = "Contact Info";
@@ -507,7 +543,7 @@ namespace NoUITowaShop.Module.Contact
             this.txtContactPhone.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContactPhone.Location = new System.Drawing.Point(11, 134);
             this.txtContactPhone.Name = "txtContactPhone";
-            this.txtContactPhone.Size = new System.Drawing.Size(432, 37);
+            this.txtContactPhone.Size = new System.Drawing.Size(431, 37);
             this.txtContactPhone.TabIndex = 6;
             // 
             // txtContactName
@@ -517,7 +553,7 @@ namespace NoUITowaShop.Module.Contact
             this.txtContactName.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContactName.Location = new System.Drawing.Point(11, 61);
             this.txtContactName.Name = "txtContactName";
-            this.txtContactName.Size = new System.Drawing.Size(432, 37);
+            this.txtContactName.Size = new System.Drawing.Size(431, 37);
             this.txtContactName.TabIndex = 5;
             // 
             // lbContactName
@@ -542,7 +578,7 @@ namespace NoUITowaShop.Module.Contact
             this.gbSupplierInfo.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSupplierInfo.Location = new System.Drawing.Point(23, 3);
             this.gbSupplierInfo.Name = "gbSupplierInfo";
-            this.gbSupplierInfo.Size = new System.Drawing.Size(674, 180);
+            this.gbSupplierInfo.Size = new System.Drawing.Size(672, 180);
             this.gbSupplierInfo.TabIndex = 0;
             this.gbSupplierInfo.TabStop = false;
             this.gbSupplierInfo.Text = "Supplier Info";
@@ -564,7 +600,7 @@ namespace NoUITowaShop.Module.Contact
             this.txtSupplierName.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSupplierName.Location = new System.Drawing.Point(10, 132);
             this.txtSupplierName.Name = "txtSupplierName";
-            this.txtSupplierName.Size = new System.Drawing.Size(638, 37);
+            this.txtSupplierName.Size = new System.Drawing.Size(636, 37);
             this.txtSupplierName.TabIndex = 2;
             // 
             // txtSLID
@@ -575,7 +611,7 @@ namespace NoUITowaShop.Module.Contact
             this.txtSLID.Location = new System.Drawing.Point(10, 59);
             this.txtSLID.Name = "txtSLID";
             this.txtSLID.ReadOnly = true;
-            this.txtSLID.Size = new System.Drawing.Size(638, 37);
+            this.txtSLID.Size = new System.Drawing.Size(636, 37);
             this.txtSLID.TabIndex = 1;
             this.txtSLID.Text = "SL000000";
             // 
@@ -591,7 +627,7 @@ namespace NoUITowaShop.Module.Contact
             // 
             // tbpanelHheader
             // 
-            this.tbpanelHheader.BackColor = System.Drawing.Color.DarkBlue;
+            this.tbpanelHheader.BackColor = System.Drawing.Color.CornflowerBlue;
             this.tbpanelHheader.ColumnCount = 3;
             this.tbpanelHheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.30383F));
             this.tbpanelHheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.39233F));
@@ -642,7 +678,9 @@ namespace NoUITowaShop.Module.Contact
             this.gpAddressInfo.PerformLayout();
             this.panelOption.ResumeLayout(false);
             this.gbComent.ResumeLayout(false);
-            this.gbComent.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.tbPanelSLInfo.ResumeLayout(false);
             this.tbPanelSLInfo.PerformLayout();
             this.gbContactInfo.ResumeLayout(false);
@@ -697,5 +735,7 @@ namespace NoUITowaShop.Module.Contact
         private System.Windows.Forms.GroupBox gbComent;
         private System.Windows.Forms.TextBox txtContent;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }

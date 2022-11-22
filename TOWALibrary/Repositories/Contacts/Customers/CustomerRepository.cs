@@ -9,7 +9,6 @@ using TOWALibrary.Repositories.Helpers;
 
 namespace TOWALibrary.Repositories.Contacts.Customers
 {
-    // TODO - implement this 
     public class CustomerRepository : ICustomerRepository
     {
         public void Add(CustomerModel model)
@@ -68,7 +67,7 @@ namespace TOWALibrary.Repositories.Contacts.Customers
                         {
                             models.Add(new CustomerModel
                             {
-                                CTID = Convert.ToString(reader["SUPPLIERID"]),
+                                CTID = Convert.ToString(reader["CUSTOMERID"]),
                                 CID = Convert.ToString(reader["CID"]),
                                 FirstName = Convert.ToString(reader["FIRST_NAME"]),
                                 LastName = Convert.ToString(reader["LAST_NAME"]),

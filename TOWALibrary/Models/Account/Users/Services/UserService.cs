@@ -13,52 +13,52 @@ namespace TOWALibrary.Models.Accounts.Users.Services
 {
     public class UserServie : IUserService
     {
-       private int roleID;
-        public MainViewType GetRoleView()
-        {
-            switch (roleID)
-            {
-                case 1:
-                    return MainViewType.Admin;
-                    
-                case 2:
-                    return MainViewType.Manager;
-                case 3:
-                    return MainViewType.Employee;
-                default:
-                    return MainViewType.Employee;
-            }
-            
-        }
+        //   private int roleID;
+        //    public MainViewType GetRoleView()
+        //    {
+        //        switch (roleID)
+        //        {
+        //            case 1:
+        //                return MainViewType.Admin;
 
-        public bool Validate(string username, string password)
-        {
-            if (String.IsNullOrEmpty(username) && String.IsNullOrWhiteSpace(password))
-            {
-                throw new Exception("Please enter the username and password");
-            }
+        //            case 2:
+        //                return MainViewType.Manager;
+        //            case 3:
+        //                return MainViewType.Employee;
+        //            default:
+        //                return MainViewType.Employee;
+        //        }
 
-            IAccountRepository repository = DBManager.AccountRepository;
-            // TODO - Improve this to have password hash
-            AccountModel  model =repository.GetAccountByUsername(username);
-            bool result;
-            if (model != null)
-            {
-                if (model.PasswordHash.Equals(password))
-                {
-                    result = true;
-                    roleID = model.RoleID;
-                }
-                else
-                {
-                    throw new Exception("Username or password is incorrect");
-                }
-            }
-            else
-            {
-                throw new Exception("The input username does not exits!");
-            }
-            return result;
-        }
+        //    }
+
+        //    public bool Validate(string username, string password)
+        //    {
+        //        if (String.IsNullOrEmpty(username) && String.IsNullOrWhiteSpace(password))
+        //        {
+        //            throw new Exception("Please enter the username and password");
+        //        }
+
+        //        IAccountRepository repository = DBManager.AccountRepository;
+        //        // TODO - Improve this to have password hash
+        //        AccountModel  model =repository.GetAccountByUsername(username);
+        //        bool result;
+        //        if (model != null)
+        //        {
+        //            if (model.PasswordHash.Equals(password))
+        //            {
+        //                result = true;
+        //                roleID = model.RoleID;
+        //            }
+        //            else
+        //            {
+        //                throw new Exception("Username or password is incorrect");
+        //            }
+        //        }
+        //        else
+        //        {
+        //            throw new Exception("The input username does not exits!");
+        //        }
+        //        return result;
+        //    }
     }
 }

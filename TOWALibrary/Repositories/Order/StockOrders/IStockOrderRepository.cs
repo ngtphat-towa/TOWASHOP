@@ -10,10 +10,8 @@ namespace TOWALibrary.Repositories.Order.SupplyOrders
     public interface IStockOrderRepository
     {
         ICollection<StockOrderModel> GetAll();
-        void Update(StockOrderModel model);
+        void Update(StockOrderModel oldModel,StockOrderModel model);
         void Add(StockOrderModel model);
         ICollection<StockOrderModel> GetByValue(string value );
-
-
     }
 }
