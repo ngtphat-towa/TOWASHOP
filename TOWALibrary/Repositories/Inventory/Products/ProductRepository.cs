@@ -97,7 +97,7 @@ namespace TOWALibrary.Repositories.Inventory.Products
                                 UnitOnOrder = Convert.ToInt16(reader["UNIT_ON_ORDER"]),
                                 VAT = Convert.ToDouble(reader["VAT"]),
                                 Status = Convert.ToString(reader["STATUS"]),
-                                Content = Convert.ToString(reader["CONTENT"]),
+                                Content = Convert.ToString(reader["CONTENT"])
                                 
                             };
                             int CID = Convert.ToInt32(reader["PC_CATEID"]);
@@ -197,6 +197,7 @@ namespace TOWALibrary.Repositories.Inventory.Products
                     command.CreateDbParameter("@STATUS", DbType.String, model.Status);
                     command.CreateDbParameter("@PC_CATEID", DbType.Int32, model.Category.CATEID);
                     command.CreateDbParameter("@PS_SLID", DbType.String, model.Supplier.SLID);
+                    command.CreateDbParameter("@CONTENT", DbType.String, model.Content);
 
                     command.ExecuteNonQuery();
 

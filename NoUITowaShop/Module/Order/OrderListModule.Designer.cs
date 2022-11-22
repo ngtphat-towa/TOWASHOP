@@ -135,7 +135,7 @@ namespace NoUITowaShop.Module.Order
             this.cbPaymentMethod.FormattingEnabled = true;
             this.cbPaymentMethod.Location = new System.Drawing.Point(6, 25);
             this.cbPaymentMethod.Name = "cbPaymentMethod";
-            this.cbPaymentMethod.Size = new System.Drawing.Size(133, 31);
+            this.cbPaymentMethod.Size = new System.Drawing.Size(133, 28);
             this.cbPaymentMethod.TabIndex = 0;
             // 
             // gbStatus
@@ -162,7 +162,7 @@ namespace NoUITowaShop.Module.Order
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(6, 25);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(133, 31);
+            this.cbStatus.Size = new System.Drawing.Size(133, 28);
             this.cbStatus.TabIndex = 0;
             // 
             // gbOptions
@@ -188,11 +188,11 @@ namespace NoUITowaShop.Module.Order
             this.tbOptionBtn.Controls.Add(this.btnEdit, 1, 0);
             this.tbOptionBtn.Controls.Add(this.btnNew, 0, 0);
             this.tbOptionBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbOptionBtn.Location = new System.Drawing.Point(3, 23);
+            this.tbOptionBtn.Location = new System.Drawing.Point(3, 19);
             this.tbOptionBtn.Name = "tbOptionBtn";
             this.tbOptionBtn.RowCount = 1;
             this.tbOptionBtn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbOptionBtn.Size = new System.Drawing.Size(318, 37);
+            this.tbOptionBtn.Size = new System.Drawing.Size(318, 41);
             this.tbOptionBtn.TabIndex = 0;
             // 
             // btnRefresh
@@ -206,7 +206,7 @@ namespace NoUITowaShop.Module.Order
             this.btnRefresh.ForeColor = System.Drawing.SystemColors.Control;
             this.btnRefresh.Location = new System.Drawing.Point(215, 3);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(100, 31);
+            this.btnRefresh.Size = new System.Drawing.Size(100, 35);
             this.btnRefresh.TabIndex = 2;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = false;
@@ -222,7 +222,7 @@ namespace NoUITowaShop.Module.Order
             this.btnEdit.ForeColor = System.Drawing.SystemColors.Control;
             this.btnEdit.Location = new System.Drawing.Point(109, 3);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(100, 31);
+            this.btnEdit.Size = new System.Drawing.Size(100, 35);
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Modify";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -238,7 +238,7 @@ namespace NoUITowaShop.Module.Order
             this.btnNew.ForeColor = System.Drawing.SystemColors.Control;
             this.btnNew.Location = new System.Drawing.Point(3, 3);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(100, 31);
+            this.btnNew.Size = new System.Drawing.Size(100, 35);
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "Add";
             this.btnNew.UseVisualStyleBackColor = false;
@@ -268,7 +268,7 @@ namespace NoUITowaShop.Module.Order
             this.datePickerTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datePickerTo.Location = new System.Drawing.Point(0, 23);
             this.datePickerTo.Name = "datePickerTo";
-            this.datePickerTo.Size = new System.Drawing.Size(189, 29);
+            this.datePickerTo.Size = new System.Drawing.Size(189, 25);
             this.datePickerTo.TabIndex = 0;
             // 
             // gbDateFrom
@@ -297,7 +297,7 @@ namespace NoUITowaShop.Module.Order
             this.datePickerFrom.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.datePickerFrom.Location = new System.Drawing.Point(0, 23);
             this.datePickerFrom.Name = "datePickerFrom";
-            this.datePickerFrom.Size = new System.Drawing.Size(204, 29);
+            this.datePickerFrom.Size = new System.Drawing.Size(204, 25);
             this.datePickerFrom.TabIndex = 0;
             // 
             // gbOrderType
@@ -324,7 +324,7 @@ namespace NoUITowaShop.Module.Order
             this.cbOrderType.FormattingEnabled = true;
             this.cbOrderType.Location = new System.Drawing.Point(6, 25);
             this.cbOrderType.Name = "cbOrderType";
-            this.cbOrderType.Size = new System.Drawing.Size(133, 31);
+            this.cbOrderType.Size = new System.Drawing.Size(133, 28);
             this.cbOrderType.TabIndex = 0;
             // 
             // lbErrorMessage
@@ -333,9 +333,9 @@ namespace NoUITowaShop.Module.Order
             this.lbErrorMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbErrorMessage.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbErrorMessage.ForeColor = System.Drawing.Color.DarkRed;
-            this.lbErrorMessage.Location = new System.Drawing.Point(661, 0);
+            this.lbErrorMessage.Location = new System.Drawing.Point(659, 0);
             this.lbErrorMessage.Name = "lbErrorMessage";
-            this.lbErrorMessage.Size = new System.Drawing.Size(0, 20);
+            this.lbErrorMessage.Size = new System.Drawing.Size(0, 16);
             this.lbErrorMessage.TabIndex = 13;
             // 
             // txtSearch
@@ -346,7 +346,7 @@ namespace NoUITowaShop.Module.Order
             this.txtSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(115, 3);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(405, 33);
+            this.txtSearch.Size = new System.Drawing.Size(404, 28);
             this.txtSearch.TabIndex = 0;
             // 
             // tbPanelLFooter
@@ -370,7 +370,7 @@ namespace NoUITowaShop.Module.Order
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.07317F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.41033F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.5165F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 541F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 542F));
             this.tableLayoutPanel3.Controls.Add(this.btnSearch, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.txtSearch, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.lbSearch, 0, 0);
@@ -392,9 +392,9 @@ namespace NoUITowaShop.Module.Order
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSearch.Location = new System.Drawing.Point(526, 3);
+            this.btnSearch.Location = new System.Drawing.Point(525, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(129, 30);
+            this.btnSearch.Size = new System.Drawing.Size(128, 30);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Find";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -635,7 +635,7 @@ namespace NoUITowaShop.Module.Order
             // 
             // OrderListModule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 640);
             this.Controls.Add(this.tableLayoutPanel3);

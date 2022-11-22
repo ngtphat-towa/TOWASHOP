@@ -29,24 +29,24 @@ namespace SimpleUITowaShop
             Application.SetCompatibleTextRenderingDefault(false);
 
             #region Start with login form 
-            DBManager.InitializeConnections(DataProvider.SQLServer);
+            //DBManager.InitializeConnections(DataProvider.SQLServer);
 
-            ILoginView loginView = LoginForm.Instance;
+            //ILoginView loginView = LoginForm.Instance;
 
-            MainViewNavigator.SetMainView(DashboardForm.Instance, CashierForm.Instance);
+            //MainViewNavigator.SetMainView(DashboardForm.Instance, CashierForm.Instance);
 
 
-            Application.Run((Form)loginView);
+            //Application.Run((Form)loginView);
 
             #endregion
 
-            //StartWithDashboard();
+            StartWithDashboard();
             //StartWithForm();
         }
 
         private static void StartWithDashboard()
         {
-            DBManager.InitializeConnections(DataProvider.SQLServer);
+            DBManager.InitializeConnections(DataProvider.MySQL);
 
             IAdminView view = DashboardForm.Instance;
 
