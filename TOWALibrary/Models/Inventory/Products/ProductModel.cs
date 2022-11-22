@@ -31,6 +31,22 @@ namespace TOWALibrary.Models.Inventory.Products
         public string PID { get => _PID; set => _PID = value; }
         [DisplayName("Name")]
         public string ProductName { get => productName; set => productName = value; }
+        [DisplayName("Suplier")]
+        public string SupplierName
+        {
+            get
+            {
+                return Supplier.SupplierName;
+            }
+        }
+        [DisplayName("Category")]
+        public string CategoryName
+        {
+            get
+            {
+                return Category.CategoryName;
+            }
+        }
         [DisplayName ("Barcode")]
         [Browsable(false)]
         public string Barcode { get => barcode; set => barcode = value; }
@@ -51,22 +67,7 @@ namespace TOWALibrary.Models.Inventory.Products
         [Browsable(false)]
         [DisplayName("Content")]
         public string Content { get => content; set => content = value; }
-        [DisplayName("Suplier")]
-        public string SupplierName
-        {
-            get
-            {
-                return Supplier.SupplierName;
-            }
-        }
-        [DisplayName("Category")]
-        public string CategoryName
-        {
-            get
-            {
-                return Category.CategoryName;
-            }
-        }
+
         [Browsable(false)]
         public virtual SupplierModel Supplier { get; set; }
         [Browsable(false)]

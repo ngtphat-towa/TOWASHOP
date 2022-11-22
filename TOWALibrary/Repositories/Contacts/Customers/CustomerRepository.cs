@@ -9,7 +9,6 @@ using TOWALibrary.Repositories.Helpers;
 
 namespace TOWALibrary.Repositories.Contacts.Customers
 {
-    // TODO - implement this 
     public class CustomerRepository : ICustomerRepository
     {
         public void Add(CustomerModel model)

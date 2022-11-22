@@ -171,7 +171,6 @@ namespace TOWALibrary.Presenters.Modules.Orders.OrderDetails
                 current.Quantity = _view.QuantityValue;
                 current.Discount = _view.DiscountValue;
 
-                //TODO Update Status
                 if (_view.IsEditMode && _LoadOrderDetailModels.Any(p => p.OD_PID == current.OD_PID))
                     current.Status = OrderDetailStatus.Modify;
 

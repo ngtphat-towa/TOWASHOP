@@ -62,7 +62,7 @@ namespace TOWALibrary.Presenters.Modules.Contacts
                     Country = view.Country,
                     Content = view.Content
                 };
-                // TODO - Vailidate the model 
+                supplierModelServices.ValidateModel(model);
                 if (view.IsEdit == true)
                 {
                     supplierModelServices.Update(model);
