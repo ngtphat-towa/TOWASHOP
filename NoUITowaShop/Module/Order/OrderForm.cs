@@ -43,8 +43,9 @@ namespace NoUITowaShop.Module.Order
             };
             this.txtProductSearch.KeyDown +=(s,e)=> 
              {
+                 // TODO _thhs
                  if(e.KeyCode == Keys.Enter)
-                    this.BarcodeIDChangedEvent.Invoke(this, EventArgs.Empty);
+                    this.BarcodeIDChangedEvent?.Invoke(this, EventArgs.Empty);
              };
             this.Disposed += delegate
              {

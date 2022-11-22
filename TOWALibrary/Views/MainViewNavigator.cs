@@ -12,42 +12,37 @@ namespace TOWALibrary.Views
     public enum MainViewType
     {
         Admin,
-        Manager,
         Employee
     }
     public static class MainViewNavigator
     {
         #region Static MainView
-        private static  IManagerView managerView;
-        private static IEmployeeView employeeView;
-        private static IAdminView adminView;
+        private static IEmployeeView _employeeView;
+        private static IAdminView _adminView;
         #endregion
 
         #region Set up MainView
-        public static void SetMainView(IAdminView _adminView, IEmployeeView _employeeView=null, IManagerView _managerView = null)
+        public static void SetMainView(IAdminView adminView, IEmployeeView employeeView=null)
         {
-            adminView = _adminView;
-            managerView = _managerView;
-            employeeView = _employeeView;
+            _adminView = adminView;
+            _employeeView = employeeView;
         }
-        
 
-        public static void Navigate( this MainViewType role)
+        private static IMainView mainView;
+        public static IMainView GetMainView( this MainViewType role)
         {
             switch (role)
             {
                 case MainViewType.Admin:
-                   new AdminPresenter(adminView);
-                    break;
-                case MainViewType.Manager:
-                    
+                    mainView= _adminView;
                     break;
                 case MainViewType.Employee:
-                 
+                    mainView= _employeeView;
+                    break;
                 default:
                     break;
             }
-            
+            return mainView;
         }
         #endregion
     }

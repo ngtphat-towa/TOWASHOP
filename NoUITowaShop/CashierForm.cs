@@ -1,7 +1,5 @@
 ﻿using NoUITowaShop.Module.Contact;
-using NoUITowaShop.Module.Inventory;
 using NoUITowaShop.Module.Order;
-using NoUITowaShop.Module.Product;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,31 +10,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TOWALibrary.Presenters.MainViews;
-using TOWALibrary.Views;
 using TOWALibrary.Views.MainViews;
 using TOWALibrary.Views.ModuleViews.Contacts;
-using TOWALibrary.Views.ModuleViews.Inventory;
 using TOWALibrary.Views.ModuleViews.Orders;
 using TOWALibrary.Views.ModuleViews.Orders.OrderDetails;
 
-namespace SimpleUITowaShop
+namespace NoUITowaShop
 {
-    public partial class DashboardForm : Form,IAdminView
+    public partial class CashierForm : Form, IEmployeeView
     {
-        #region Contructor
-        private AdminPresenter presenter;
-        public DashboardForm()
+        private EmployeePresenter presenter;
+        public CashierForm()
         {
             InitializeComponent();
-            presenter = new AdminPresenter(this);
+            presenter = new EmployeePresenter(this);
+
             AssociateAndRaiseViewEvents();
         }
-        #endregion
-
         #region Wire Up MenuScrip
-        public event EventHandler ShowSupplierModuleView;
-        public event EventHandler ShowCategoryModuleView;
-        public event EventHandler ShowProductModuleView;
+
+      
         public event EventHandler ShowOrderListModuleView;
         public event EventHandler ShowOrderFormView;
         public event EventHandler ShowCustomerModuleView;
@@ -48,29 +41,18 @@ namespace SimpleUITowaShop
             {
                 LogoutEvent?.Invoke(this, EventArgs.Empty);
             };
-            this.supplierToolStripMenuItem.Click += delegate {
-                ShowSupplierModuleView?.Invoke(this,EventArgs.Empty);
-            };
             this.customerToolStripMenuItem.Click += delegate {
                 ShowCustomerModuleView?.Invoke(this, EventArgs.Empty);
-            };
-            this.categoriesToolStripMenuItem.Click += delegate
-             {
-                 ShowCategoryModuleView?.Invoke(this, EventArgs.Empty);
-             };
-            this.productsToolStripMenuItem.Click += delegate
-            {
-                ShowProductModuleView?.Invoke(this, EventArgs.Empty);
             };
             this.orderListToolStripMenuItem.Click += delegate
             {
                 ShowOrderListModuleView?.Invoke(this, EventArgs.Empty);
             };
             this.newOrderToolStripMenuItem.Click += delegate
-             {
-                 ShowOrderFormView?.Invoke(this, EventArgs.Empty);
-             };
-            this.FormClosing += (s,e) =>
+            {
+                ShowOrderFormView?.Invoke(this, EventArgs.Empty);
+            };
+            this.FormClosing += (s, e) =>
             {
                 if (e.CloseReason == CloseReason.UserClosing)
                 {
@@ -88,19 +70,7 @@ namespace SimpleUITowaShop
         #endregion
 
         #region Properties
-        public ISupplierModuleView SupplierModuleView
-        {
-            get => SupplierModule.GetInstance(this);
-            
-        }
-        public ICategoryModuleView CategoryModuleView
-        {
-            get => CategoryModule.GetInstance(this);
-        }
-        public IProductModuleView ProductModuleView
-        {
-            get => ProductModule.GetInstance(this);
-        }
+     
         public IOrderListMoudleView OrderListModuleView
         {
             get => OrderListModule.GetInstance(this);
@@ -115,26 +85,19 @@ namespace SimpleUITowaShop
         #endregion
 
         #region Singleton
-        private static IAdminView instance;
+        private static IEmployeeView instance;
 
-        public static IAdminView Instance
+        public static IEmployeeView Instance
         {
             get
             {
-                if ( instance==null || ((Form)instance).IsDisposed)
+                if (instance == null || ((Form)instance).IsDisposed)
                 {
-                    instance = new DashboardForm();
+                    instance = new CashierForm();
                 }
                 return instance;
             }
         }
-
-
-
-
-
-
         #endregion
-
     }
 }

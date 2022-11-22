@@ -55,15 +55,10 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Products
             _view.SaveEvent += SaveProduct;
             _view.CancelEvent += CancelAction;
 
-            LoadAllList();
             //Set binding source
-            _view.SetListViewBindingSource(_productBindingSource);
-            _view.SetCategoryList(_categoryBindingSource);
-            _view.SetSupplierList(_supplierBindingSource);
             //Set binding source for filter
-            _view.SetCategoryNameListBindingSource(_categoryNameBindingSource);
-            _view.SetSupplierNameListBindingSource(_supplierNameBiningSource);
             LoadAllList();
+   
 
         }
         #endregion
@@ -71,19 +66,38 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Products
 
         private void LoadAllList()
         {
-            _categoryBindingSource.DataSource = _categoryModelServices.GetAll().Select(c => new { ID = c.CATEID, Name = c.CategoryName });
-            _supplierBindingSource.DataSource = _supplierModelServices.GetAll().Select(c => new { ID = c.SLID, Name = c.SupplierName }); ;
-            // Load supplier list for filter
-            var supplierNameList = _supplierModelServices.GetAll().Select(p => new { ID = p.SLID, Name = p.SupplierName }).ToList();
-            supplierNameList.Insert(0, new { ID = "SL0", Name = "All" });
-            _supplierNameBiningSource.DataSource = supplierNameList;
-            // Load category list t for filter
-            var categoryList = _categoryModelServices.GetAll().Select(p => new { ID = p.CATEID, Name = p.CategoryName }).ToList();
-            categoryList.Insert(0, new { ID = 0, Name = "All" });
-            _categoryNameBindingSource.DataSource = categoryList;
+            LoadCategoryList();
+            LoadSupplierList();  
             // Load product list
             var productList = _productModelServices.GetAll().ToList();
             _productBindingSource.DataSource = productList;
+            _view.SetListViewBindingSource(_productBindingSource);
+
+        }
+
+        private void LoadSupplierList()
+        {
+            // Module
+            _supplierBindingSource.DataSource = _supplierModelServices.GetAll().Select(c => new { ID = c.SLID, Name = c.SupplierName }); ;
+            _view.SetSupplierList(_supplierBindingSource);
+            // Filter
+            var supplierNameList = _supplierModelServices.GetAll().Select(p => new { ID = p.SLID, Name = p.SupplierName }).ToList();
+            supplierNameList.Insert(0, new { ID = "SL0", Name = "All" });
+            _supplierNameBiningSource.DataSource = supplierNameList;
+            _view.SetSupplierNameListBindingSource(_supplierNameBiningSource);
+        }
+
+        private void LoadCategoryList()
+        {
+            // Module
+            _categoryBindingSource.DataSource = _categoryModelServices.GetAll().Select(c => new { ID = c.CATEID, Name = c.CategoryName });
+            _view.SetCategoryList(_categoryBindingSource);
+            // Filter
+            var categoryList = _categoryModelServices.GetAll().Select(p => new { ID = p.CATEID, Name = p.CategoryName }).ToList();
+            categoryList.Insert(0, new { ID = 0, Name = "All" });
+            _categoryNameBindingSource.DataSource = categoryList;
+            _view.SetCategoryNameListBindingSource(_categoryNameBindingSource);
+
         }
 
         private void LoadSelectedProductToEdit(object sender, EventArgs e)
@@ -147,7 +161,7 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Products
                     _view.Message = "Product added successfully!";
                 }
                 _view.IsSuccessful = true;
-                LoadAllProdcutList();
+                Refresh();
                 CleanViewFeilds();
 
             }
@@ -166,7 +180,7 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Products
                 _productModelServices.Delete(model.PID.ToString());
                 _view.IsSuccessful = true;
                 _view.Message = "Product deleted successfully";
-                LoadAllProdcutList();
+                Refresh();
             }
             catch (Exception)
             {
@@ -186,19 +200,21 @@ namespace TOWALibrary.Presenters.Modules.Inventory.Products
             if (_view.IsValueSearch)
                 SearchValue = _view.SearchValue;
 
+            var CID = Convert.ToInt32(_view.SelectedCIDName);
+            var SLID = _view.SelectedSLIDName;
             var productList = _productModelServices.GetByValue(SearchValue)
-                .Where(p => _view.SelectedCIDName == 0 || (p.Category.CATEID == _view.SelectedCIDName))
-                .Where(p => _view.SelectedSLIDName.Equals("SL0") || _view.SelectedSLIDName.Equals(p.Supplier.SLID)).ToList();
+                .Where(p => CID == 0 || (p.Category.CATEID == CID))
+                .Where(p => SLID.Equals("SL0") || SLID.Equals(p.Supplier.SLID)).ToList();
 
             _productBindingSource.DataSource = productList;
             _view.IsValueSearch = false;
         }
 
-        private void LoadAllProdcutList()
+        private void Refresh()
         {
-            _view.SearchValue = "";
-            _view.SelectedCIDName = 0;
             _view.SelectedSLIDName = "SL0";
+            _view.SelectedCIDName = 0;
+            _productBindingSource.DataSource = _productModelServices.GetAll().ToList();
         }
 
         private void CleanViewFeilds()

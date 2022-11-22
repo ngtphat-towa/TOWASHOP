@@ -303,7 +303,7 @@ namespace TOWALibrary.Presenters.Modules.Orders.OrderDetails
             var list = _orderDetailModels.Where(p => p.Status != OrderDetailStatus.Remove).ToList();
             _view.Total = _orderDetailModelServices.GetTotalCost(list);
             _view.GrandTotal = _orderDetailModelServices.GetGrandTotal(list);
-            _view.TotalDiscount = 1-Convert.ToDouble(_view.GrandTotal)/Convert.ToDouble(_view.Total);
+            _view.TotalDiscount = Convert.ToDouble(_view.GrandTotal)-Convert.ToDouble(_view.Total);
 
         }
 

@@ -186,7 +186,11 @@ namespace TOWALibrary.Presenters.Modules.Orders
             OrderModel model = (OrderModel)_orderListBindingSource.Current;
             if (model == null)
                 return;
-            _view.IsEditable = (model.Status != 1);// Paid
+
+            int RoleView = GlobalConfig.CurrentUser.RoleID;
+            string UID = GlobalConfig.CurrentUser.UID;
+
+            _view.IsEditable = (model.Status != 1 && (RoleView==1 || model.CreatedByUID==UID));// Paid
             _orderDetailListBindingSource.DataSource = model.OrderDetails;
         }
     }

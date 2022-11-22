@@ -29,13 +29,14 @@ namespace NoUITowaShop.Module.Order
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabTableHeader = new System.Windows.Forms.TableLayoutPanel();
-            this.cbOrderType = new System.Windows.Forms.ComboBox();
+            this.lbOID = new System.Windows.Forms.Label();
             this.lbOrderType = new System.Windows.Forms.Label();
             this.lbOrderStatus = new System.Windows.Forms.Label();
             this.cbOrderStatus = new System.Windows.Forms.ComboBox();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.cbOrderType = new System.Windows.Forms.ComboBox();
             this.gbRecentRecord = new System.Windows.Forms.GroupBox();
             this.dgvOrderList = new System.Windows.Forms.DataGridView();
             this.tbOrderDetailList = new System.Windows.Forms.TableLayoutPanel();
@@ -74,7 +75,6 @@ namespace NoUITowaShop.Module.Order
             this.txtDiscountValue = new System.Windows.Forms.NumericUpDown();
             this.lbQuantity = new System.Windows.Forms.Label();
             this.btnResetChange = new System.Windows.Forms.Button();
-            this.lbOID = new System.Windows.Forms.Label();
             this.tabTableHeader.SuspendLayout();
             this.gbRecentRecord.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderList)).BeginInit();
@@ -122,21 +122,21 @@ namespace NoUITowaShop.Module.Order
             this.tabTableHeader.Size = new System.Drawing.Size(1200, 35);
             this.tabTableHeader.TabIndex = 0;
             // 
-            // cbOrderType
+            // lbOID
             // 
-            this.cbOrderType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.cbOrderType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbOrderType.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbOrderType.FormattingEnabled = true;
-            this.cbOrderType.Items.AddRange(new object[] {
-            "Retail Order",
-            "Customer Order",
-            "Supply Stock"});
-            this.cbOrderType.Location = new System.Drawing.Point(342, 3);
-            this.cbOrderType.Name = "cbOrderType";
-            this.cbOrderType.Size = new System.Drawing.Size(208, 32);
-            this.cbOrderType.TabIndex = 0;
+            this.lbOID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbOID.AutoSize = true;
+            this.lbOID.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOID.ForeColor = System.Drawing.Color.GhostWhite;
+            this.lbOID.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbOID.Location = new System.Drawing.Point(3, 0);
+            this.lbOID.Name = "lbOID";
+            this.lbOID.Size = new System.Drawing.Size(129, 35);
+            this.lbOID.TabIndex = 6;
+            this.lbOID.Text = "New Order";
+            this.lbOID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbOrderType
             // 
@@ -199,6 +199,22 @@ namespace NoUITowaShop.Module.Order
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
+            // cbOrderType
+            // 
+            this.cbOrderType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbOrderType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbOrderType.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbOrderType.FormattingEnabled = true;
+            this.cbOrderType.Items.AddRange(new object[] {
+            "Retail Order",
+            "Customer Order",
+            "Supply Stock"});
+            this.cbOrderType.Location = new System.Drawing.Point(342, 3);
+            this.cbOrderType.Name = "cbOrderType";
+            this.cbOrderType.Size = new System.Drawing.Size(208, 32);
+            this.cbOrderType.TabIndex = 0;
+            // 
             // gbRecentRecord
             // 
             this.gbRecentRecord.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -218,9 +234,9 @@ namespace NoUITowaShop.Module.Order
             // 
             this.dgvOrderList.AllowUserToAddRows = false;
             this.dgvOrderList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrderList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrderList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrderList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrderList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvOrderList.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -379,7 +395,7 @@ namespace NoUITowaShop.Module.Order
             this.gbTotalDiscount.Size = new System.Drawing.Size(233, 63);
             this.gbTotalDiscount.TabIndex = 6;
             this.gbTotalDiscount.TabStop = false;
-            this.gbTotalDiscount.Text = "Total Discount %";
+            this.gbTotalDiscount.Text = "Total Discount";
             // 
             // txtTotalDiscount
             // 
@@ -751,22 +767,6 @@ namespace NoUITowaShop.Module.Order
             this.btnResetChange.TabIndex = 1;
             this.btnResetChange.Text = "Reset";
             this.btnResetChange.UseVisualStyleBackColor = false;
-            // 
-            // lbOID
-            // 
-            this.lbOID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbOID.AutoSize = true;
-            this.lbOID.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbOID.ForeColor = System.Drawing.Color.GhostWhite;
-            this.lbOID.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbOID.Location = new System.Drawing.Point(3, 0);
-            this.lbOID.Name = "lbOID";
-            this.lbOID.Size = new System.Drawing.Size(129, 35);
-            this.lbOID.TabIndex = 6;
-            this.lbOID.Text = "New Order";
-            this.lbOID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // OrderForm
             // 

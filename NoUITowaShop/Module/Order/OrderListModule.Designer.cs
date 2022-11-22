@@ -333,7 +333,7 @@ namespace NoUITowaShop.Module.Order
             this.lbErrorMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbErrorMessage.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbErrorMessage.ForeColor = System.Drawing.Color.DarkRed;
-            this.lbErrorMessage.Location = new System.Drawing.Point(664, 0);
+            this.lbErrorMessage.Location = new System.Drawing.Point(661, 0);
             this.lbErrorMessage.Name = "lbErrorMessage";
             this.lbErrorMessage.Size = new System.Drawing.Size(0, 20);
             this.lbErrorMessage.TabIndex = 13;
@@ -344,9 +344,9 @@ namespace NoUITowaShop.Module.Order
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(116, 3);
+            this.txtSearch.Location = new System.Drawing.Point(115, 3);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(407, 33);
+            this.txtSearch.Size = new System.Drawing.Size(405, 33);
             this.txtSearch.TabIndex = 0;
             // 
             // tbPanelLFooter
@@ -370,7 +370,7 @@ namespace NoUITowaShop.Module.Order
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.07317F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.41033F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.5165F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 538F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 541F));
             this.tableLayoutPanel3.Controls.Add(this.btnSearch, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.txtSearch, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.lbSearch, 0, 0);
@@ -392,7 +392,7 @@ namespace NoUITowaShop.Module.Order
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSearch.Location = new System.Drawing.Point(529, 3);
+            this.btnSearch.Location = new System.Drawing.Point(526, 3);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(129, 30);
             this.btnSearch.TabIndex = 2;
@@ -406,7 +406,7 @@ namespace NoUITowaShop.Module.Order
             this.lbSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSearch.Location = new System.Drawing.Point(3, 0);
             this.lbSearch.Name = "lbSearch";
-            this.lbSearch.Size = new System.Drawing.Size(107, 36);
+            this.lbSearch.Size = new System.Drawing.Size(106, 36);
             this.lbSearch.TabIndex = 1;
             this.lbSearch.Text = "# Search";
             this.lbSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

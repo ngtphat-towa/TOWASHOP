@@ -8,6 +8,7 @@ namespace TOWALibrary.Views.MainViews
 {
     public interface IMainView
     {
+       event EventHandler LogoutEvent;
         void Show();
     }
 }

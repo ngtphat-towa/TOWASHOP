@@ -13,6 +13,7 @@ using TOWALibrary.Views.MainViews;
 using NoUITowaShop.ModelListForm;
 using TOWALibrary.Services.CommonServices;
 using TOWALibrary.Services.ModelServices.UserServices;
+using NoUITowaShop;
 
 namespace SimpleUITowaShop
 {
@@ -28,19 +29,18 @@ namespace SimpleUITowaShop
             Application.SetCompatibleTextRenderingDefault(false);
 
             #region Start with login form 
-            //DBManager.InitializeConnections(DataProvider.SQLServer);
+            DBManager.InitializeConnections(DataProvider.SQLServer);
 
-            //ILoginView loginView = LoginForm.Instance;
-            //IUserService userService = new UserServie();
-            //new LoginPresenter(loginView, userService);
+            ILoginView loginView = LoginForm.Instance;
 
-            //MainViewNavigator.SetMainView(DashboardForm.Instance);
+            MainViewNavigator.SetMainView(DashboardForm.Instance, CashierForm.Instance);
 
-            //Application.Run((Form)loginView);
+
+            Application.Run((Form)loginView);
 
             #endregion
 
-            StartWithDashboard();
+            //StartWithDashboard();
             //StartWithForm();
         }
 
@@ -50,10 +50,9 @@ namespace SimpleUITowaShop
 
             IAdminView view = DashboardForm.Instance;
 
-            new AdminPresenter(view);
             GlobalConfig.CurrentUser = new AccountModelServices().GetAccountByUsername("admin");
 
-            MainViewNavigator.SetMainView(DashboardForm.Instance);
+            MainViewNavigator.SetMainView(DashboardForm.Instance, CashierForm.Instance);
 
             Application.Run((Form)view);
         }

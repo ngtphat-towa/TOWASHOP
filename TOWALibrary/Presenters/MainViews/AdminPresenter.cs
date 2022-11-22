@@ -75,7 +75,7 @@ namespace TOWALibrary.Presenters.MainViews
             //_stockOrderModelServices = new StockOrderModelServices();
             //_customerOrderModelServices = new CustomerOrderModelServices();
             //_orderModelServices = new OrderModelServices();
-            this.view.Show();
+          //  this.view.Show();
 
 
         }

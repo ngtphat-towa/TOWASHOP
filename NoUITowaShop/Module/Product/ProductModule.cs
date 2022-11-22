@@ -54,6 +54,7 @@ namespace NoUITowaShop.Module.Product
             cbCategoryListName.DataSource = bindingSource;
             cbCategoryListName.DisplayMember = "Name";
             cbCategoryListName.ValueMember = "ID";
+            cbCategoryListName.SelectedValue = 0;
         }
 
         public void SetSupplierNameListBindingSource(BindingSource bindingSource)
@@ -61,6 +62,7 @@ namespace NoUITowaShop.Module.Product
             cbSupplierListName.DataSource = bindingSource;
             cbSupplierListName.DisplayMember = "Name";
             cbSupplierListName.ValueMember = "ID";
+            cbSupplierListName.SelectedValue = "SL0";
         }
         #endregion
 
