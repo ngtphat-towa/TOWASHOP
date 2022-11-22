@@ -69,6 +69,8 @@ namespace TOWALibrary.Presenters.Modules.Orders.OrderDetails
             _view.LoadEditOrderFormEvent += LoadEditOrderFormEvent;
             _view.RemoveSelectedOrderItemsEvent += RemoveSelectedOrderItemsEvent;
             _view.ResetOrderDetailListEvent += ResetOrderDetailListEvent;
+            _view.BarcodeIDChangedEvent += BarcodeIDChangedEvent;
+            
             //
 
             // Wire up for new order
@@ -82,6 +84,30 @@ namespace TOWALibrary.Presenters.Modules.Orders.OrderDetails
             _customerBindingSource.DataSource = _customerModelServices.GetAll()
                 .Select(s => new { ID = s.CTID, Name = s.FullName, Phone = s.ContactPhone }).ToList();
             _view.SetCustomerNameListDetailBindingSource(_customerBindingSource);
+        }
+        
+        private void BarcodeIDChangedEvent(object sender, EventArgs e)
+        {
+            try
+            {
+               var PID= _productModelServices.CheckProductBarcodeID(_view.ProductSearch);
+                _view.OD_PID = PID;
+                _view.OD_Quantity = 1;
+                _view.OD_Discount = 0;
+
+                AddNewProductOrderEvent(sender, e);
+
+                _view.IsSuccessful = true;
+                _view.Message = "";
+                _view.ProductSearch = "";
+            }
+            catch (Exception ex)
+            {
+
+                _view.Message = ex.Message;
+                _view.IsSuccessful = false;
+            }
+            
         }
 
         private void ResetOrderDetailListEvent(object sender, EventArgs e)

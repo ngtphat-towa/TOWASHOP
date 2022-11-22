@@ -19,6 +19,14 @@ namespace TOWALibrary.Services.ModelServices.ProductServices
             _productRepository.Add(model);
         }
 
+        public string CheckProductBarcodeID(string BarcodeID)
+        {
+            var model = _productRepository.GetByValue(BarcodeID).FirstOrDefault();
+            if (model == null)
+                throw new Exception("No existing product with the barcode "+BarcodeID+ "!");
+            return model.PID;
+        }
+
         public void Delete(string PID)
         {
             _productRepository.Delete(PID);

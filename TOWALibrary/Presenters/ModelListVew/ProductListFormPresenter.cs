@@ -10,6 +10,7 @@ using TOWALibrary.Repositories.Contacts.Suppliers;
 using TOWALibrary.Repositories.Inventory.Categories;
 using TOWALibrary.Repositories.Inventory.Products;
 using TOWALibrary.Services.CategoryServices;
+using TOWALibrary.Services.CommonServices;
 using TOWALibrary.Services.ModelServices.ProductServices;
 using TOWALibrary.Services.ModelServices.SupplierServices;
 using TOWALibrary.Views.ModelListVew;
@@ -19,19 +20,16 @@ namespace TOWALibrary.Presenters.ModelListVew
    public class ProductListFormPresenter
     {
         private readonly IProductListView _view;
-        private readonly ISupplierModelServices _supplierModelServices ;
-        private readonly ICategoryModelServices _categoryModelServices ;
-        private readonly IProductModelServices _productModelServices ;
+        private readonly ISupplierModelServices _supplierModelServices  =ServicesManager.SupplierModelServices;
+        private readonly ICategoryModelServices _categoryModelServices =ServicesManager.CategoryModelServices ;
+        private readonly IProductModelServices _productModelServices = ServicesManager.ProductModelServices ;
 
         private readonly BindingSource _categoryBindingSource;
         private readonly BindingSource _suplierBindingSource;
         private readonly BindingSource _productBindingSource;
-        public ProductListFormPresenter(IProductListView view, IProductModelServices productModelServices, ISupplierModelServices supplierModelServices, ICategoryModelServices categoryModelServices  )
+        public ProductListFormPresenter(IProductListView view)
         {
             _view = view;
-            _productModelServices = productModelServices;
-            _categoryModelServices = categoryModelServices;
-            _supplierModelServices = supplierModelServices;
             // Wireup combobox
             _categoryBindingSource = new BindingSource();
             _suplierBindingSource = new BindingSource();

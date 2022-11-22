@@ -81,7 +81,7 @@ namespace NoUITowaShop
             // customerToolStripMenuItem
             // 
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(172, 28);
             this.customerToolStripMenuItem.Text = "Customer";
             // 
             // orderToolStripMenuItem
@@ -119,8 +119,9 @@ namespace NoUITowaShop
             this.Controls.Add(this.mainMenuStrip);
             this.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CashierForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CashierForm";
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();

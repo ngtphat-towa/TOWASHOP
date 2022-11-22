@@ -27,10 +27,7 @@ namespace NoUITowaShop.ModelListForm
             InitializeComponent();
 
 
-            _presenter = new ProductListFormPresenter(this,
-                                                      new ProductModelServices(),
-                                                      new SupplierModelServices(),
-                                                      new CategoryModelServices());
+            _presenter = new ProductListFormPresenter(this);
             _callingForm = requester;
 
             this.btnAddProduct.Click += delegate

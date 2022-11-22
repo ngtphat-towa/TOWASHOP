@@ -29,13 +29,12 @@ namespace NoUITowaShop.Module.Order
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabTableHeader = new System.Windows.Forms.TableLayoutPanel();
             this.lbOID = new System.Windows.Forms.Label();
             this.lbOrderType = new System.Windows.Forms.Label();
             this.lbOrderStatus = new System.Windows.Forms.Label();
             this.cbOrderStatus = new System.Windows.Forms.ComboBox();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.cbOrderType = new System.Windows.Forms.ComboBox();
             this.gbRecentRecord = new System.Windows.Forms.GroupBox();
             this.dgvOrderList = new System.Windows.Forms.DataGridView();
@@ -112,7 +111,6 @@ namespace NoUITowaShop.Module.Order
             this.tabTableHeader.Controls.Add(this.lbOrderType, 1, 0);
             this.tabTableHeader.Controls.Add(this.lbOrderStatus, 3, 0);
             this.tabTableHeader.Controls.Add(this.cbOrderStatus, 4, 0);
-            this.tabTableHeader.Controls.Add(this.btnCancel, 7, 0);
             this.tabTableHeader.Controls.Add(this.cbOrderType, 2, 0);
             this.tabTableHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabTableHeader.Location = new System.Drawing.Point(0, 0);
@@ -184,21 +182,6 @@ namespace NoUITowaShop.Module.Order
             this.cbOrderStatus.Size = new System.Drawing.Size(143, 32);
             this.cbOrderStatus.TabIndex = 3;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BackColor = System.Drawing.Color.GhostWhite;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancel.Location = new System.Drawing.Point(1121, 3);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(76, 29);
-            this.btnCancel.TabIndex = 5;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            // 
             // cbOrderType
             // 
             this.cbOrderType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -234,9 +217,9 @@ namespace NoUITowaShop.Module.Order
             // 
             this.dgvOrderList.AllowUserToAddRows = false;
             this.dgvOrderList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrderList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrderList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOrderList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrderList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvOrderList.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -674,6 +657,11 @@ namespace NoUITowaShop.Module.Order
             this.txtQuantityValue.Name = "txtQuantityValue";
             this.txtQuantityValue.Size = new System.Drawing.Size(186, 33);
             this.txtQuantityValue.TabIndex = 7;
+            this.txtQuantityValue.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // lbDiscount
             // 
@@ -841,7 +829,6 @@ namespace NoUITowaShop.Module.Order
         private System.Windows.Forms.Button btnRemoveProduct;
         private System.Windows.Forms.NumericUpDown txtDiscountValue;
         private System.Windows.Forms.Button btnResetChange;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.NumericUpDown txtQuantityValue;
         private System.Windows.Forms.Label lbQuantity;
         private System.Windows.Forms.GroupBox gbReceipt;

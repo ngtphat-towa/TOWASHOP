@@ -25,6 +25,7 @@ namespace TOWALibrary.Views.ModuleViews.Orders.OrderDetails
         event EventHandler LoadEditOrderFormEvent;
 
         #region Order Type/Status 
+        string ProductSearch { get; set; }
         string CreatedByUID { get; set; }
         int OID { get; set; }
         int OrderType { get; set; }

@@ -45,7 +45,11 @@ namespace NoUITowaShop.Module.Order
              {
                  // TODO _thhs
                  if(e.KeyCode == Keys.Enter)
-                    this.BarcodeIDChangedEvent?.Invoke(this, EventArgs.Empty);
+                 {
+                     this.BarcodeIDChangedEvent?.Invoke(this, EventArgs.Empty);
+                     if (!IsSuccessful)
+                         MessageBox.Show(Message, "Warming", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 }
              };
             this.Disposed += delegate
              {
@@ -78,8 +82,14 @@ namespace NoUITowaShop.Module.Order
             };
             this.btnSaveOrder.Click += delegate
              {
-                 this.SaveOrderEvent?.Invoke(this, EventArgs.Empty);
-                 MessageBox.Show(Message);
+                 
+                 DialogResult result = MessageBox.Show("Are you want to save this order?", "", MessageBoxButtons.YesNo);
+
+                 if (result == DialogResult.Yes)
+                 {
+                     this.SaveOrderEvent?.Invoke(this, EventArgs.Empty);
+                     MessageBox.Show(Message);
+                 }    
                  
              };
             this.btnResetChange.Click += delegate
@@ -90,6 +100,25 @@ namespace NoUITowaShop.Module.Order
              {
                  this.RemoveSelectedOrderItemsEvent?.Invoke(this, EventArgs.Empty);
              };
+            //this.btnCancel.Click += delegate
+            // {
+            //     if (this.IsEditMode)
+            //     {
+            //         DialogResult result = MessageBox.Show("Are you want to save this order?", "", MessageBoxButtons.YesNoCancel);
+            //         this.IsEditMode = false;
+            //         if (result == DialogResult.Yes)
+            //         {
+            //             this.SaveOrderEvent?.Invoke(this, EventArgs.Empty);
+            //             MessageBox.Show(Message);
+            //             this.Close();
+            //         }
+            //         else
+            //            if (result == DialogResult.No)
+            //             this.Close();
+            //     }
+          
+
+            // };
             this.presenter = new OrderFormPresenter(this);
 
         }
@@ -133,6 +162,7 @@ namespace NoUITowaShop.Module.Order
                 if (instance.WindowState == FormWindowState.Minimized)
                 {
                     instance.MdiParent = parentContainer;
+                    instance.FormBorderStyle = FormBorderStyle.None;
                     instance.WindowState = parentContainer.WindowState;
                 }
 
@@ -256,6 +286,7 @@ namespace NoUITowaShop.Module.Order
         public string Comments { get => txtComment.Text; set => txtComment.Text = value; }
         public DateTime CreatedAt { get => dateCreatedAt.Value; set => dateCreatedAt.Value =value; }
         public IOrderFormRequest CallingForm { get ; set ; }
+        public string ProductSearch { get => this.txtProductSearch.Text; set => this.txtProductSearch.Text= value; }
 
         #endregion
 
