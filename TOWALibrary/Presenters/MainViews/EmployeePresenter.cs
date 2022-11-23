@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using TOWALibrary.Views.MainViews;
 
 namespace TOWALibrary.Presenters.MainViews
@@ -17,6 +18,18 @@ namespace TOWALibrary.Presenters.MainViews
             _view.ShowOrderListModuleView += ShowOrderListModuleView;
             _view.ShowOrderFormView += ShowOrderFormView;
             _view.ShowCustomerModuleView += ShowCustomerModuleView;
+            _view.LogoutEvent += LogoutEvent;
+        }
+        private void LogoutEvent(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you want to log out ?", "", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                _view.Close();
+                _view.GetLoginView.GetNewLogin();
+            }
+
         }
         private void ShowOrderListModuleView(object sender, EventArgs e)
         {

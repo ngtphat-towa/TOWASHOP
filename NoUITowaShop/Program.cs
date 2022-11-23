@@ -28,13 +28,12 @@ namespace SimpleUITowaShop
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            #region Start with login form 
+            // Remember changing this
             DBManager.InitializeConnections(DataProvider.SQLServer);
 
+            #region Start with login form 
+
             ILoginView loginView = LoginForm.Instance;
-
-            MainViewNavigator.SetMainView(DashboardForm.Instance, CashierForm.Instance);
-
 
             Application.Run((Form)loginView);
 

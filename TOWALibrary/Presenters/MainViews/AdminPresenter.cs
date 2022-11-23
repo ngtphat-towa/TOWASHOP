@@ -24,6 +24,7 @@ using TOWALibrary.Services.ModelServices.OrderServices.OrderType.Order;
 using TOWALibrary.Services.ModelServices.OrderServices.OrderType.StockOrder;
 using TOWALibrary.Services.ModelServices.ProductServices;
 using TOWALibrary.Services.ModelServices.SupplierServices;
+using TOWALibrary.Views;
 using TOWALibrary.Views.MainViews;
 using TOWALibrary.Views.ModuleViews.Contacts;
 using TOWALibrary.Views.ModuleViews.Inventory;
@@ -63,6 +64,7 @@ namespace TOWALibrary.Presenters.MainViews
             this.view.ShowOrderListModuleView += ShowOrderListModuleView;
             this.view.ShowOrderFormView += ShowOrderFormView;
             this.view.ShowCustomerModuleView += ShowCustomerModuleView;
+            this.view.LogoutEvent += LogoutEvent;
             ////Inventory Servives
             //_productModelServices = new ProductModelServices();
             //_categoryModelServices = new CategoryModelServices();
@@ -78,6 +80,18 @@ namespace TOWALibrary.Presenters.MainViews
           //  this.view.Show();
 
 
+        }
+
+        private void LogoutEvent(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you want to log out ?", "", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                view.Close();
+                view.GetLoginView.GetNewLogin();
+            }
+     
         }
 
         private void ShowCustomerModuleView(object sender, EventArgs e)

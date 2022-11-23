@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NoUITowaShop;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TOWALibrary.Presenters;
 using TOWALibrary.Views;
+using TOWALibrary.Views.MainViews;
 
 namespace SimpleUITowaShop
 {
@@ -31,12 +33,17 @@ namespace SimpleUITowaShop
             btnLogin.Click += delegate
             {
                 LoginAction?.Invoke(this, EventArgs.Empty);
-               
+                //MessageBox.Show(ErrorMessage);
             };
             btnClear.Click += delegate
              {
                  CancelAction?.Invoke(this, EventArgs.Empty);
              };
+        }
+
+        public void GetNewLogin()
+        {
+            this.LogoutAction?.Invoke(this,EventArgs.Empty);
         }
         #endregion
 
@@ -46,8 +53,10 @@ namespace SimpleUITowaShop
         public bool IsSuccessful { get ; set ; }
         public string ErrorMessage { get => txtMessage.Text; set => txtMessage.Text= value; }
 
+        
         public event EventHandler CancelAction;
         public event EventHandler LoginAction;
+        public event EventHandler LogoutAction;
         #endregion
 
         #region Singleton
@@ -58,11 +67,15 @@ namespace SimpleUITowaShop
             {
                 if (intance == null || intance.IsDisposed)
                 {
-                    intance=   new LoginForm();
+                    intance=  new LoginForm();
                 }
                 return intance;
             }
         }
-        #endregion 
+
+        public IAdminView AdminView => DashboardForm.Instance;
+
+        public IEmployeeView EmployeeView => CashierForm.Instance;
+        #endregion
     }
 }

@@ -46,6 +46,7 @@ namespace SimpleUITowaShop
         {
             this.logOutToolStripMenuItem.Click += delegate
             {
+                isLogout = true;
                 LogoutEvent?.Invoke(this, EventArgs.Empty);
             };
             this.supplierToolStripMenuItem.Click += delegate {
@@ -70,9 +71,9 @@ namespace SimpleUITowaShop
              {
                  ShowOrderFormView?.Invoke(this, EventArgs.Empty);
              };
-            this.FormClosing += (s,e) =>
+            this.FormClosing += (s, e) =>
             {
-                if (e.CloseReason == CloseReason.UserClosing)
+                if (e.CloseReason == CloseReason.UserClosing && !isLogout)
                 {
                     DialogResult result = MessageBox.Show("Are you want to exit the application?", "", MessageBoxButtons.YesNo);
 
@@ -111,6 +112,9 @@ namespace SimpleUITowaShop
         }
         public ICustomerModuleView CustomerModuleView => CustomerModule.GetInstance(this);
 
+        public ILoginView GetLoginView => LoginForm.Instance;
+        private bool isLogout;
+        public bool IsLogout { get => isLogout; set => isLogout = value; }
 
         #endregion
 
@@ -128,7 +132,7 @@ namespace SimpleUITowaShop
                 return instance;
             }
         }
-
+ 
 
 
 

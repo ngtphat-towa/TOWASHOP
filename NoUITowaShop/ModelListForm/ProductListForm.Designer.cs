@@ -220,7 +220,7 @@ namespace NoUITowaShop.ModelListForm
             this.tbProductOrders.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.16814F));
             this.tbProductOrders.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.46902F));
             this.tbProductOrders.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 214F));
-            this.tbProductOrders.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 256F));
+            this.tbProductOrders.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 259F));
             this.tbProductOrders.Controls.Add(this.lbMessage, 0, 0);
             this.tbProductOrders.Controls.Add(this.tbDiscount, 2, 0);
             this.tbProductOrders.Controls.Add(this.tbQuanitty, 3, 0);
@@ -241,7 +241,7 @@ namespace NoUITowaShop.ModelListForm
             this.lbMessage.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMessage.Location = new System.Drawing.Point(3, 0);
             this.lbMessage.Name = "lbMessage";
-            this.lbMessage.Size = new System.Drawing.Size(234, 37);
+            this.lbMessage.Size = new System.Drawing.Size(233, 37);
             this.lbMessage.TabIndex = 4;
             this.lbMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -253,12 +253,12 @@ namespace NoUITowaShop.ModelListForm
             this.tbDiscount.Controls.Add(this.lbDiscount, 0, 0);
             this.tbDiscount.Controls.Add(this.txtDiscountValue, 1, 0);
             this.tbDiscount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbDiscount.Location = new System.Drawing.Point(335, 0);
+            this.tbDiscount.Location = new System.Drawing.Point(334, 0);
             this.tbDiscount.Margin = new System.Windows.Forms.Padding(0);
             this.tbDiscount.Name = "tbDiscount";
             this.tbDiscount.RowCount = 1;
             this.tbDiscount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbDiscount.Size = new System.Drawing.Size(219, 37);
+            this.tbDiscount.Size = new System.Drawing.Size(218, 37);
             this.tbDiscount.TabIndex = 0;
             // 
             // lbDiscount
@@ -280,7 +280,7 @@ namespace NoUITowaShop.ModelListForm
             this.txtDiscountValue.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiscountValue.Location = new System.Drawing.Point(92, 3);
             this.txtDiscountValue.Name = "txtDiscountValue";
-            this.txtDiscountValue.Size = new System.Drawing.Size(124, 33);
+            this.txtDiscountValue.Size = new System.Drawing.Size(123, 33);
             this.txtDiscountValue.TabIndex = 1;
             // 
             // tbQuanitty
@@ -291,7 +291,7 @@ namespace NoUITowaShop.ModelListForm
             this.tbQuanitty.Controls.Add(this.txtQuanityValue, 0, 0);
             this.tbQuanitty.Controls.Add(this.lbDiscounts, 0, 0);
             this.tbQuanitty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbQuanitty.Location = new System.Drawing.Point(554, 0);
+            this.tbQuanitty.Location = new System.Drawing.Point(552, 0);
             this.tbQuanitty.Margin = new System.Windows.Forms.Padding(0);
             this.tbQuanitty.Name = "tbQuanitty";
             this.tbQuanitty.RowCount = 1;
@@ -340,7 +340,7 @@ namespace NoUITowaShop.ModelListForm
             this.lbProductID.AutoSize = true;
             this.lbProductID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbProductID.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbProductID.Location = new System.Drawing.Point(243, 0);
+            this.lbProductID.Location = new System.Drawing.Point(242, 0);
             this.lbProductID.Name = "lbProductID";
             this.lbProductID.Size = new System.Drawing.Size(89, 37);
             this.lbProductID.TabIndex = 2;
@@ -351,9 +351,9 @@ namespace NoUITowaShop.ModelListForm
             this.checkboxIsMutiAdded.AutoSize = true;
             this.checkboxIsMutiAdded.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkboxIsMutiAdded.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkboxIsMutiAdded.Location = new System.Drawing.Point(771, 3);
+            this.checkboxIsMutiAdded.Location = new System.Drawing.Point(769, 3);
             this.checkboxIsMutiAdded.Name = "checkboxIsMutiAdded";
-            this.checkboxIsMutiAdded.Size = new System.Drawing.Size(252, 31);
+            this.checkboxIsMutiAdded.Size = new System.Drawing.Size(254, 31);
             this.checkboxIsMutiAdded.TabIndex = 5;
             this.checkboxIsMutiAdded.Text = "Multiple Added";
             this.checkboxIsMutiAdded.UseVisualStyleBackColor = true;

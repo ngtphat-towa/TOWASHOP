@@ -17,7 +17,7 @@ namespace TOWALibrary.Views
     public static class MainViewNavigator
     {
         #region Static MainView
-        private static IEmployeeView _employeeView;
+        private static IEmployeeView _employeeView ;
         private static IAdminView _adminView;
         #endregion
 

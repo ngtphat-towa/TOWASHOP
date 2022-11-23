@@ -23,12 +23,16 @@ namespace TOWALibrary.Presenters
             this.loginView = loginView;
             // Wire up event handlers
             this.loginView.LoginAction += LoginEvent;
+            this.loginView.LogoutAction += LogoutAction;
             this.loginView.CancelAction += delegate
              {
-                 loginView.Username = "";
-                 loginView.Password = "";
-                 loginView.ErrorMessage = "";
+                 CleanUpAllFeilds();
              };
+        }
+
+        private void LogoutAction(object sender, EventArgs e)
+        {
+            this.loginView.Show();
         }
         #endregion
 
@@ -43,7 +47,10 @@ namespace TOWALibrary.Presenters
 
                     GlobalConfig.CurrentUser = userService.GetAccountByUsername(loginView.Username);
                     this.loginView.Hide();
-                     IMainView view = userService.GetRoleView();
+                    MainViewNavigator.SetMainView(this.loginView.AdminView,
+                                                  this.loginView.EmployeeView);
+
+                IMainView view = userService.GetRoleView();
                     view.Show();
                 
             }
@@ -52,6 +59,12 @@ namespace TOWALibrary.Presenters
                 loginView.IsSuccessful = false;
                 loginView.ErrorMessage = ex.Message;
             }
+        }
+        void CleanUpAllFeilds()
+        {
+            loginView.Username = "";
+            loginView.Password = "";
+            loginView.ErrorMessage = "";
         }
         #endregion
     }

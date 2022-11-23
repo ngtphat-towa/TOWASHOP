@@ -1,5 +1,6 @@
 ﻿using NoUITowaShop.Module.Contact;
 using NoUITowaShop.Module.Order;
+using SimpleUITowaShop;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TOWALibrary.Presenters.MainViews;
+using TOWALibrary.Views;
 using TOWALibrary.Views.MainViews;
 using TOWALibrary.Views.ModuleViews.Contacts;
 using TOWALibrary.Views.ModuleViews.Orders;
@@ -39,6 +41,7 @@ namespace NoUITowaShop
         {
             this.logOutToolStripMenuItem.Click += delegate
             {
+                isLogout = true;
                 LogoutEvent?.Invoke(this, EventArgs.Empty);
             };
             this.customerToolStripMenuItem.Click += delegate {
@@ -54,7 +57,7 @@ namespace NoUITowaShop
             };
             this.FormClosing += (s, e) =>
             {
-                if (e.CloseReason == CloseReason.UserClosing)
+                if (e.CloseReason == CloseReason.UserClosing && !isLogout)
                 {
                     DialogResult result = MessageBox.Show("Are you want to exit the application?", "", MessageBoxButtons.YesNo);
 
@@ -80,7 +83,10 @@ namespace NoUITowaShop
             get => OrderForm.Instance;
         }
         public ICustomerModuleView CustomerModuleView => CustomerModule.GetInstance(this);
+        public ILoginView GetLoginView => LoginForm.Instance;
 
+        private bool isLogout;
+        public bool IsLogout { get => isLogout; set => isLogout = value; }
 
         #endregion
 
