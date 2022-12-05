@@ -29,7 +29,7 @@ namespace SimpleUITowaShop
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Remember changing this
-            DBManager.InitializeConnections(DataProvider.SQLServer);
+            DBManager.InitializeConnections(DataProvider.MySQL);
 
             #region Start with login form 
 
